@@ -23,7 +23,7 @@
         "fabric-api": "*",
         "fabricloader": "*",
         "minecraft": "${minecraft_version}",
-        "java": "${java_version}",
+        "java": ">=${java_version}",
 
         "resourceconfigapi": ">=${resource_config_api}",
         "resourcelibrary": ">=${resource_library}"
