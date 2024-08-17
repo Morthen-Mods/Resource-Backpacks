@@ -19,7 +19,10 @@ public class BackpackPreviewProvider implements PreviewProvider {
     public List<ItemStack> getInventory(PreviewContext context) {
         ItemStack stack = context.stack();
         BackpackContainerContent containerContent = stack.get(DataComponentsRegistry.BACKPACK_CONTAINER.get());
-        return containerContent.stream().toList();
+        if (containerContent != null) {
+            return containerContent.stream().toList();
+        }
+        return List.of();
     }
 
     @Override
