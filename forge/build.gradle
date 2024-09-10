@@ -8,6 +8,8 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
+    implementation "com.misterpemodder:shulkerboxtooltip-forge:${shulker_box_tooltip}+${minecraft_version}"
+
     implementation("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}") { transitive = false }
     implementation("net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}") { transitive = false }
 }

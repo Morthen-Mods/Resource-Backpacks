@@ -11,7 +11,13 @@ public class BackpackConfig {
     public static Supplier<Integer> LEATHER_ROWS, LEATHER_COLUMNS, COPPER_ROWS, COPPER_COLUMNS, GOLD_ROWS, GOLD_COLUMNS,
                                     IRON_ROWS, IRON_COLUMNS, DIAMOND_ROWS, DIAMOND_COLUMNS, NETHERITE_ROWS, NETHERITE_COLUMNS;
 
+    public static Supplier<Boolean> DISABLE_INFO_MESSAGE;
+
     static {
+        DISABLE_INFO_MESSAGE = BUILDER.comment("Disable the Info Message when joining a World.")
+                .comment("Has to be disabled separately on Server and Local").define("disableInfoMessage", false);
+
+
         BUILDER.comment("Change how big the backpack inventory is.")
                 .comment("Rows: 1 up to 25")
                 .comment("Columns: 9 up to 50")

@@ -1,4 +1,4 @@
-version:3953
+version:3955
 ao:true
 biomeBlendRadius:2
 enableVsync:true
@@ -12,7 +12,7 @@ darknessEffectScale:1.0
 glintSpeed:0.5
 glintStrength:0.75
 prioritizeChunkUpdates:0
-fullscreen:false
+fullscreen:true
 gamma:0.5
 graphicsMode:1
 guiScale:2
@@ -48,7 +48,7 @@ mouseSensitivity:0.2535211267605634
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["vanilla","mod_resources","file/No Enchant Glint 1.21.zip"]
+resourcePacks:["vanilla","mod_resources"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us

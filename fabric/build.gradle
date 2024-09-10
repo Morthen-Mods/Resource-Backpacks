@@ -20,7 +20,7 @@ dependencies {
 
     // Runtime Mods
     modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
-    modRuntimeOnly "maven.modrinth:emi:${emi}+${minecraft_version}+fabric"
+    modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
 }
 
 loom {

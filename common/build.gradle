@@ -10,7 +10,7 @@ neoForge {
     if (at.exists()) accessTransformers = [at.absolutePath]
 
     parchment {
-        minecraftVersion = minecraft_version
+        minecraftVersion = '1.21'
         mappingsVersion = parchment_version
     }
 }

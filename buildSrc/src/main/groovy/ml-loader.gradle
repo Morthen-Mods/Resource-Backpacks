@@ -27,7 +27,7 @@ tasks.named('compileJava', JavaCompile) {
     dependsOn(configurations.commonJava)
     source(configurations.commonJava).configure {
         if(project.name == "forge") {
-            exclude('**/compat/**')
+            exclude('**/compat/accessories/**')
         }
     }
 }
