@@ -3,36 +3,20 @@ plugins {
     id 'ml-loader-publish'
 }
 
-configurations {
-    commonJava {
-        canBeResolved = true
-    }
-    commonResources {
-        canBeResolved = true
-    }
-}
-
 dependencies {
-    compileOnly(project(':common')) {
-        capabilities { requireCapability "$group:$mod_id" }
-    }
+    compileOnly(project(':common'))
 
-    commonJava project(path: ':common', configuration: 'commonJava')
-    commonResources project(path: ':common', configuration: 'commonResources')
 }
-
-sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 tasks.named('compileJava', JavaCompile) {
-    dependsOn(configurations.commonJava)
-    source(configurations.commonJava).configure {
-        if(project.name == "forge") {
-            exclude('**/compat/accessories/**')
-        }
-    }
+    source(project(':common').sourceSets.main.allSource)
+}
+
+tasks.named('javadoc', Javadoc) {
+    source(project(':common').sourceSets.main.allJava)
 }
 
 processResources {
-    dependsOn(configurations.commonResources)
-    from(configurations.commonResources)
+    from project(':common').sourceSets.main.resources
+    from file('src/generated')
 }
