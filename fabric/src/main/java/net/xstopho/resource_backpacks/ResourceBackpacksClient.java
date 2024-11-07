@@ -6,8 +6,6 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.xstopho.resource_backpacks.compat.accessories.AccessoriesHelper;
-import net.xstopho.resource_backpacks.compat.trinkets.TrinketHelper;
 import net.xstopho.resource_backpacks.network.packets.OpenBackpackPacket;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
@@ -29,9 +27,6 @@ public class ResourceBackpacksClient implements ClientModInitializer {
         MenuScreens.register(MenuTypeRegistry.DIAMOND_BACKPACK_MENU.get(), BackpackContainerScreen::new);
         MenuScreens.register(MenuTypeRegistry.NETHERITE_BACKPACK_MENU.get(), BackpackContainerScreen::new);
         MenuScreens.register(MenuTypeRegistry.ENDER_BACKPACK_MENU.get(), BackpackContainerScreen::new);
-
-        AccessoriesHelper.initClient();
-        TrinketHelper.initClient();
     }
 
     private void registerKeyMappings() {
