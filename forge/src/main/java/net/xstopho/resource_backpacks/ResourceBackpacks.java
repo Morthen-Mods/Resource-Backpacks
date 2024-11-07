@@ -17,10 +17,10 @@ public class ResourceBackpacks {
 
     public static SimpleChannel NETWORK;
 
-    public ResourceBackpacks() {
+    public ResourceBackpacks(FMLJavaModLoadingContext context) {
         ConfigRegistry.register(BackpackConstants.MOD_ID, BackpackConfig.BUILDER, true);
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doCommonStuff);
+        context.getModEventBus().addListener(this::doCommonStuff);
 
         DataComponentsRegistry.init();
 

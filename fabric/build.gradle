@@ -14,9 +14,7 @@ dependencies {
     modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resource_config_api}"
     modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${resource_library}"
 
-    //modImplementation "com.misterpemodder:shulkerboxtooltip-fabric:${shulker_box_tooltip}+${minecraft_version}"
-    //modCompileOnly "io.wispforest:accessories-fabric:${accessories}"
-    //modCompileOnly "dev.emi:trinkets:${trinkets}"
+    modImplementation "com.misterpemodder:shulkerboxtooltip-fabric:${shulker_box_tooltip}+${minecraft_version}"
 
     // Runtime Mods
     modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
