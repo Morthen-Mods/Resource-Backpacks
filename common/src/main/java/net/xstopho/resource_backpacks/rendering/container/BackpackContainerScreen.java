@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -27,7 +28,6 @@ public class BackpackContainerScreen extends AbstractContainerScreen<BackpackCon
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
 
@@ -76,30 +76,31 @@ public class BackpackContainerScreen extends AbstractContainerScreen<BackpackCon
     }
 
     private void renderSlot(GuiGraphics guiGraphics, int xPos, int yPos) {
-        guiGraphics.blit(BACKPACK_CONTAINER, xPos, yPos, 23, 1, 18, 18);
+        guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 23, 1, 18, 18);
     }
 
     private void renderPlayerInventory(GuiGraphics guiGraphics, int xPos, int yPos) {
         int vOffset = this.columns <= 9 ? 109 : 22;
         int yOffset = this.columns <= 9 ? 19 : 20;
-        guiGraphics.blit(BACKPACK_CONTAINER, xPos + ((getWidth() - 175) / 2), yPos + getHeight(yOffset), 0, vOffset, 176, 87);
+        guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos + ((getWidth() - 175) / 2), yPos + getHeight(yOffset), 0f, 0f, 0, vOffset, 176, 87);
+
     }
 
     private void renderCorner(GuiGraphics guiGraphics, Corner type, int xPos, int yPos) {
         switch (type) {
-            case TOP_LEFT -> guiGraphics.blit(BACKPACK_CONTAINER, xPos, yPos, 0, 0, 11, 11);
-            case BOTTOM_LEFT -> guiGraphics.blit(BACKPACK_CONTAINER, xPos, yPos, 0, 11, 11, 11);
-            case TOP_RIGHT -> guiGraphics.blit(BACKPACK_CONTAINER, xPos, yPos, 11, 0, 11, 11);
-            case BOTTOM_RIGHT -> guiGraphics.blit(BACKPACK_CONTAINER, xPos, yPos, 11, 11, 11, 11);
+            case TOP_LEFT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 0, 0, 11, 11);
+            case BOTTOM_LEFT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 0, 11, 11, 11);
+            case TOP_RIGHT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 11, 0, 11, 11);
+            case BOTTOM_RIGHT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 11, 11, 11, 11);
         }
     }
 
     private void renderSide(GuiGraphics guiGraphics, Side side, int xPos, int yPos) {
         switch (side) {
-            case TOP -> guiGraphics.blit(BACKPACK_CONTAINER, xPos, yPos, 4, 0, 1, 18);
-            case LEFT -> guiGraphics.blit(BACKPACK_CONTAINER, xPos, yPos, 0, 4, 18, 1);
-            case BOTTOM -> guiGraphics.blit(BACKPACK_CONTAINER, xPos, yPos, 3, 4, 1, 18);
-            case RIGHT -> guiGraphics.blit(BACKPACK_CONTAINER, xPos, yPos, 4, 3, 18, 1);
+            case TOP -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 4, 0, 1, 18);
+            case LEFT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 0, 4, 18, 1);
+            case BOTTOM -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 3, 4, 1, 18);
+            case RIGHT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 4, 3, 18, 1);
         }
     }
 

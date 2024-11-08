@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.mixin;
+package net.xstopho.resource_backpacks.mixin.smithing;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
@@ -16,15 +16,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(SmithingTransformRecipe.class)
 public abstract class SmithingTransformRecipeMixin {
 
-    @Shadow
-    public abstract ItemStack getResultItem(HolderLookup.Provider registries);
-
     @Inject(method = "assemble", at = @At("HEAD"), cancellable = true)
     private void onAssemble(SmithingRecipeInput input, HolderLookup.Provider registries, CallbackInfoReturnable<ItemStack> cir) {
         ItemStack oldBackpack = input.base();
 
         if (oldBackpack.getItem() instanceof BackpackItem) {
-            ItemStack newBackpack = this.getResultItem(registries).copy();
+            ItemStack newBackpack = ((SmithingTransformRecipeAccessor) this).getResult().copy();
 
             if (newBackpack.getItem() instanceof BackpackItem) {
                 BackpackContainerContent container = oldBackpack.get(DataComponentsRegistry.BACKPACK_CONTAINER.get());

@@ -1,45 +1,45 @@
 package net.xstopho.resource_backpacks.item;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
-import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.components.BackpackContainerContent;
-import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.item.util.BackpackInventory;
 import net.xstopho.resource_backpacks.item.util.BackpackLevel;
 import net.xstopho.resource_backpacks.registries.DataComponentsRegistry;
 import net.xstopho.resource_backpacks.rendering.container.BackpackContainer;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class BackpackItem extends Item implements Equipable {
+public class BackpackItem extends Item {
 
     private final BackpackLevel level;
 
     public BackpackItem(Properties properties, BackpackLevel level) {
-        super(properties.stacksTo(1).component(DataComponentsRegistry.BACKPACK_CONTAINER.get(), BackpackContainerContent.EMPTY));
+        super(properties.stacksTo(1)
+                .component(DataComponentsRegistry.BACKPACK_CONTAINER.get(), BackpackContainerContent.EMPTY)
+                .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST).build()));
         this.level = level;
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+    public InteractionResult use(Level level, Player player, InteractionHand usedHand) {
         if (!player.level().isClientSide) {
             player.startUsingItem(usedHand);
             ItemStack stack = player.getItemInHand(usedHand);
             player.openMenu(getMenuProvider(stack));
         }
-        return InteractionResultHolder.pass(player.getItemInHand(usedHand));
+        return InteractionResult.PASS;
     }
 
     public MenuProvider getMenuProvider(ItemStack stack) {
@@ -61,12 +61,6 @@ public class BackpackItem extends Item implements Equipable {
 
     public BackpackLevel getLevel() {
         return level;
-    }
-
-    @Override
-    public @NotNull EquipmentSlot getEquipmentSlot() {
-        if (BackpackConstants.noTrinketMod()) return EquipmentSlot.CHEST;
-        return EquipmentSlot.MAINHAND;
     }
 
     @Override

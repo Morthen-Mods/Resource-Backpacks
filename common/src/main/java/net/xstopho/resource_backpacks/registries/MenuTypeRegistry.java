@@ -11,7 +11,7 @@ import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
 public class MenuTypeRegistry {
 
-    private static final RegistryProvider<MenuType<?>> MENU_TYPES = RegistryProvider.get(BuiltInRegistries.MENU, BackpackConstants.MOD_ID);
+    private static final RegistryProvider<MenuType<?>> MENU_TYPES = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.MENU);
 
     public static final RegistryObject<MenuType<BackpackContainer>> LEATHER_BACKPACK_MENU = MENU_TYPES.register("leather_backpack_menu", () -> create(BackpackContainer::leatherContainer));
     public static final RegistryObject<MenuType<BackpackContainer>> COPPER_BACKPACK_MENU = MENU_TYPES.register("copper_backpack_menu", () -> create(BackpackContainer::copperContainer));

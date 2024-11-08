@@ -11,7 +11,7 @@ import java.util.function.UnaryOperator;
 
 public class DataComponentsRegistry {
 
-    private static final RegistryProvider<DataComponentType<?>> DATA_COMPONENTS = RegistryProvider.get(BuiltInRegistries.DATA_COMPONENT_TYPE, BackpackConstants.MOD_ID);
+    private static final RegistryProvider<DataComponentType<?>> DATA_COMPONENTS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.DATA_COMPONENT_TYPE);
 
     public static final RegistryObject<DataComponentType<BackpackContainerContent>> BACKPACK_CONTAINER = register("backpack_container",
             builder -> builder.persistent(BackpackContainerContent.CODEC).networkSynchronized(BackpackContainerContent.STREAM_CODEC).cacheEncoding());
