@@ -1,3 +1,8 @@
+#### v0.7.7-BETA
+- update to 1.21.3
+- remove compatibility with Accessories, Trinkets and Curios API
+  - will be eventually added back later or with an independent replacement
+
 #### v0.7.6-BETA
 - fix the crash when crafting the leather backpack
   - only happened when Shulker Box Tooltip ist installed
