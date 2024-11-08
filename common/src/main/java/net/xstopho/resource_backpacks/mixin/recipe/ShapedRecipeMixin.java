@@ -4,6 +4,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.item.BackpackItem;
 import net.xstopho.resource_backpacks.registries.DataComponentsRegistry;
 import org.spongepowered.asm.mixin.Mixin;

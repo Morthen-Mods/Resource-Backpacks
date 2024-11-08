@@ -75,7 +75,7 @@ public class  RecipeProv extends RecipeProvider {
 
     public static class Runner extends RecipeProvider.Runner {
 
-        protected Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider) {
+        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider) {
             super(packOutput, provider);
         }
 

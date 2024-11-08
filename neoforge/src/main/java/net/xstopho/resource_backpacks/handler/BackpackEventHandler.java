@@ -35,7 +35,7 @@ public class BackpackEventHandler {
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new RecipeProv(output, provider));
+        generator.addProvider(event.includeServer(), new RecipeProv.Runner(output, provider));
 
         BlockTagProv blockTags = generator.addProvider(event.includeServer(), new BlockTagProv(output, provider, fileHelper));
         generator.addProvider(event.includeServer(), new ItemTagProv(output, provider, blockTags.contentsGetter(), fileHelper));

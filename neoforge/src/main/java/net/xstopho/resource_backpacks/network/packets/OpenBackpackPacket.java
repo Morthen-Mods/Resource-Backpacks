@@ -11,8 +11,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.compat.accessories.AccessoriesHelper;
-import net.xstopho.resource_backpacks.compat.curios.CurioHelper;
 import net.xstopho.resource_backpacks.item.BackpackItem;
 import org.jetbrains.annotations.NotNull;
 
@@ -28,8 +26,8 @@ public record OpenBackpackPacket(int id) implements CustomPacketPayload {
             Player player = context.player();
             if (player instanceof ServerPlayer serverPlayer) {
                 List<ItemStack> itemStacks = new LinkedList<>() {{
-                    add(AccessoriesHelper.getEquippedBackpack(serverPlayer));
-                    add(CurioHelper.getEquippedBackpack(serverPlayer));
+                    //add(AccessoriesHelper.getEquippedBackpack(serverPlayer));
+                    //add(CurioHelper.getEquippedBackpack(serverPlayer));
                     add(serverPlayer.getInventory().getArmor(EquipmentSlot.CHEST.getIndex()));
                 }};
 

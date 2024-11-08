@@ -1,4 +1,4 @@
-version:3955
+version:4082
 ao:true
 biomeBlendRadius:2
 enableVsync:true
@@ -15,8 +15,9 @@ prioritizeChunkUpdates:0
 fullscreen:true
 gamma:0.5
 graphicsMode:1
-guiScale:2
+guiScale:3
 maxFps:120
+inactivityFpsLimit:"afk"
 mipmapLevels:4
 narrator:0
 particles:0
@@ -27,6 +28,7 @@ simulationDistance:12
 screenEffectScale:1.0
 soundDevice:""
 autoJump:false
+rotateWithMinecart:false
 operatorItemsTab:false
 autoSuggestions:true
 chatColors:true
@@ -47,8 +49,9 @@ hideSplashTexts:false
 mouseSensitivity:0.2535211267605634
 damageTiltStrength:1.0
 highContrast:false
+highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["vanilla","mod_resources"]
+resourcePacks:["vanilla","fabric"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us
@@ -78,7 +81,6 @@ glDebugVerbosity:1
 skipMultiplayerWarning:true
 hideMatchedNames:true
 joinedFirstServer:true
-hideBundleTutorial:false
 syncChunkWrites:true
 showAutosaveIndicator:true
 allowServerListing:true
@@ -121,6 +123,7 @@ key_key.hotbar.6:key.keyboard.6
 key_key.hotbar.7:key.keyboard.7
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
+key_key.modmenu.open_menu:key.keyboard.unknown
 key_key.resource_backpacks.open_backpack:key.keyboard.r
 soundCategory_master:0.2533112582781457
 soundCategory_music:0.10915492957746478

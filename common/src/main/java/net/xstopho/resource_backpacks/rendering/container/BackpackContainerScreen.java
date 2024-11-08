@@ -76,31 +76,36 @@ public class BackpackContainerScreen extends AbstractContainerScreen<BackpackCon
     }
 
     private void renderSlot(GuiGraphics guiGraphics, int xPos, int yPos) {
-        guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 23, 1, 18, 18);
+        //RenderType, TextureLocation, xPos, yPos, textureXOffset, textureYOffset, textureSizeX, textureSizeY, textureImageSizeX, textureImageSizeY
+        guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 23f, 1f, 18, 18, 256, 256);
     }
 
     private void renderPlayerInventory(GuiGraphics guiGraphics, int xPos, int yPos) {
         int vOffset = this.columns <= 9 ? 109 : 22;
         int yOffset = this.columns <= 9 ? 19 : 20;
-        guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos + ((getWidth() - 175) / 2), yPos + getHeight(yOffset), 0f, 0f, 0, vOffset, 176, 87);
+
+        int xPosition = xPos + ((getWidth() - 175) / 2);
+        int yPosition = yPos + getHeight(yOffset);
+
+        guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPosition, yPosition, 0, vOffset, 176, 87, 256, 256);
 
     }
 
     private void renderCorner(GuiGraphics guiGraphics, Corner type, int xPos, int yPos) {
         switch (type) {
-            case TOP_LEFT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 0, 0, 11, 11);
-            case BOTTOM_LEFT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 0, 11, 11, 11);
-            case TOP_RIGHT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 11, 0, 11, 11);
-            case BOTTOM_RIGHT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 11, 11, 11, 11);
+            case TOP_LEFT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 11, 11, 256, 256);
+            case BOTTOM_LEFT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 11f, 11, 11, 256, 256);
+            case TOP_RIGHT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 11f, 0f, 11, 11, 256, 256);
+            case BOTTOM_RIGHT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 11f, 11f, 11, 11, 256, 256);
         }
     }
 
     private void renderSide(GuiGraphics guiGraphics, Side side, int xPos, int yPos) {
         switch (side) {
-            case TOP -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 4, 0, 1, 18);
-            case LEFT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 0, 4, 18, 1);
-            case BOTTOM -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 3, 4, 1, 18);
-            case RIGHT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 0f, 4, 3, 18, 1);
+            case TOP -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 4f, 0f, 1, 18, 256, 256);
+            case LEFT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 0f, 4f, 18, 1, 256, 256);
+            case BOTTOM -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 3f, 4f, 1, 18, 256, 256);
+            case RIGHT -> guiGraphics.blit(RenderType::guiTextured, BACKPACK_CONTAINER, xPos, yPos, 4f, 3f, 18, 1, 256, 256);
         }
     }
 

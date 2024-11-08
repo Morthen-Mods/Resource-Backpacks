@@ -25,10 +25,5 @@ public class ResourceBackpacks {
         MenuTypeRegistry.init();
 
         CreativeTabRegistry.init();
-
-        if (ModList.get().isLoaded("shulkerboxtooltip")) {
-            ModLoadingContext.get().registerExtensionPoint(ShulkerBoxTooltipPlugin.class,
-                    () -> new ShulkerBoxTooltipPlugin(BackpackTooltipPlugin::new));
-        }
     }
 }

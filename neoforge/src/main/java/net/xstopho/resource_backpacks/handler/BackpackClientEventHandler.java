@@ -3,12 +3,9 @@ package net.xstopho.resource_backpacks.handler;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.compat.accessories.AccessoriesHelper;
-import net.xstopho.resource_backpacks.compat.curios.CurioHelper;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.rendering.container.BackpackContainerScreen;
@@ -16,12 +13,6 @@ import net.xstopho.resource_backpacks.rendering.container.BackpackContainerScree
 
 @EventBusSubscriber(modid = BackpackConstants.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class BackpackClientEventHandler {
-
-    @SubscribeEvent
-    public static void onClientInit(FMLClientSetupEvent event) {
-        AccessoriesHelper.initClient();
-        CurioHelper.initClient();
-    }
 
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
