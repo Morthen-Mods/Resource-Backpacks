@@ -19,6 +19,9 @@ repositories {
     maven { url 'https://maven.parchmentmc.org/' }
     maven { url 'https://api.modrinth.com/maven' }
 
+    // Roughly Enough Items
+    maven { url "https://maven.shedaniel.me" }
+
     // ShulkerBoxTooltip
     maven { url "https://maven.misterpemodder.com/libs-release/" }
 
@@ -26,7 +29,6 @@ repositories {
     maven { url 'https://maven.wispforest.io/releases' }
     maven { url 'https://maven.su5ed.dev/releases' }
     maven { url 'https://maven.fabricmc.net' }
-    maven { url 'https://maven.shedaniel.me/' }
 
     // Curios API Continuation
     maven { url "https://maven.octo-studios.com/releases" }

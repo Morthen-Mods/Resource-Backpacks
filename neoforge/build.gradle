@@ -12,6 +12,7 @@ dependencies {
     implementation "com.misterpemodder:shulkerboxtooltip-neoforge:${shulker_box_tooltip}+${minecraft_version}"
 
     // Runtime Mods
+    runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei}"
     //runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
 }
 
