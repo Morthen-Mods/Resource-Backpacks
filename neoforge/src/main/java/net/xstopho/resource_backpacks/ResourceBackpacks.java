@@ -7,6 +7,6 @@ import net.neoforged.fml.common.Mod;
 public class ResourceBackpacks {
 
     public ResourceBackpacks(IEventBus eventBus) {
-
+        BackpackConstants.commonInit();
     }
 }

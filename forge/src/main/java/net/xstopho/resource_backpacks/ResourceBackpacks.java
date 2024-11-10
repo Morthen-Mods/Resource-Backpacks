@@ -7,6 +7,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class ResourceBackpacks {
 
     public ResourceBackpacks(FMLJavaModLoadingContext context) {
-
+        BackpackConstants.commonInit();
     }
 }

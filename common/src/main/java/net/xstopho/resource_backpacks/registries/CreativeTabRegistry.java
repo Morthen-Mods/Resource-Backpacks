@@ -8,4 +8,6 @@ import net.xstopho.resourcelibrary.registration.RegistryProvider;
 public class CreativeTabRegistry {
 
     private static final RegistryProvider<CreativeModeTab> CREATIVE_TAB = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.CREATIVE_MODE_TAB);
+
+    public static void init() {}
 }
