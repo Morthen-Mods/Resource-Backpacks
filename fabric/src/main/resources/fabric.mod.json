@@ -15,8 +15,7 @@
     "entrypoints": {
         "main": [ "net.xstopho.resource_backpacks.ResourceBackpacks" ],
         "client": [ "net.xstopho.resource_backpacks.ResourceBackpacksClient" ],
-        "fabric-datagen": [ "net.xstopho.resource_backpacks.ResourceBackpacksDatagen" ],
-        "shulkerboxtooltip": [ "net.xstopho.resource_backpacks.compat.shulkerboxtooltip.BackpackTooltipPlugin" ]
+        "fabric-datagen": [ "net.xstopho.resource_backpacks.ResourceBackpacksDatagen" ]
     },
     "mixins": [ "${mod_id}.mixins.json" ],
     "depends": {
