@@ -14,10 +14,11 @@ dependencies {
     modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resource_config_api}"
     modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${resource_library}"
 
-    modImplementation "com.misterpemodder:shulkerboxtooltip-fabric:${shulker_box_tooltip}+${minecraft_version}"
+    modCompileOnly "com.misterpemodder:shulkerboxtooltip-fabric:${shulker_box_tooltip}+${minecraft_version}"
 
     // Runtime Mods
     modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
+    modRuntimeOnly "com.misterpemodder:shulkerboxtooltip-fabric:${shulker_box_tooltip}+${minecraft_version}"
     //modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
 }
 
