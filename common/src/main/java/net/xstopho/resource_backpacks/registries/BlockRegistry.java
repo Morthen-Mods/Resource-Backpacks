@@ -34,7 +34,7 @@ public class BlockRegistry {
 
     private static void registerItem(String id, Function<Item.Properties, Item> function, Item.Properties properties) {
         ResourceKey<Item> itemId = createItemId(id);
-        ITEMS.register(id, () -> function.apply(properties.setId(itemId)));
+        ITEMS.register(id, () -> function.apply(properties.setId(itemId).stacksTo(1)));
     }
 
     private static ResourceKey<Block> createBlockId(String id) {
