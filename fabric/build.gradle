@@ -18,7 +18,6 @@ dependencies {
 
     // Runtime Mods
     modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
-    modRuntimeOnly "com.misterpemodder:shulkerboxtooltip-fabric:${shulker_box_tooltip}+${minecraft_version}"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei}"
     //modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
 }
