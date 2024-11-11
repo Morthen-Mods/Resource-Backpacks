@@ -14,7 +14,7 @@ public class BlockEntityRegistry {
     private static final RegistryProvider<BlockEntityType<?>> BLOCK_ENTITIES = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.BLOCK_ENTITY_TYPE);
 
     public static final RegistryObject<BlockEntityType<BackpackBlockEntity>> BACKPACK_ENTITY = BLOCK_ENTITIES.register("backpack_entity",
-            () -> new BlockEntityType<>(BackpackBlockEntity::new, Set.of(BlockRegistry.TEST_BACKPACK.get())));
+            () -> new BlockEntityType<>(BackpackBlockEntity::new, Set.of(BlockRegistry.TEST_BACKPACK.get(), BlockRegistry.TEST_BACKPACK_2.get())));
 
     public static void init() {}
 }

@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.custom.blocks.BackpackBlock;
+import net.xstopho.resource_backpacks.custom.util.BackpackLevel;
 import net.xstopho.resourcelibrary.registration.RegistryObject;
 import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
@@ -21,7 +22,8 @@ public class BlockRegistry {
     private static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.BLOCK);
     private static final RegistryProvider<Item> ITEMS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.ITEM);
 
-    public static final RegistryObject<Block> TEST_BACKPACK = registerBlock("test_backpack", BackpackBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT));
+    public static final RegistryObject<Block> TEST_BACKPACK = registerBlock("test_backpack", properties -> new BackpackBlock(properties, BackpackLevel.SHULKER), BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT));
+    public static final RegistryObject<Block> TEST_BACKPACK_2 = registerBlock("test_backpack_2", properties -> new BackpackBlock(properties, BackpackLevel.BIG_CHEST), BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT));
 
     private static RegistryObject<Block> registerBlock(String id, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties blockBehavior) {
         ResourceKey<Block> blockId = createBlockId(id);

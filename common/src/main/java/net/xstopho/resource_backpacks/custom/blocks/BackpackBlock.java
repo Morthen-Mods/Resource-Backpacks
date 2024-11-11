@@ -6,20 +6,26 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.xstopho.resource_backpacks.custom.entities.BackpackBlockEntity;
+import net.xstopho.resource_backpacks.custom.util.BackpackLevel;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class BackpackBlock extends BaseEntityBlock {
 
-    public BackpackBlock(Properties properties) {
+    private final BackpackLevel level;
+
+    public BackpackBlock(Properties properties, BackpackLevel level) {
         super(properties);
+        this.level = level;
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+    protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
 
         if (blockEntity instanceof BackpackBlockEntity backpackBlockEntity) {
@@ -38,5 +44,13 @@ public class BackpackBlock extends BaseEntityBlock {
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new BackpackBlockEntity(blockPos, blockState);
+    }
+
+    public BackpackLevel getLevel() {
+        return level;
+    }
+
+    public static BackpackLevel getLevelFromBlock(Block block) {
+        return block instanceof BackpackBlock ? ((BackpackBlock )block).getLevel() : null;
     }
 }
