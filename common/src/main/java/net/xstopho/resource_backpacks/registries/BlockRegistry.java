@@ -4,7 +4,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -24,7 +23,6 @@ public class BlockRegistry {
     private static final RegistryProvider<Item> ITEMS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.ITEM);
 
     public static final RegistryObject<Block> TEST_BACKPACK = registerBlock("test_backpack", BackpackLevel.SHULKER);
-    public static final RegistryObject<Block> TEST_BACKPACK_2 = registerBlock("test_backpack_2", BackpackLevel.BIG_CHEST);
 
 
     private static RegistryObject<Block> registerBlock(String id, BackpackLevel level) {
