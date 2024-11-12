@@ -10,25 +10,32 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ShulkerBoxMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.xstopho.resource_backpacks.util.ImplementedInventory;
 import net.xstopho.resource_backpacks.blocks.BackpackBlock;
-import net.xstopho.resource_backpacks.util.BackpackLevel;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
+import net.xstopho.resource_backpacks.util.BackpackLevel;
+import net.xstopho.resource_backpacks.util.ImplementedInventory;
 import org.jetbrains.annotations.NotNull;
 
 public class BackpackBlockEntity extends BaseContainerBlockEntity implements ImplementedInventory {
 
     private NonNullList<ItemStack> items;
+    private BackpackLevel backpackLevel;
 
     public BackpackBlockEntity(BlockPos pos, BlockState blockState) {
         super(BlockEntityRegistry.BACKPACK_ENTITY.get(), pos, blockState);
-        BackpackLevel backpackLevel = BackpackBlock.getLevelFromBlock(blockState.getBlock());
+        this.backpackLevel = BackpackBlock.getLevelFromBlock(blockState.getBlock());
 
         items = NonNullList.withSize(backpackLevel.getSize(), ItemStack.EMPTY);
     }
 
+    public BackpackBlockEntity(BlockPos pos, BlockState state, BackpackLevel backpackLevel) {
+        this(pos, state);
+        this.backpackLevel = backpackLevel;
+        this.items = NonNullList.withSize(backpackLevel.getSize(), ItemStack.EMPTY);
+    }
 
     @Override
     public @NotNull NonNullList<ItemStack> getItems() {
@@ -67,11 +74,16 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-        ContainerHelper.saveAllItems(tag, this.items, false, registries);
+        ContainerHelper.saveAllItems(tag, this.items, true, registries);
     }
 
     public void loadFromTag(CompoundTag tag, HolderLookup.Provider levelRegistry) {
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, this.items, levelRegistry);
+    }
+
+    public static void doNeighbourUpdates(Level level, BlockPos pos, BlockState state) {
+        state.updateNeighbourShapes(level, pos, 3);
+        level.updateNeighborsAt(pos, state.getBlock());
     }
 }

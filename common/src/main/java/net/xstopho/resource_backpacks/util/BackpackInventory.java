@@ -7,10 +7,10 @@ import net.minecraft.world.item.component.ItemContainerContents;
 
 public class BackpackInventory implements ImplementedInventory {
     private final ItemStack stack;
-    private NonNullList<ItemStack> items;
+    private final NonNullList<ItemStack> items;
 
-    public BackpackInventory(ItemStack stack, NonNullList<ItemStack> items) {
-        this.items = items;
+    public BackpackInventory(ItemStack stack, int size) {
+        this.items = NonNullList.withSize(size, ItemStack.EMPTY);
         this.stack = stack;
         ItemContainerContents container = stack.get(DataComponents.CONTAINER);
         if (container != null) {

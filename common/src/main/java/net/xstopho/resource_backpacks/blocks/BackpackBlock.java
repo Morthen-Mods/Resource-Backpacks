@@ -3,13 +3,13 @@ package net.xstopho.resource_backpacks.blocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.entities.BackpackBlockEntity;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 import org.jetbrains.annotations.NotNull;
@@ -29,6 +30,7 @@ import org.jetbrains.annotations.Nullable;
 public class BackpackBlock extends BaseEntityBlock {
 
     public static final MapCodec<BackpackBlock> CODEC = simpleCodec(BackpackBlock::new);
+    private final ResourceLocation CONTENTS = ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, "contents");
 
     private final BackpackLevel backpackLevel;
 
@@ -42,17 +44,12 @@ public class BackpackBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-        return BackpackBlockShapes.getVoxelShape(direction);
-    }
-
-    @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        BlockEntity blockEntity = level.getBlockEntity(pos);
-
-        if (blockEntity instanceof BackpackBlockEntity backpackBlockEntity) {
-            player.openMenu(backpackBlockEntity);
+        if (level instanceof ServerLevel) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if (blockEntity instanceof BackpackBlockEntity backpackBlockEntity) {
+                player.openMenu(backpackBlockEntity);
+            }
         }
 
         return InteractionResult.SUCCESS;
@@ -60,17 +57,25 @@ public class BackpackBlock extends BaseEntityBlock {
 
     @Override
     public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
-        if (!level.isClientSide) {
-            ItemStack backpack = new ItemStack(this.asItem());
-            NonNullList<ItemStack> items = ((BackpackBlockEntity) blockEntity).getItems();
-            backpack.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(items));
+        if (level instanceof ServerLevel) {
+            if (blockEntity instanceof BackpackBlockEntity backpackBlockEntity) {
+                ItemStack backpack = new ItemStack(this.asItem());
+                backpack.applyComponents(backpackBlockEntity.collectComponents());
 
-            ItemEntity itemEntity = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), backpack);
+                ItemEntity entity = new ItemEntity(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, backpack);
+                entity.setDefaultPickUpDelay();
 
-            level.addFreshEntity(itemEntity);
+                level.addFreshEntity(entity);
+            }
         }
 
         super.playerDestroy(level, player, pos, state, blockEntity, tool);
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+        return BackpackBlockShapes.getVoxelShape(direction);
     }
 
     @Override
@@ -106,7 +111,7 @@ public class BackpackBlock extends BaseEntityBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new BackpackBlockEntity(blockPos, blockState);
+        return new BackpackBlockEntity(blockPos, blockState, this.backpackLevel);
     }
 
     public BackpackLevel getBackpackLevel() {
