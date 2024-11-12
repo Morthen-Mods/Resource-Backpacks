@@ -1,6 +1,0 @@
-{
-	"parent": "resource_backpacks:item/backpack",
-	"textures": {
-		"all": "resource_backpacks:item/backpack_copper"
-	}
-}
