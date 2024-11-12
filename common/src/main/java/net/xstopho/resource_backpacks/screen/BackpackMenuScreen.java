@@ -1,0 +1,108 @@
+package net.xstopho.resource_backpacks.screen;
+
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
+import net.xstopho.resource_backpacks.BackpackConstants;
+
+
+public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
+
+    private final ResourceLocation CORNER = texture("corner");
+    private final ResourceLocation SLOT = texture("slot");
+    private final ResourceLocation INVENTORY_EXTENDED = texture("inventory_extended");
+    private final ResourceLocation INVENTORY_NORMAL = texture("inventory_normal");
+
+    private final int rows, columns;
+
+    public BackpackMenuScreen(BackpackMenu menu, Inventory playerInventory, Component title) {
+        super(menu, playerInventory, title);
+
+        this.rows = menu.getBackpackLevel().getRows();
+        this.columns = menu.getBackpackLevel().getColumns();
+
+        imageWidth = getWidth();
+        imageHeight = getHeight() + 107;
+    }
+
+    @Override
+    protected void renderBg(GuiGraphics guiGraphics, float v, int mouseX, int mouseY) {
+        RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
+
+        int x = (this.width - imageWidth) / 2;
+        int y = (this.height - imageHeight) / 2;
+
+        renderBackpackMenu(guiGraphics, x, y);
+    }
+
+    @Override
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        this.renderBackground(guiGraphics, mouseX, mouseY, partialTick);
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
+        this.renderTooltip(guiGraphics, mouseX, mouseY);
+    }
+
+    @Override
+    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 4210752, false);
+    }
+
+    private void renderBackpackMenu(GuiGraphics guiGraphics, int xPos, int yPos) {
+        // render corners
+        renderCorner(guiGraphics, xPos, yPos, 0f, 0f); // Top Left
+        renderCorner(guiGraphics, xPos, yPos + getHeight(), 0f, 11f); // Bottom Left
+        renderCorner(guiGraphics, xPos + getWidth() - 11, yPos, 11f, 0f); // Top Right
+        renderCorner(guiGraphics, xPos + getWidth() - 11, yPos + getHeight(), 11f, 11f); // Bottom Right
+
+        for (int i = 0; i < getWidth() - 22; i += 6) {
+            renderSide(guiGraphics, xPos + 11 + i, yPos, 4f, 0f, 6, 18); // Top
+            renderSide(guiGraphics, xPos + 11 + i, yPos + getHeight() - 7, 4f, 4f, 6, 18); // Bottom
+        }
+
+        for (int i = 0; i < getHeight() - 11; i += 6) {
+            renderSide(guiGraphics, xPos, yPos + 11 + i, 0f, 4f, 18, 6); // Left
+            renderSide(guiGraphics, xPos + getWidth() - 18, yPos + 11 + i, 4f, 4f, 18, 6); // Right
+        }
+
+        for (int row = 0; row < this.rows; row++) {
+            for (int column = 0; column < this.columns; column++) {
+                renderSlot(guiGraphics, xPos + 7 + (column * 18), yPos + 17 + (row * 18));
+            }
+        }
+
+
+        int xInventory = xPos + ((getWidth() - 175) / 2);
+        int yInventory = yPos + getHeight() + 8;
+        ResourceLocation inventory = this.columns < 10 ? INVENTORY_NORMAL : INVENTORY_EXTENDED;
+        guiGraphics.blit(RenderType::guiTextured, inventory, xInventory, yInventory, 0f, 0f, 176, 87, 176, 87);
+    }
+
+    private void renderCorner(GuiGraphics guiGraphics, int xPos, int yPos, float xOffset, float yOffset) {
+        guiGraphics.blit(RenderType::guiTextured, CORNER, xPos, yPos, xOffset, yOffset, 11, 11, 22, 22);
+    }
+
+    private void renderSide(GuiGraphics guiGraphics, int xPos, int yPos, float xOffset, float yOffset, int width, int height) {
+        guiGraphics.blit(RenderType::guiTextured, CORNER, xPos, yPos, xOffset, yOffset, width, height, 22, 22);
+    }
+
+    private void renderSlot(GuiGraphics guiGraphics, int xPos, int yPos) {
+        guiGraphics.blit(RenderType::guiTextured, SLOT, xPos, yPos, 0f, 0f, 18, 18, 18, 18);
+    }
+
+    private int getWidth() {
+        return (this.columns * 18) + 14;
+    }
+
+    private int getHeight() {
+        return (this.rows * 18) + 18;
+    }
+
+    private ResourceLocation texture(String name) {
+        return ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, "textures/gui/container/" + name + ".png");
+    }
+}

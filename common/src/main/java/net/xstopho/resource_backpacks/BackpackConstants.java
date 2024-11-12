@@ -1,8 +1,11 @@
 package net.xstopho.resource_backpacks;
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
+import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
+import net.xstopho.resource_backpacks.screen.BackpackMenuScreen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,11 +18,13 @@ public class BackpackConstants {
         BlockRegistry.init();
         BlockEntityRegistry.init();
 
+        MenuTypeRegistry.init();
+
         CreativeTabRegistry.init();
     }
 
     public static void clientInit() {
-
+        MenuScreens.register(MenuTypeRegistry.TEST_MENU.get(), BackpackMenuScreen::new);
     }
 
     public static void serverInit() {
