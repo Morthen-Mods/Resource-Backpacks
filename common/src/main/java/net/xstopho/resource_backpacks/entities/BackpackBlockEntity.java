@@ -12,7 +12,7 @@ import net.minecraft.world.inventory.ShulkerBoxMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.xstopho.resource_backpacks.api.ImplementedInventory;
+import net.xstopho.resource_backpacks.util.ImplementedInventory;
 import net.xstopho.resource_backpacks.blocks.BackpackBlock;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
