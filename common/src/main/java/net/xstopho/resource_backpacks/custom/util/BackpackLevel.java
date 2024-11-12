@@ -2,9 +2,7 @@ package net.xstopho.resource_backpacks.custom.util;
 
 public enum BackpackLevel {
 
-    SHULKER(27),
-    BIG_CHEST(54);
-
+    SHULKER(27);
 
     final int size;
 
