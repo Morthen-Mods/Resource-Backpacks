@@ -45,15 +45,19 @@ public class BackpackItem extends BlockItem {
     public InteractionResult place(BlockPlaceContext context) {
         InteractionResult result = super.place(context);
 
-        BlockPos pos = context.getClickedPos();
-        BlockState blockState = context.getLevel().getBlockState(pos);
+        if (result != InteractionResult.FAIL) {
+            BlockPos pos = context.getClickedPos();
+            BlockState blockState = context.getLevel().getBlockState(pos);
 
-        BackpackBlockEntity backpackBlockEntity = new BackpackBlockEntity(pos, blockState);
+            BackpackBlockEntity backpackBlockEntity = new BackpackBlockEntity(pos, blockState);
 
-        backpackBlockEntity.setItems(this.items);
+            backpackBlockEntity.setItems(this.items);
 
-        context.getLevel().setBlockEntity(backpackBlockEntity);
+            context.getLevel().setBlockEntity(backpackBlockEntity);
 
-        return result;
+            return InteractionResult.SUCCESS;
+        }
+
+        return InteractionResult.FAIL;
     }
 }
