@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.custom.items;
+package net.xstopho.resource_backpacks.items;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -14,9 +14,9 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.xstopho.resource_backpacks.custom.entities.BackpackBlockEntity;
-import net.xstopho.resource_backpacks.custom.util.BackpackInventory;
-import net.xstopho.resource_backpacks.custom.util.BackpackLevel;
+import net.xstopho.resource_backpacks.entities.BackpackBlockEntity;
+import net.xstopho.resource_backpacks.util.BackpackInventory;
+import net.xstopho.resource_backpacks.util.BackpackLevel;
 
 public class BackpackItem extends BlockItem {
 

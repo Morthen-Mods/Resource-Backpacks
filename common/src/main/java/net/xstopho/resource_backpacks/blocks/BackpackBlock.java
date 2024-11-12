@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.custom.blocks;
+package net.xstopho.resource_backpacks.blocks;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -15,8 +15,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.xstopho.resource_backpacks.custom.entities.BackpackBlockEntity;
-import net.xstopho.resource_backpacks.custom.util.BackpackLevel;
+import net.xstopho.resource_backpacks.entities.BackpackBlockEntity;
+import net.xstopho.resource_backpacks.util.BackpackLevel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

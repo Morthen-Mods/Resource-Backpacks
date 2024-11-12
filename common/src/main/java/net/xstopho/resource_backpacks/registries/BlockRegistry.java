@@ -9,9 +9,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.custom.blocks.BackpackBlock;
-import net.xstopho.resource_backpacks.custom.items.BackpackItem;
-import net.xstopho.resource_backpacks.custom.util.BackpackLevel;
+import net.xstopho.resource_backpacks.blocks.BackpackBlock;
+import net.xstopho.resource_backpacks.items.BackpackItem;
+import net.xstopho.resource_backpacks.util.BackpackLevel;
 import net.xstopho.resourcelibrary.registration.RegistryObject;
 import net.xstopho.resourcelibrary.registration.RegistryProvider;
 

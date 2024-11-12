@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.custom.util;
+package net.xstopho.resource_backpacks.util;
 
 public enum BackpackLevel {
 

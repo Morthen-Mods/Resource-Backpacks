@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.custom.util;
+package net.xstopho.resource_backpacks.util;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
