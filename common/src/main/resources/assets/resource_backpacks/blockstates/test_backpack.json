@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "resource_backpacks:block/test_backpack"
+    }
+  }
+}
