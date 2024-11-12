@@ -3,8 +3,6 @@ package net.xstopho.resource_backpacks.blocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -21,7 +19,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.entities.BackpackBlockEntity;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 import org.jetbrains.annotations.NotNull;
@@ -30,7 +27,6 @@ import org.jetbrains.annotations.Nullable;
 public class BackpackBlock extends BaseEntityBlock {
 
     public static final MapCodec<BackpackBlock> CODEC = simpleCodec(BackpackBlock::new);
-    private final ResourceLocation CONTENTS = ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, "contents");
 
     private final BackpackLevel backpackLevel;
 
