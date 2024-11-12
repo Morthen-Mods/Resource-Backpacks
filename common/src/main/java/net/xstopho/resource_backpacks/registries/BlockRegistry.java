@@ -26,7 +26,7 @@ public class BlockRegistry {
 
 
     private static RegistryObject<Block> registerBlock(String id, BackpackLevel level) {
-        BlockBehaviour.Properties blockBehaviour = BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST);
+        BlockBehaviour.Properties blockBehaviour = BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT);
 
         return registerBlock(id, properties -> new BackpackBlock(properties, level), level, blockBehaviour);
     }
