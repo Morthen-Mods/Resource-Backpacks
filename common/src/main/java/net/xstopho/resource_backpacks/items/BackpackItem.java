@@ -5,10 +5,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ShulkerBoxMenu;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackInventory;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 
@@ -26,7 +26,7 @@ public class BackpackItem extends BlockItem {
         BackpackInventory backpackInventory = new BackpackInventory(player.getItemInHand(hand), backpackLevel.getSize());
 
         if (!level.isClientSide) {
-            player.openMenu(new SimpleMenuProvider((i, inventory, player1) -> new ShulkerBoxMenu(i, inventory, backpackInventory), Component.literal("Test Backpack")));
+            player.openMenu(new SimpleMenuProvider((i, inventory, player1) -> BackpackMenu.testMenu(i, inventory, backpackInventory), Component.literal("Test Backpack")));
             return InteractionResult.SUCCESS;
         }
 

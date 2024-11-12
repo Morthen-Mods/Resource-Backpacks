@@ -2,16 +2,26 @@ package net.xstopho.resource_backpacks.util;
 
 public enum BackpackLevel {
 
-    SHULKER(27);
+    SHULKER(3, 9),
+    TEST(10, 25);
 
-    final int size;
+    final int rows, columns;
 
-    BackpackLevel(int size) {
-        this.size = size;
+    BackpackLevel(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
     }
 
     public int getSize() {
-        return size;
+        return this.columns * this.rows;
     }
 
     @Override

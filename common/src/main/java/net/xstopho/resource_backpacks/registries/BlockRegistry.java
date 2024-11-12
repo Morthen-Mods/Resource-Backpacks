@@ -22,7 +22,7 @@ public class BlockRegistry {
     private static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.BLOCK);
     private static final RegistryProvider<Item> ITEMS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.ITEM);
 
-    public static final RegistryObject<Block> TEST_BACKPACK = registerBlock("test_backpack", BackpackLevel.SHULKER);
+    public static final RegistryObject<Block> TEST_BACKPACK = registerBlock("test_backpack", BackpackLevel.TEST);
 
 
     private static RegistryObject<Block> registerBlock(String id, BackpackLevel level) {

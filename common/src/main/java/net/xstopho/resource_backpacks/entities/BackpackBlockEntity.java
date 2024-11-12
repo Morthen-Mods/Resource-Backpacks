@@ -8,13 +8,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ShulkerBoxMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.xstopho.resource_backpacks.blocks.BackpackBlock;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
+import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 import net.xstopho.resource_backpacks.util.ImplementedInventory;
 import org.jetbrains.annotations.NotNull;
@@ -54,8 +54,8 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
 
     @Override
     protected AbstractContainerMenu createMenu(int i, Inventory inventory) {
-        if (this.items.size() == 27) {
-            return new ShulkerBoxMenu(i, inventory, this);
+        if (backpackLevel == BackpackLevel.TEST) {
+            return BackpackMenu.testMenu(i, inventory, this);
         }
         return null;
     }
