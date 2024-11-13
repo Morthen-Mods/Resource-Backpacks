@@ -17,7 +17,7 @@ public class BlockEntityRegistry {
 
     public static final RegistryObject<BlockEntityType<BackpackBlockEntity>> BACKPACK_ENTITY = BLOCK_ENTITIES.register("backpack_entity",
             () -> new BlockEntityType<>(BackpackBlockEntity::new, Set.of(BACKPACK_TEST.get(), BACKPACK_LEATHER.get(), BACKPACK_COPPER.get(),
-                    BACKPACK_GOLD.get(), BACKPACK_IRON.get(), BACKPACK_DIAMOND.get(), BACKPACK_NETHERITE.get())));
+                    BACKPACK_GOLD.get(), BACKPACK_IRON.get(), BACKPACK_DIAMOND.get(), BACKPACK_NETHERITE.get(), BACKPACK_END.get())));
 
     public static void init() {}
 }

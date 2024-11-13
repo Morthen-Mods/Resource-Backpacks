@@ -21,11 +21,67 @@ public class BackpackMenu extends AbstractContainerMenu {
     }
 
     public static BackpackMenu defaultMenu(int containerId, Inventory playerInventory) {
-        return new BackpackMenu(MenuTypeRegistry.TEST_MENU.get(), containerId, playerInventory, BackpackLevel.DEFAULT);
+        return new BackpackMenu(MenuTypeRegistry.DEFAULT_MENU.get(), containerId, playerInventory, BackpackLevel.DEFAULT);
     }
 
     public static BackpackMenu defaultMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
-        return new BackpackMenu(MenuTypeRegistry.TEST_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.DEFAULT);
+        return new BackpackMenu(MenuTypeRegistry.DEFAULT_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.DEFAULT);
+    }
+
+    public static BackpackMenu leatherMenu(int containerId, Inventory playerInventory) {
+        return new BackpackMenu(MenuTypeRegistry.LEATHER_MENU.get(), containerId, playerInventory, BackpackLevel.LEATHER);
+    }
+
+    public static BackpackMenu leatherMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
+        return new BackpackMenu(MenuTypeRegistry.LEATHER_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.LEATHER);
+    }
+
+    public static BackpackMenu copperMenu(int containerId, Inventory playerInventory) {
+        return new BackpackMenu(MenuTypeRegistry.COPPER_MENU.get(), containerId, playerInventory, BackpackLevel.COPPER);
+    }
+
+    public static BackpackMenu copperMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
+        return new BackpackMenu(MenuTypeRegistry.COPPER_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.COPPER);
+    }
+
+    public static BackpackMenu goldMenu(int containerId, Inventory playerInventory) {
+        return new BackpackMenu(MenuTypeRegistry.GOLD_MENU.get(), containerId, playerInventory, BackpackLevel.GOLD);
+    }
+
+    public static BackpackMenu goldMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
+        return new BackpackMenu(MenuTypeRegistry.GOLD_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.GOLD);
+    }
+
+    public static BackpackMenu ironMenu(int containerId, Inventory playerInventory) {
+        return new BackpackMenu(MenuTypeRegistry.IRON_MENU.get(), containerId, playerInventory, BackpackLevel.IRON);
+    }
+
+    public static BackpackMenu ironMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
+        return new BackpackMenu(MenuTypeRegistry.IRON_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.IRON);
+    }
+
+    public static BackpackMenu diamondMenu(int containerId, Inventory playerInventory) {
+        return new BackpackMenu(MenuTypeRegistry.DIAMOND_MENU.get(), containerId, playerInventory, BackpackLevel.DIAMOND);
+    }
+
+    public static BackpackMenu diamondMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
+        return new BackpackMenu(MenuTypeRegistry.DIAMOND_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.DIAMOND);
+    }
+
+    public static BackpackMenu netheriteMenu(int containerId, Inventory playerInventory) {
+        return new BackpackMenu(MenuTypeRegistry.NETHERITE_MENU.get(), containerId, playerInventory, BackpackLevel.NETHERITE);
+    }
+
+    public static BackpackMenu netheriteMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
+        return new BackpackMenu(MenuTypeRegistry.NETHERITE_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.NETHERITE);
+    }
+
+    public static BackpackMenu endMenu(int containerId, Inventory playerInventory) {
+        return new BackpackMenu(MenuTypeRegistry.END_MENU.get(), containerId, playerInventory, BackpackLevel.END);
+    }
+
+    public static BackpackMenu endMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
+        return new BackpackMenu(MenuTypeRegistry.END_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.END);
     }
 
     public BackpackMenu(MenuType<?> menuType, int containerId, Inventory playerInventory, Container backpackInventory, BackpackLevel backpackLevel) {

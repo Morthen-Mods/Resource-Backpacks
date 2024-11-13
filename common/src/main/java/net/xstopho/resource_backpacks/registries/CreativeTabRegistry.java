@@ -23,6 +23,7 @@ public class CreativeTabRegistry {
                         output.accept(BlockRegistry.BACKPACK_IRON.get());
                         output.accept(BlockRegistry.BACKPACK_DIAMOND.get());
                         output.accept(BlockRegistry.BACKPACK_NETHERITE.get());
+                        output.accept(BlockRegistry.BACKPACK_END.get());
 
                     }).build());
 

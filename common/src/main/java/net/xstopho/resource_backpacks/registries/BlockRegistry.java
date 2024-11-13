@@ -31,6 +31,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BACKPACK_IRON = registerBlock("backpack_iron", BackpackLevel.IRON);
     public static final RegistryObject<Block> BACKPACK_DIAMOND = registerBlock("backpack_diamond", BackpackLevel.DIAMOND);
     public static final RegistryObject<Block> BACKPACK_NETHERITE = registerBlock("backpack_netherite", BackpackLevel.NETHERITE);
+    public static final RegistryObject<Block> BACKPACK_END = registerBlock("backpack_end", BackpackLevel.END);
 
 
     private static RegistryObject<Block> registerBlock(String id, BackpackLevel level) {
