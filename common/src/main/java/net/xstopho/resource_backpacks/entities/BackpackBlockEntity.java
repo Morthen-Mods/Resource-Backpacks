@@ -9,7 +9,6 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.xstopho.resource_backpacks.blocks.BackpackBlock;
@@ -86,10 +85,5 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
     public void loadFromTag(CompoundTag tag, HolderLookup.Provider levelRegistry) {
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, this.items, levelRegistry);
-    }
-
-    public static void doNeighbourUpdates(Level level, BlockPos pos, BlockState state) {
-        state.updateNeighbourShapes(level, pos, 3);
-        level.updateNeighborsAt(pos, state.getBlock());
     }
 }
