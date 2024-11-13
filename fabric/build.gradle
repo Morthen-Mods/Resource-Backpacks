@@ -17,10 +17,11 @@ dependencies {
     modCompileOnly "com.misterpemodder:shulkerboxtooltip-fabric:${shulker_box_tooltip}+${minecraft_version}"
 
     // Runtime Mods
-    modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
     modRuntimeOnly "maven.modrinth:dark-loading-screen:${dark_loading_screen}"
-    modRuntimeOnly "maven.modrinth:jade:${jade}+fabric"
+    modRuntimeOnly "maven.modrinth:clientsort:${client_sort}-fabric"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei}"
+    modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
+    modRuntimeOnly "maven.modrinth:jade:${jade}+fabric"
     //modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
 }
 

@@ -10,7 +10,9 @@ dependencies {
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
 
     // Runtime Mods
+    runtimeOnly "maven.modrinth:clientsort:${client_sort}-neoforge"
     runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei}"
+    runtimeOnly "maven.modrinth:jade:${jade}+neoforge"
     //runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
 }
 
