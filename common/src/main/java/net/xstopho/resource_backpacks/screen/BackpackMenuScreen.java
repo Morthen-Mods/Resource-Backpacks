@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.xstopho.resource_backpacks.BackpackConstants;
+import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 
 public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
@@ -101,6 +102,16 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
     private int getHeight() {
         return (this.rows * 18) + 18;
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (KeyMappingRegistry.OPEN_BACKPACK.matches(keyCode, scanCode)) {
+            this.onClose();
+            return true;
+        }
+
+        return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
     private ResourceLocation texture(String name) {
