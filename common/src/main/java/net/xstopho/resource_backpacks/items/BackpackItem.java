@@ -1,12 +1,16 @@
 package net.xstopho.resource_backpacks.items;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
@@ -18,7 +22,8 @@ public class BackpackItem extends BlockItem {
     private final BackpackLevel backpackLevel;
 
     public BackpackItem(Block block, BackpackLevel backpackLevel, Properties properties) {
-        super(block, properties.useBlockDescriptionPrefix());
+        super(block, properties.useBlockDescriptionPrefix()
+                .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST).build()));
         this.backpackLevel = backpackLevel;
     }
 
@@ -27,14 +32,16 @@ public class BackpackItem extends BlockItem {
         BackpackInventory backpackInventory = new BackpackInventory(player.getItemInHand(hand), backpackLevel.getSize());
 
         if (!level.isClientSide) {
-            player.openMenu(getMenuProvider(backpackInventory));
+            player.openMenu(getMenuProvider(player.getItemInHand(hand)));
             return InteractionResult.SUCCESS;
         }
 
         return InteractionResult.PASS;
     }
 
-    private MenuProvider getMenuProvider(BackpackInventory backpackInventory) {
+    public MenuProvider getMenuProvider(ItemStack stack) {
+        BackpackInventory backpackInventory = new BackpackInventory(stack, backpackLevel.getSize());
+
         return switch(backpackLevel) {
             case LEATHER -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.leatherMenu(i, inventory, backpackInventory), Component.translatable("block.resource_backpacks.backpack_leather"));
             case COPPER -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.copperMenu(i, inventory, backpackInventory), Component.translatable("block.resource_backpacks.backpack_copper"));
