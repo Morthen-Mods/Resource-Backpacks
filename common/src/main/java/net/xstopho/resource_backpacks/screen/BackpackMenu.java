@@ -149,11 +149,13 @@ public class BackpackMenu extends AbstractContainerMenu {
 
         }
 
-        public boolean mayPickup(Player playerEntity) {
+        @Override
+        public boolean mayPickup(Player player) {
             return this.canMoveStack(this.getItem());
 
         }
 
+        @Override
         public boolean mayPlace(ItemStack stack) {
             return this.canMoveStack(stack);
 
