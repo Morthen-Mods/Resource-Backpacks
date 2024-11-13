@@ -2,8 +2,15 @@ package net.xstopho.resource_backpacks.util;
 
 public enum BackpackLevel {
 
-    SHULKER(3, 9),
-    TEST(10, 25);
+    // TODO: add all BackpackLevel
+    TEST(5, 14),
+    LEATHER(3, 9),
+    COPPER(3, 10),
+    GOLD(4, 11),
+    IRON(5, 12),
+    DIAMOND(6, 12),
+    NETHERITE(7, 13),
+    END(3, 9);
 
     final int rows, columns;
 
