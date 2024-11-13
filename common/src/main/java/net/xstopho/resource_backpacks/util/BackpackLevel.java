@@ -3,7 +3,7 @@ package net.xstopho.resource_backpacks.util;
 public enum BackpackLevel {
 
     // TODO: add all BackpackLevel
-    TEST(5, 14),
+    DEFAULT(5, 14),
     LEATHER(3, 9),
     COPPER(3, 10),
     GOLD(4, 11),

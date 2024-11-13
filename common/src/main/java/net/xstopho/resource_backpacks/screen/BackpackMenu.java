@@ -20,12 +20,12 @@ public class BackpackMenu extends AbstractContainerMenu {
         this(menuType, containerId, playerInventory, new SimpleContainer(backpackLevel.getSize()), backpackLevel);
     }
 
-    public static BackpackMenu testMenu(int containerId, Inventory playerInventory) {
-        return new BackpackMenu(MenuTypeRegistry.TEST_MENU.get(), containerId, playerInventory, BackpackLevel.TEST);
+    public static BackpackMenu defaultMenu(int containerId, Inventory playerInventory) {
+        return new BackpackMenu(MenuTypeRegistry.TEST_MENU.get(), containerId, playerInventory, BackpackLevel.DEFAULT);
     }
 
-    public static BackpackMenu testMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
-        return new BackpackMenu(MenuTypeRegistry.TEST_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.TEST);
+    public static BackpackMenu defaultMenu(int containerId, Inventory playerInventory, Container backpackInventory) {
+        return new BackpackMenu(MenuTypeRegistry.TEST_MENU.get(), containerId, playerInventory, backpackInventory, BackpackLevel.DEFAULT);
     }
 
     public BackpackMenu(MenuType<?> menuType, int containerId, Inventory playerInventory, Container backpackInventory, BackpackLevel backpackLevel) {

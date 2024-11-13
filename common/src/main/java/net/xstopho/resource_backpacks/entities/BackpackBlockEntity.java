@@ -54,8 +54,8 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
 
     @Override
     protected AbstractContainerMenu createMenu(int i, Inventory inventory) {
-        if (backpackLevel == BackpackLevel.TEST) {
-            return BackpackMenu.testMenu(i, inventory, this);
+        if (backpackLevel == BackpackLevel.DEFAULT) {
+            return BackpackMenu.defaultMenu(i, inventory, this);
         }
         return null;
     }

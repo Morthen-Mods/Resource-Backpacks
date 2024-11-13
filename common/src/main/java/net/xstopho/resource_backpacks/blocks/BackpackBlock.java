@@ -36,7 +36,7 @@ public class BackpackBlock extends BaseEntityBlock {
     }
 
     private BackpackBlock(Properties properties) {
-        this(properties, BackpackLevel.SHULKER);
+        this(properties, BackpackLevel.DEFAULT);
     }
 
     @Override

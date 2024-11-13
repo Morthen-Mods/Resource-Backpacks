@@ -26,7 +26,7 @@ public class BackpackItem extends BlockItem {
         BackpackInventory backpackInventory = new BackpackInventory(player.getItemInHand(hand), backpackLevel.getSize());
 
         if (!level.isClientSide) {
-            player.openMenu(new SimpleMenuProvider((i, inventory, player1) -> BackpackMenu.testMenu(i, inventory, backpackInventory), Component.literal("Test Backpack")));
+            player.openMenu(new SimpleMenuProvider((i, inventory, player1) -> BackpackMenu.defaultMenu(i, inventory, backpackInventory), Component.literal("Test Backpack")));
             return InteractionResult.SUCCESS;
         }
 

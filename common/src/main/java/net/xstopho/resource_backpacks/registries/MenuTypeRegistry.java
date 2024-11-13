@@ -12,7 +12,7 @@ public class MenuTypeRegistry {
 
     private static final RegistryProvider<MenuType<?>> MENU_TYPES = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.MENU);
 
-    public static final RegistryObject<MenuType<BackpackMenu>> TEST_MENU = MENU_TYPES.register("test_menu", () -> new MenuType<>(BackpackMenu::testMenu, FeatureFlags.DEFAULT_FLAGS));
+    public static final RegistryObject<MenuType<BackpackMenu>> TEST_MENU = MENU_TYPES.register("default_menu", () -> new MenuType<>(BackpackMenu::defaultMenu, FeatureFlags.DEFAULT_FLAGS));
 
     public static void init() {}
 }
