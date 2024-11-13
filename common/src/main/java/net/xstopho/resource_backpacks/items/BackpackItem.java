@@ -17,7 +17,7 @@ public class BackpackItem extends BlockItem {
     private final BackpackLevel backpackLevel;
 
     public BackpackItem(Block block, BackpackLevel backpackLevel, Properties properties) {
-        super(block, properties);
+        super(block, properties.useBlockDescriptionPrefix());
         this.backpackLevel = backpackLevel;
     }
 

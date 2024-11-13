@@ -14,10 +14,15 @@ public class CreativeTabRegistry {
 
     public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TAB.register("backpack_tab",
             () -> CreativeModeTab.builder(null, -1).title(Component.translatable("tab.resource_bacpacks.item_group"))
-                    .icon(() -> new ItemStack(BlockRegistry.TEST_BACKPACK.get()))
+                    .icon(() -> new ItemStack(BlockRegistry.BACKPACK_LEATHER.get()))
                     .displayItems((itemDisplayParameters, output) -> {
 
-                        output.accept(BlockRegistry.TEST_BACKPACK.get());
+                        output.accept(BlockRegistry.BACKPACK_LEATHER.get());
+                        output.accept(BlockRegistry.BACKPACK_COPPER.get());
+                        output.accept(BlockRegistry.BACKPACK_GOLD.get());
+                        output.accept(BlockRegistry.BACKPACK_IRON.get());
+                        output.accept(BlockRegistry.BACKPACK_DIAMOND.get());
+                        output.accept(BlockRegistry.BACKPACK_NETHERITE.get());
 
                     }).build());
 

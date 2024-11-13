@@ -22,7 +22,15 @@ public class BlockRegistry {
     private static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.BLOCK);
     private static final RegistryProvider<Item> ITEMS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.ITEM);
 
-    public static final RegistryObject<Block> TEST_BACKPACK = registerBlock("test_backpack", BackpackLevel.TEST);
+    // TODO: add all Backpacks
+
+    public static final RegistryObject<Block> BACKPACK_TEST = registerBlock("backpack_test", BackpackLevel.DEFAULT);
+    public static final RegistryObject<Block> BACKPACK_LEATHER = registerBlock("backpack_leather", BackpackLevel.LEATHER);
+    public static final RegistryObject<Block> BACKPACK_COPPER = registerBlock("backpack_copper", BackpackLevel.COPPER);
+    public static final RegistryObject<Block> BACKPACK_GOLD = registerBlock("backpack_gold", BackpackLevel.GOLD);
+    public static final RegistryObject<Block> BACKPACK_IRON = registerBlock("backpack_iron", BackpackLevel.IRON);
+    public static final RegistryObject<Block> BACKPACK_DIAMOND = registerBlock("backpack_diamond", BackpackLevel.DIAMOND);
+    public static final RegistryObject<Block> BACKPACK_NETHERITE = registerBlock("backpack_netherite", BackpackLevel.NETHERITE);
 
 
     private static RegistryObject<Block> registerBlock(String id, BackpackLevel level) {
@@ -36,7 +44,9 @@ public class BlockRegistry {
         ResourceKey<Block> blockId = createBlockId(id);
 
         RegistryObject<Block> block = BLOCKS.register(id, () -> function.apply(blockBehavior.setId(blockId)));
-        registerItem(id, properties -> new BackpackItem(block.get(), level, properties), new Item.Properties());
+
+        Item.Properties itemProperties = level == BackpackLevel.NETHERITE ? new Item.Properties().fireResistant() : new Item.Properties();
+        registerItem(id, properties -> new BackpackItem(block.get(), level, properties), itemProperties);
 
         return block;
     }
