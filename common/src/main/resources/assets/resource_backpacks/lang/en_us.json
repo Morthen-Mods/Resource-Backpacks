@@ -1,10 +1,10 @@
 {
-  "item_group.resource_backpacks": "Resource Backpacks",
+  "tab.resource_backpacks": "Resource Backpacks",
 
   "category.resource_backpacks.controls": "Resource Backpacks",
   "key.resource_backpacks.open_backpack": "Open/Close Backpack Inventory",
 
-  "tag.item.c.backpacks": "Backpack",
+  "tag.item.c.backpacks": "Backpacks",
   "tag.item.c.backpack.leather_ingredient": "Leather Ingredients",
   "tag.item.c.backpack.leather": "Leather Backpack",
   "tag.item.c.backpack.copper": "Copper Backpack",
@@ -12,7 +12,7 @@
   "tag.item.c.backpack.iron": "Iron Backpack",
   "tag.item.c.backpack.diamond": "Diamond Backpack",
   "tag.item.c.backpack.netherite": "Netherite Backpack",
-  "tag.item.c.backpack.ender": "End Backpack",
+  "tag.item.c.backpack.end": "End Backpack",
 
   "block.resource_backpacks.backpack_leather": "Leather Backpack",
   "block.resource_backpacks.backpack_copper": "Copper Backpack",
@@ -20,5 +20,5 @@
   "block.resource_backpacks.backpack_iron": "Iron Backpack",
   "block.resource_backpacks.backpack_diamond": "Diamond Backpack",
   "block.resource_backpacks.backpack_netherite": "Netherite Backpack",
-  "block.resource_backpacks.backpack_ender": "End Backpack"
+  "block.resource_backpacks.backpack_end": "End Backpack"
 }

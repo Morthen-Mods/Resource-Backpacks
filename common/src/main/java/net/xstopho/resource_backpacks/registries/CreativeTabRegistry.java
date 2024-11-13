@@ -13,7 +13,7 @@ public class CreativeTabRegistry {
     private static final RegistryProvider<CreativeModeTab> CREATIVE_TAB = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.CREATIVE_MODE_TAB);
 
     public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TAB.register("backpack_tab",
-            () -> CreativeModeTab.builder(null, -1).title(Component.translatable("tab.resource_bacpacks.item_group"))
+            () -> CreativeModeTab.builder(null, -1).title(Component.translatable("tab.resource_backpacks"))
                     .icon(() -> new ItemStack(BlockRegistry.BACKPACK_LEATHER.get()))
                     .displayItems((itemDisplayParameters, output) -> {
 
