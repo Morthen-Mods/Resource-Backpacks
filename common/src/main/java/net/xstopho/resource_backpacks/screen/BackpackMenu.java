@@ -146,18 +146,22 @@ public class BackpackMenu extends AbstractContainerMenu {
     public static class BackpackSlot extends Slot {
         public BackpackSlot(Container inventory, int index, int x, int y) {
             super(inventory, index, x, y);
+
         }
 
         public boolean mayPickup(Player playerEntity) {
             return this.canMoveStack(this.getItem());
+
         }
 
         public boolean mayPlace(ItemStack stack) {
             return this.canMoveStack(stack);
+
         }
 
         public boolean canMoveStack(ItemStack stack) {
             return stack.getItem().canFitInsideContainerItems();
+
         }
     }
 }

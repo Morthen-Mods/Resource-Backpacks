@@ -53,4 +53,10 @@ public class BackpackItem extends BlockItem {
             default -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.defaultMenu(i, inventory, backpackInventory), Component.literal("Default Backpack"));
         };
     }
+
+    @Override
+    public boolean canFitInsideContainerItems() {
+        return false;
+
+    }
 }
