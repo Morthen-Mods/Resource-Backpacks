@@ -1,7 +1,7 @@
 version:4082
 ao:true
 biomeBlendRadius:2
-enableVsync:true
+enableVsync:false
 entityDistanceScaling:1.0
 entityShadows:true
 forceUnicodeFont:false
@@ -12,11 +12,11 @@ darknessEffectScale:1.0
 glintSpeed:0.5
 glintStrength:0.75
 prioritizeChunkUpdates:0
-fullscreen:false
+fullscreen:true
 gamma:0.5
 graphicsMode:1
 guiScale:3
-maxFps:120
+maxFps:260
 inactivityFpsLimit:"afk"
 mipmapLevels:4
 narrator:0
