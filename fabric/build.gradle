@@ -18,6 +18,7 @@ dependencies {
 
     // Runtime Mods
     modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
+    modRuntimeOnly "maven.modrinth:jade:${jade}+fabric"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei}"
     //modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
 }
