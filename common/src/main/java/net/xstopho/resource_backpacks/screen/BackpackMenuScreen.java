@@ -70,10 +70,7 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
         renderSlots(guiGraphics, xPos + 7, yPos + 17, this.columns * 18, this.rows * 18);
 
-        int xInventory = xPos + ((getWidth() - 175) / 2);
-        int yInventory = yPos + getHeight() + 8;
-        ResourceLocation inventory = this.columns < 10 ? INVENTORY_NORMAL : INVENTORY_EXTENDED;
-        guiGraphics.blit(RenderType::guiTextured, inventory, xInventory, yInventory, 0f, 0f, 176, 87, 176, 87);
+        renderPlayerInventory(guiGraphics, xPos, yPos);
     }
 
     private void renderCorner(GuiGraphics guiGraphics, int xPos, int yPos, float xOffset, float yOffset) {
@@ -90,6 +87,12 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
     private void renderSlots(GuiGraphics guiGraphics, int xPos, int yPos, int width, int height) {
         guiGraphics.blit(RenderType::guiTextured, SLOT, xPos, yPos, 0f, 0f, width, height, 18, 18);
+    }
+
+    private void renderPlayerInventory(GuiGraphics guiGraphics, int xPos, int yPos) {
+        ResourceLocation inventory = this.columns < 10 ? INVENTORY_NORMAL : INVENTORY_EXTENDED;
+        guiGraphics.blit(RenderType::guiTextured, inventory, xPos + ((getWidth() - 175) / 2), yPos + getHeight() + 8,
+                0f, 0f, 176, 87, 176, 87);
     }
 
     private int getWidth() {
