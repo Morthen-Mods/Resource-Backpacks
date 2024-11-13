@@ -12,10 +12,12 @@ import net.xstopho.resource_backpacks.BackpackConstants;
 
 public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
-    private final ResourceLocation CORNER = texture("corner");
     private final ResourceLocation SLOT = texture("slot");
-    private final ResourceLocation INVENTORY_EXTENDED = texture("inventory_extended");
+    private final ResourceLocation CORNER = texture("corner");
+    private final ResourceLocation SIDE_VERTICAL = texture("side_vertical");
+    private final ResourceLocation SIDE_HORIZONTAL = texture("side_horizontal");
     private final ResourceLocation INVENTORY_NORMAL = texture("inventory_normal");
+    private final ResourceLocation INVENTORY_EXTENDED = texture("inventory_extended");
 
     private final int rows, columns;
 
@@ -59,22 +61,14 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
         renderCorner(guiGraphics, xPos + getWidth() - 11, yPos, 11f, 0f); // Top Right
         renderCorner(guiGraphics, xPos + getWidth() - 11, yPos + getHeight(), 11f, 11f); // Bottom Right
 
-        for (int i = 0; i < getWidth() - 22; i += 6) {
-            renderSide(guiGraphics, xPos + 11 + i, yPos, 4f, 0f, 6, 18); // Top
-            renderSide(guiGraphics, xPos + 11 + i, yPos + getHeight() - 7, 4f, 4f, 6, 18); // Bottom
-        }
+        renderHorizontalSide(guiGraphics, xPos + 11, yPos, 4f, 0f, this.getWidth() - 22, 18); // Top
+        renderHorizontalSide(guiGraphics, xPos + 11, yPos + getHeight() - 7, 4f, 4f, this.getWidth() - 22, 18); // Bottom
 
-        for (int i = 0; i < getHeight() - 11; i += 6) {
-            renderSide(guiGraphics, xPos, yPos + 11 + i, 0f, 4f, 18, 6); // Left
-            renderSide(guiGraphics, xPos + getWidth() - 18, yPos + 11 + i, 4f, 4f, 18, 6); // Right
-        }
 
-        for (int row = 0; row < this.rows; row++) {
-            for (int column = 0; column < this.columns; column++) {
-                renderSlot(guiGraphics, xPos + 7 + (column * 18), yPos + 17 + (row * 18));
-            }
-        }
+        renderVerticalSide(guiGraphics, xPos, yPos + 11, 0f, 4f, 18, this.getHeight() - 11); // Left
+        renderVerticalSide(guiGraphics, xPos + getWidth() - 18, yPos + 11 , 4f, 4f, 18, this.getHeight() - 11); // Right
 
+        renderSlots(guiGraphics, xPos + 7, yPos + 17, this.columns * 18, this.rows * 18);
 
         int xInventory = xPos + ((getWidth() - 175) / 2);
         int yInventory = yPos + getHeight() + 8;
@@ -86,12 +80,16 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
         guiGraphics.blit(RenderType::guiTextured, CORNER, xPos, yPos, xOffset, yOffset, 11, 11, 22, 22);
     }
 
-    private void renderSide(GuiGraphics guiGraphics, int xPos, int yPos, float xOffset, float yOffset, int width, int height) {
-        guiGraphics.blit(RenderType::guiTextured, CORNER, xPos, yPos, xOffset, yOffset, width, height, 22, 22);
+    private void renderHorizontalSide(GuiGraphics guiGraphics, int xPos, int yPos, float xOffset, float yOffset, int width, int height) {
+        guiGraphics.blit(RenderType::guiTextured, SIDE_HORIZONTAL, xPos, yPos, xOffset, yOffset, width, height, 22, 22);
     }
 
-    private void renderSlot(GuiGraphics guiGraphics, int xPos, int yPos) {
-        guiGraphics.blit(RenderType::guiTextured, SLOT, xPos, yPos, 0f, 0f, 18, 18, 18, 18);
+    private void renderVerticalSide(GuiGraphics guiGraphics, int xPos, int yPos, float xOffset, float yOffset, int width, int height) {
+        guiGraphics.blit(RenderType::guiTextured, SIDE_VERTICAL, xPos, yPos, xOffset, yOffset, width, height, 22, 22);
+    }
+
+    private void renderSlots(GuiGraphics guiGraphics, int xPos, int yPos, int width, int height) {
+        guiGraphics.blit(RenderType::guiTextured, SLOT, xPos, yPos, 0f, 0f, width, height, 18, 18);
     }
 
     private int getWidth() {
