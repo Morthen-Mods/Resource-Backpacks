@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -23,6 +24,7 @@ public class BackpackItem extends BlockItem {
 
     public BackpackItem(Block block, BackpackLevel backpackLevel, Properties properties) {
         super(block, properties.useBlockDescriptionPrefix()
+                .component(DataComponents.CONTAINER, ItemContainerContents.EMPTY)
                 .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST).build()));
         this.backpackLevel = backpackLevel;
     }
@@ -52,6 +54,10 @@ public class BackpackItem extends BlockItem {
             case END -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.endMenu(i, inventory, player.getEnderChestInventory()), Component.translatable("block.resource_backpacks.backpack_end"));
             default -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.defaultMenu(i, inventory, backpackInventory), Component.literal("Default Backpack"));
         };
+    }
+
+    public BackpackLevel getBackpackLevel() {
+        return backpackLevel;
     }
 
     @Override
