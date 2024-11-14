@@ -21,7 +21,6 @@ public class BackpackFeature extends RenderLayer<PlayerRenderState, PlayerModel>
     @Override
     public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int light, PlayerRenderState player, float v, float v1) {
         ItemStack chest = player.chestItem;
-        PlayerModel model = this.getParentModel();
 
         if (chest.getItem() instanceof BackpackItem) {
             poseStack.pushPose();
