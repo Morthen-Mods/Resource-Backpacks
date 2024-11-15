@@ -14,6 +14,8 @@
   "tag.item.c.backpack.netherite": "Netherit Rucksack",
   "tag.item.c.backpack.end": "End Rucksack",
 
+  "component.resource_backpacks.screen.fallback": "Rucksack",
+
   "block.resource_backpacks.backpack_leather": "Lederrucksack",
   "block.resource_backpacks.backpack_copper": "Kupferrucksack",
   "block.resource_backpacks.backpack_gold": "Goldrucksack",

@@ -49,7 +49,7 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
 
     @Override
     protected Component getDefaultName() {
-        return Component.literal("Test Backpack");
+        return Component.translatable("component.resource_backpacks.screen.fallback");
     }
 
     @Override
