@@ -20,6 +20,9 @@ dependencies {
 neoForge {
     version = neoforge_version
 
+    def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) accessTransformers = [at]
+
     parchment {
         minecraftVersion = '1.21'
         mappingsVersion = parchment_version

@@ -1,10 +1,10 @@
 {
-  "item_group.resource_backpacks": "Resource Backpacks",
+  "tab.resource_backpacks": "Resource Backpacks",
 
   "category.resource_backpacks.controls": "Resource Backpacks",
   "key.resource_backpacks.open_backpack": "Öffnen/Schließen des Rucksack Inventars",
 
-  "tag.item.c.backpacks": "Rucksack",
+  "tag.item.c.backpacks": "Rucksäcke",
   "tag.item.c.backpack.leather_ingredient": "Leder Alternativen",
   "tag.item.c.backpack.leather": "Leder Rucksack",
   "tag.item.c.backpack.copper": "Kupfer Rucksack",
@@ -12,13 +12,15 @@
   "tag.item.c.backpack.iron": "Eisen Rucksack",
   "tag.item.c.backpack.diamond": "Diamant Rucksack",
   "tag.item.c.backpack.netherite": "Netherit Rucksack",
-  "tag.item.c.backpack.ender": "End Rucksack",
+  "tag.item.c.backpack.end": "End Rucksack",
 
-  "item.resource_backpacks.backpack_leather": "Lederrucksack",
-  "item.resource_backpacks.backpack_copper": "Kupferrucksack",
-  "item.resource_backpacks.backpack_gold": "Goldrucksack",
-  "item.resource_backpacks.backpack_iron": "Eisenrucksack",
-  "item.resource_backpacks.backpack_diamond": "Diamantrucksack",
-  "item.resource_backpacks.backpack_netherite": "Netheritrucksack",
-  "item.resource_backpacks.backpack_ender": "Endrucksack"
+  "component.resource_backpacks.screen.fallback": "Rucksack",
+
+  "block.resource_backpacks.backpack_leather": "Lederrucksack",
+  "block.resource_backpacks.backpack_copper": "Kupferrucksack",
+  "block.resource_backpacks.backpack_gold": "Goldrucksack",
+  "block.resource_backpacks.backpack_iron": "Eisenrucksack",
+  "block.resource_backpacks.backpack_diamond": "Diamantrucksack",
+  "block.resource_backpacks.backpack_netherite": "Netheritrucksack",
+  "block.resource_backpacks.backpack_end": "Endrucksack"
 }

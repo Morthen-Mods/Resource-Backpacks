@@ -1,6 +1,12 @@
 package net.xstopho.resource_backpacks;
 
-import net.xstopho.resourcelibrary.service.CoreServices;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
+import net.xstopho.resource_backpacks.registries.BlockRegistry;
+import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
+import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
+import net.xstopho.resource_backpacks.screen.BackpackMenuScreen;
+import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,12 +15,25 @@ public class BackpackConstants {
     public static final String MOD_NAME = "Resource Backpacks";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
+    public static void commonInit() {
+        ConfigRegistry.register(MOD_ID, BackpackConfig.BUILDER, false);
 
-    public static final boolean ACCESSORIES = CoreServices.isModLoaded("accessories");
-    public static final boolean TRINKETS = CoreServices.isModLoaded("trinkets");
-    public static final boolean CURIOS = CoreServices.isModLoaded("curios");
+        BlockRegistry.init();
+        BlockEntityRegistry.init();
 
-    public static boolean noTrinketMod() {
-        return !(BackpackConstants.ACCESSORIES || BackpackConstants.CURIOS || BackpackConstants.TRINKETS);
+        MenuTypeRegistry.init();
+
+        CreativeTabRegistry.init();
+    }
+
+    public static void clientInit() {
+        MenuScreens.register(MenuTypeRegistry.DEFAULT_MENU.get(), BackpackMenuScreen::new);
+        MenuScreens.register(MenuTypeRegistry.LEATHER_MENU.get(), BackpackMenuScreen::new);
+        MenuScreens.register(MenuTypeRegistry.COPPER_MENU.get(), BackpackMenuScreen::new);
+        MenuScreens.register(MenuTypeRegistry.GOLD_MENU.get(), BackpackMenuScreen::new);
+        MenuScreens.register(MenuTypeRegistry.IRON_MENU.get(), BackpackMenuScreen::new);
+        MenuScreens.register(MenuTypeRegistry.DIAMOND_MENU.get(), BackpackMenuScreen::new);
+        MenuScreens.register(MenuTypeRegistry.NETHERITE_MENU.get(), BackpackMenuScreen::new);
+        MenuScreens.register(MenuTypeRegistry.END_MENU.get(), BackpackMenuScreen::new);
     }
 }

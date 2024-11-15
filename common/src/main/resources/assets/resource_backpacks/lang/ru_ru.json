@@ -1,0 +1,26 @@
+{
+  "tab.resource_backpacks": "Ресурсные рюкзаки",
+
+  "category.resource_backpacks.controls": "Ресурсные рюкзаки",
+  "key.resource_backpacks.open_backpack": "Открыть/Закрыть инвентарь рюкзака",
+
+  "tag.item.c.backpacks": "Рюкзаки",
+  "tag.item.c.backpack.leather_ingredient": "Кожаные ингредиенты",
+  "tag.item.c.backpack.leather": "Кожаный рюкзак",
+  "tag.item.c.backpack.copper": "Медный рюкзак",
+  "tag.item.c.backpack.gold": "Золотой рюкзак",
+  "tag.item.c.backpack.iron": "Железный рюкзак",
+  "tag.item.c.backpack.diamond": "Алмазный рюкзак",
+  "tag.item.c.backpack.netherite": "Незеритовый рюкзак",
+  "tag.item.c.backpack.end": "Эндер рюкзак",
+
+  "component.resource_backpacks.screen.fallback": "Рюкзаки",
+
+  "block.resource_backpacks.backpack_leather": "Кожаный рюкзак",
+  "block.resource_backpacks.backpack_copper": "Медный рюкзак",
+  "block.resource_backpacks.backpack_gold": "Золотой рюкзак",
+  "block.resource_backpacks.backpack_iron": "Железный рюкзак",
+  "block.resource_backpacks.backpack_diamond": "Алмазный рюкзак",
+  "block.resource_backpacks.backpack_netherite": "Незеритовый рюкзак",
+  "block.resource_backpacks.backpack_end": "Эндер рюкзак"
+}

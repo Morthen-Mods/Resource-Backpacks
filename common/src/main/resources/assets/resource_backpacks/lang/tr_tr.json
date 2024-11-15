@@ -1,0 +1,26 @@
+{
+  "tab.resource_backpacks": "Kaynak Sırt Çantaları",
+
+  "category.resource_backpacks.controls": "Kaynak Sırt Çantaları",
+  "key.resource_backpacks.open_backpack": "Sırt Çantası Envanterini Aç/Kapat",
+
+  "tag.item.c.backpacks": "Sırt Çantaları",
+  "tag.item.c.backpack.leather_ingredient": "Deri Malzemeleri",
+  "tag.item.c.backpack.leather": "Deri Sırt Çantası",
+  "tag.item.c.backpack.copper": "Bakır Sırt Çantası",
+  "tag.item.c.backpack.gold": "Altın Sırt Çantası",
+  "tag.item.c.backpack.iron": "Demir Sırt Çantası",
+  "tag.item.c.backpack.diamond": "Elmas Sırt Çantası",
+  "tag.item.c.backpack.netherite": "Netherit Sırt Çantası",
+  "tag.item.c.backpack.end": "Son Sırt Çantası",
+
+  "component.resource_backpacks.screen.fallback": "Sırt Çantaları",
+
+  "block.resource_backpacks.backpack_leather": "Deri Sırt Çantası",
+  "block.resource_backpacks.backpack_copper": "Bakır Sırt Çantası",
+  "block.resource_backpacks.backpack_gold": "Altın Sırt Çantası",
+  "block.resource_backpacks.backpack_iron": "Demir Sırt Çantası",
+  "block.resource_backpacks.backpack_diamond": "Elmas Sırt Çantası",
+  "block.resource_backpacks.backpack_netherite": "Netherit Sırt Çantası",
+  "block.resource_backpacks.backpack_end": "Son Sırt Çantası"
+}
