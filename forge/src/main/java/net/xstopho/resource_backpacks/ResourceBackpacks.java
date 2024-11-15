@@ -1,12 +1,24 @@
 package net.xstopho.resource_backpacks;
 
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.network.SimpleChannel;
+import net.xstopho.resource_backpacks.network.BackpackNetwork;
 
 @Mod(BackpackConstants.MOD_ID)
 public class ResourceBackpacks {
 
+    public static SimpleChannel NETWORK;
+
     public ResourceBackpacks(FMLJavaModLoadingContext context) {
+        context.getModEventBus().addListener(this::initCommon);
+
         BackpackConstants.commonInit();
+
+    }
+
+    private void initCommon(FMLCommonSetupEvent event) {
+        event.enqueueWork(BackpackNetwork::initPayloads);
     }
 }
