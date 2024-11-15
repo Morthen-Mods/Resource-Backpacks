@@ -24,21 +24,4 @@ dependencies {
     compileOnly "net.xstopho.resourcelibrary:resourcelibrary-common:${resource_library}"
 
     compileOnly "com.misterpemodder:shulkerboxtooltip-common-mojmap:${shulker_box_tooltip}+${minecraft_version}"
-    compileOnly "io.wispforest:accessories-common:${accessories}-mojmap"
-}
-
-configurations {
-    commonJava {
-        canBeResolved = false
-        canBeConsumed = true
-    }
-    commonResources {
-        canBeResolved = false
-        canBeConsumed = true
-    }
-}
-
-artifacts {
-    commonJava sourceSets.main.java.sourceDirectories.singleFile
-    commonResources sourceSets.main.resources.sourceDirectories.singleFile
 }

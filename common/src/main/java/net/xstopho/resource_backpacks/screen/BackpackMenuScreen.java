@@ -75,24 +75,24 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
     }
 
     private void renderCorner(GuiGraphics guiGraphics, int xPos, int yPos, float xOffset, float yOffset) {
-        guiGraphics.blit(RenderType::guiTextured, CORNER, xPos, yPos, xOffset, yOffset, 11, 11, 22, 22);
+        guiGraphics.blit(CORNER, xPos, yPos, xOffset, yOffset, 11, 11, 22, 22);
     }
 
     private void renderHorizontalSide(GuiGraphics guiGraphics, int xPos, int yPos, float xOffset, float yOffset, int width, int height) {
-        guiGraphics.blit(RenderType::guiTextured, SIDE_HORIZONTAL, xPos, yPos, xOffset, yOffset, width, height, 22, 22);
+        guiGraphics.blit(SIDE_HORIZONTAL, xPos, yPos, xOffset, yOffset, width, height, 22, 22);
     }
 
     private void renderVerticalSide(GuiGraphics guiGraphics, int xPos, int yPos, float xOffset, float yOffset, int width, int height) {
-        guiGraphics.blit(RenderType::guiTextured, SIDE_VERTICAL, xPos, yPos, xOffset, yOffset, width, height, 22, 22);
+        guiGraphics.blit(SIDE_VERTICAL, xPos, yPos, xOffset, yOffset, width, height, 22, 22);
     }
 
     private void renderSlots(GuiGraphics guiGraphics, int xPos, int yPos, int width, int height) {
-        guiGraphics.blit(RenderType::guiTextured, SLOT, xPos, yPos, 0f, 0f, width, height, 18, 18);
+        guiGraphics.blit(SLOT, xPos, yPos, 0f, 0f, width, height, 18, 18);
     }
 
     private void renderPlayerInventory(GuiGraphics guiGraphics, int xPos, int yPos) {
         ResourceLocation inventory = this.columns < 10 ? INVENTORY_NORMAL : INVENTORY_EXTENDED;
-        guiGraphics.blit(RenderType::guiTextured, inventory, xPos + ((getWidth() - 175) / 2), yPos + getHeight() + 8,
+        guiGraphics.blit(inventory, xPos + ((getWidth() - 175) / 2), yPos + getHeight() + 8,
                 0f, 0f, 176, 87, 176, 87);
     }
 

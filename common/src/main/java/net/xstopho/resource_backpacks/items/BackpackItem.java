@@ -2,42 +2,37 @@ package net.xstopho.resource_backpacks.items;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
-import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackInventory;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 
-public class BackpackItem extends BlockItem {
+public class BackpackItem extends BlockItem implements Equipable {
 
     private final BackpackLevel backpackLevel;
 
     public BackpackItem(Block block, BackpackLevel backpackLevel, Properties properties) {
-        super(block, properties.useBlockDescriptionPrefix()
-                .component(DataComponents.CONTAINER, ItemContainerContents.EMPTY)
-                .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST).build()));
+        super(block, properties.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
         this.backpackLevel = backpackLevel;
     }
 
     @Override
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+        ItemStack stack = player.getItemInHand(usedHand);
 
         if (!level.isClientSide) {
-            player.openMenu(getMenuProvider(player.getItemInHand(hand)));
-            return InteractionResult.SUCCESS;
+            player.openMenu(getMenuProvider(stack));
         }
 
-        return InteractionResult.PASS;
+        return InteractionResultHolder.pass(stack);
     }
 
     public MenuProvider getMenuProvider(ItemStack stack) {
@@ -63,5 +58,10 @@ public class BackpackItem extends BlockItem {
     public boolean canFitInsideContainerItems() {
         return false;
 
+    }
+
+    @Override
+    public EquipmentSlot getEquipmentSlot() {
+        return EquipmentSlot.CHEST;
     }
 }

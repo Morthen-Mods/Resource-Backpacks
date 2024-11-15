@@ -95,7 +95,7 @@ public class BackpackMenu extends AbstractContainerMenu {
         addBackpackSlots();
 
         int xPos = ((backpackLevel.getColumns() - 9) * 18) / 2;
-        this.addStandardInventorySlots(playerInventory, xPos + 8, (backpackLevel.getRows() * 18) + 31);
+        addStandardInventorySlots(playerInventory, xPos + 8, (backpackLevel.getRows() * 18) + 31);
     }
 
     private void addBackpackSlots() {
@@ -106,6 +106,29 @@ public class BackpackMenu extends AbstractContainerMenu {
                 index++;
             }
         }
+    }
+
+    protected void addStandardInventorySlots(Container playerInventory, int xPos, int yPos) {
+        addInventoryExtendedSlots(playerInventory, xPos, yPos);
+        int i = 4;
+        int j = 58;
+        addInventoryHotbarSlots(playerInventory, xPos, yPos + 58);
+    }
+
+    protected void addInventoryHotbarSlots(Container playerInventory, int xPos, int yPos) {
+        for(int i = 0; i < 9; ++i) {
+            this.addSlot(new Slot(playerInventory, i, xPos + i * 18, yPos));
+        }
+
+    }
+
+    protected void addInventoryExtendedSlots(Container playerInventory, int xPos, int yPos) {
+        for(int i = 0; i < 3; ++i) {
+            for(int j = 0; j < 9; ++j) {
+                this.addSlot(new Slot(playerInventory, j + (i + 1) * 9, xPos + j * 18, yPos + i * 18));
+            }
+        }
+
     }
 
     @Override

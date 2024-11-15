@@ -21,7 +21,7 @@ public class ModHandler {
         PackOutput packOutput = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new BackpackRecipeProvider.Runner(packOutput, provider));
+        generator.addProvider(event.includeServer(), new BackpackRecipeProvider(packOutput, provider));
         generator.addProvider(event.includeServer(), new BackpackItemTags(packOutput, provider));
     }
 }

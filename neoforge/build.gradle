@@ -10,8 +10,6 @@ dependencies {
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
 
     implementation "com.misterpemodder:shulkerboxtooltip-neoforge:${shulker_box_tooltip}+${minecraft_version}"
-    implementation "top.theillusivec4.curios:curios-neoforge:${curios_api}"
-    compileOnly "io.wispforest:accessories-neoforge:${accessories}"
 
     // Runtime Mods
     runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
@@ -32,7 +30,7 @@ neoForge {
         configureEach {
             systemProperty('neoforge.enableGameTestNamespaces', mod_id)
             ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
-            gameDirectory = project.file("runs/${it.name.toLowerCase()}")
+            gameDirectory = file("../common/runs/${it.name.toLowerCase()}")
         }
         client {
             client()

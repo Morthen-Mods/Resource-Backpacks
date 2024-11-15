@@ -12,29 +12,29 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resourcelibrary.registration.RegistryObject;
-import net.xstopho.resourcelibrary.util.TagUtil;
+import net.xstopho.resourcelibrary.util.TagHelper;
 
 import java.util.concurrent.CompletableFuture;
 
 public class BackpackItemTags extends TagsProvider<Item> {
 
-    public static final TagKey<Item> BACKPACKS = TagUtil.createItemTag("backpacks");
+    public static final TagKey<Item> BACKPACKS = TagHelper.createItemTag("backpacks");
 
-    public static final TagKey<Item> BACKPACK_LEATHER_INGREDIENT = TagUtil.createItemTag("backpack/leather_ingredient");
+    public static final TagKey<Item> BACKPACK_LEATHER_INGREDIENT = TagHelper.createItemTag("backpack/leather_ingredient");
 
-    public static final TagKey<Item> BACKPACK_LEATHER = TagUtil.createItemTag("backpack/leather");
-    public static final TagKey<Item> BACKPACK_COPPER = TagUtil.createItemTag("backpack/copper");
-    public static final TagKey<Item> BACKPACK_GOLD = TagUtil.createItemTag("backpack/gold");
-    public static final TagKey<Item> BACKPACK_IRON = TagUtil.createItemTag("backpack/iron");
-    public static final TagKey<Item> BACKPACK_DIAMOND = TagUtil.createItemTag("backpack/diamond");
-    public static final TagKey<Item> BACKPACK_NETHERITE = TagUtil.createItemTag("backpack/netherite");
-    public static final TagKey<Item> BACKPACK_END = TagUtil.createItemTag("backpack/end");
+    public static final TagKey<Item> BACKPACK_LEATHER = TagHelper.createItemTag("backpack/leather");
+    public static final TagKey<Item> BACKPACK_COPPER = TagHelper.createItemTag("backpack/copper");
+    public static final TagKey<Item> BACKPACK_GOLD = TagHelper.createItemTag("backpack/gold");
+    public static final TagKey<Item> BACKPACK_IRON = TagHelper.createItemTag("backpack/iron");
+    public static final TagKey<Item> BACKPACK_DIAMOND = TagHelper.createItemTag("backpack/diamond");
+    public static final TagKey<Item> BACKPACK_NETHERITE = TagHelper.createItemTag("backpack/netherite");
+    public static final TagKey<Item> BACKPACK_END = TagHelper.createItemTag("backpack/end");
 
-    public static final TagKey<Item> COPPER_INGOTS = TagUtil.createItemTag("copper_ingots");
-    public static final TagKey<Item> GOLD_INGOTS = TagUtil.createItemTag("gold_ingots");
-    public static final TagKey<Item> IRON_INGOTS = TagUtil.createItemTag("iron_ingots");
-    public static final TagKey<Item> NETHERITE_INGOTS = TagUtil.createItemTag("netherite_ingots");
-    public static final TagKey<Item> DIAMONDS = TagUtil.createItemTag("diamonds");
+    public static final TagKey<Item> COPPER_INGOTS = TagHelper.createItemTag("copper_ingots");
+    public static final TagKey<Item> GOLD_INGOTS = TagHelper.createItemTag("gold_ingots");
+    public static final TagKey<Item> IRON_INGOTS = TagHelper.createItemTag("iron_ingots");
+    public static final TagKey<Item> NETHERITE_INGOTS = TagHelper.createItemTag("netherite_ingots");
+    public static final TagKey<Item> DIAMONDS = TagHelper.createItemTag("diamonds");
 
     public BackpackItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, Registries.ITEM, lookupProvider);

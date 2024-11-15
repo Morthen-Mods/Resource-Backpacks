@@ -11,7 +11,7 @@ public class ResourceBackpacksDatagen implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
-        pack.addProvider(BackpackRecipeProvider.Runner::new);
+        pack.addProvider(BackpackRecipeProvider::new);
         pack.addProvider(BackpackItemTags::new);
     }
 }

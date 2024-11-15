@@ -54,7 +54,7 @@ public class BackpackPreviewProvider implements PreviewProvider {
     }
 
     @Override
-    public int getCompactMaxRowSize(PreviewContext context) {
+    public int getMaxRowSize(PreviewContext context) {
         return ((BackpackItem) context.stack().getItem()).getBackpackLevel().getColumns();
     }
 

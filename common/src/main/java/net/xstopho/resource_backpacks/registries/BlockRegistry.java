@@ -19,10 +19,8 @@ import java.util.function.Function;
 
 public class BlockRegistry {
 
-    private static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.BLOCK);
-    private static final RegistryProvider<Item> ITEMS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.ITEM);
-
-    // TODO: add all Backpacks
+    private static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(Registries.BLOCK, BackpackConstants.MOD_ID);
+    private static final RegistryProvider<Item> ITEMS = RegistryProvider.get(Registries.ITEM, BackpackConstants.MOD_ID);
 
     public static final RegistryObject<Block> BACKPACK_TEST = registerBlock("backpack_test", BackpackLevel.DEFAULT);
     public static final RegistryObject<Block> BACKPACK_LEATHER = registerBlock("backpack_leather", BackpackLevel.LEATHER);
@@ -44,7 +42,7 @@ public class BlockRegistry {
     private static RegistryObject<Block> registerBlock(String id, Function<BlockBehaviour.Properties, Block> function, BackpackLevel level, BlockBehaviour.Properties blockBehavior) {
         ResourceKey<Block> blockId = createBlockId(id);
 
-        RegistryObject<Block> block = BLOCKS.register(id, () -> function.apply(blockBehavior.setId(blockId)));
+        RegistryObject<Block> block = BLOCKS.register(id, () -> function.apply(blockBehavior));
 
         Item.Properties itemProperties = level == BackpackLevel.NETHERITE ? new Item.Properties().fireResistant() : new Item.Properties();
         registerItem(id, properties -> new BackpackItem(block.get(), level, properties), itemProperties);
@@ -54,7 +52,7 @@ public class BlockRegistry {
 
     private static void registerItem(String id, Function<Item.Properties, Item> function, Item.Properties properties) {
         ResourceKey<Item> itemId = createItemId(id);
-        ITEMS.register(id, () -> function.apply(properties.setId(itemId).stacksTo(1)));
+        ITEMS.register(id, () -> function.apply(properties.stacksTo(1)));
     }
 
     private static ResourceKey<Block> createBlockId(String id) {
