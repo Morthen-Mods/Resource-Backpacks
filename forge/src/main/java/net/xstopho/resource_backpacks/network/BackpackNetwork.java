@@ -7,15 +7,18 @@ import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.SimpleChannel;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.ResourceBackpacks;
-import net.xstopho.resource_backpacks.network.packets.OpenBackpackPacket;
 
 public class BackpackNetwork {
 
-    public static SimpleChannel setupPackets() {
-        SimpleChannel channel = ChannelBuilder.named(of("network")).acceptedVersions(Channel.VersionTest.exact(1)).networkProtocolVersion(1).simpleChannel();
+    public static SimpleChannel initPayloads() {
+        SimpleChannel channel = ChannelBuilder.named(of("backpack_network")).acceptedVersions(Channel.VersionTest.exact(1)).networkProtocolVersion(1).simpleChannel();
         ResourceBackpacks.NETWORK = channel;
 
-        channel.messageBuilder(OpenBackpackPacket.class, 0, NetworkDirection.PLAY_TO_SERVER).decoder(OpenBackpackPacket::decode).encoder(OpenBackpackPacket::encode).consumerNetworkThread(OpenBackpackPacket::handle).add();
+        channel.messageBuilder(OpenBackpackPayload.class, 0, NetworkDirection.PLAY_TO_SERVER)
+                .decoder(OpenBackpackPayload::decode)
+                .encoder(OpenBackpackPayload::encode)
+                .consumerNetworkThread(OpenBackpackPayload::apply)
+                .add();
 
         return channel;
     }

@@ -1,0 +1,26 @@
+{
+  "tab.resource_backpacks": "Mochilas de Recursos",
+
+  "category.resource_backpacks.controls": "Mochilas de Recursos",
+  "key.resource_backpacks.open_backpack": "Abrir/Fechar Inventário da Mochila",
+
+  "tag.item.c.backpacks": "Mochilas",
+  "tag.item.c.backpack.leather_ingredient": "Ingredientes de Couro",
+  "tag.item.c.backpack.leather": "Mochila de Couro",
+  "tag.item.c.backpack.copper": "Mochila de Cobre",
+  "tag.item.c.backpack.gold": "Mochila de Ouro",
+  "tag.item.c.backpack.iron": "Mochila de Ferro",
+  "tag.item.c.backpack.diamond": "Mochila de Diamante",
+  "tag.item.c.backpack.netherite": "Mochila de Netherita",
+  "tag.item.c.backpack.end": "Mochila do Fim",
+
+  "component.resource_backpacks.screen.fallback": "Mochilas",
+
+  "block.resource_backpacks.backpack_leather": "Mochila de Couro",
+  "block.resource_backpacks.backpack_copper": "Mochila de Cobre",
+  "block.resource_backpacks.backpack_gold": "Mochila de Ouro",
+  "block.resource_backpacks.backpack_iron": "Mochila de Ferro",
+  "block.resource_backpacks.backpack_diamond": "Mochila de Diamante",
+  "block.resource_backpacks.backpack_netherite": "Mochila de Netherita",
+  "block.resource_backpacks.backpack_end": "Mochila do Fim"
+}

@@ -10,19 +10,20 @@ import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
 public class CreativeTabRegistry {
 
-    private static final RegistryProvider<CreativeModeTab> CREATIVE_TABS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.CREATIVE_MODE_TAB);
+    private static final RegistryProvider<CreativeModeTab> CREATIVE_TAB = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.CREATIVE_MODE_TAB);
 
-    public static final RegistryObject<CreativeModeTab> RESOURCE_BACKPACKS = CREATIVE_TABS.register("item_group",
-            () -> CreativeModeTab.builder(null, -1).title(Component.translatable("item_group.resource_backpacks"))
-                    .icon(() -> new ItemStack(ItemRegistry.BACKPACK_NETHERITE.get())).displayItems((itemDisplayParameters, output) -> {
+    public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TAB.register("backpack_tab",
+            () -> CreativeModeTab.builder(null, -1).title(Component.translatable("tab.resource_backpacks"))
+                    .icon(() -> new ItemStack(BlockRegistry.BACKPACK_LEATHER.get()))
+                    .displayItems((itemDisplayParameters, output) -> {
 
-                        output.accept(ItemRegistry.BACKPACK_LEATHER.get());
-                        output.accept(ItemRegistry.BACKPACK_COPPER.get());
-                        output.accept(ItemRegistry.BACKPACK_GOLD.get());
-                        output.accept(ItemRegistry.BACKPACK_IRON.get());
-                        output.accept(ItemRegistry.BACKPACK_DIAMOND.get());
-                        output.accept(ItemRegistry.BACKPACK_NETHERITE.get());
-                        output.accept(ItemRegistry.BACKPACK_ENDER.get());
+                        output.accept(BlockRegistry.BACKPACK_LEATHER.get());
+                        output.accept(BlockRegistry.BACKPACK_COPPER.get());
+                        output.accept(BlockRegistry.BACKPACK_GOLD.get());
+                        output.accept(BlockRegistry.BACKPACK_IRON.get());
+                        output.accept(BlockRegistry.BACKPACK_DIAMOND.get());
+                        output.accept(BlockRegistry.BACKPACK_NETHERITE.get());
+                        output.accept(BlockRegistry.BACKPACK_END.get());
 
                     }).build());
 

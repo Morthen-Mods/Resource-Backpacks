@@ -5,7 +5,7 @@ import org.lwjgl.glfw.GLFW;
 
 public class KeyMappingRegistry {
 
-    private static final String KEYMAPPING_CATEGORY = "category.resource_backpacks.controls";
+    private static final String CATEGORY = "category.resource_backpacks.controls";
 
-    public static final KeyMapping OPEN_BACKPACK = new KeyMapping("key.resource_backpacks.open_backpack", GLFW.GLFW_KEY_B, KEYMAPPING_CATEGORY);
+    public static final KeyMapping OPEN_BACKPACK = new KeyMapping("key.resource_backpacks.open_backpack", GLFW.GLFW_KEY_B, CATEGORY);
 }

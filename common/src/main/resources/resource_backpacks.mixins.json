@@ -3,12 +3,10 @@
     "minVersion": "0.8",
     "package": "net.xstopho.resource_backpacks.mixin",
     "refmap": "${mod_id}.refmap.json",
-    "compatibilityLevel": "JAVA_17",
+    "compatibilityLevel": "JAVA_21",
     "mixins": [
-        "recipe.ShapedRecipeMixin",
-        "recipe.ShapedRecipeAccessor",
-        "smithing.SmithingTransformRecipeMixin",
-        "smithing.SmithingTransformRecipeAccessor"
+        "common.ShapedRecipeAccessor",
+        "common.ShapedRecipeMixin"
     ],
     "client": [
         "client.PlayerRendererMixin"

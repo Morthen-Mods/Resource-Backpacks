@@ -17,11 +17,17 @@ dependencies {
     modImplementation "com.misterpemodder:shulkerboxtooltip-fabric:${shulker_box_tooltip}+${minecraft_version}"
 
     // Runtime Mods
+    modRuntimeOnly "maven.modrinth:dark-loading-screen:${dark_loading_screen}"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei}"
     modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
+    modRuntimeOnly "maven.modrinth:jade:${jade}+fabric"
     //modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
 }
 
 loom {
+    def aw = file("src/main/resources/resource_backpacks.accesswidener")
+    if (aw.exists()) accessWidenerPath.set(aw)
+
     mixin {
         defaultRefmapName.set("${mod_id}.refmap.json")
     }
