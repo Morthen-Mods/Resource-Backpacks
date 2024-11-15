@@ -47,7 +47,7 @@ loom {
             inherit server
             name "Fabric Datagen"
             vmArg "-Dfabric-api.datagen"
-            vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated")}"
             vmArg "-Dfabric-api.datagen.modid=${mod_id}"
 
             runDir "build/datagen"
