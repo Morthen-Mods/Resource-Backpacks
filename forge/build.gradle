@@ -10,6 +10,8 @@ dependencies {
 
     implementation("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}") { transitive = false }
     implementation("net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}") { transitive = false }
+
+    compileOnly "com.misterpemodder:shulkerboxtooltip-forge:${shulker_box_tooltip}+${minecraft_version}"
 }
 
 mixin {
