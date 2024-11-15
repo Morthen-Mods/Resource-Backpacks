@@ -10,7 +10,7 @@ dependencies {
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
 
     // Runtime Mods
-    runtimeOnly "maven.modrinth:clientsort:${client_sort}-neoforge"
+    // runtimeOnly "maven.modrinth:clientsort:${client_sort}-neoforge"
     runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei}"
     runtimeOnly "maven.modrinth:jade:${jade}+neoforge"
     //runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
@@ -18,6 +18,9 @@ dependencies {
 
 neoForge {
     version = neoforge_version
+
+    def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) accessTransformers = [at]
 
     parchment {
         minecraftVersion = '1.21'

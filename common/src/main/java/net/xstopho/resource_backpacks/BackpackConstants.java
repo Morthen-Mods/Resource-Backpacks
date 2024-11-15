@@ -36,8 +36,4 @@ public class BackpackConstants {
         MenuScreens.register(MenuTypeRegistry.NETHERITE_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.END_MENU.get(), BackpackMenuScreen::new);
     }
-
-    public static void serverInit() {
-
-    }
 }
