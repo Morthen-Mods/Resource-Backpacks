@@ -1,0 +1,26 @@
+{
+  "tab.resource_backpacks": "资源背包",
+
+  "category.resource_backpacks.controls": "资源背包",
+  "key.resource_backpacks.open_backpack": "打开/关闭背包库存",
+
+  "tag.item.c.backpacks": "背包",
+  "tag.item.c.backpack.leather_ingredient": "皮革成分",
+  "tag.item.c.backpack.leather": "皮革背包",
+  "tag.item.c.backpack.copper": "铜背包",
+  "tag.item.c.backpack.gold": "金背包",
+  "tag.item.c.backpack.iron": "铁背包",
+  "tag.item.c.backpack.diamond": "钻石背包",
+  "tag.item.c.backpack.netherite": "下界合金背包",
+  "tag.item.c.backpack.end": "末地背包",
+
+  "component.resource_backpacks.screen.fallback": "背包",
+
+  "block.resource_backpacks.backpack_leather": "皮革背包",
+  "block.resource_backpacks.backpack_copper": "铜背包",
+  "block.resource_backpacks.backpack_gold": "金背包",
+  "block.resource_backpacks.backpack_iron": "铁背包",
+  "block.resource_backpacks.backpack_diamond": "钻石背包",
+  "block.resource_backpacks.backpack_netherite": "下界合金背包",
+  "block.resource_backpacks.backpack_end": "末地背包"
+}
