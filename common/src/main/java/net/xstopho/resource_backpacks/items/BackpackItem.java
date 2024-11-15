@@ -31,7 +31,6 @@ public class BackpackItem extends BlockItem {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        BackpackInventory backpackInventory = new BackpackInventory(player.getItemInHand(hand), backpackLevel.getSize());
 
         if (!level.isClientSide) {
             player.openMenu(getMenuProvider(player.getItemInHand(hand)));

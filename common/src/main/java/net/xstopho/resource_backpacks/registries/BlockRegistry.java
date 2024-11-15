@@ -7,7 +7,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.blocks.BackpackBlock;
 import net.xstopho.resource_backpacks.items.BackpackItem;
@@ -35,7 +37,10 @@ public class BlockRegistry {
 
 
     private static RegistryObject<Block> registerBlock(String id, BackpackLevel level) {
-        BlockBehaviour.Properties blockBehaviour = BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT);
+        BlockBehaviour.Properties blockBehaviour = BlockBehaviour.Properties.of()
+                .mapColor(MapColor.COLOR_ORANGE).strength(0.5f).sound(SoundType.WOOL);
+
+        blockBehaviour = level.equals(BackpackLevel.NETHERITE) ? blockBehaviour.explosionResistance(1200f) : blockBehaviour;
 
         return registerBlock(id, properties -> new BackpackBlock(properties, level), level, blockBehaviour);
     }
