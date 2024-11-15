@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.xstopho.resource_backpacks.BackpackConfig;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackInventory;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
@@ -31,7 +32,7 @@ public class BackpackItem extends BlockItem implements Equipable {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide && BackpackConfig.OPEN_FROM_INVENTORY.get()) {
             player.openMenu(getMenuProvider(stack));
         }
 

@@ -8,6 +8,8 @@ public class BackpackConfig {
 
     public static final ResourceConfigBuilder BUILDER = new ResourceConfigBuilder();
 
+    public static final Supplier<Boolean> OPEN_FROM_INVENTORY;
+
     public static final Supplier<Integer> LEATHER_ROWS, LEATHER_COLUMNS,
                                         COPPER_ROWS, COPPER_COLUMNS,
                                         GOLD_ROWS, GOLD_COLUMNS,
@@ -16,7 +18,12 @@ public class BackpackConfig {
                                         NETHERITE_ROWS, NETHERITE_COLUMNS;
 
     static {
-        BUILDER.push("Leather Backpack");
+        BUILDER.push("General");
+        OPEN_FROM_INVENTORY = BUILDER.sync().comment("Enable the ability to open Backpacks from inventory.")
+                        .comment("When disabled, backpacks has to be placed like Shulker Boxes.")
+                        .define("open_from_inventory", false);
+
+        BUILDER.pop().push("Leather Backpack");
         LEATHER_ROWS = BUILDER.sync().defineInRange("rows", 1, 1, 2);
         LEATHER_COLUMNS = BUILDER.sync().defineInRange("columns", 9, 9, 11);
 
