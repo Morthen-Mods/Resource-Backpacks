@@ -18,7 +18,6 @@ dependencies {
 
     // Runtime Mods
     modRuntimeOnly "maven.modrinth:dark-loading-screen:${dark_loading_screen}"
-    modRuntimeOnly "maven.modrinth:clientsort:${client_sort}-fabric"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei}"
     modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
     modRuntimeOnly "maven.modrinth:jade:${jade}+fabric"

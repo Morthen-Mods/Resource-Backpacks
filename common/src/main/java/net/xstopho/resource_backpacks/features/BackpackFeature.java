@@ -25,11 +25,13 @@ public class BackpackFeature extends RenderLayer<PlayerRenderState, PlayerModel>
         if (chest.getItem() instanceof BackpackItem) {
             poseStack.pushPose();
             poseStack.mulPose(Axis.XP.rotationDegrees(180));
-            poseStack.translate(0, -0.35, -0.22);
+            poseStack.scale(1.25f, 1.25f, 1.25f);
+
+            poseStack.translate(0, -0.325, -0.19);
 
             if (player.isCrouching) {
                 poseStack.mulPose(Axis.XP.rotationDegrees(29));
-                poseStack.translate(0, -0.12, -0.095);
+                poseStack.translate(0, -0.1, -0.095);
             }
 
             Minecraft.getInstance().getItemRenderer().renderStatic(chest, ItemDisplayContext.GROUND, light, OverlayTexture.NO_OVERLAY, poseStack, multiBufferSource, Minecraft.getInstance().level, 0);

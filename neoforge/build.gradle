@@ -12,7 +12,6 @@ dependencies {
     implementation "com.misterpemodder:shulkerboxtooltip-neoforge:${shulker_box_tooltip}+${minecraft_version}"
 
     // Runtime Mods
-    runtimeOnly "maven.modrinth:clientsort:${client_sort}-neoforge"
     runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei}"
     runtimeOnly "maven.modrinth:jade:${jade}+neoforge"
     //runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
@@ -44,7 +43,7 @@ neoForge {
         }
         data {
             data()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources').getAbsolutePath()
         }
     }
     mods {
