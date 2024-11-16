@@ -27,8 +27,8 @@ This is a balancing choice, so that players have to make a sacrifice for more In
 
 
 ### Current Backpack Models
-<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/backpack_preview.gif" width="250">
-<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/player_preview.gif" width="280">
+<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/backpack_preview.gif" width="240">
+<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/player_preview.gif" width="260">
 
 ### License and Modpack Info
 This Mod is Licensed under the MIT License.<br>
