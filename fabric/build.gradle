@@ -62,10 +62,8 @@ publishMods {
 
     modrinth {
         requires('fabric-api')
-        optional('trinkets')
     }
     curseforge {
         requires('fabric-api')
-        optional('trinkets')
     }
 }

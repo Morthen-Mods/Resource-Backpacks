@@ -52,7 +52,4 @@ neoForge {
 publishMods {
     file = jar.archiveFile
     modLoaders.add("neoforge")
-
-    modrinth { optional('curios-continuation') }
-    curseforge { optional('curios-continuation') }
 }
