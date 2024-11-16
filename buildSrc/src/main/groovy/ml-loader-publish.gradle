@@ -17,7 +17,6 @@ publishMods {
 
         requires('resource-library')
         requires('resource-config-api')
-        optional('accessories')
     }
     curseforge {
         accessToken = CURSEFORGE_API_KEY
@@ -29,7 +28,6 @@ publishMods {
 
         requires('resource-library')
         requires('resource-config-api')
-        optional('accessories')
 
         javaVersions.add(JavaVersion.VERSION_21)
     }
