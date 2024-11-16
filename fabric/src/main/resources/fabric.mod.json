@@ -10,14 +10,14 @@
         "issues": "https://github.com/Stein-N/Resource-Backpacks/issues"
     },
     "license": "${mod_license}",
-    "icon": "icon.png",
+    "icon": "logo.png",
     "environment": "*",
     "accessWidener" : "${mod_id}.accesswidener",
     "entrypoints": {
         "main": [ "net.xstopho.resource_backpacks.ResourceBackpacks" ],
         "client": [ "net.xstopho.resource_backpacks.ResourceBackpacksClient" ],
         "fabric-datagen": [ "net.xstopho.resource_backpacks.ResourceBackpacksDatagen" ],
-        "shulkerboxtooltip": [ "net.xstopho.resource_backpacks.compat.shulkerboxtooltip.BackpackTooltipPlugin" ]
+        "shulkerboxtooltip": [ "net.xstopho.resource_backpacks.compat.BackpackTooltipPlugin" ]
     },
     "mixins": [ "${mod_id}.mixins.json" ],
     "depends": {
