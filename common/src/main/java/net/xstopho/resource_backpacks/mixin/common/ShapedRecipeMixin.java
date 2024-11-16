@@ -29,7 +29,6 @@ public abstract class ShapedRecipeMixin {
                 ItemContainerContents container = backpack.get(DataComponents.CONTAINER);
 
                 if (container != null) {
-                    BackpackConstants.LOG.error("Empty Container: {}", emptyContainer(container));
                     if (backpackItem.getBackpackLevel().equals(BackpackLevel.END) && !emptyContainer(container)) {
                         cir.setReturnValue(new ItemStack(Items.AIR));
                     } else {
