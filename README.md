@@ -2,7 +2,7 @@
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/t8iyhYu7?logo=modrinth&label=Downloads&color=%2300AF5C)
 
 <img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/title_header.png">
-<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/area_render.png">
+<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/area_render.png" style="display: block; margin: 0 auto;">
 
 ## Yet another Backpack mod for Fabric, NeoForge and Forge, to get more Inventory space.
 ___
