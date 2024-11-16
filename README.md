@@ -2,7 +2,7 @@
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/t8iyhYu7?logo=modrinth&label=Downloads&color=%2300AF5C)
 
 <img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/title_header.png">
-<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/area_render.png" style="display: block; margin: 0 auto;">
+<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/area_render.png" width="1000">
 
 ## Yet another Backpack mod for Fabric, NeoForge and Forge, to get more Inventory space.
 ___
@@ -27,8 +27,8 @@ This is a balancing choice, so that players have to make a sacrifice for more In
 
 
 ### Current Backpack Models
-<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/backpack_preview.gif" width="200">
-<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/player_preview.gif" width="220">
+<img style="float: left" src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/backpack_preview.gif" width="200">
+<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/player_preview.gif" width="240">
 
 ### License and Modpack Info
 This Mod is Licensed under the MIT License.<br>
