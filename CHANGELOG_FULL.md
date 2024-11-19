@@ -1,3 +1,7 @@
+#### v0.9.1-BETA
+- Fixing an issue where Backpacks disappear when hit by flowing Water or placed underwater
+- remove test backpack from registry
+
 #### v0.9.0-BETA
 - complete internal rework
 - Backpacks now can be placed as Blocks
@@ -10,7 +14,6 @@
   - Backpacks can further be opened with the right-click(has to be enabled in the ``config``)
 - compatibility with Accessories, Curios and Trinket is removed and will not be added back
   - This is a balancing choice to have some costs for more inventory space
-
 
 #### v0.7.7-BETA
 - update to 1.21.3
