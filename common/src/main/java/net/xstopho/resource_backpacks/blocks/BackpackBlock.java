@@ -101,9 +101,11 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
+        FluidState fluidState = context.getLevel().getFluidState(context.getClickedPos());
+
         return defaultBlockState()
                 .setValue(BlockStateProperties.HORIZONTAL_FACING, context.getHorizontalDirection().getOpposite())
-                .setValue(BlockStateProperties.WATERLOGGED, false);
+                .setValue(BlockStateProperties.WATERLOGGED, fluidState.is(Fluids.WATER));
     }
 
     @Override
