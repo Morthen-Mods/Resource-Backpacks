@@ -24,7 +24,6 @@ public class BlockRegistry {
     private static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.BLOCK);
     private static final RegistryProvider<Item> ITEMS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.ITEM);
 
-    public static final RegistryObject<Block> BACKPACK_TEST = registerBlock("backpack_test", BackpackLevel.DEFAULT);
     public static final RegistryObject<Block> BACKPACK_LEATHER = registerBlock("backpack_leather", BackpackLevel.LEATHER);
     public static final RegistryObject<Block> BACKPACK_COPPER = registerBlock("backpack_copper", BackpackLevel.COPPER);
     public static final RegistryObject<Block> BACKPACK_GOLD = registerBlock("backpack_gold", BackpackLevel.GOLD);
