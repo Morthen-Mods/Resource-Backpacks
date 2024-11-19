@@ -43,6 +43,11 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
     }
 
     @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction side) {
+        return true;
+    }
+
+    @Override
     public @NotNull NonNullList<ItemStack> getItems() {
         return this.items;
     }
