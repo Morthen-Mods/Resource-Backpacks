@@ -1,4 +1,5 @@
-#### v0.9.2-BETA
-- fixing an issue where Backpacks disappear when hit by flowing Water or placed underwater
-- remove test backpack from registry
-- Backpacks can be filled by a hopper from any side
+#### v0.9.3-BETA
+- fix issue where Backpacks are invisible when placed on an Armorstand
+- add a Config Option to 'unlock' the Slots of End Backpacks, 
+  so that Backpacks and ShulkerBoxes can be placed and picked up
+  - is disabled by default
