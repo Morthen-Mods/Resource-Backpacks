@@ -13,6 +13,7 @@ dependencies {
 
     // Runtime Mods
     runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
+    runtimeOnly "maven.modrinth:jade:${jade}+neoforge"
 }
 
 neoForge {
