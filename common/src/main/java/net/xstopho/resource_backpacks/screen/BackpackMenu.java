@@ -8,6 +8,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.xstopho.resource_backpacks.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 
@@ -162,7 +163,8 @@ public class BackpackMenu extends AbstractContainerMenu {
         }
 
         public boolean canMoveStack(ItemStack stack) {
-            return stack.getItem().canFitInsideContainerItems();
+            return BackpackConfig.TAKE_CONTAINER_ITEMS_FROM_END_BACKPACK.get()
+                    || stack.getItem().canFitInsideContainerItems();
 
         }
     }
