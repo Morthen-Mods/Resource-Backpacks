@@ -1,7 +1,6 @@
 package net.xstopho.resource_backpacks.entities;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -35,16 +34,6 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
         this(pos, state);
         this.backpackLevel = backpackLevel;
         this.items = NonNullList.withSize(backpackLevel.getSize(), ItemStack.EMPTY);
-    }
-
-    @Override
-    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
-        return true;
-    }
-
-    @Override
-    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction side) {
-        return true;
     }
 
     @Override

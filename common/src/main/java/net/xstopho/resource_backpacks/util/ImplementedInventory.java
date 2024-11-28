@@ -12,10 +12,6 @@ public interface ImplementedInventory extends WorldlyContainer {
 
     NonNullList<ItemStack> getItems();
 
-    static ImplementedInventory of(NonNullList<ItemStack> items) {
-        return () -> items;
-    }
-
     default int @NotNull [] getSlotsForFace(@NotNull Direction side) {
         int size = this.getItems().size();
         int[] result = new int[size];
@@ -28,15 +24,18 @@ public interface ImplementedInventory extends WorldlyContainer {
     }
 
     default boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction side) {
-        return false;
+        return true;
+
     }
 
     default boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
-        return false;
+        return true;
+
     }
 
     default int getContainerSize() {
         return this.getItems().size();
+
     }
 
     default boolean isEmpty() {
@@ -50,6 +49,7 @@ public interface ImplementedInventory extends WorldlyContainer {
 
     default @NotNull ItemStack getItem(int slot) {
         return this.getItems().get(slot);
+
     }
 
     default @NotNull ItemStack removeItem(int slot, int count) {
@@ -73,11 +73,13 @@ public interface ImplementedInventory extends WorldlyContainer {
 
     default void clearContent() {
         this.getItems().clear();
+
     }
 
     default void setChanged() {}
 
     default boolean stillValid(@NotNull Player player) {
         return true;
+
     }
 }
