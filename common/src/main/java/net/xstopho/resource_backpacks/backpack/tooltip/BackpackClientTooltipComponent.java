@@ -2,7 +2,6 @@ package net.xstopho.resource_backpacks.backpack.tooltip;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.NonNullList;
@@ -10,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
+import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 import net.xstopho.resource_backpacks.util.ItemContainerInterface;
 
@@ -22,8 +22,8 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
     //TODO: Add small outline to slots
     // - eventually colorized slot texture for every backpack level
     // - add proper translation
-    // - add customizable KeyBinds?
-    // -
+    // - add customizable KeyBinds -> finalize it with proper translation
+    // - add TooltipComponent to forge and neoforge
 
     private final ResourceLocation SLOT = ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, "textures/gui/container/slot.png");
     private final List<StackHolder> compactedItems;
@@ -38,7 +38,7 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
     @Override
     public int getHeight(Font font) {
-        if (Screen.hasAltDown()) {
+        if (this.hasKeyDown()) {
             return level.getRows() * 18;
         }
         return (int) Math.ceil((double) compactedItems.size() / 10) * 18;
@@ -46,7 +46,7 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
     @Override
     public int getWidth(Font font) {
-        if (Screen.hasAltDown()) {
+        if (this.hasKeyDown()) {
             return level.getColumns() * 18;
         }
         return compactedItems.size() < 10 ? compactedItems.size() * 18 : 180;
@@ -54,34 +54,31 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
     @Override
     public void renderImage(Font font, int x, int y, int width, int height, GuiGraphics guiGraphics) {
-        if (Screen.hasAltDown()) renderInventory(font, x, y, guiGraphics);
-        else renderCompactInventory(font, x, y, guiGraphics);
+        renderSlots(font, x, y, guiGraphics);
+        renderPreview(font, x, y, guiGraphics);
     }
 
-    private void renderCompactInventory(Font font, int x, int y, GuiGraphics guiGraphics) {
-        guiGraphics.blit(RenderType::guiTextured, SLOT, x, y, 0f, 0f, getWidth(font), getHeight(font), 18, 18);
+    private void renderPreview(Font font, int x, int y, GuiGraphics guiGraphics) {
         int xOffset = 0;
         int yOffset = 0;
-        for (StackHolder holder : compactedItems) {
-            renderDecoratedItem(font, holder.getStack(), holder.getCount(), x + xOffset + 1, y + yOffset + 1, guiGraphics);
-            xOffset += 18;
-            if (xOffset == getWidth(font)) {
-                xOffset = 0;
-                yOffset += 18;
+
+        if (this.hasKeyDown()) {
+            for (ItemStack stack : items) {
+                renderDecoratedItem(font, stack, stack.getCount(), x + xOffset + 1, y + yOffset + 1, guiGraphics);
+                xOffset += 18;
+                if (xOffset == getWidth(font)) {
+                    xOffset = 0;
+                    yOffset += 18;
+                }
             }
-        }
-    }
-
-    private void renderInventory(Font font, int x, int y, GuiGraphics guiGraphics) {
-        guiGraphics.blit(RenderType::guiTextured, SLOT, x, y, 0f, 0f, getWidth(font), getHeight(font), 18, 18);
-        int xOffset = 0;
-        int yOffset = 0;
-        for (ItemStack stack : items) {
-            renderDecoratedItem(font, stack, stack.getCount(), x + xOffset + 1, y + yOffset + 1, guiGraphics);
-            xOffset += 18;
-            if (xOffset == getWidth(font)) {
-                xOffset = 0;
-                yOffset += 18;
+        } else {
+            for (StackHolder holder : compactedItems) {
+                renderDecoratedItem(font, holder.getStack(), holder.getCount(), x + xOffset + 1, y + yOffset + 1, guiGraphics);
+                xOffset += 18;
+                if (xOffset == getWidth(font)) {
+                    xOffset = 0;
+                    yOffset += 18;
+                }
             }
         }
     }
@@ -104,6 +101,12 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
         holderList.sort(Comparator.comparingInt(StackHolder::getCount));
 
         return holderList.reversed();
+    }
+
+
+
+    private void renderSlots(Font font, int x, int y, GuiGraphics guiGraphics) {
+        guiGraphics.blit(RenderType::guiTextured, SLOT, x, y, 0f, 0f, getWidth(font), getHeight(font), 18, 18);
     }
 
     private void renderDecoratedItem(Font font, ItemStack stack, int count, int x, int y, GuiGraphics guiGraphics) {
@@ -133,6 +136,10 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
             guiGraphics.drawString(font, countText, x + 17 - font.width(countText), y + 9, -1, true);
             guiGraphics.pose().popPose();
         }
+    }
+
+    private boolean hasKeyDown() {
+        return BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
     }
 
     private static class StackHolder {
