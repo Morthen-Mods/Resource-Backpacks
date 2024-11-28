@@ -14,6 +14,8 @@ import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 public class ResourceBackpacksClient implements ClientModInitializer {
 
     private final KeyMapping openBackpack = KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.OPEN_BACKPACK);
+    private final KeyMapping showCompactPreview = KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
+    private final KeyMapping showInventoryPreview = KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
 
     @Override
     public void onInitializeClient() {
