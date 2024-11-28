@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.items.BackpackItem;
+import net.xstopho.resource_backpacks.backpack.BackpackItem;
 
 public record OpenBackpackPayload(int id) implements CustomPacketPayload {
     public static final CustomPacketPayload.Type<OpenBackpackPayload> PACKET_TYPE = new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, "open_backpack_payload"));

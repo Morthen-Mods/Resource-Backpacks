@@ -3,7 +3,7 @@ package net.xstopho.resource_backpacks.registries;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.entities.BackpackBlockEntity;
+import net.xstopho.resource_backpacks.backpack.BackpackBlockEntity;
 import net.xstopho.resourcelibrary.registration.RegistryObject;
 import net.xstopho.resourcelibrary.registration.RegistryProvider;
 

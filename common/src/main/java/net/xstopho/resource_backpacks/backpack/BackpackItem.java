@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.items;
+package net.xstopho.resource_backpacks.backpack;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;

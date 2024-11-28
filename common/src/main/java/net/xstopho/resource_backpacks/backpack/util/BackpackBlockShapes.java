@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.blocks;
+package net.xstopho.resource_backpacks.backpack.util;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.shapes.BooleanOp;
