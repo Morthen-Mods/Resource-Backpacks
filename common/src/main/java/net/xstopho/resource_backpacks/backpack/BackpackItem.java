@@ -1,5 +1,6 @@
 package net.xstopho.resource_backpacks.backpack;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -17,7 +18,9 @@ import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.tooltip.BackpackTooltipComponent;
+import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackInventory;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
@@ -80,7 +83,12 @@ public class BackpackItem extends BlockItem {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        if (!Screen.hasShiftDown()) tooltip.add(Component.literal("Drück mal Shift"));
+        if (!BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW)) {
+            tooltip.add(Component.literal("Press ").withStyle(ChatFormatting.WHITE)
+                    .append(Component.literal("<").withStyle(ChatFormatting.GOLD))
+                    .append(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_COMPACT_PREVIEW))
+                    .append(Component.literal(">").withStyle(ChatFormatting.GOLD)));
+        }
 
         super.appendHoverText(stack, context, tooltip, tooltipFlag);
     }
