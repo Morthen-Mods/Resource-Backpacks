@@ -1,13 +1,13 @@
 package net.xstopho.resource_backpacks;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
-import net.xstopho.resource_backpacks.registries.BlockRegistry;
-import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
-import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
+import net.minecraft.network.chat.Component;
+import net.xstopho.resource_backpacks.registries.*;
 import net.xstopho.resource_backpacks.screen.BackpackMenuScreen;
+import net.xstopho.resource_backpacks.util.KeyMappingInterface;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +39,12 @@ public class BackpackConstants {
         MenuScreens.register(MenuTypeRegistry.END_MENU.get(), BackpackMenuScreen::new);
     }
 
-    public static boolean hasKeyDown(int keyCode) {
+    public static boolean hasKeyDown(KeyMapping keyMapping) {
+        int keyCode = ((KeyMappingInterface) keyMapping).getKey().getValue();
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
+    }
+
+    public static Component getKeyName(KeyMapping keyMapping) {
+        return ((KeyMappingInterface) keyMapping).getKey().getDisplayName();
     }
 }
