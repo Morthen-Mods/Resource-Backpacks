@@ -1,5 +1,6 @@
 package net.xstopho.resource_backpacks.backpack;
 
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -8,15 +9,21 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.xstopho.resource_backpacks.backpack.tooltip.BackpackTooltipComponent;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackInventory;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
+
+import java.util.List;
+import java.util.Optional;
 
 public class BackpackItem extends BlockItem {
 
@@ -63,5 +70,18 @@ public class BackpackItem extends BlockItem {
     public boolean canFitInsideContainerItems() {
         return false;
 
+    }
+
+    @Override
+    public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
+        ItemContainerContents content = stack.get(DataComponents.CONTAINER);
+        return content != null && Screen.hasShiftDown() ? Optional.of(new BackpackTooltipComponent(content, backpackLevel)) : Optional.empty();
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
+        if (!Screen.hasShiftDown()) tooltip.add(Component.literal("Drück mal Shift"));
+
+        super.appendHoverText(stack, context, tooltip, tooltipFlag);
     }
 }
