@@ -12,7 +12,9 @@
     ],
     "client": [
         "client.PlayerRendererMixin",
-        "client.ArmorStandRendererMixin"
+        "client.ArmorStandRendererMixin",
+        "client.KeyMappingAccessor",
+        "client.KeyMappingMixin"
     ],
     "server": [],
     "injectors": {
