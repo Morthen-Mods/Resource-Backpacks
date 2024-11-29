@@ -1,5 +1,6 @@
 package net.xstopho.resource_backpacks.backpack.tooltip;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
@@ -16,17 +17,35 @@ import net.xstopho.resource_backpacks.util.ItemContainerInterface;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 
 public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
-    private final List<StackHolder> compactedItems;
-    private final NonNullList<ItemStack> items;
+    private List<StackHolder> compactedItems;
+    private NonNullList<ItemStack> items;
     private final BackpackLevel level;
 
     public BackpackClientTooltipComponent(BackpackTooltipComponent component) {
         this.items = ((ItemContainerInterface) component.content()).getItems();
-        this.compactedItems = getCompactItemList();
         this.level = component.level();
+        this.compactedItems = getCompactItemList(this.items);
+
+        if (level.equals(BackpackLevel.END)) {
+            BackpackConstants.requestEnderChestContainer();
+            UUID uuid = Minecraft.getInstance().player.getUUID();
+
+            List<ItemStack> enderItems = BackpackConstants.ENDER_CHESTS.get(uuid);
+
+            if (enderItems != null) {
+                this.compactedItems = getCompactItemList(enderItems);
+
+                this.items.clear();
+                for (int i = 0; i < enderItems.size(); i++) {
+                    this.items.add(i, enderItems.get(i));
+                }
+            }
+        }
+
     }
 
     @Override
@@ -79,10 +98,10 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
         }
     }
 
-    private List<StackHolder> getCompactItemList() {
+    private List<StackHolder> getCompactItemList(List<ItemStack> items) {
         List<StackHolder> holderList = new ArrayList<>();
 
-        for (ItemStack stack : this.items) {
+        for (ItemStack stack : items) {
             boolean combined = false;
             if (stack != ItemStack.EMPTY) {
                 for (StackHolder holder : holderList) {
