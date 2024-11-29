@@ -5,7 +5,11 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.network.chat.Component;
-import net.xstopho.resource_backpacks.registries.*;
+import net.minecraft.resources.ResourceLocation;
+import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
+import net.xstopho.resource_backpacks.registries.BlockRegistry;
+import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
+import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenuScreen;
 import net.xstopho.resource_backpacks.util.KeyMappingInterface;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
@@ -46,5 +50,9 @@ public class BackpackConstants {
 
     public static Component getKeyName(KeyMapping keyMapping) {
         return ((KeyMappingInterface) keyMapping).getKey().getDisplayName();
+    }
+
+    public static ResourceLocation of(String id) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
     }
 }
