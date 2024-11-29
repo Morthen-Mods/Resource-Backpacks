@@ -14,8 +14,6 @@ dependencies {
     modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resource_config_api}"
     modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${resource_library}"
 
-    modCompileOnly "com.misterpemodder:shulkerboxtooltip-fabric:${shulker_box_tooltip}+${minecraft_version}"
-
     // Runtime Mods
     modRuntimeOnly "maven.modrinth:dark-loading-screen:${dark_loading_screen}"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei}"
