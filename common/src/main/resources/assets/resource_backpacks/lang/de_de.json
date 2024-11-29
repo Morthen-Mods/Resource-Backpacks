@@ -6,6 +6,9 @@
   "key.resource_backpacks.show_compact_preview": "Kompakte Ansicht",
   "key.resource_backpacks.show_inventory_preview": "Inventar Ansicht",
 
+  "tooltip.resource_backpacks.info.compact_preview": "Items anzeigen",
+  "tooltip.resource_backpacks.info.inventory_preview": "Inventar anzeigen",
+
   "tag.item.c.backpacks": "Rucksäcke",
   "tag.item.c.backpack.leather_ingredient": "Leder Alternativen",
   "tag.item.c.backpack.leather": "Leder Rucksack",

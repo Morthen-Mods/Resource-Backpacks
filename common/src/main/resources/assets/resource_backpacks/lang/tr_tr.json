@@ -6,6 +6,9 @@
   "key.resource_backpacks.show_compact_preview": "Kompakt önizleme",
   "key.resource_backpacks.show_inventory_preview": "Tam Envanter önizlemesi",
 
+  "tooltip.resource_backpacks.info.compact_preview": "Öğeleri Göster",
+  "tooltip.resource_backpacks.info.inventory_preview": "Tam Envanteri Göster",
+
   "tag.item.c.backpacks": "Sırt Çantaları",
   "tag.item.c.backpack.leather_ingredient": "Deri Malzemeleri",
   "tag.item.c.backpack.leather": "Deri Sırt Çantası",

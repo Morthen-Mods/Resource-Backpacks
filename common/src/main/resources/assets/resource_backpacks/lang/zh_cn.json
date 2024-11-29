@@ -6,6 +6,9 @@
   "key.resource_backpacks.show_compact_preview": "紧凑预览",
   "key.resource_backpacks.show_inventory_preview": "完整库存预览",
 
+  "tooltip.resource_backpacks.info.compact_preview": "显示物品",
+  "tooltip.resource_backpacks.info.inventory_preview": "显示完整库存",
+
   "tag.item.c.backpacks": "背包",
   "tag.item.c.backpack.leather_ingredient": "皮革成分",
   "tag.item.c.backpack.leather": "皮革背包",
