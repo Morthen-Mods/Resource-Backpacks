@@ -1,7 +1,6 @@
 package net.xstopho.resource_backpacks.backpack;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -78,12 +77,12 @@ public class BackpackItem extends BlockItem {
     @Override
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
         ItemContainerContents content = stack.get(DataComponents.CONTAINER);
-        return content != null && Screen.hasShiftDown() ? Optional.of(new BackpackTooltipComponent(content, backpackLevel)) : Optional.empty();
+        return content != null && isKeyDown() ? Optional.of(new BackpackTooltipComponent(content, backpackLevel)) : Optional.empty();
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        if (!BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW)) {
+        if (!isKeyDown()) {
             tooltip.add(Component.literal("Press ").withStyle(ChatFormatting.WHITE)
                     .append(Component.literal("<").withStyle(ChatFormatting.GOLD))
                     .append(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_COMPACT_PREVIEW))
@@ -91,5 +90,9 @@ public class BackpackItem extends BlockItem {
         }
 
         super.appendHoverText(stack, context, tooltip, tooltipFlag);
+    }
+
+    private boolean isKeyDown() {
+        return BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
     }
 }
