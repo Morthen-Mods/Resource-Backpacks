@@ -5,7 +5,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
@@ -25,7 +24,6 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
     // - add customizable KeyBinds -> finalize it with proper translation
     // - add TooltipComponent to forge and neoforge
 
-    private final ResourceLocation SLOT = ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, "textures/gui/container/slot.png");
     private final List<StackHolder> compactedItems;
     private final NonNullList<ItemStack> items;
     private final BackpackLevel level;
@@ -54,7 +52,6 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
     @Override
     public void renderImage(Font font, int x, int y, int width, int height, GuiGraphics guiGraphics) {
-        renderSlots(font, x, y, guiGraphics);
         renderPreview(font, x, y, guiGraphics);
     }
 
@@ -101,12 +98,6 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
         holderList.sort(Comparator.comparingInt(StackHolder::getCount));
 
         return holderList.reversed();
-    }
-
-
-
-    private void renderSlots(Font font, int x, int y, GuiGraphics guiGraphics) {
-        guiGraphics.blit(RenderType::guiTextured, SLOT, x, y, 0f, 0f, getWidth(font), getHeight(font), 18, 18);
     }
 
     private void renderDecoratedItem(Font font, ItemStack stack, int count, int x, int y, GuiGraphics guiGraphics) {
