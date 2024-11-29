@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.minecraft.client.KeyMapping;
 import net.xstopho.resource_backpacks.backpack.tooltip.BackpackClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.BackpackTooltipComponent;
+import net.xstopho.resource_backpacks.network.BackpackNetwork;
 import net.xstopho.resource_backpacks.network.OpenBackpackPayload;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
@@ -17,6 +18,7 @@ public class ResourceBackpacksClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        BackpackNetwork.initClientPayloads();
         initKeyMapping();
 
         KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);

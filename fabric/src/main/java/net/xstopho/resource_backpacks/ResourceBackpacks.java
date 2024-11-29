@@ -6,7 +6,7 @@ import net.xstopho.resource_backpacks.network.BackpackNetwork;
 public class ResourceBackpacks implements ModInitializer {
     @Override
     public void onInitialize() {
-        BackpackNetwork.initPayloads();
+        BackpackNetwork.initServerPayloads();
 
         BackpackConstants.commonInit();
     }
