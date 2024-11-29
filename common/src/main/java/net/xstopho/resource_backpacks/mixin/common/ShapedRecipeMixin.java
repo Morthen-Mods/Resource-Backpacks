@@ -19,7 +19,7 @@ public abstract class ShapedRecipeMixin {
 
     @Inject(method = "assemble", at = @At("HEAD"), cancellable = true)
     private void onAssemble(CraftingInput input, HolderLookup.Provider registries, CallbackInfoReturnable<ItemStack> cir) {
-        ItemStack result = ((ShapedRecipeAccessor) this).backpack_getResult().copy();
+        ItemStack result = ((ShapedRecipeAccessor) this).backpack$getResult().copy();
 
         if (result.getItem() instanceof BackpackItem backpackItem) {
             ItemStack backpack = input.getItem(4);

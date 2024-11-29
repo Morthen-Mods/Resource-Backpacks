@@ -9,5 +9,5 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface ShapedRecipeAccessor {
 
     @Accessor("result")
-    ItemStack backpack_getResult();
+    ItemStack backpack$getResult();
 }
