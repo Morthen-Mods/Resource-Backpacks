@@ -3,6 +3,8 @@
 
   "category.resource_backpacks.controls": "Ресурсные рюкзаки",
   "key.resource_backpacks.open_backpack": "Открыть/Закрыть инвентарь рюкзака",
+  "key.resource_backpacks.show_compact_preview": "Компактный просмотр",
+  "key.resource_backpacks.show_inventory_preview": "Полный просмотр инвентаря",
 
   "tag.item.c.backpacks": "Рюкзаки",
   "tag.item.c.backpack.leather_ingredient": "Кожаные ингредиенты",

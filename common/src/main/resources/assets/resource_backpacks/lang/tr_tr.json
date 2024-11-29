@@ -3,6 +3,8 @@
 
   "category.resource_backpacks.controls": "Kaynak Sırt Çantaları",
   "key.resource_backpacks.open_backpack": "Sırt Çantası Envanterini Aç/Kapat",
+  "key.resource_backpacks.show_compact_preview": "Kompakt önizleme",
+  "key.resource_backpacks.show_inventory_preview": "Tam Envanter önizlemesi",
 
   "tag.item.c.backpacks": "Sırt Çantaları",
   "tag.item.c.backpack.leather_ingredient": "Deri Malzemeleri",
