@@ -13,7 +13,6 @@ import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 import net.xstopho.resource_backpacks.util.ItemContainerInterface;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -61,7 +60,7 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
         if (this.hasKeyDown()) {
             for (ItemStack stack : items) {
-                renderDecoratedItem(font, stack, stack.getCount(), x + xOffset, y + yOffset, guiGraphics);
+                renderDecoratedItem(font, stack, stack.getCount(), x + xOffset + 1, y + yOffset, guiGraphics);
                 xOffset += 18;
                 if (xOffset == getWidth(font)) {
                     xOffset = 0;
@@ -70,7 +69,7 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
             }
         } else {
             for (StackHolder holder : compactedItems) {
-                renderDecoratedItem(font, holder.getStack(), holder.getCount(), x + xOffset, y + yOffset, guiGraphics);
+                renderDecoratedItem(font, holder.getStack(), holder.getCount(), x + xOffset + 1, y + yOffset, guiGraphics);
                 xOffset += 18;
                 if (xOffset == getWidth(font)) {
                     xOffset = 0;
@@ -133,14 +132,11 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
         return BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
     }
 
-    private Component getReadableNumber(int count) {
-        if (count > 1000) {
-            DecimalFormat format = new DecimalFormat("#.#");
-            double shorted = (double) count / 1000;
-            return Component.literal(format.format(shorted) + "k");
-        }
-        return Component.literal(String.valueOf(count));
-    }
+private Component getReadableNumber(int count) {
+    return count > 1000
+        ? Component.literal(String.format("%.1fk", count / 1000.0))
+        : Component.literal(String.valueOf(count));
+}
 
     private static class StackHolder {
 
