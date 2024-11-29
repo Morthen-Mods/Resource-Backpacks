@@ -32,15 +32,19 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
     @Override
     public int getHeight(Font font) {
-        if (this.hasKeyDown()) {
-            return level.getRows() * 18;
+        int height;
+        if (this.hasKeyDown() && !this.items.isEmpty()) {
+            height = level.getRows() * 18;
+        } else {
+            height = (int) Math.ceil((double) compactedItems.size() / 10) * 18;
         }
-        return (int) Math.ceil((double) compactedItems.size() / 10) * 18;
+
+        return height + 3;
     }
 
     @Override
     public int getWidth(Font font) {
-        if (this.hasKeyDown()) {
+        if (this.hasKeyDown() && !this.items.isEmpty()) {
             return level.getColumns() * 18;
         }
         return compactedItems.size() < 10 ? compactedItems.size() * 18 : 180;
@@ -57,7 +61,7 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
         if (this.hasKeyDown()) {
             for (ItemStack stack : items) {
-                renderDecoratedItem(font, stack, stack.getCount(), x + xOffset + 1, y + yOffset + 1, guiGraphics);
+                renderDecoratedItem(font, stack, stack.getCount(), x + xOffset, y + yOffset, guiGraphics);
                 xOffset += 18;
                 if (xOffset == getWidth(font)) {
                     xOffset = 0;
@@ -66,7 +70,7 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
             }
         } else {
             for (StackHolder holder : compactedItems) {
-                renderDecoratedItem(font, holder.getStack(), holder.getCount(), x + xOffset + 1, y + yOffset + 1, guiGraphics);
+                renderDecoratedItem(font, holder.getStack(), holder.getCount(), x + xOffset, y + yOffset, guiGraphics);
                 xOffset += 18;
                 if (xOffset == getWidth(font)) {
                     xOffset = 0;
