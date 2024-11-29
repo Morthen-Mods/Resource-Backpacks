@@ -5,6 +5,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.NonNullList;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
@@ -12,17 +13,12 @@ import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 import net.xstopho.resource_backpacks.util.ItemContainerInterface;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class BackpackClientTooltipComponent implements ClientTooltipComponent {
-
-    //TODO: Add small outline to slots
-    // - eventually colorized slot texture for every backpack level
-    // - add proper translation
-    // - add customizable KeyBinds -> finalize it with proper translation
-    // - add TooltipComponent to forge and neoforge
 
     private final List<StackHolder> compactedItems;
     private final NonNullList<ItemStack> items;
@@ -121,16 +117,25 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
     private void renderItemCount(Font font, int count, int x, int y, GuiGraphics guiGraphics) {
         if (count != 1) {
-            String countText = String.valueOf(count);
+            Component component = getReadableNumber(count);
             guiGraphics.pose().pushPose();
             guiGraphics.pose().translate(0f, 0f, 200f);
-            guiGraphics.drawString(font, countText, x + 17 - font.width(countText), y + 9, -1, true);
+            guiGraphics.drawString(font, component, x + 17 - font.width(component), y + 9, -1, true);
             guiGraphics.pose().popPose();
         }
     }
 
     private boolean hasKeyDown() {
         return BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
+    }
+
+    private Component getReadableNumber(int count) {
+        if (count > 1000) {
+            DecimalFormat format = new DecimalFormat("#.#");
+            double shorted = (double) count / 1000;
+            return Component.literal(format.format(shorted) + "k");
+        }
+        return Component.literal(String.valueOf(count));
     }
 
     private static class StackHolder {
