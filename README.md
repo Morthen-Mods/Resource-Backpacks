@@ -5,7 +5,6 @@
 <img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/area_render.png" width="1000">
 
 ## Yet another Backpack mod for Fabric, NeoForge and Forge, to get more Inventory space.
-___
 
 Resource Backpacks is built for all mainly used Mod-Loader to bring the same experience to each of them.<br>
 All Backpacks can be equipped in the Chest Slot and then be opened via Keybind, default ``B``.
