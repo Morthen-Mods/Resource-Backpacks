@@ -45,7 +45,7 @@ public class BackpackItem extends BlockItem implements Equipable {
             player.openMenu(getMenuProvider(stack));
         }
 
-        return InteractionResultHolder.pass(stack);
+        return InteractionResultHolder.success(stack);
     }
 
     public MenuProvider getMenuProvider(ItemStack stack) {
