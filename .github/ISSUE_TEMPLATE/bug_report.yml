@@ -13,6 +13,7 @@ body:
         - NeoForge
         - Forge
         - Quilt
+      default: 0
     validations:
       required: true
   - type: input
