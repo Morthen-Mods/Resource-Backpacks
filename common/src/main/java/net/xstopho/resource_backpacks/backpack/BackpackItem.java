@@ -17,6 +17,7 @@ import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.xstopho.resource_backpacks.BackpackConfig;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.tooltip.BackpackTooltipComponent;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
@@ -41,7 +42,7 @@ public class BackpackItem extends BlockItem {
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide && BackpackConfig.OPEN_FROM_INVENTORY.get()) {
             player.openMenu(getMenuProvider(player.getItemInHand(hand)));
             return InteractionResult.SUCCESS;
         }
