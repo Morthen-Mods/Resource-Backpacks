@@ -11,6 +11,8 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.datagen.BackpackItemTags;
 import net.xstopho.resource_backpacks.datagen.BackpackRecipeProvider;
+import net.xstopho.resource_backpacks.network.EnderChestRequestPayload;
+import net.xstopho.resource_backpacks.network.EnderChestResponsePayload;
 import net.xstopho.resource_backpacks.network.OpenBackpackPayload;
 
 import java.util.concurrent.CompletableFuture;
@@ -23,6 +25,9 @@ public class ModHandler {
         PayloadRegistrar payload = event.registrar(BackpackConstants.MOD_ID);
 
         payload.playToServer(OpenBackpackPayload.PACKET_TYPE, OpenBackpackPayload.PACKET_CODEC, OpenBackpackPayload::apply);
+        payload.playToServer(EnderChestRequestPayload.TYPE, EnderChestRequestPayload.CODEC, EnderChestRequestPayload::apply);
+
+        payload.playToClient(EnderChestResponsePayload.TYPE, EnderChestResponsePayload.CODEC, EnderChestResponsePayload::apply);
     }
 
     @SubscribeEvent
