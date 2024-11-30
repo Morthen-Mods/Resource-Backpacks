@@ -5,5 +5,5 @@ import net.minecraft.world.item.ItemStack;
 
 public interface ItemContainerInterface {
 
-    NonNullList<ItemStack> getItems();
+    NonNullList<ItemStack> backpack$getItemsForPreview();
 }

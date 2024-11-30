@@ -50,6 +50,11 @@ public class BackpackConstants {
         MenuScreens.register(MenuTypeRegistry.END_MENU.get(), BackpackMenuScreen::new);
     }
 
+    public static ResourceLocation of(String id) {
+
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
+    }
+
     public static boolean hasKeyDown(KeyMapping keyMapping) {
         int keyCode = ((KeyMappingInterface) keyMapping).getKey().getValue();
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
@@ -59,11 +64,8 @@ public class BackpackConstants {
         return ((KeyMappingInterface) keyMapping).getKey().getDisplayName();
     }
 
-    public static ResourceLocation of(String id) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-    }
-
     public static void requestEnderChestContainer() {
+
         load(CommonNetworkHook.class).sendEnderChestRequest();
     }
 

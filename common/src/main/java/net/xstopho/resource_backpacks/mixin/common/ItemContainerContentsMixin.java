@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 public abstract class ItemContainerContentsMixin implements ItemContainerInterface {
 
     @Override
-    public NonNullList<ItemStack> getItems() {
+    public NonNullList<ItemStack> backpack$getItemsForPreview() {
         return ((ItemContainerContentsAccessor) this).backpack$getItems();
     }
 }

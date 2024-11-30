@@ -26,7 +26,7 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
     private final BackpackLevel level;
 
     public BackpackClientTooltipComponent(BackpackTooltipComponent component) {
-        this.items = ((ItemContainerInterface) component.content()).getItems();
+        this.items = ((ItemContainerInterface) component.content()).backpack$getItemsForPreview();
         this.level = component.level();
         this.compactedItems = getCompactItemList(this.items);
 
