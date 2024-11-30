@@ -44,10 +44,9 @@ public class BackpackItem extends BlockItem {
 
         if (!level.isClientSide && BackpackConfig.OPEN_FROM_INVENTORY.get()) {
             player.openMenu(getMenuProvider(player.getItemInHand(hand)));
-            return InteractionResult.SUCCESS;
         }
 
-        return InteractionResult.PASS;
+        return InteractionResult.SUCCESS;
     }
 
     public MenuProvider getMenuProvider(ItemStack stack) {
