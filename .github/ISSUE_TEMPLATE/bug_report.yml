@@ -1,0 +1,52 @@
+name: New Issue/Bug other than mod support requests
+description: Only report one issue, if you have multiple issues please create multiple bug reports. This makes it easier to track.
+labels: ['bug']
+assignees: ['Stein-N']
+body:
+  - type: textarea
+    attributes:
+      label: Issue description
+      placeholder: A description of the bug/suggestion.
+    validations:
+      required: true
+  - type: dropdown
+    id: modloader
+    attributes:
+      label: Mod loader
+      options:
+        - Fabric
+        - NeoForge
+        - Forge
+        - Quilt
+    validations:
+      required: true
+  - type: input
+    id: mod-version
+    attributes:
+      label: Mod version
+      placeholder: eg. 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: mc-version
+    attributes:
+      label: Minecraft version
+      placeholder: eg. 1.20.1
+    validations:
+      required: true
+  - type: input
+    id: modpack
+    attributes:
+      label: Modpack info
+      description: |
+        If playing a modpack, post the link to it!
+  - type: checkboxes
+    id: reproducible
+    attributes:
+      label: "[IMPORTANT] If bug:"
+      options:
+        - label: "I have confirmed this bug is reproducible on a minimal setup, not a modpack with many other mods. M"
+  - type: input
+    attributes:
+      label: "[IMPORTANT] If bug: The **latest.log** file, not the crash report"
+      description: "Please use a paste site such as [gist](https://gist.github.com/) / [pastebin](https://pastebin.com/) / etc."
