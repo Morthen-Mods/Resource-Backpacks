@@ -1,5 +1,4 @@
-#### v0.9.3-BETA
-- fix issue where Backpacks are invisible when placed on an Armorstand
-- add a Config Option to 'unlock' the Slots of End Backpacks, 
-  so that Backpacks and ShulkerBoxes can be placed and picked up
-  - is disabled by default
+#### v0.10.0-BETA
+- replacing ShulkerBoxTooltip Compatibility with built-in solution
+  that provides the same Tooltip preview, without the feature to lock the Tooltip
+- correctly apply the config option to open Backpacks from Inventory via right-click
