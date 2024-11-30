@@ -42,8 +42,6 @@ public class BlockRegistry {
 
 
     private static RegistryObject<Block> registerBlock(String id, Function<BlockBehaviour.Properties, Block> function, BackpackLevel level, BlockBehaviour.Properties blockBehavior) {
-        ResourceKey<Block> blockId = createBlockId(id);
-
         RegistryObject<Block> block = BLOCKS.register(id, () -> function.apply(blockBehavior));
 
         Item.Properties itemProperties = level == BackpackLevel.NETHERITE ? new Item.Properties().fireResistant() : new Item.Properties();
@@ -53,16 +51,7 @@ public class BlockRegistry {
     }
 
     private static void registerItem(String id, Function<Item.Properties, Item> function, Item.Properties properties) {
-        ResourceKey<Item> itemId = createItemId(id);
         ITEMS.register(id, () -> function.apply(properties.stacksTo(1)));
-    }
-
-    private static ResourceKey<Block> createBlockId(String id) {
-        return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, id));
-    }
-
-    private static ResourceKey<Item> createItemId(String id) {
-        return ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, id));
     }
 
     public static void init() {}
