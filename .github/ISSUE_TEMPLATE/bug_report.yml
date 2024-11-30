@@ -1,7 +1,7 @@
 name: New Issue/Bug other than mod support requests
 description: Only report one issue, if you have multiple issues please create multiple bug reports. This makes it easier to track.
-labels: ['bug']
-assignees: ['Stein-N']
+labels: ["bug"]
+assignees: ["Stein-N"]
 body:
   - type: dropdown
     id: mod-loader
