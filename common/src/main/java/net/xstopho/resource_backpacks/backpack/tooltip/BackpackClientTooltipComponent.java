@@ -151,11 +151,11 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
         return BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
     }
 
-private Component getReadableNumber(int count) {
-    return count > 1000
-        ? Component.literal(String.format("%.1fk", count / 1000.0))
-        : Component.literal(String.valueOf(count));
-}
+    private Component getReadableNumber(int count) {
+        return count > 1000
+            ? Component.literal(String.format("%.1fk", count / 1000.0))
+            : Component.literal(String.valueOf(count));
+    }
 
     private static class StackHolder {
 
