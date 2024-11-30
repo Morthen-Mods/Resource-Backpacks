@@ -20,6 +20,18 @@ public class BackpackNetwork {
                 .consumerNetworkThread(OpenBackpackPayload::apply)
                 .add();
 
+        channel.messageBuilder(EnderChestRequestPayload.class, 1, NetworkDirection.PLAY_TO_SERVER)
+                .decoder(EnderChestRequestPayload::decode)
+                .encoder(EnderChestRequestPayload::encode)
+                .consumerNetworkThread(EnderChestRequestPayload::apply)
+                .add();
+
+        channel.messageBuilder(EnderChestResponsePayload.class, 2, NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(EnderChestResponsePayload::decode)
+                .encoder(EnderChestResponsePayload::encode)
+                .consumerNetworkThread(EnderChestResponsePayload::apply)
+                .add();
+
         return channel;
     }
 
