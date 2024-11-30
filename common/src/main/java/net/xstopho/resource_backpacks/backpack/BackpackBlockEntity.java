@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.entities;
+package net.xstopho.resource_backpacks.backpack;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -11,7 +11,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.xstopho.resource_backpacks.blocks.BackpackBlock;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackLevel;

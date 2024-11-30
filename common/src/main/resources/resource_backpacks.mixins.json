@@ -5,11 +5,15 @@
     "refmap": "${mod_id}.refmap.json",
     "compatibilityLevel": "JAVA_21",
     "mixins": [
-        "common.ShapedRecipeMixin"
+        "common.ShapedRecipeMixin",
+        "common.ItemContainerContentsAccessor",
+        "common.ItemContainerContentsMixin"
     ],
     "client": [
         "client.PlayerRendererMixin",
-        "client.ArmorStandRendererMixin"
+        "client.ArmorStandRendererMixin",
+        "client.KeyMappingAccessor",
+        "client.KeyMappingMixin"
     ],
     "server": [],
     "injectors": {

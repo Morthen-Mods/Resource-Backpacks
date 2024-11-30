@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.blocks;
+package net.xstopho.resource_backpacks.backpack;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -22,7 +22,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.xstopho.resource_backpacks.entities.BackpackBlockEntity;
+import net.xstopho.resource_backpacks.backpack.util.BackpackBlockShapes;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
