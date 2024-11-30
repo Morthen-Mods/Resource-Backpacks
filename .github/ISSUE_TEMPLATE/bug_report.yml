@@ -38,6 +38,7 @@ body:
   - type: checkboxes
     id: reproducible
     attributes:
+      label: If Bug
       options:
         - label: "I have confirmed this bug is reproducible on a minimal setup, not a modpack with many other mods."
   - type: input
