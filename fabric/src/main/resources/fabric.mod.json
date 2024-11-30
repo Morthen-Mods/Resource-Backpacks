@@ -29,9 +29,6 @@
         "resourceconfigapi": ">=${resource_config_api}",
         "resourcelibrary": ">=${resource_library}"
     },
-    "suggests": {
-        "shulkerboxtooltip": ">=${shulkerboxtooltip}"
-    },
     "custom": {
         "modmenu": {
             "update-checker": true

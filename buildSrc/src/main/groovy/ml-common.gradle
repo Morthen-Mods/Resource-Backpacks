@@ -18,22 +18,6 @@ repositories {
     maven { url 'https://maven.neoforged.net/releases/' }
     maven { url 'https://maven.parchmentmc.org/' }
     maven { url 'https://api.modrinth.com/maven' }
-
-    // ShulkerBoxTooltip
-    maven { url "https://maven.misterpemodder.com/libs-release/" }
-
-    // Accessories
-    maven { url 'https://maven.wispforest.io/releases' }
-    maven { url 'https://maven.su5ed.dev/releases' }
-    maven { url 'https://maven.fabricmc.net' }
-    maven { url 'https://maven.shedaniel.me/' }
-
-    // Curios API Continuation
-    maven { url "https://maven.octo-studios.com/releases" }
-
-    // Trinkets
-    maven { url "https://maven.terraformersmc.com/" }
-    maven { url "https://maven.ladysnake.org/releases" }
 }
 
 dependencies {
@@ -90,10 +74,7 @@ processResources {
 
             // Dependencies
             "resource_config_api": resource_config_api,
-            "resource_library": resource_library,
-
-            // Suggestions
-            "shulkerboxtooltip": shulker_box_tooltip
+            "resource_library": resource_library
     ]
 
     filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/neoforge.mods.toml', 'META-INF/mods.toml', '*.mixins.json']) {
