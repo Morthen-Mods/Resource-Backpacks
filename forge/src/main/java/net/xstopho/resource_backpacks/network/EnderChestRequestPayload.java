@@ -6,7 +6,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.network.CustomPayloadEvent;
 import net.minecraftforge.network.PacketDistributor;
-import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.ResourceBackpacks;
 
 public class EnderChestRequestPayload {
@@ -31,9 +30,7 @@ public class EnderChestRequestPayload {
 
             NonNullList<ItemStack> itemList = player.getEnderChestInventory().getItems();
 
-            BackpackConstants.LOG.error("Request UUID: {}", player.getUUID());
-
-            ResourceBackpacks.NETWORK.send(new EnderChestResponsePayload(itemList), PacketDistributor.PLAYER.with(player));
+            ResourceBackpacks.NETWORK.send(new EnderChestResponsePayload(player.getUUID(), itemList), PacketDistributor.PLAYER.with(player));
         });
         context.setPacketHandled(true);
     }
