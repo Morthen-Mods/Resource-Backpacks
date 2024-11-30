@@ -3,6 +3,11 @@
 
   "category.resource_backpacks.controls": "Resource Backpacks",
   "key.resource_backpacks.open_backpack": "Open/Close Backpack Inventory",
+  "key.resource_backpacks.show_compact_preview": "Compact preview",
+  "key.resource_backpacks.show_inventory_preview": "Full Inventory preview",
+
+  "tooltip.resource_backpacks.info.compact_preview": "Show Items",
+  "tooltip.resource_backpacks.info.inventory_preview": "Show full Inventory",
 
   "tag.item.c.backpacks": "Backpacks",
   "tag.item.c.backpack.leather_ingredient": "Leather Ingredients",

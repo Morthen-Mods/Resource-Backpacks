@@ -3,6 +3,11 @@
 
   "category.resource_backpacks.controls": "Resource Backpacks",
   "key.resource_backpacks.open_backpack": "Öffnen/Schließen des Rucksack Inventars",
+  "key.resource_backpacks.show_compact_preview": "Kompakte Ansicht",
+  "key.resource_backpacks.show_inventory_preview": "Inventar Ansicht",
+
+  "tooltip.resource_backpacks.info.compact_preview": "Items anzeigen",
+  "tooltip.resource_backpacks.info.inventory_preview": "Inventar anzeigen",
 
   "tag.item.c.backpacks": "Rucksäcke",
   "tag.item.c.backpack.leather_ingredient": "Leder Alternativen",

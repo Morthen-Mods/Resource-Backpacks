@@ -3,6 +3,11 @@
 
   "category.resource_backpacks.controls": "Mochilas de Recursos",
   "key.resource_backpacks.open_backpack": "Abrir/Fechar Inventário da Mochila",
+  "key.resource_backpacks.show_compact_preview": "Visualização compacta",
+  "key.resource_backpacks.show_inventory_preview": "Visualização completa do inventário",
+
+  "tooltip.resource_backpacks.info.compact_preview": "Mostrar Itens",
+  "tooltip.resource_backpacks.info.inventory_preview": "Mostrar Inventário Completo",
 
   "tag.item.c.backpacks": "Mochilas",
   "tag.item.c.backpack.leather_ingredient": "Ingredientes de Couro",
