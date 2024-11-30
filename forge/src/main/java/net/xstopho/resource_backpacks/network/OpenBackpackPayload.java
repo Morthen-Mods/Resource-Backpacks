@@ -22,6 +22,7 @@ public class OpenBackpackPayload {
 
     public static void encode(OpenBackpackPayload payload, FriendlyByteBuf byteBuf) {
         byteBuf.writeInt(payload.id);
+
     }
 
     public static void apply(OpenBackpackPayload payload, CustomPayloadEvent.Context context) {
