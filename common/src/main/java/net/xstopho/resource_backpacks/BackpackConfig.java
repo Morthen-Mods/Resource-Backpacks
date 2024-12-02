@@ -21,6 +21,8 @@ public class BackpackConfig {
         BUILDER.push("General");
         OPEN_FROM_INVENTORY = BUILDER.sync().comment("Enable the ability to open Backpacks from inventory.")
                 .comment("When disabled, backpacks has to be placed like Shulker Boxes.")
+                .comment("Only allows opening backpacks via right-click from inventory,")
+                .comment("the KeyBind still only works when the Backpack is equipped in the Chest slot")
                 .define("open_from_inventory", false);
         TAKE_CONTAINER_ITEMS_FROM_END_BACKPACK = BUILDER.sync()
                 .comment("Enable the ability to take Backpacks and Shulker Boxes from End Backpack")
