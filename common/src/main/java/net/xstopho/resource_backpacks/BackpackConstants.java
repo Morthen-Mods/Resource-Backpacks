@@ -12,8 +12,7 @@ import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenuScreen;
-import net.xstopho.resource_backpacks.util.CommonNetworkHook;
-import net.xstopho.resource_backpacks.util.KeyMappingInterface;
+import net.xstopho.resource_backpacks.util.BackpackUtils;
 import net.xstopho.resourceconfigapi.ResourceConfigConstants;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import org.slf4j.Logger;
@@ -56,17 +55,17 @@ public class BackpackConstants {
     }
 
     public static boolean hasKeyDown(KeyMapping keyMapping) {
-        int keyCode = ((KeyMappingInterface) keyMapping).getKey().getValue();
+        int keyCode = ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getValue();
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
     }
 
     public static Component getKeyName(KeyMapping keyMapping) {
-        return ((KeyMappingInterface) keyMapping).getKey().getDisplayName();
+        return ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getDisplayName();
     }
 
     public static void requestEnderChestContainer() {
 
-        load(CommonNetworkHook.class).sendEnderChestRequest();
+        load(BackpackUtils.NetworkHook.class).sendEnderChestRequest();
     }
 
     public static <T> T load(Class<T> clazz) {

@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
-import net.xstopho.resource_backpacks.util.ItemContainerInterface;
+import net.xstopho.resource_backpacks.util.BackpackUtils;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -26,7 +26,7 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
     private final BackpackLevel level;
 
     public BackpackClientTooltipComponent(BackpackTooltipComponent component) {
-        this.items = ((ItemContainerInterface) component.content()).backpack$getItemsForPreview();
+        this.items = ((BackpackUtils.ItemContainerAccess) component.content()).backpack$getItemsForPreview();
         this.level = component.level();
         this.compactedItems = getCompactItemList(this.items);
 
