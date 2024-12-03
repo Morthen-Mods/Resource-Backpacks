@@ -28,11 +28,11 @@ public interface ImplementedInventory extends WorldlyContainer {
     }
 
     default boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction side) {
-        return false;
+        return true;
     }
 
     default boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
-        return false;
+        return true;
     }
 
     default int getContainerSize() {
