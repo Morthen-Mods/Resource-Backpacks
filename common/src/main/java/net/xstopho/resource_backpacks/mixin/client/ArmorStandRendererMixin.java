@@ -41,7 +41,7 @@ public abstract class ArmorStandRendererMixin extends LivingEntityRenderer<Armor
 
         @Override
         public void render(PoseStack poseStack, MultiBufferSource buffer, int light, ArmorStandRenderState armorStand, float v, float v1) {
-            ItemStack chest = armorStand.chestItem;
+            ItemStack chest = armorStand.chestEquipment;
 
             if (chest.getItem() instanceof BackpackItem) {
                 poseStack.pushPose();

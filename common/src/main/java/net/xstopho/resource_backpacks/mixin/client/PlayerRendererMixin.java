@@ -41,7 +41,7 @@ public abstract class PlayerRendererMixin extends LivingEntityRenderer<AbstractC
 
         @Override
         public void render(PoseStack poseStack, MultiBufferSource buffer, int light, PlayerRenderState player, float v, float v1) {
-            ItemStack chest = player.chestItem;
+            ItemStack chest = player.chestEquipment;
 
             if (chest.getItem() instanceof BackpackItem) {
                 poseStack.pushPose();
