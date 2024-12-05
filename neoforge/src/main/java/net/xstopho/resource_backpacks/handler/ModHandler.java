@@ -31,12 +31,11 @@ public class ModHandler {
     }
 
     @SubscribeEvent
-    public static void generateData(GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
-        PackOutput packOutput = generator.getPackOutput();
+    public static void generateData(GatherDataEvent.Client event) {
+        PackOutput packOutput = event.getGenerator().getPackOutput();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new BackpackRecipeProvider.Runner(packOutput, provider));
-        generator.addProvider(event.includeServer(), new BackpackItemTags(packOutput, provider));
+        event.addProvider(new BackpackRecipeProvider.Runner(packOutput, provider));
+        event.addProvider(new BackpackItemTags(packOutput, provider));
     }
 }
