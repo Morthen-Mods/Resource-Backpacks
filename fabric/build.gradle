@@ -37,7 +37,7 @@ loom {
             runDir("runs/server")
         }
         datagen {
-            inherit server
+            inherit client
             name "Fabric Datagen"
             vmArg "-Dfabric-api.datagen"
             vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated")}"
