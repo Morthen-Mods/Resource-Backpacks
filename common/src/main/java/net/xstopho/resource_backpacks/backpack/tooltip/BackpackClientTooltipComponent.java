@@ -30,21 +30,21 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
         this.level = component.level();
         this.compactedItems = getCompactItemList(this.items);
 
-        if (level.equals(BackpackLevel.END)) {
-            BackpackConstants.requestEnderChestContainer();
-            UUID uuid = Minecraft.getInstance().player.getUUID();
-
-            List<ItemStack> enderItems = BackpackConstants.ENDER_CHESTS.get(uuid);
-
-            if (enderItems != null) {
-                this.compactedItems = getCompactItemList(enderItems);
-
-                this.items.clear();
-                for (int i = 0; i < enderItems.size(); i++) {
-                    this.items.add(i, enderItems.get(i));
-                }
-            }
-        }
+//        if (level.equals(BackpackLevel.END)) {
+//            BackpackConstants.requestEnderChestContainer();
+//            UUID uuid = Minecraft.getInstance().player.getUUID();
+//
+//            List<ItemStack> enderItems = BackpackConstants.ENDER_CHESTS.get(uuid);
+//
+//            if (enderItems != null) {
+//                this.compactedItems = getCompactItemList(enderItems);
+//
+//                this.items.clear();
+//                for (int i = 0; i < enderItems.size(); i++) {
+//                    this.items.add(i, enderItems.get(i));
+//                }
+//            }
+//        }
 
     }
 
