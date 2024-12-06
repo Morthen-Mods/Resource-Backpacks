@@ -1,5 +1,6 @@
 package net.xstopho.resource_backpacks.backpack;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -8,10 +9,13 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
@@ -38,6 +42,17 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
 
     @Override
     public @NotNull NonNullList<ItemStack> getItems() {
+        if (backpackLevel.equals(BackpackLevel.END)) {
+            BackpackConstants.requestEnderChestContainer();
+            Player player = Minecraft.getInstance().player;
+
+            if (player != null) {
+                PlayerEnderChestContainer enderChest = player.getEnderChestInventory();
+
+                return enderChest.getItems();
+            }
+        }
+
         return this.items;
     }
 
