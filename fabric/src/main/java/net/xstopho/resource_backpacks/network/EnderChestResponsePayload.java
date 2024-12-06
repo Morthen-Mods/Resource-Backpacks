@@ -33,9 +33,9 @@ public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) implemen
                 public EnderChestResponsePayload decode(RegistryFriendlyByteBuf byteBuf) {
                     CompoundTag compound = byteBuf.readNbt();
 
-                    if (compound == null || !compound.contains("inv", NbtType.LIST))
+                    if (compound == null || !compound.contains("inv", ListTag.TAG_LIST))
                         return new EnderChestResponsePayload(null);
-                    return new EnderChestResponsePayload(compound.getList("inv", NbtType.COMPOUND));
+                    return new EnderChestResponsePayload(compound.getList("inv", ListTag.TAG_COMPOUND));
                 }
 
                 @Override
