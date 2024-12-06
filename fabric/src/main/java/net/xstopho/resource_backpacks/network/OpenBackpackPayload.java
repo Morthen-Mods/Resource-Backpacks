@@ -30,8 +30,6 @@ public record OpenBackpackPayload(int id) implements CustomPacketPayload {
                     serverPlayer.openMenu(backpackItem.getMenuProvider(itemStack));
                 }
             }
-
-            BackpackConstants.LOG.error("Backpack opened");
         });
     }
 
