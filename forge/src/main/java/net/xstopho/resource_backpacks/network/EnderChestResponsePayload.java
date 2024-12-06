@@ -1,45 +1,52 @@
 package net.xstopho.resource_backpacks.network;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.network.CustomPayloadEvent;
 import net.xstopho.resource_backpacks.BackpackConstants;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
-public class EnderChestResponsePayload {
+public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) {
 
-    private final List<ItemStack> items;
-    private final UUID uuid;
-
-    public EnderChestResponsePayload(UUID uuid, List<ItemStack> items) {
-        this.items = items;
-        this.uuid = uuid;
+    public static EnderChestResponsePayload create(PlayerEnderChestContainer container, HolderLookup.Provider registries) {
+        return new EnderChestResponsePayload(container.createTag(registries));
     }
 
     public static EnderChestResponsePayload decode(RegistryFriendlyByteBuf byteBuf) {
-        return new EnderChestResponsePayload(byteBuf.readUUID(), ItemStack.OPTIONAL_LIST_STREAM_CODEC.decode(byteBuf));
+        CompoundTag compound = byteBuf.readNbt();
+
+        if (compound == null || !compound.contains("inv", ListTag.TAG_LIST))
+            return new EnderChestResponsePayload(null);
+        return new EnderChestResponsePayload(compound.getList("inv", ListTag.TAG_COMPOUND));
     }
 
     public static void encode(EnderChestResponsePayload payload, RegistryFriendlyByteBuf byteBuf) {
-        byteBuf.writeUUID(payload.uuid);
-        ItemStack.OPTIONAL_LIST_STREAM_CODEC.encode(byteBuf, payload.items);
+        CompoundTag compound = new CompoundTag();
+
+        compound.put("inv", Objects.requireNonNull(payload.inventoryTag()));
+        byteBuf.writeNbt(compound);
     }
 
     public static void apply(EnderChestResponsePayload payload, CustomPayloadEvent.Context context) {
         context.enqueueWork(() -> {
-            if (payload.uuid != null) {
-                saveData(payload.uuid, payload.items);
+            Player player = Minecraft.getInstance().player;
+
+            if (player != null) {
+                player.getEnderChestInventory().fromTag(payload.inventoryTag(), player.registryAccess());
             }
         });
         context.setPacketHandled(true);
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public static void saveData(UUID uuid, List<ItemStack> items) {
-        BackpackConstants.ENDER_CHESTS.put(uuid, items);
     }
 }

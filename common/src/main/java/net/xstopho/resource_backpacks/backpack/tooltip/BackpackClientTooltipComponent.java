@@ -5,47 +5,37 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.ARGB;
+import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
-import net.xstopho.resource_backpacks.util.BackpackUtils;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.UUID;
 
 public class BackpackClientTooltipComponent implements ClientTooltipComponent {
 
     private List<StackHolder> compactedItems;
-    private NonNullList<ItemStack> items;
+    private List<ItemStack> items;
     private final BackpackLevel level;
 
     public BackpackClientTooltipComponent(BackpackTooltipComponent component) {
-        this.items = ((BackpackUtils.ItemContainerAccess) component.content()).backpack$getItemsForPreview();
+        this.items = component.content().nonEmptyStream().toList();
         this.level = component.level();
         this.compactedItems = getCompactItemList(this.items);
 
-        //TODO Why the fuck is it duplicating items from ender chest to empty backpacks
-//        if (level.equals(BackpackLevel.END)) {
-//            BackpackConstants.requestEnderChestContainer();
-//            UUID uuid = Minecraft.getInstance().player.getUUID();
-//
-//            List<ItemStack> enderItems = BackpackConstants.ENDER_CHESTS.get(uuid);
-//
-//            if (enderItems != null) {
-//                this.compactedItems = getCompactItemList(enderItems);
-//
-//                this.items.clear();
-//                for (int i = 0; i < enderItems.size(); i++) {
-//                    this.items.add(i, enderItems.get(i));
-//                }
-//            }
-//        }
+        if (level.equals(BackpackLevel.END)) {
+            BackpackConstants.requestEnderChestContainer();
+
+            PlayerEnderChestContainer enderItems = Minecraft.getInstance().player.getEnderChestInventory();
+
+            this.items = enderItems.getItems();
+            this.compactedItems = getCompactItemList(items);
+        }
 
     }
 

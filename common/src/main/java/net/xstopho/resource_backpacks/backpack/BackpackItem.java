@@ -77,22 +77,20 @@ public class BackpackItem extends BlockItem {
     @Override
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
         ItemContainerContents content = stack.get(DataComponents.CONTAINER);
-        return content != null && isKeyDown() && !backpackLevel.equals(BackpackLevel.END)? Optional.of(new BackpackTooltipComponent(content, backpackLevel)) : Optional.empty();
+        return content != null && isKeyDown() ? Optional.of(new BackpackTooltipComponent(content, backpackLevel)) : Optional.empty();
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        if (backpackLevel != BackpackLevel.END) {
-            if (!isKeyDown()) {
-                tooltip.add(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_COMPACT_PREVIEW).copy().withStyle(ChatFormatting.GOLD)
-                        .append(Component.literal(": "))
-                        .append(Component.translatable("tooltip.resource_backpacks.info.compact_preview").withStyle(ChatFormatting.WHITE)));
+        if (!isKeyDown()) {
+            tooltip.add(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_COMPACT_PREVIEW).copy().withStyle(ChatFormatting.GOLD)
+                    .append(Component.literal(": "))
+                    .append(Component.translatable("tooltip.resource_backpacks.info.compact_preview").withStyle(ChatFormatting.WHITE)));
 
-            } else if (isKeyDown() && !BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW)){
-                tooltip.add(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW).copy().withStyle(ChatFormatting.GOLD)
-                        .append(Component.literal(": "))
-                        .append(Component.translatable("tooltip.resource_backpacks.info.inventory_preview").withStyle(ChatFormatting.WHITE)));
-            }
+        } else if (isKeyDown() && !BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW)){
+            tooltip.add(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW).copy().withStyle(ChatFormatting.GOLD)
+                    .append(Component.literal(": "))
+                    .append(Component.translatable("tooltip.resource_backpacks.info.inventory_preview").withStyle(ChatFormatting.WHITE)));
         }
 
         super.appendHoverText(stack, context, tooltip, tooltipFlag);
