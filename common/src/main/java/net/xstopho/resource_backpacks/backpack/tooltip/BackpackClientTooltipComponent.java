@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.ARGB;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
@@ -31,10 +32,14 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
         if (level.equals(BackpackLevel.END)) {
             BackpackConstants.requestEnderChestContainer();
 
-            PlayerEnderChestContainer enderItems = Minecraft.getInstance().player.getEnderChestInventory();
+            Player player = Minecraft.getInstance().player;
 
-            this.items = enderItems.getItems();
-            this.compactedItems = getCompactItemList(items);
+            if (player != null) {
+                PlayerEnderChestContainer enderItems = player.getEnderChestInventory();
+
+                this.items = enderItems.getItems();
+                this.compactedItems = getCompactItemList(items);
+            }
         }
 
     }
