@@ -6,9 +6,7 @@
     "compatibilityLevel": "JAVA_21",
     "mixins": [
         "common.ShapedRecipeAccessor",
-        "common.ShapedRecipeMixin",
-        "common.ItemContainerContentsAccessor",
-        "common.ItemContainerContentsMixin"
+        "common.ShapedRecipeMixin"
     ],
     "client": [
         "client.PlayerRendererMixin",
