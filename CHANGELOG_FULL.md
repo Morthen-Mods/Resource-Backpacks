@@ -1,3 +1,8 @@
+#### v0.10.3-BETA
+- fixing Ender Chest duplication glitch
+- re-enable ender backpack preview
+- Jade now displays the EnderChest Inventory correctly when focus Ender Backpack
+
 #### v0.10.2-BETA
 - disabling ender backpack preview due to a duplication glitch
 

@@ -6,6 +6,7 @@ import net.xstopho.resource_backpacks.network.EnderChestRequestPayload;
 public class NeoForgeNetworkHook implements BackpackUtils.NetworkHook {
     @Override
     public void sendEnderChestRequest() {
-        PacketDistributor.sendToServer(new EnderChestRequestPayload(1));
+
+        PacketDistributor.sendToServer(new EnderChestRequestPayload());
     }
 }
