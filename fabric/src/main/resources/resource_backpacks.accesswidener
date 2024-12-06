@@ -5,5 +5,3 @@ accessible class net/minecraft/world/level/block/entity/BlockEntityType$BlockEnt
 
 accessible method net/minecraft/world/inventory/MenuType register (Ljava/lang/String;Lnet/minecraft/world/inventory/MenuType$MenuSupplier;)Lnet/minecraft/world/inventory/MenuType;
 accessible class net/minecraft/world/inventory/MenuType$MenuSupplier
-
-extendable class net/minecraft/world/item/component/ItemContainerContents
