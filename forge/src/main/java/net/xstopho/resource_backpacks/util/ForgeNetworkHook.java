@@ -7,6 +7,7 @@ import net.xstopho.resource_backpacks.network.EnderChestRequestPayload;
 public class ForgeNetworkHook implements CommonNetworkHook {
     @Override
     public void sendEnderChestRequest() {
-        ResourceBackpacks.NETWORK.send(new EnderChestRequestPayload(1), PacketDistributor.SERVER.noArg());
+
+        ResourceBackpacks.NETWORK.send(new EnderChestRequestPayload(), PacketDistributor.SERVER.noArg());
     }
 }
