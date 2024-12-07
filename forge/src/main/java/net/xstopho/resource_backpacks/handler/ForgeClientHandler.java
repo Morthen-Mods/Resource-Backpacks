@@ -16,7 +16,7 @@ public class ForgeClientHandler {
     @SubscribeEvent
     public static void clientTickEvent(TickEvent.ClientTickEvent.Post event) {
         if (KeyMappingRegistry.OPEN_BACKPACK.consumeClick()) {
-            ResourceBackpacks.NETWORK.send(new OpenBackpackPayload(1), PacketDistributor.SERVER.noArg());
+            ResourceBackpacks.NETWORK.send(new OpenBackpackPayload(), PacketDistributor.SERVER.noArg());
         }
     }
 }

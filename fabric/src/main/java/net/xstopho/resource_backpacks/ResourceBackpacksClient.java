@@ -37,7 +37,7 @@ public class ResourceBackpacksClient implements ClientModInitializer {
     private void initKeyMapping() {
         ClientTickEvents.END_CLIENT_TICK.register(minecraft -> {
             if (openBackpack.consumeClick()) {
-                ClientPlayNetworking.send(new OpenBackpackPayload(1));
+                ClientPlayNetworking.send(new OpenBackpackPayload());
             }
         });
     }

@@ -18,7 +18,7 @@ public class NeoForgeClientHandler {
     public static void registerClientTickEvents(ClientTickEvent.Post event) {
         Player player = Minecraft.getInstance().player;
         if (KeyMappingRegistry.OPEN_BACKPACK.consumeClick()) {
-            PacketDistributor.sendToServer(new OpenBackpackPayload(1));
+            PacketDistributor.sendToServer(new OpenBackpackPayload());
         }
     }
 }
