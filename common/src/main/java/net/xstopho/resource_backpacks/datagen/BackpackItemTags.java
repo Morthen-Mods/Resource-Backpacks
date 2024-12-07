@@ -36,6 +36,9 @@ public class BackpackItemTags extends TagsProvider<Item> {
     public static final TagKey<Item> NETHERITE_INGOTS = TagUtil.createItemTag("netherite_ingots");
     public static final TagKey<Item> DIAMONDS = TagUtil.createItemTag("diamonds");
 
+    public static final TagKey<Item> ENDER_EYES = TagUtil.createItemTag("ender_eyes");
+    public static final TagKey<Item> ENDER_CHESTS = TagUtil.createItemTag("ender_chests");
+
     public BackpackItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, Registries.ITEM, lookupProvider);
     }
@@ -61,6 +64,9 @@ public class BackpackItemTags extends TagsProvider<Item> {
         tagBuilder(IRON_INGOTS, Items.IRON_INGOT);
         tagBuilder(NETHERITE_INGOTS, Items.NETHERITE_INGOT);
         tagBuilder(DIAMONDS, Items.DIAMOND);
+
+        tagBuilder(ENDER_EYES, Items.ENDER_EYE);
+        tagBuilder(ENDER_CHESTS, Items.ENDER_CHEST);
     }
 
     @SafeVarargs

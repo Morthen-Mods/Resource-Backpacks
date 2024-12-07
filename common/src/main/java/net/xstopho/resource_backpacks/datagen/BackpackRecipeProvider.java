@@ -41,9 +41,9 @@ public class BackpackRecipeProvider extends RecipeProvider {
 
         this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_END.get())
                 .pattern("DCD").pattern("EBE").pattern("DCD")
-                .define('D', Items.DIAMOND)
-                .define('C', Items.ENDER_CHEST)
-                .define('E', Items.ENDER_EYE)
+                .define('D', BackpackItemTags.DIAMONDS)
+                .define('C', BackpackItemTags.ENDER_CHESTS)
+                .define('E', BackpackItemTags.ENDER_EYES)
                 .define('B', BlockRegistry.BACKPACK_IRON.get())
                 .unlockedBy(getHasName(BlockRegistry.BACKPACK_IRON.get()), has(BlockRegistry.BACKPACK_IRON.get()))
                 .save(output, key(BlockRegistry.BACKPACK_END.get()));
