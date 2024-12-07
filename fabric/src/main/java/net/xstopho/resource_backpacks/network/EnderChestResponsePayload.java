@@ -2,16 +2,14 @@ package net.xstopho.resource_backpacks.network;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.xstopho.resource_backpacks.BackpackConstants;
+import net.xstopho.resource_backpacks.util.BackpackUtils;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Objects;
 
 public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) implements CustomPacketPayload {
 
@@ -23,24 +21,7 @@ public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) implemen
             new CustomPacketPayload.Type<>(BackpackConstants.of("ender_chest_response_payload"));
 
     public static final StreamCodec<RegistryFriendlyByteBuf, EnderChestResponsePayload> CODEC =
-            new StreamCodec<>() {
-                @Override
-                public EnderChestResponsePayload decode(RegistryFriendlyByteBuf byteBuf) {
-                    CompoundTag compound = byteBuf.readNbt();
-
-                    if (compound == null || !compound.contains("inv", ListTag.TAG_LIST))
-                        return new EnderChestResponsePayload(null);
-                    return new EnderChestResponsePayload(compound.getList("inv", ListTag.TAG_COMPOUND));
-                }
-
-                @Override
-                public void encode(RegistryFriendlyByteBuf byteBuf, EnderChestResponsePayload payload) {
-                    CompoundTag compound = new CompoundTag();
-
-                    compound.put("inv", Objects.requireNonNull(payload.inventoryTag()));
-                    byteBuf.writeNbt(compound);
-                }
-            };
+            StreamCodec.composite(BackpackUtils.ENDER_CHEST, EnderChestResponsePayload::inventoryTag, EnderChestResponsePayload::new);
 
     public static void apply(EnderChestResponsePayload payload, ClientPlayNetworking.Context context) {
         if (payload.inventoryTag() == null) return;
