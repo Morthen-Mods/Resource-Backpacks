@@ -1,6 +1,7 @@
 package net.xstopho.resource_backpacks.backpack;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -9,6 +10,7 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -24,6 +26,7 @@ import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackInventory;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
+import net.xstopho.resource_backpacks.util.BackpackUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -77,17 +80,17 @@ public class BackpackItem extends BlockItem {
     @Override
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
         ItemContainerContents content = stack.get(DataComponents.CONTAINER);
-        return content != null && isKeyDown() ? Optional.of(new BackpackTooltipComponent(content, backpackLevel)) : Optional.empty();
+        return hasItems(stack) && isShiftDown() ? Optional.of(new BackpackTooltipComponent(content, backpackLevel)) : Optional.empty();
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        if (!isKeyDown()) {
+        if (!isShiftDown() && hasItems(stack)) {
             tooltip.add(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_COMPACT_PREVIEW).copy().withStyle(ChatFormatting.GOLD)
                     .append(Component.literal(": "))
                     .append(Component.translatable("tooltip.resource_backpacks.info.compact_preview").withStyle(ChatFormatting.WHITE)));
 
-        } else if (isKeyDown() && !BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW)){
+        } else if (isShiftDown() && !isAltDown() && hasItems(stack)){
             tooltip.add(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW).copy().withStyle(ChatFormatting.GOLD)
                     .append(Component.literal(": "))
                     .append(Component.translatable("tooltip.resource_backpacks.info.inventory_preview").withStyle(ChatFormatting.WHITE)));
@@ -96,7 +99,26 @@ public class BackpackItem extends BlockItem {
         super.appendHoverText(stack, context, tooltip, tooltipFlag);
     }
 
-    private boolean isKeyDown() {
+    private boolean isShiftDown() {
         return BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
+    }
+
+    private boolean isAltDown() {
+        return BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
+    }
+
+    private boolean hasItems(ItemStack stack) {
+        BackpackUtils.syncEnderChestInventory();
+        Player player = Minecraft.getInstance().player;
+
+        ItemContainerContents content = stack.get(DataComponents.CONTAINER);
+        PlayerEnderChestContainer enderChest = null;
+
+        if (player != null) {
+            enderChest = player.getEnderChestInventory();
+        }
+
+        return (content != null && !content.nonEmptyStream().toList().isEmpty()) ||
+                (enderChest != null && !enderChest.isEmpty() && backpackLevel.equals(BackpackLevel.END));
     }
 }
