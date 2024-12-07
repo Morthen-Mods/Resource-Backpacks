@@ -12,12 +12,9 @@ import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenuScreen;
 import net.xstopho.resource_backpacks.util.BackpackUtils;
-import net.xstopho.resourceconfigapi.ResourceConfigConstants;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ServiceLoader;
 
 public class BackpackConstants {
     public static final String MOD_ID = "resource_backpacks";
@@ -58,19 +55,5 @@ public class BackpackConstants {
 
     public static Component getKeyName(KeyMapping keyMapping) {
         return ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getDisplayName();
-    }
-
-    public static void requestEnderChestContainer() {
-
-        load(BackpackUtils.NetworkHook.class).sendEnderChestRequest();
-    }
-
-    public static <T> T load(Class<T> clazz) {
-
-        final T loadedService = ServiceLoader.load(clazz)
-                .findFirst()
-                .orElseThrow(() -> new NullPointerException("Failed to load service for " + clazz.getName()));
-        ResourceConfigConstants.LOG.debug("Loaded {} for service {}", loadedService, clazz);
-        return loadedService;
     }
 }

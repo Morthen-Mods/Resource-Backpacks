@@ -14,10 +14,10 @@ import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
+import net.xstopho.resource_backpacks.util.BackpackUtils;
 import net.xstopho.resource_backpacks.util.ImplementedInventory;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,7 +42,7 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
     @Override
     public @NotNull NonNullList<ItemStack> getItems() {
         if (backpackLevel.equals(BackpackLevel.END)) {
-            BackpackConstants.requestEnderChestContainer();
+            BackpackUtils.syncEnderChestInventory();
             Player player = Minecraft.getInstance().player;
 
             if (player != null) {

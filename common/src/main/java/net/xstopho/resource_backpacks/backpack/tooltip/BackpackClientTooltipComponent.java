@@ -13,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
+import net.xstopho.resource_backpacks.util.BackpackUtils;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -30,7 +31,7 @@ public class BackpackClientTooltipComponent implements ClientTooltipComponent {
         this.compactedItems = getCompactItemList(this.items);
 
         if (level.equals(BackpackLevel.END)) {
-            BackpackConstants.requestEnderChestContainer();
+            BackpackUtils.syncEnderChestInventory();
 
             Player player = Minecraft.getInstance().player;
 
