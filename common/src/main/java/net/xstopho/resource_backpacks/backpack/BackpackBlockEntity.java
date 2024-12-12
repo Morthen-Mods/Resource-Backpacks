@@ -41,17 +41,6 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
 
     @Override
     public @NotNull NonNullList<ItemStack> getItems() {
-        if (backpackLevel.equals(BackpackLevel.END)) {
-            BackpackUtils.syncEnderChestInventory();
-            Player player = Minecraft.getInstance().player;
-
-            if (player != null) {
-                PlayerEnderChestContainer enderChest = player.getEnderChestInventory();
-
-                return enderChest.getItems();
-            }
-        }
-
         return this.items;
     }
 
