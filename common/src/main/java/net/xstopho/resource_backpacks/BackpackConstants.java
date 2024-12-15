@@ -52,8 +52,4 @@ public class BackpackConstants {
         int keyCode = ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getValue();
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
     }
-
-    public static Component getKeyName(KeyMapping keyMapping) {
-        return ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getDisplayName();
-    }
 }
