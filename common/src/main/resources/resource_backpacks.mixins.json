@@ -8,8 +8,6 @@
         "common.ShapedRecipeMixin"
     ],
     "client": [
-        "client.PlayerRendererMixin",
-        "client.ArmorStandRendererMixin",
         "client.KeyMappingAccessor",
         "client.KeyMappingMixin"
     ],
