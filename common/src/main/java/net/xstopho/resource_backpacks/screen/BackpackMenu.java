@@ -87,6 +87,7 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     public BackpackMenu(MenuType<?> menuType, int containerId, Inventory playerInventory, Container backpackInventory, BackpackLevel backpackLevel) {
         super(menuType, containerId);
+        checkContainerSize(backpackInventory, backpackLevel.getSize());
 
         this.backpackInventory = backpackInventory;
         this.backpackLevel = backpackLevel;
@@ -100,11 +101,9 @@ public class BackpackMenu extends AbstractContainerMenu {
     }
 
     private void addBackpackSlots() {
-        int index = 0;
-        for (int i = 0; i < backpackLevel.getRows(); i++) {
-            for (int y = 0; y < backpackLevel.getColumns(); y++) {
-                this.addSlot(new BackpackSlot(backpackInventory, index, 8 + y * 18, 18 + i * 18));
-                index++;
+        for (int row = 0; row < backpackLevel.getRows(); row++) {
+            for (int column = 0; column < backpackLevel.getColumns(); column++) {
+                this.addSlot(new BackpackSlot(backpackInventory, column + row * 9, 8 + column * 18, 18 + row * 18));
             }
         }
     }
@@ -117,7 +116,7 @@ public class BackpackMenu extends AbstractContainerMenu {
             ItemStack stack = slot.getItem();
             returnStack = stack.copy();
             if (index < this.backpackInventory.getContainerSize()) {
-                if (!this.moveItemStackTo(stack, this.backpackInventory.getContainerSize(), this.slots.size(), true)) {
+                if (!this.moveItemStackTo(stack, this.backpackInventory.getContainerSize(), this.slots.size(), false)) {
                     return ItemStack.EMPTY;
                 }
             } else if (!this.moveItemStackTo(stack, 0, this.backpackInventory.getContainerSize(), false)) {
