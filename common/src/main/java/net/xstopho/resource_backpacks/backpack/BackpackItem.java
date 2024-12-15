@@ -87,12 +87,12 @@ public class BackpackItem extends BlockItem implements Equipable {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
         if (!isKeyDown()) {
-            tooltip.add(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_COMPACT_PREVIEW).copy().withStyle(ChatFormatting.GOLD)
+            tooltip.add(KeyMappingRegistry.SHOW_COMPACT_PREVIEW.getTranslatedKeyMessage().copy().withStyle(ChatFormatting.GOLD)
                     .append(Component.literal(": "))
                     .append(Component.translatable("tooltip.resource_backpacks.info.compact_preview").withStyle(ChatFormatting.WHITE)));
 
         } else if (isKeyDown() && !BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW)){
-            tooltip.add(BackpackConstants.getKeyName(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW).copy().withStyle(ChatFormatting.GOLD)
+            tooltip.add(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW.getTranslatedKeyMessage().copy().withStyle(ChatFormatting.GOLD)
                     .append(Component.literal(": "))
                     .append(Component.translatable("tooltip.resource_backpacks.info.inventory_preview").withStyle(ChatFormatting.WHITE)));
         }

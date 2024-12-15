@@ -56,10 +56,6 @@ public class BackpackConstants {
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
     }
 
-    public static Component getKeyName(KeyMapping keyMapping) {
-        return ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getDisplayName();
-    }
-
     public static void requestEnderChestContainer() {
 
         load(BackpackUtils.NetworkHook.class).sendEnderChestRequest();
