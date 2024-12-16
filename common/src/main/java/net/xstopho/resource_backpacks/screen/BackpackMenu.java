@@ -101,9 +101,11 @@ public class BackpackMenu extends AbstractContainerMenu {
     }
 
     private void addBackpackSlots() {
+        int index = 0;
         for (int row = 0; row < backpackLevel.getRows(); row++) {
             for (int column = 0; column < backpackLevel.getColumns(); column++) {
-                this.addSlot(new BackpackSlot(backpackInventory, column + row * 9, 8 + column * 18, 18 + row * 18));
+                this.addSlot(new BackpackSlot(backpackInventory, index, 8 + column * 18, 18 + row * 18));
+                index++;
             }
         }
     }

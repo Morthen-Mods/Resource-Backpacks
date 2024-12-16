@@ -1,4 +1,2 @@
-#### v0.10.4-BETA
-- fixing Ender Chest duplication glitch
-- re-enable ender backpack preview
-- replace Backpack rendering Mixin with loader specific rendering registration
+#### v0.10.5-BETA
+- fix indexing issue for Backpack Slots
