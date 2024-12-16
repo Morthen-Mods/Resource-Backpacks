@@ -35,7 +35,9 @@ public class BackpackItem extends BlockItem {
     public BackpackItem(Block block, BackpackLevel backpackLevel, Properties properties) {
         super(block, properties.useBlockDescriptionPrefix()
                 .component(DataComponents.CONTAINER, ItemContainerContents.EMPTY)
-                .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST).build()));
+                .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST)
+                        .setAsset(BackpackConstants.BACKPACK_EQUIPMENT_ASSET)
+                        .build()));
         this.backpackLevel = backpackLevel;
     }
 
