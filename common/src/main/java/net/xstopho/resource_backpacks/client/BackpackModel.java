@@ -56,7 +56,7 @@ public class BackpackModel<T extends Entity> extends EntityModel<T> {
     }
 
     @Override
-    public void setupAnim(T entity, float v, float v1, float v2, float v3, float v4) {}
+    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {}
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
