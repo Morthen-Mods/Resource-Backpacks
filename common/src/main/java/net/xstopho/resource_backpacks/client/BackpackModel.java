@@ -18,12 +18,10 @@ public class BackpackModel<T extends LivingEntityRenderState> extends EntityMode
 
     public static final ModelLayerLocation BACKPACK_LAYER = new ModelLayerLocation(ResourceLocation.withDefaultNamespace("player"), "backpack");
 
-    private final ModelPart backpack;
-
     public BackpackModel(ModelPart root) {
         super(root);
 
-        this.backpack = root.getChild("backpack");
+        root.getChild("backpack");
     }
 
     public static LayerDefinition createLayer() {
