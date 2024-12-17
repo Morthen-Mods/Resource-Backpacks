@@ -1,23 +1,15 @@
 package net.xstopho.resource_backpacks;
 
-import com.mojang.blaze3d.platform.InputConstants;
-import net.minecraft.client.KeyMapping;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenuScreen;
-import net.xstopho.resource_backpacks.util.BackpackUtils;
-import net.xstopho.resourceconfigapi.ResourceConfigConstants;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ServiceLoader;
 
 public class BackpackConstants {
     public static final String MOD_ID = "resource_backpacks";
@@ -49,23 +41,5 @@ public class BackpackConstants {
     public static ResourceLocation of(String id) {
 
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-    }
-
-    public static boolean hasKeyDown(KeyMapping keyMapping) {
-        int keyCode = ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getValue();
-        return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
-    }
-
-    public static void requestEnderChestContainer() {
-
-        load(BackpackUtils.NetworkHook.class).sendEnderChestRequest();
-    }
-
-    public static <T> T load(Class<T> clazz) {
-        final T loadedService = ServiceLoader.load(clazz)
-                .findFirst()
-                .orElseThrow(() -> new NullPointerException("Failed to load service for " + clazz.getName()));
-        ResourceConfigConstants.LOG.debug("Loaded {} for service {}", loadedService, clazz);
-        return loadedService;
     }
 }

@@ -5,8 +5,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.SimpleChannel;
-import net.xstopho.resource_backpacks.backpack.tooltip.BackpackClientTooltipComponent;
-import net.xstopho.resource_backpacks.backpack.tooltip.BackpackTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
 
 @Mod(BackpackConstants.MOD_ID)
@@ -27,7 +29,7 @@ public class ResourceBackpacks {
     }
 
     private void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event) {
-
-        event.register(BackpackTooltipComponent.class, BackpackClientTooltipComponent::new);
+        event.register(CompactTooltipComponent.class, CompactClientTooltipComponent::new);
+        event.register(InventoryTooltipComponent.class, InventoryClientTooltipComponent::new);
     }
 }
