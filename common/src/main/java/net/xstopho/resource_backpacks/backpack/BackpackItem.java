@@ -19,11 +19,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.xstopho.resource_backpacks.BackpackConfig;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.backpack.tooltip.BackpackTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackInventory;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
+import net.xstopho.resource_backpacks.util.BackpackUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -79,30 +81,43 @@ public class BackpackItem extends BlockItem {
     @Override
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
         ItemContainerContents content = stack.get(DataComponents.CONTAINER);
-        return isShiftDown() ? Optional.of(new BackpackTooltipComponent(content, backpackLevel)) : Optional.empty();
+        Optional<TooltipComponent> tooltipComponent = Optional.empty();
+
+        if (enableCompactPreview()) {
+            tooltipComponent = Optional.of(new CompactTooltipComponent(content, backpackLevel));
+
+        } else if (enableInventoryPreview()) {
+            tooltipComponent = Optional.of(new InventoryTooltipComponent(content, backpackLevel));
+        }
+
+        return tooltipComponent;
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        if (!isShiftDown()) {
-            tooltip.add(KeyMappingRegistry.SHOW_COMPACT_PREVIEW.getTranslatedKeyMessage().copy().withStyle(ChatFormatting.GOLD)
-                    .append(Component.literal(": "))
-                    .append(Component.translatable("tooltip.resource_backpacks.info.compact_preview").withStyle(ChatFormatting.WHITE)));
 
-        } else if (isShiftDown() && !isAltDown()){
-            tooltip.add(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW.getTranslatedKeyMessage().copy().withStyle(ChatFormatting.GOLD)
-                    .append(Component.literal(": "))
-                    .append(Component.translatable("tooltip.resource_backpacks.info.inventory_preview").withStyle(ChatFormatting.WHITE)));
+        if (!enableCompactPreview() && !enableInventoryPreview()) {
+            if (!KeyMappingRegistry.SHOW_COMPACT_PREVIEW.isUnbound()) {
+                tooltip.add(KeyMappingRegistry.SHOW_COMPACT_PREVIEW.getTranslatedKeyMessage().copy().withStyle(ChatFormatting.GOLD)
+                        .append(Component.literal(": "))
+                        .append(Component.translatable("tooltip.resource_backpacks.info.compact_preview").withStyle(ChatFormatting.WHITE)));
+            }
+
+            if (!KeyMappingRegistry.SHOW_INVENTORY_PREVIEW.isUnbound()) {
+                tooltip.add(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW.getTranslatedKeyMessage().copy().withStyle(ChatFormatting.GOLD)
+                        .append(Component.literal(": "))
+                        .append(Component.translatable("tooltip.resource_backpacks.info.inventory_preview").withStyle(ChatFormatting.WHITE)));
+            }
         }
 
         super.appendHoverText(stack, context, tooltip, tooltipFlag);
     }
 
-    private boolean isShiftDown() {
-        return BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
+    private boolean enableCompactPreview() {
+        return BackpackUtils.hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
     }
 
-    private boolean isAltDown() {
-        return BackpackConstants.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
+    private boolean enableInventoryPreview() {
+        return BackpackUtils.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
     }
 }

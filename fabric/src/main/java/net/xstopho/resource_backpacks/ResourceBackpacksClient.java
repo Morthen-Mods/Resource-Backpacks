@@ -10,8 +10,10 @@ import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
-import net.xstopho.resource_backpacks.backpack.tooltip.BackpackClientTooltipComponent;
-import net.xstopho.resource_backpacks.backpack.tooltip.BackpackTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
 import net.xstopho.resource_backpacks.client.BackpackModel;
 import net.xstopho.resource_backpacks.client.BackpackRenderLayer;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
@@ -45,8 +47,12 @@ public class ResourceBackpacksClient implements ClientModInitializer {
         });
 
         TooltipComponentCallback.EVENT.register(component -> {
-            if (component instanceof BackpackTooltipComponent data) {
-                return new BackpackClientTooltipComponent(data);
+            if (component instanceof CompactTooltipComponent data) {
+                return new CompactClientTooltipComponent(data);
+            }
+
+            if (component instanceof InventoryTooltipComponent data) {
+                return new InventoryClientTooltipComponent(data);
             }
             return null;
         });
