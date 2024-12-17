@@ -1,3 +1,6 @@
+#### v0.10.6-BETA
+- changing behavior of Preview Tooltips, this prevents crashes when one of the KeyBinds isn't bound
+
 #### v0.10.4-BETA
 - fixing Ender Chest duplication glitch
 - re-enable ender backpack preview
@@ -42,7 +45,7 @@
 
 #### v0.7.6-BETA
 - fix the crash when crafting the leather backpack
-  - only happened when Shulker Box Tooltip ist installed
+  - only happened when Shulker Box Tooltip was installed
 
 #### v0.7.5-BETA
 - adding new Backpack Models made by Malcolm Riley
