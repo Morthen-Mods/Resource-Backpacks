@@ -1,2 +1,2 @@
-#### v0.10.5-BETA
-- fix indexing issue for Backpack Slots
+#### v0.10.6-BETA
+- changing behavior of Preview Tooltips, this prevents crashes when one of the KeyBinds isn't bound
