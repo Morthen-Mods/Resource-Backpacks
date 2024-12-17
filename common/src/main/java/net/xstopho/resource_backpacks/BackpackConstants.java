@@ -1,8 +1,5 @@
 package net.xstopho.resource_backpacks;
 
-import com.mojang.blaze3d.platform.InputConstants;
-import net.minecraft.client.KeyMapping;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -13,7 +10,6 @@ import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenuScreen;
-import net.xstopho.resource_backpacks.util.BackpackUtils;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,11 +49,6 @@ public class BackpackConstants {
     public static ResourceLocation of(String id) {
 
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-    }
-
-    public static boolean hasKeyDown(KeyMapping keyMapping) {
-        int keyCode = ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getValue();
-        return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
     }
 
     static ResourceKey<EquipmentAsset> createId(String name) {
