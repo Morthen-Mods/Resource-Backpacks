@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.world.entity.player.Player;
 import net.xstopho.resourceconfigapi.ResourceConfigConstants;
 
 import java.util.Objects;
@@ -35,6 +36,10 @@ public class BackpackUtils {
     public static void syncEnderChestInventory() {
 
         load(BackpackUtils.NetworkHook.class).sendEnderChestRequest();
+    }
+
+    public static Player getLocalPlayer() {
+        return Minecraft.getInstance().player;
     }
 
     /**

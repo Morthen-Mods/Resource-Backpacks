@@ -29,11 +29,15 @@ public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) {
     }
 
     public static void apply(EnderChestResponsePayload payload, CustomPayloadEvent.Context context) {
-        context.enqueueWork(() -> {
-            Player player = Minecraft.getInstance().player;
+        if (payload.inventoryTag() == null) return;
 
-            if (player != null) {
-                player.getEnderChestInventory().fromTag(payload.inventoryTag(), player.registryAccess());
+        context.enqueueWork(() -> {
+            if (context.isClientSide()) {
+                Player player = BackpackUtils.getLocalPlayer();
+
+                if (player != null) {
+                    player.getEnderChestInventory().fromTag(payload.inventoryTag(), player.registryAccess());
+                }
             }
         });
         context.setPacketHandled(true);
