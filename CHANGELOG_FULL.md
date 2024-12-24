@@ -1,3 +1,6 @@
+#### v0.10.7-BETA
+- dirty fix for Forge Server crashes due to executing client code on server side.
+
 #### v0.10.6-BETA
 - changing behavior of Preview Tooltips, this prevents crashes when one of the KeyBinds isn't bound
 

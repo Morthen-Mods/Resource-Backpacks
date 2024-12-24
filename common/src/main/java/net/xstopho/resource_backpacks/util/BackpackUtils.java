@@ -3,6 +3,7 @@ package net.xstopho.resource_backpacks.util;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.player.Player;
 import net.xstopho.resourceconfigapi.ResourceConfigConstants;
 
 import java.util.ServiceLoader;
@@ -25,6 +26,18 @@ public class BackpackUtils {
     }
 
     /**
+     * Used to send a request package to the Server, this syncs the Ender Chest Inventory with the Client
+     */
+    public static void syncEnderChestInventory() {
+
+        load(BackpackUtils.NetworkHook.class).sendEnderChestRequest();
+    }
+
+    public static Player getLocalPlayer() {
+        return Minecraft.getInstance().player;
+    }
+
+    /**
      * Check if the given KeyMapping is pressed.
      * @param keyMapping
      * @return
@@ -34,14 +47,6 @@ public class BackpackUtils {
 
         int keyCode = ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getValue();
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
-    }
-
-    /**
-     * Used to send a request package to the Server, this syncs the Ender Chest Inventory with the Client
-     */
-    public static void syncEnderChestInventory() {
-
-        load(BackpackUtils.NetworkHook.class).sendEnderChestRequest();
     }
 
     public static <T> T load(Class<T> clazz) {

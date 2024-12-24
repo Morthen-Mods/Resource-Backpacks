@@ -11,7 +11,11 @@ import net.xstopho.resource_backpacks.ResourceBackpacks;
 public class BackpackNetwork {
 
     public static SimpleChannel initPayloads() {
-        SimpleChannel channel = ChannelBuilder.named(of("backpack_network")).acceptedVersions(Channel.VersionTest.exact(1)).networkProtocolVersion(1).simpleChannel();
+        SimpleChannel channel = ChannelBuilder.named(of("backpack_network"))
+                .acceptedVersions(Channel.VersionTest.exact(1))
+                .networkProtocolVersion(1)
+                .simpleChannel();
+
         ResourceBackpacks.NETWORK = channel;
 
         channel.messageBuilder(OpenBackpackPayload.class, 0, NetworkDirection.PLAY_TO_SERVER)
