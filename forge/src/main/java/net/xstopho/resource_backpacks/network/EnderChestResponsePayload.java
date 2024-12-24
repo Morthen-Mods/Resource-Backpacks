@@ -29,15 +29,11 @@ public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) {
     }
 
     public static void apply(EnderChestResponsePayload payload, CustomPayloadEvent.Context context) {
-        if (payload.inventoryTag() == null) return;
-
         context.enqueueWork(() -> {
-            if (context.isClientSide()) {
-                Player player = BackpackUtils.getLocalPlayer();
+            Player player = BackpackUtils.getLocalPlayer();
 
-                if (player != null) {
-                    player.getEnderChestInventory().fromTag(payload.inventoryTag(), player.registryAccess());
-                }
+            if (player != null) {
+                player.getEnderChestInventory().fromTag(payload.inventoryTag(), player.registryAccess());
             }
         });
         context.setPacketHandled(true);
