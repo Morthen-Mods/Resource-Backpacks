@@ -4,6 +4,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraftforge.event.network.CustomPayloadEvent;
@@ -18,19 +19,15 @@ public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) {
         return new EnderChestResponsePayload(container.createTag(registries));
     }
 
-    public static EnderChestResponsePayload decode(RegistryFriendlyByteBuf byteBuf) {
-        CompoundTag compound = byteBuf.readNbt();
+    public static final StreamCodec<RegistryFriendlyByteBuf, EnderChestResponsePayload> CODEC =
+            StreamCodec.composite(BackpackCodecs.ENDER_CHEST, EnderChestResponsePayload::inventoryTag, EnderChestResponsePayload::new);
 
-        if (compound == null || !compound.contains("inv", ListTag.TAG_LIST))
-            return new EnderChestResponsePayload(null);
-        return new EnderChestResponsePayload(compound.getList("inv", ListTag.TAG_COMPOUND));
+    public static EnderChestResponsePayload decode(RegistryFriendlyByteBuf byteBuf) {
+        return CODEC.decode(byteBuf);
     }
 
     public static void encode(EnderChestResponsePayload payload, RegistryFriendlyByteBuf byteBuf) {
-        CompoundTag compound = new CompoundTag();
-
-        compound.put("inv", Objects.requireNonNull(payload.inventoryTag()));
-        byteBuf.writeNbt(compound);
+        CODEC.encode(byteBuf, payload);
     }
 
     public static void apply(EnderChestResponsePayload payload, CustomPayloadEvent.Context context) {

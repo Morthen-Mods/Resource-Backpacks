@@ -21,7 +21,7 @@ public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) implemen
             new CustomPacketPayload.Type<>(BackpackConstants.of("ender_chest_response_payload"));
 
     public static final StreamCodec<RegistryFriendlyByteBuf, EnderChestResponsePayload> CODEC =
-            StreamCodec.composite(BackpackUtils.ENDER_CHEST, EnderChestResponsePayload::inventoryTag, EnderChestResponsePayload::new);
+            StreamCodec.composite(BackpackCodecs.ENDER_CHEST, EnderChestResponsePayload::inventoryTag, EnderChestResponsePayload::new);
 
     public static void apply(EnderChestResponsePayload payload, IPayloadContext context) {
         if (payload.inventoryTag() == null) return;
