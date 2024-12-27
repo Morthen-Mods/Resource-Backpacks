@@ -1,6 +1,6 @@
-name: New Issue/Bug other than mod support requests
+name: New Feature/Enhancement
 description: Only request one Feature at a Time. This makes it easier to track.
-labels: [feature request"]
+labels: ["feature request"]
 assignees: ["Stein-N"]
 body:
   - type: textarea
