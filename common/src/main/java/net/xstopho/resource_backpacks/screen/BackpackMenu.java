@@ -12,6 +12,8 @@ import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.util.BackpackLevel;
 
+import java.util.Objects;
+
 public class BackpackMenu extends AbstractContainerMenu {
 
     private final Container backpackInventory;
@@ -100,25 +102,23 @@ public class BackpackMenu extends AbstractContainerMenu {
     }
 
     private void addBackpackSlots() {
-        int index = 0;
-        for (int i = 0; i < backpackLevel.getRows(); i++) {
-            for (int y = 0; y < backpackLevel.getColumns(); y++) {
-                this.addSlot(new BackpackSlot(backpackInventory, index, 8 + y * 18, 18 + i * 18));
-                index++;
+        int rows = backpackLevel.getRows();
+        int columns = backpackLevel.getColumns();
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                this.addSlot(new BackpackSlot(backpackInventory, column + (row * columns), 8 + column * 18, 18 + row * 18));
             }
         }
     }
 
     protected void addStandardInventorySlots(Container playerInventory, int xPos, int yPos) {
         addInventoryExtendedSlots(playerInventory, xPos, yPos);
-        int i = 4;
-        int j = 58;
         addInventoryHotbarSlots(playerInventory, xPos, yPos + 58);
     }
 
     protected void addInventoryHotbarSlots(Container playerInventory, int xPos, int yPos) {
         for(int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, xPos + i * 18, yPos));
+            this.addSlot(new BackpackSlot(playerInventory, i, xPos + i * 18, yPos));
         }
 
     }
@@ -126,7 +126,7 @@ public class BackpackMenu extends AbstractContainerMenu {
     protected void addInventoryExtendedSlots(Container playerInventory, int xPos, int yPos) {
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(playerInventory, j + (i + 1) * 9, xPos + j * 18, yPos + i * 18));
+                this.addSlot(new BackpackSlot(playerInventory, j + (i + 1) * 9, xPos + j * 18, yPos + i * 18));
             }
         }
 
@@ -175,18 +175,18 @@ public class BackpackMenu extends AbstractContainerMenu {
 
         @Override
         public boolean mayPickup(Player player) {
-            return this.canMoveStack(this.getItem());
-
+            return !Objects.equals(player.getMainHandItem(), this.getItem());
         }
 
         @Override
         public boolean mayPlace(ItemStack stack) {
-            return this.canMoveStack(stack);
-
+            return BackpackConfig.allowBackpacksInsideBackpacks || this.canMoveStack(stack);
         }
 
         public boolean canMoveStack(ItemStack stack) {
-            return BackpackConfig.containerFromEndBackpack || stack.getItem().canFitInsideContainerItems();
+            if (container instanceof Inventory) return true;
+
+            return stack.getItem().canFitInsideContainerItems();
         }
     }
 }
