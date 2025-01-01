@@ -14,13 +14,13 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemContainerContents;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.xstopho.resource_backpacks.BackpackConfig;
-import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
+import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackInventory;
@@ -44,11 +44,22 @@ public class BackpackItem extends BlockItem {
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
 
-        if (!level.isClientSide && BackpackConfig.OPEN_FROM_INVENTORY.get()) {
+        if (!level.isClientSide && BackpackConfig.openFromInventory) {
             player.openMenu(getMenuProvider(player.getItemInHand(hand)));
         }
 
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+        Player player = context.getPlayer();
+
+        if (player != null && player.isCrouching()) {
+            super.useOn(context);
+        }
+
+        return InteractionResult.PASS;
     }
 
     public MenuProvider getMenuProvider(ItemStack stack) {

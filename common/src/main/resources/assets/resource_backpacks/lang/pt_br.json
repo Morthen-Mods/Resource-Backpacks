@@ -27,5 +27,20 @@
   "block.resource_backpacks.backpack_iron": "Mochila de Ferro",
   "block.resource_backpacks.backpack_diamond": "Mochila de Diamante",
   "block.resource_backpacks.backpack_netherite": "Mochila de Netherita",
-  "block.resource_backpacks.backpack_end": "Mochila do Fim"
+  "block.resource_backpacks.backpack_end": "Mochila do Fim",
+
+"config.resource_backpacks.backpacks.general.label": "Configurações Gerais",
+"config.resource_backpacks.backpacks.openfrominventory.label": "Abrir ao Interagir",
+"config.resource_backpacks.backpacks.openfrominventory.tooltip": "Esta opção permite ao usuário abrir a mochila com o botão direito do mouse.",
+"config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Permitir Mochilas dentro de Mochilas",
+"config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Permite ao usuário armazenar mochilas dentro de outra mochila, permitindo um inventário infinito.",
+
+"config.resource_backpacks.backpacks.leather_backpack.label": "Mochila de Couro",
+"config.resource_backpacks.backpacks.copper_backpack.label": "Mochila de Cobre",
+"config.resource_backpacks.backpacks.gold_backpack.label": "Mochila de Ouro",
+"config.resource_backpacks.backpacks.iron_backpack.label": "Mochila de Ferro",
+"config.resource_backpacks.backpacks.diamond_backpack.label": "Mochila de Diamante",
+"config.resource_backpacks.backpacks.netherite_backpack.label": "Mochila de Netherita",
+"config.resource_backpacks.backpacks.row.label": "Linhas",
+"config.resource_backpacks.backpacks.column.label": "Colunas"
 }

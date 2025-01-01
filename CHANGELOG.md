@@ -1,2 +1,4 @@
-#### v0.10.7-BETA
-- fix for Forge Server crashes due to executing client code on server side.
+#### v0.11.0-BETA
+- applying Resource Config API changes
+- opened backpack gets locked when opened via right-click
+- player now need to crouch to place the backpack

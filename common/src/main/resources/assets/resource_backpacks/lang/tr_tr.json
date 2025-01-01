@@ -27,5 +27,20 @@
   "block.resource_backpacks.backpack_iron": "Demir Sırt Çantası",
   "block.resource_backpacks.backpack_diamond": "Elmas Sırt Çantası",
   "block.resource_backpacks.backpack_netherite": "Netherit Sırt Çantası",
-  "block.resource_backpacks.backpack_end": "Son Sırt Çantası"
+  "block.resource_backpacks.backpack_end": "Son Sırt Çantası",
+
+"config.resource_backpacks.backpacks.general.label": "Genel Ayarlar",
+"config.resource_backpacks.backpacks.openfrominventory.label": "Etkileşimde Aç",
+"config.resource_backpacks.backpacks.openfrominventory.tooltip": "Bu seçenek, Kullanıcının Sırt Çantasını Sağ Tıklama ile açmasına izin verir.",
+"config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Sırt Çantalarının İçinde Sırt Çantalarına İzin Ver",
+"config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Kullanıcının başka bir Sırt Çantasının içinde Sırt Çantalarını saklamasına izin verin, bu da sonsuz bir Envanter sağlar.",
+
+"config.resource_backpacks.backpacks.leather_backpack.label": "Deri Sırt Çantası",
+"config.resource_backpacks.backpacks.copper_backpack.label": "Bakır Sırt Çantası",
+"config.resource_backpacks.backpacks.gold_backpack.label": "Altın Sırt Çantası",
+"config.resource_backpacks.backpacks.iron_backpack.label": "Demir Sırt Çantası",
+"config.resource_backpacks.backpacks.diamond_backpack.label": "Elmas Sırt Çantası",
+"config.resource_backpacks.backpacks.netherite_backpack.label": "Netherit Sırt Çantası",
+"config.resource_backpacks.backpacks.row.label": "Satırlar",
+"config.resource_backpacks.backpacks.column.label": "Sütunlar"
 }
