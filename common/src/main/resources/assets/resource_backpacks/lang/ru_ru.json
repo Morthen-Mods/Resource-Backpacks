@@ -27,5 +27,20 @@
   "block.resource_backpacks.backpack_iron": "Железный рюкзак",
   "block.resource_backpacks.backpack_diamond": "Алмазный рюкзак",
   "block.resource_backpacks.backpack_netherite": "Незеритовый рюкзак",
-  "block.resource_backpacks.backpack_end": "Эндер рюкзак"
+  "block.resource_backpacks.backpack_end": "Эндер рюкзак",
+
+"config.resource_backpacks.backpacks.general.label": "Общие настройки",
+"config.resource_backpacks.backpacks.openfrominventory.label": "Открыть при взаимодействии",
+"config.resource_backpacks.backpacks.openfrominventory.tooltip": "Эта опция позволяет пользователю открыть рюкзак правым кликом.",
+"config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Разрешить рюкзаки внутри рюкзаков",
+"config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Позволяет пользователю хранить рюкзаки внутри другого рюкзака, что позволит бесконечный инвентарь.",
+
+"config.resource_backpacks.backpacks.leather_backpack.label": "Кожаный рюкзак",
+"config.resource_backpacks.backpacks.copper_backpack.label": "Медный рюкзак",
+"config.resource_backpacks.backpacks.gold_backpack.label": "Золотой рюкзак",
+"config.resource_backpacks.backpacks.iron_backpack.label": "Железный рюкзак",
+"config.resource_backpacks.backpacks.diamond_backpack.label": "Алмазный рюкзак",
+"config.resource_backpacks.backpacks.netherite_backpack.label": "Незеритовый рюкзак",
+"config.resource_backpacks.backpacks.row.label": "Ряды",
+"config.resource_backpacks.backpacks.column.label": "Колонки"
 }

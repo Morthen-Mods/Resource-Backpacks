@@ -27,5 +27,20 @@
   "block.resource_backpacks.backpack_iron": "铁背包",
   "block.resource_backpacks.backpack_diamond": "钻石背包",
   "block.resource_backpacks.backpack_netherite": "下界合金背包",
-  "block.resource_backpacks.backpack_end": "末地背包"
+  "block.resource_backpacks.backpack_end": "末地背包",
+
+"config.resource_backpacks.backpacks.general.label": "常规设置",
+"config.resource_backpacks.backpacks.openfrominventory.label": "交互时打开",
+"config.resource_backpacks.backpacks.openfrominventory.tooltip": "此选项允许用户通过右键单击打开背包。",
+"config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "允许背包内放置背包",
+"config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "允许用户在另一个背包内存放背包，从而实现无限库存。",
+
+"config.resource_backpacks.backpacks.leather_backpack.label": "皮革背包",
+"config.resource_backpacks.backpacks.copper_backpack.label": "铜背包",
+"config.resource_backpacks.backpacks.gold_backpack.label": "金背包",
+"config.resource_backpacks.backpacks.iron_backpack.label": "铁背包",
+"config.resource_backpacks.backpacks.diamond_backpack.label": "钻石背包",
+"config.resource_backpacks.backpacks.netherite_backpack.label": "下界合金背包",
+"config.resource_backpacks.backpacks.row.label": "行",
+"config.resource_backpacks.backpacks.column.label": "列"
 }
