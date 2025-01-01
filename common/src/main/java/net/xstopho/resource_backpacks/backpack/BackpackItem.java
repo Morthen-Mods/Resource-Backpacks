@@ -17,10 +17,9 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.xstopho.resource_backpacks.BackpackConfig;
-import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
+import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.util.BackpackInventory;
@@ -43,7 +42,7 @@ public class BackpackItem extends BlockItem implements Equipable {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
 
-        if (!level.isClientSide && BackpackConfig.OPEN_FROM_INVENTORY.get()) {
+        if (!level.isClientSide && BackpackConfig.openFromInventory) {
             player.openMenu(getMenuProvider(stack));
         }
 
