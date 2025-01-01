@@ -4,7 +4,7 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
-import net.xstopho.resourceconfigapi.ResourceConfigConstants;
+import net.xstopho.resource_backpacks.BackpackConstants;
 
 import java.util.ServiceLoader;
 
@@ -54,7 +54,7 @@ public class BackpackUtils {
         final T loadedService = ServiceLoader.load(clazz)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException("Failed to load service for " + clazz.getName()));
-        ResourceConfigConstants.LOG.debug("Loaded {} for service {}", loadedService, clazz);
+        BackpackConstants.LOG.debug("Loaded {} for service {}", loadedService, clazz);
         return loadedService;
     }
 }

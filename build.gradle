@@ -1,6 +1,14 @@
 plugins {
+    id 'idea'
     id 'fabric-loom' version '1.9-SNAPSHOT' apply false
     id 'net.neoforged.moddev' version '2.0.52-beta' apply false
     id 'net.minecraftforge.gradle' version '[6.0.25, 6.2)' apply false
     id 'me.modmuss50.mod-publish-plugin' version '0.8.3' apply false
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
 }

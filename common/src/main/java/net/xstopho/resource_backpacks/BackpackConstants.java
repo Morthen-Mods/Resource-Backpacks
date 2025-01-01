@@ -5,6 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.equipment.EquipmentAsset;
+import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
@@ -21,11 +22,12 @@ public class BackpackConstants {
 
     public static final ResourceKey<? extends Registry<EquipmentAsset>> ROOT_ID =
             ResourceKey.createRegistryKey(ResourceLocation.withDefaultNamespace("equipment_asset"));
+
     public static final ResourceKey<EquipmentAsset> BACKPACK_EQUIPMENT_ASSET = createId("backpack");
 
 
     public static void commonInit() {
-        ConfigRegistry.register(MOD_ID, BackpackConfig.BUILDER, false);
+        ConfigRegistry.register(BackpackConfig.class, MOD_ID);
 
         BlockRegistry.init();
         BlockEntityRegistry.init();

@@ -27,5 +27,20 @@
   "block.resource_backpacks.backpack_iron": "Eisenrucksack",
   "block.resource_backpacks.backpack_diamond": "Diamantrucksack",
   "block.resource_backpacks.backpack_netherite": "Netheritrucksack",
-  "block.resource_backpacks.backpack_end": "Endrucksack"
+  "block.resource_backpacks.backpack_end": "Endrucksack",
+
+  "config.resource_backpacks.backpacks.general.label": "Allgemeine Einstellungen",
+  "config.resource_backpacks.backpacks.openfrominventory.label": "Öffnen beim Interagieren",
+  "config.resource_backpacks.backpacks.openfrominventory.tooltip": "Erlaubt es dem Spieler den Rucksack mittels der rechten Maustaste zu öffnen.",
+  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Rucksäcke in Rucksäcken",
+  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Erlaubt es dem Spieler Rucksäcke in Rücksäcke zu packen. Viel Spaß mit dem unendlichen Inventar.",
+
+  "config.resource_backpacks.backpacks.leather_backpack.label": "Leder Rucksack",
+  "config.resource_backpacks.backpacks.copper_backpack.label": "Kupfer Rucksack",
+  "config.resource_backpacks.backpacks.gold_backpack.label": "Gold Rucksack",
+  "config.resource_backpacks.backpacks.iron_backpack.label": "Risen Rucksack",
+  "config.resource_backpacks.backpacks.diamond_backpack.label": "Diamant Rucksack",
+  "config.resource_backpacks.backpacks.netherite_backpack.label": "Netherit Rucksack",
+  "config.resource_backpacks.backpacks.row.label": "Reihen",
+  "config.resource_backpacks.backpacks.column.label": "Spalten"
 }
