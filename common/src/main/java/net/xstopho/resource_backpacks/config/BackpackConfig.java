@@ -12,7 +12,7 @@ public class BackpackConfig {
     public static boolean openFromInventory = false;
 
     @ConfigEntry(category = "General")
-    public static boolean containerFromEndBackpack = false;
+    public static boolean allowBackpacksInsideBackpacks = false;
 
     @ConfigEntry(category = "Leather Backpack", translation = "row", needsGameRestart = true)
     @RangedEntry(minValue = 1, maxValue = 2)

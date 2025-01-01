@@ -1,2 +1,3 @@
-#### v0.10.7-BETA
-- fix for Forge Server crashes due to executing client code on server side.
+#### v0.11.0-BETA
+- applying Resource Config API changes
+- 
