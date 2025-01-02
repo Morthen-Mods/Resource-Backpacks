@@ -22,7 +22,7 @@ import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.backpack.util.BackpackInventory;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
-import net.xstopho.resource_backpacks.util.BackpackUtils;
+import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -124,10 +124,10 @@ public class BackpackItem extends BlockItem implements Equipable {
     }
 
     private boolean enableCompactPreview() {
-        return BackpackUtils.hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
+        return BackpackClientUtils.hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
     }
 
     private boolean enableInventoryPreview() {
-        return BackpackUtils.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
+        return BackpackClientUtils.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
     }
 }
