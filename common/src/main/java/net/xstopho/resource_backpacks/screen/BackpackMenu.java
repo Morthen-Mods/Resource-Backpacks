@@ -120,7 +120,6 @@ public class BackpackMenu extends AbstractContainerMenu {
         for(int i = 0; i < 9; ++i) {
             this.addSlot(new BackpackSlot(playerInventory, i, xPos + i * 18, yPos));
         }
-
     }
 
     protected void addInventoryExtendedSlots(Container playerInventory, int xPos, int yPos) {
@@ -129,7 +128,6 @@ public class BackpackMenu extends AbstractContainerMenu {
                 this.addSlot(new BackpackSlot(playerInventory, j + (i + 1) * 9, xPos + j * 18, yPos + i * 18));
             }
         }
-
     }
 
     @Override

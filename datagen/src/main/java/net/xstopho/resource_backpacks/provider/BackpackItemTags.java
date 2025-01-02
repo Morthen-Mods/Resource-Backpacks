@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.datagen;
+package net.xstopho.resource_backpacks.provider;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -10,6 +10,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resourcelibrary.registration.RegistryObject;
 import net.xstopho.resourcelibrary.util.TagHelper;
@@ -35,18 +37,25 @@ public class BackpackItemTags extends TagsProvider<Item> {
     public static final TagKey<Item> IRON_INGOTS = TagHelper.createItemTag("iron_ingots");
     public static final TagKey<Item> NETHERITE_INGOTS = TagHelper.createItemTag("netherite_ingots");
     public static final TagKey<Item> DIAMONDS = TagHelper.createItemTag("diamonds");
+    public static final TagKey<Item> LEATHER = TagHelper.createItemTag("leather");
 
-    public BackpackItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, Registries.ITEM, lookupProvider);
+    public BackpackItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
+        super(output, Registries.ITEM, lookupProvider, BackpackConstants.MOD_ID, existingFileHelper);
     }
 
     @Override
-    public void addTags(HolderLookup.Provider provider) {
-        tagBuilder(BACKPACKS, BlockRegistry.BACKPACK_LEATHER, BlockRegistry.BACKPACK_COPPER, BlockRegistry.BACKPACK_GOLD,
-                BlockRegistry.BACKPACK_IRON, BlockRegistry.BACKPACK_DIAMOND, BlockRegistry.BACKPACK_NETHERITE,
+    protected void addTags(HolderLookup.Provider provider) {
+        tagBuilder(BACKPACKS, BlockRegistry.BACKPACK_LEATHER,
+                BlockRegistry.BACKPACK_COPPER,
+                BlockRegistry.BACKPACK_GOLD,
+                BlockRegistry.BACKPACK_IRON,
+                BlockRegistry.BACKPACK_DIAMOND,
+                BlockRegistry.BACKPACK_NETHERITE,
                 BlockRegistry.BACKPACK_END);
 
-        tagBuilder(BACKPACK_LEATHER_INGREDIENT, Items.LEATHER, Items.RABBIT_HIDE);
+        tagBuilder(LEATHER, Items.LEATHER, Items.RABBIT_HIDE);
+
+        tagBuilder(BACKPACK_LEATHER_INGREDIENT, LEATHER);
 
         tagBuilder(BACKPACK_LEATHER, BlockRegistry.BACKPACK_LEATHER);
         tagBuilder(BACKPACK_COPPER, BlockRegistry.BACKPACK_COPPER);
@@ -77,6 +86,15 @@ public class BackpackItemTags extends TagsProvider<Item> {
 
         for (Item item : items) {
             appender.add(BuiltInRegistries.ITEM.getResourceKey(item).get());
+        }
+    }
+
+    @SafeVarargs
+    private void tagBuilder(TagKey<Item> outputTag, TagKey<Item>... tagKeys) {
+        TagAppender<Item> appender = this.tag(outputTag);
+
+        for (TagKey<Item> tag : tagKeys) {
+            appender.addTag(tag);
         }
     }
 

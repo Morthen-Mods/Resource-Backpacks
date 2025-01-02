@@ -38,10 +38,6 @@ neoForge {
             server()
             programArguments.add('nogui')
         }
-        data {
-            data()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()
-        }
     }
     mods {
         "${mod_id}" { sourceSet sourceSets.main }

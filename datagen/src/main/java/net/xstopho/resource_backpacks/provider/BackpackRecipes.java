@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.datagen;
+package net.xstopho.resource_backpacks.provider;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -14,16 +14,16 @@ import net.xstopho.resource_backpacks.registries.BlockRegistry;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BackpackRecipeProvider extends RecipeProvider {
+public class BackpackRecipes extends RecipeProvider {
 
     private RecipeOutput recipeOutput;
 
-    public BackpackRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+    public BackpackRecipes(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }
 
     @Override
-    public void buildRecipes(RecipeOutput recipeOutput) {
+    protected void buildRecipes(RecipeOutput recipeOutput) {
         this.recipeOutput = recipeOutput;
 
         backpackRecipe(Items.CHEST, BackpackItemTags.BACKPACK_LEATHER_INGREDIENT, BlockRegistry.BACKPACK_LEATHER.get());

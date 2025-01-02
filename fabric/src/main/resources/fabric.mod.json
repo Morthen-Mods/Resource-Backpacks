@@ -15,9 +15,7 @@
     "accessWidener" : "${mod_id}.accesswidener",
     "entrypoints": {
         "main": [ "net.xstopho.resource_backpacks.ResourceBackpacks" ],
-        "client": [ "net.xstopho.resource_backpacks.ResourceBackpacksClient" ],
-        "fabric-datagen": [ "net.xstopho.resource_backpacks.ResourceBackpacksDatagen" ],
-        "shulkerboxtooltip": [ "net.xstopho.resource_backpacks.compat.BackpackTooltipPlugin" ]
+        "client": [ "net.xstopho.resource_backpacks.ResourceBackpacksClient" ]
     },
     "mixins": [ "${mod_id}.mixins.json" ],
     "depends": {
