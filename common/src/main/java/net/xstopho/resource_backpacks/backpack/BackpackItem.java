@@ -20,8 +20,8 @@ import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent
 import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
-import net.xstopho.resource_backpacks.util.BackpackInventory;
-import net.xstopho.resource_backpacks.util.BackpackLevel;
+import net.xstopho.resource_backpacks.backpack.util.BackpackInventory;
+import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.util.BackpackUtils;
 
 import java.util.List;

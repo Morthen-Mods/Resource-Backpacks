@@ -1,8 +1,6 @@
-package net.xstopho.resource_backpacks.util;
+package net.xstopho.resource_backpacks.backpack.util;
 
 import net.xstopho.resource_backpacks.config.BackpackConfig;
-
-import java.util.function.Supplier;
 
 public enum BackpackLevel {
 

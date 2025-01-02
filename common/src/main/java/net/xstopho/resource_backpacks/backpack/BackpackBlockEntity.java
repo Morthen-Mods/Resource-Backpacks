@@ -13,8 +13,8 @@ import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
-import net.xstopho.resource_backpacks.util.BackpackLevel;
-import net.xstopho.resource_backpacks.util.ImplementedInventory;
+import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
+import net.xstopho.resource_backpacks.backpack.util.ImplementedInventory;
 import org.jetbrains.annotations.NotNull;
 
 public class BackpackBlockEntity extends BaseContainerBlockEntity implements ImplementedInventory {

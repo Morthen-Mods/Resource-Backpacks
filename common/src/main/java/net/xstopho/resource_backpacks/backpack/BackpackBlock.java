@@ -23,7 +23,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.xstopho.resource_backpacks.backpack.util.BackpackBlockShapes;
-import net.xstopho.resource_backpacks.util.BackpackLevel;
+import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
