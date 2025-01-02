@@ -51,7 +51,7 @@ public class BackpackItem extends BlockItem implements Equipable {
     public InteractionResult useOn(UseOnContext context) {
         Player player = context.getPlayer();
 
-        if (player != null && player.isCrouching()) {
+        if (player != null && (player.isCrouching() || !BackpackConfig.openFromInventory)) {
             super.useOn(context);
         }
 
