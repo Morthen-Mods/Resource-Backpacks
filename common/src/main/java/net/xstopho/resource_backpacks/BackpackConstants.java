@@ -7,7 +7,7 @@ import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
-import net.xstopho.resource_backpacks.screen.BackpackMenuScreen;
+import net.xstopho.resource_backpacks.client.screen.BackpackMenuScreen;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

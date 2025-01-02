@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.screen;
+package net.xstopho.resource_backpacks.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;

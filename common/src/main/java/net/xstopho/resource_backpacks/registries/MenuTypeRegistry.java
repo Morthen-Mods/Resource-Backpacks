@@ -4,7 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.MenuType;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.screen.BackpackMenu;
+import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
 import net.xstopho.resourcelibrary.registration.RegistryObject;
 import net.xstopho.resourcelibrary.registration.RegistryProvider;
 

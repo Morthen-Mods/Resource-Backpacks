@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.screen;
+package net.xstopho.resource_backpacks.client.screen;
 
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
