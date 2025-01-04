@@ -29,7 +29,7 @@ public class BackpackRenderLayer<T extends LivingEntityRenderState, M extends En
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int lightness, T entity, float limbSwing,
                        float limbSwingAmount) {
 
-        ItemStack stack = ((HumanoidRenderState) entity).chestItem;
+        ItemStack stack = ((HumanoidRenderState) entity).chestEquipment;
 
         if (stack.getItem() instanceof BackpackItem) {
             poseStack.pushPose();

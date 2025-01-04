@@ -8,20 +8,19 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.xstopho.resource_backpacks.provider.BackpackBlockTags;
 import net.xstopho.resource_backpacks.provider.BackpackItemTags;
 import net.xstopho.resource_backpacks.provider.BackpackRecipes;
-import net.xstopho.resource_backpacks.registries.BlockRegistry;
 
 @Mod(BackpackConstants.MOD_ID)
 public class ResourceBackpacks {
 
     public ResourceBackpacks(IEventBus bus) {
-        BlockRegistry.init();
+        BackpackConstants.commonInit();
     }
 
     @EventBusSubscriber(modid = BackpackConstants.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
     public static class Datagen {
 
         @SubscribeEvent
-        public static void generateData(GatherDataEvent event) {
+        public static void generateData(GatherDataEvent.Client event) {
             event.createProvider(BackpackRecipes.Runner::new);
             event.createBlockAndItemTags(BackpackBlockTags::new, BackpackItemTags::new);
         }

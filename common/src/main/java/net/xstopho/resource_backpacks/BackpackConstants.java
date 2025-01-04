@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenuScreen;
 import net.xstopho.resource_backpacks.config.BackpackConfig;
+import net.xstopho.resource_backpacks.config.ClientConfig;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
@@ -27,6 +28,7 @@ public class BackpackConstants {
 
 
     public static void commonInit() {
+        ConfigRegistry.register(ClientConfig.class, MOD_ID);
         ConfigRegistry.register(BackpackConfig.class, MOD_ID);
 
         BlockRegistry.init();
