@@ -8,6 +8,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
@@ -173,7 +174,10 @@ public class BackpackMenu extends AbstractContainerMenu {
 
         @Override
         public boolean mayPickup(Player player) {
-            return !Objects.equals(player.getMainHandItem(), this.getItem());
+            if (player.getMainHandItem().getItem() instanceof BackpackItem) {
+                return !Objects.equals(player.getMainHandItem(), this.getItem());
+            }
+            return true;
         }
 
         @Override
