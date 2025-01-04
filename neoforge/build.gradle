@@ -8,11 +8,6 @@ plugins {
 dependencies {
     implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
-
-    // Runtime Mods
-    runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei}"
-    runtimeOnly "maven.modrinth:jade:${jade}+neoforge"
-    //runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
 }
 
 neoForge {
@@ -22,7 +17,7 @@ neoForge {
     if (at.exists()) accessTransformers = [at]
 
     parchment {
-        minecraftVersion = '1.21'
+        minecraftVersion = minecraft_version
         mappingsVersion = parchment_version
     }
 
@@ -38,10 +33,6 @@ neoForge {
         server {
             server()
             programArguments.add('nogui')
-        }
-        data {
-            data()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources').getAbsolutePath()
         }
     }
     mods {

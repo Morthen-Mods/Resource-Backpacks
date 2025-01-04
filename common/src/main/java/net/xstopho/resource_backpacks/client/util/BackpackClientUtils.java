@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.util;
+package net.xstopho.resource_backpacks.client.util;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
@@ -8,7 +8,7 @@ import net.xstopho.resource_backpacks.BackpackConstants;
 
 import java.util.ServiceLoader;
 
-public class BackpackUtils {
+public class BackpackClientUtils {
 
     /**
      * Used to send a Loader specific request payload to get the EnderChest Inventory
@@ -30,7 +30,7 @@ public class BackpackUtils {
      */
     public static void syncEnderChestInventory() {
 
-        load(BackpackUtils.NetworkHook.class).sendEnderChestRequest();
+        load(NetworkHook.class).sendEnderChestRequest();
     }
 
     public static Player getLocalPlayer() {
@@ -45,7 +45,7 @@ public class BackpackUtils {
     public static boolean hasKeyDown(KeyMapping keyMapping) {
         if (keyMapping.isUnbound()) return false;
 
-        int keyCode = ((BackpackUtils.KeyMappingAccess) keyMapping).getKey().getValue();
+        int keyCode = ((KeyMappingAccess) keyMapping).getKey().getValue();
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
     }
 

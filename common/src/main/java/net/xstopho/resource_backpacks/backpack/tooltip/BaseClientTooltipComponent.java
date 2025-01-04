@@ -9,7 +9,7 @@ import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.util.BackpackUtils;
+import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
     }
 
     protected List<ItemStack> getEnderChestItems(Player player) {
-        BackpackUtils.syncEnderChestInventory();
+        BackpackClientUtils.syncEnderChestInventory();
 
         if (player != null) {
             PlayerEnderChestContainer container = player.getEnderChestInventory();

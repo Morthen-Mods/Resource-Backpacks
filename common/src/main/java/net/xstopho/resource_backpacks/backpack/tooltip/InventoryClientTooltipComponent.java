@@ -5,8 +5,8 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.util.BackpackLevel;
-import net.xstopho.resource_backpacks.util.BackpackUtils;
+import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
+import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class InventoryClientTooltipComponent extends BaseClientTooltipComponent 
         if (component.level().equals(BackpackLevel.END)) {
             Player player = Minecraft.getInstance().player;
 
-            BackpackUtils.syncEnderChestInventory();
+            BackpackClientUtils.syncEnderChestInventory();
             this.items = getEnderChestItems(player);
         }
     }

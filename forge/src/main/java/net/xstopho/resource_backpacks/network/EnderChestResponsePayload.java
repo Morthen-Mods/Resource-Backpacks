@@ -7,7 +7,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraftforge.event.network.CustomPayloadEvent;
-import net.xstopho.resource_backpacks.util.BackpackUtils;
+import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
@@ -35,7 +35,7 @@ public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) {
 
     public static void apply(EnderChestResponsePayload payload, CustomPayloadEvent.Context context) {
         context.enqueueWork(() -> {
-            Player player = BackpackUtils.getLocalPlayer();
+            Player player = BackpackClientUtils.getLocalPlayer();
 
             if (player != null) {
                 player.getEnderChestInventory().fromTag(payload.inventoryTag(), player.registryAccess());

@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.screen;
+package net.xstopho.resource_backpacks.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
@@ -8,6 +8,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.xstopho.resource_backpacks.BackpackConstants;
+import net.xstopho.resource_backpacks.backpack.util.BackpackStyle;
+import net.xstopho.resource_backpacks.config.ClientConfig;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 
@@ -92,7 +94,7 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
     private void renderPlayerInventory(GuiGraphics guiGraphics, int xPos, int yPos) {
         ResourceLocation inventory = this.columns < 10 ? INVENTORY_NORMAL : INVENTORY_EXTENDED;
-        guiGraphics.blit(RenderType::guiTextured, inventory, xPos + ((getWidth() - 175) / 2), yPos + getHeight() + 8,
+        guiGraphics.blit(RenderType::guiTextured, inventory, xPos + ((getWidth() - 175) / 2), yPos + getHeight() + 7,
                 0f, 0f, 176, 87, 176, 87);
     }
 
@@ -115,6 +117,7 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
     }
 
     private ResourceLocation texture(String name) {
-        return ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, "textures/gui/container/" + name + ".png");
+        BackpackStyle style = ClientConfig.style;
+        return BackpackConstants.of(String.format("textures/gui/container/%s/%s.png", style.name().toLowerCase(), name));
     }
 }

@@ -29,6 +29,10 @@
   "block.resource_backpacks.backpack_netherite": "Netheritrucksack",
   "block.resource_backpacks.backpack_end": "Endrucksack",
 
+  "config.resource_backpacks.appearance": "Aussehen",
+  "config.resource_backpacks.appearance.style.label": "Gui-Textur",
+  "config.resource_backpacks.appearance.backpack_appearance.label": "Rucksack Aussehen",
+
   "config.resource_backpacks.backpacks.general.label": "Allgemeine Einstellungen",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Öffnen beim Interagieren",
   "config.resource_backpacks.backpacks.openfrominventory.tooltip": "Erlaubt es dem Spieler den Rucksack mittels der rechten Maustaste zu öffnen.",
