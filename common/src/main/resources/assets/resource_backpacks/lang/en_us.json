@@ -29,6 +29,10 @@
   "block.resource_backpacks.backpack_netherite": "Netherite Backpack",
   "block.resource_backpacks.backpack_end": "End Backpack",
 
+  "config.resource_backpacks.appearance": "Appearance",
+  "config.resource_backpacks.appearance.style.label": "Gui Texture",
+  "config.resource_backpacks.appearance.backpack_appearance.label": "Backpack Appearance",
+
   "config.resource_backpacks.backpacks": "Backpacks",
 
   "config.resource_backpacks.backpacks.general.label": "General Settings",

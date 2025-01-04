@@ -46,17 +46,6 @@ minecraft {
                 }
             }
         }
-        data {
-            workingDirectory file("../common/runs/data")
-            ideaModule "${rootProject.name}.${project.name}.main"
-            args '--mod', mod_id, '--all', '--output', file('src/generated/'), '--existing', file("../common/src/main/resources/").getAbsolutePath()
-            taskName 'Data'
-            mods {
-                modDataRun {
-                    source sourceSets.main
-                }
-            }
-        }
     }
 }
 

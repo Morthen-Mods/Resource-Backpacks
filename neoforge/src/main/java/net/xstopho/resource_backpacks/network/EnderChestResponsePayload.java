@@ -8,7 +8,6 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.util.BackpackUtils;
 import org.jetbrains.annotations.Nullable;
 
 public record EnderChestResponsePayload(@Nullable ListTag inventoryTag) implements CustomPacketPayload {
