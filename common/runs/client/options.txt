@@ -12,10 +12,10 @@ darknessEffectScale:1.0
 glintSpeed:0.5
 glintStrength:0.75
 prioritizeChunkUpdates:0
-fullscreen:false
+fullscreen:true
 gamma:0.5
 graphicsMode:1
-guiScale:3
+guiScale:5
 maxFps:120
 mipmapLevels:4
 narrator:0

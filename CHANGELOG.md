@@ -1,4 +1,3 @@
-#### v0.11.0-BETA
-- applying Resource Config API changes
-- opened backpack gets locked when opened via right-click
-- player now need to crouch to place the backpack
+#### v0.11.3-BETA
+- adding texture option with 4 options
+  - Vanilla, Vanilla Dark, Ore UI and Ore UI Dark

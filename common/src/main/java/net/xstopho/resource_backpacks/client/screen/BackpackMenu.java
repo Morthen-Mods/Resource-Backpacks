@@ -98,7 +98,7 @@ public class BackpackMenu extends AbstractContainerMenu {
         addBackpackSlots();
 
         int xPos = ((backpackLevel.getColumns() - 9) * 18) / 2;
-        addStandardInventorySlots(playerInventory, xPos + 8, (backpackLevel.getRows() * 18) + 31);
+        addStandardInventorySlots(playerInventory, xPos + 8, (backpackLevel.getRows() * 18) + 30);
     }
 
     private void addBackpackSlots() {
