@@ -18,7 +18,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.util.BackpackInventory;
@@ -38,9 +37,7 @@ public class BackpackItem extends BlockItem {
     public BackpackItem(Block block, BackpackLevel backpackLevel, Properties properties) {
         super(block, properties.useBlockDescriptionPrefix()
                 .component(DataComponents.CONTAINER, ItemContainerContents.EMPTY)
-                .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST)
-                        .setAsset(BackpackConstants.BACKPACK_EQUIPMENT_ASSET)
-                        .build()));
+                .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST).build()));
         this.backpackLevel = backpackLevel;
     }
 
@@ -66,7 +63,7 @@ public class BackpackItem extends BlockItem {
     }
 
     public MenuProvider getMenuProvider(ItemStack stack) {
-        BackpackInventory backpackInventory = new BackpackInventory(stack, backpackLevel.getSize());
+        BackpackInventory backpackInventory = new BackpackInventory(stack, backpackLevel.getMaxSize());
 
         return switch(backpackLevel) {
             case LEATHER -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.leatherMenu(i, inventory, backpackInventory), Component.translatable("block.resource_backpacks.backpack_leather"));

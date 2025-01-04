@@ -20,6 +20,7 @@ public class BackpackModel<T extends LivingEntityRenderState> extends EntityMode
 
     public BackpackModel(ModelPart root) {
         super(root);
+
         root.getChild("backpack");
     }
 
@@ -30,11 +31,11 @@ public class BackpackModel<T extends LivingEntityRenderState> extends EntityMode
         partdefinition.addOrReplaceChild("backpack",
                 CubeListBuilder.create()
                         .texOffs(0, 6).addBox("base", 0, 1, 0, 8, 9, 4)
-                        .texOffs(0, 0).addBox("bottom", 1, 10, 0, 6, 1, 4)
-                        .texOffs(21, 0).addBox("left_pouch", 8, 6, 0.5f, 1, 4, 3)
-                        .texOffs(21, 0).addBox("right_pouch", -1, 6, 0.5f, 1, 4, 3)
                         .texOffs(25, 11).addBox("middle_pouch", 1, 3, 4, 6, 7, 1)
-                        .texOffs(30, 3).addBox("decorator", 2.5f, 6.5f, 4.5f, 3, 3, 1),
+                        .texOffs(0, 0).addBox("bottom", 1, 10, 0, 6, 1, 4)
+                        .texOffs(30, 3).addBox("decorator", 2.5f, 6.5f, 4.5f, 3, 3, 1)
+                        .texOffs(21, 0).addBox("left_pouch", 8, 6, 0.5f, 1, 4, 3)
+                        .texOffs(21, 0).addBox("right_pouch", -1, 6, 0.5f, 1, 4, 3),
                 PartPose.offset(-4.0F, 0.0F, 2.0F));
 
         return LayerDefinition.create(meshdefinition, 39, 19);

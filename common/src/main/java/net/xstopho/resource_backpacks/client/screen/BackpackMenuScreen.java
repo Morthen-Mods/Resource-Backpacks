@@ -94,7 +94,7 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
     private void renderPlayerInventory(GuiGraphics guiGraphics, int xPos, int yPos) {
         ResourceLocation inventory = this.columns < 10 ? INVENTORY_NORMAL : INVENTORY_EXTENDED;
-        guiGraphics.blit(RenderType::guiTextured, inventory, xPos + ((getWidth() - 175) / 2), yPos + getHeight() + 8,
+        guiGraphics.blit(RenderType::guiTextured, inventory, xPos + ((getWidth() - 175) / 2), yPos + getHeight() + 7,
                 0f, 0f, 176, 87, 176, 87);
     }
 

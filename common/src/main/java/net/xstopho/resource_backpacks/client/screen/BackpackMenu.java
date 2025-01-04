@@ -8,6 +8,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
@@ -89,7 +90,6 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     public BackpackMenu(MenuType<?> menuType, int containerId, Inventory playerInventory, Container backpackInventory, BackpackLevel backpackLevel) {
         super(menuType, containerId);
-        checkContainerSize(backpackInventory, backpackLevel.getSize());
 
         this.backpackInventory = backpackInventory;
         this.backpackLevel = backpackLevel;
@@ -99,7 +99,7 @@ public class BackpackMenu extends AbstractContainerMenu {
         addBackpackSlots();
 
         int xPos = ((backpackLevel.getColumns() - 9) * 18) / 2;
-        addPlayerInventory(playerInventory, xPos + 8, (backpackLevel.getRows() * 18) + 31);
+        addPlayerInventory(playerInventory, xPos + 8, (backpackLevel.getRows() * 18) + 30);
     }
 
     private void addBackpackSlots() {
@@ -139,7 +139,7 @@ public class BackpackMenu extends AbstractContainerMenu {
             ItemStack stack = slot.getItem();
             returnStack = stack.copy();
             if (index < this.backpackInventory.getContainerSize()) {
-                if (!this.moveItemStackTo(stack, this.backpackInventory.getContainerSize(), this.slots.size(), false)) {
+                if (!this.moveItemStackTo(stack, this.backpackInventory.getContainerSize(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
             } else if (!this.moveItemStackTo(stack, 0, this.backpackInventory.getContainerSize(), false)) {
@@ -174,7 +174,10 @@ public class BackpackMenu extends AbstractContainerMenu {
 
         @Override
         public boolean mayPickup(Player player) {
-            return !Objects.equals(player.getMainHandItem(), this.getItem());
+            if (player.getMainHandItem().getItem() instanceof BackpackItem) {
+                return !Objects.equals(player.getMainHandItem(), this.getItem());
+            }
+            return true;
         }
 
         @Override

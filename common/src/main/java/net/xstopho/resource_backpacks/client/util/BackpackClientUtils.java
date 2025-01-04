@@ -18,7 +18,7 @@ public class BackpackClientUtils {
     }
 
     /**
-     * Used to get the current set Key, because {@link net.minecraft.client.KeyMapping}
+     * Used to get the current set Key, because {@link KeyMapping}
      * only allows to get the default key.
      */
     public interface KeyMappingAccess {
@@ -30,7 +30,7 @@ public class BackpackClientUtils {
      */
     public static void syncEnderChestInventory() {
 
-        load(BackpackClientUtils.NetworkHook.class).sendEnderChestRequest();
+        load(NetworkHook.class).sendEnderChestRequest();
     }
 
     public static Player getLocalPlayer() {
@@ -45,7 +45,7 @@ public class BackpackClientUtils {
     public static boolean hasKeyDown(KeyMapping keyMapping) {
         if (keyMapping.isUnbound()) return false;
 
-        int keyCode = ((BackpackClientUtils.KeyMappingAccess) keyMapping).getKey().getValue();
+        int keyCode = ((KeyMappingAccess) keyMapping).getKey().getValue();
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
     }
 
