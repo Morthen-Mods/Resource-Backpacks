@@ -174,9 +174,13 @@ public class BackpackMenu extends AbstractContainerMenu {
 
         @Override
         public boolean mayPickup(Player player) {
-            if (player.getMainHandItem().getItem() instanceof BackpackItem) {
-                return !Objects.equals(player.getMainHandItem(), this.getItem());
+            ItemStack handItem = player.getMainHandItem();
+            ItemStack slotItem = this.getItem();
+
+            if (handItem.getItem() instanceof BackpackItem) {
+                return !Objects.equals(handItem, slotItem);
             }
+
             return true;
         }
 
