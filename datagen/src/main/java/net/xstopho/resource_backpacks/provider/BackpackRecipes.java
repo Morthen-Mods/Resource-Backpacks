@@ -14,8 +14,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.datagen.BackpackItemTags;
-import net.xstopho.resource_backpacks.datagen.BackpackRecipeProvider;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 
 import java.util.concurrent.CompletableFuture;
@@ -27,15 +25,15 @@ public class BackpackRecipes extends RecipeProvider {
 
     @Override
     public void buildRecipes() {
-        backpackRecipe(Items.CHEST, net.xstopho.resource_backpacks.datagen.BackpackItemTags.BACKPACK_LEATHER_INGREDIENT, BlockRegistry.BACKPACK_LEATHER.get());
-        backpackRecipe(BlockRegistry.BACKPACK_LEATHER.get(), net.xstopho.resource_backpacks.datagen.BackpackItemTags.COPPER_INGOTS, BlockRegistry.BACKPACK_COPPER.get());
-        backpackRecipe(BlockRegistry.BACKPACK_COPPER.get(), net.xstopho.resource_backpacks.datagen.BackpackItemTags.GOLD_INGOTS, BlockRegistry.BACKPACK_GOLD.get());
-        backpackRecipe(BlockRegistry.BACKPACK_GOLD.get(), net.xstopho.resource_backpacks.datagen.BackpackItemTags.IRON_INGOTS, BlockRegistry.BACKPACK_IRON.get());
-        backpackRecipe(BlockRegistry.BACKPACK_IRON.get(), net.xstopho.resource_backpacks.datagen.BackpackItemTags.DIAMONDS, BlockRegistry.BACKPACK_DIAMOND.get());
+        backpackRecipe(Items.CHEST, BackpackItemTags.BACKPACK_LEATHER_INGREDIENT, BlockRegistry.BACKPACK_LEATHER.get());
+        backpackRecipe(BlockRegistry.BACKPACK_LEATHER.get(), BackpackItemTags.COPPER_INGOTS, BlockRegistry.BACKPACK_COPPER.get());
+        backpackRecipe(BlockRegistry.BACKPACK_COPPER.get(), BackpackItemTags.GOLD_INGOTS, BlockRegistry.BACKPACK_GOLD.get());
+        backpackRecipe(BlockRegistry.BACKPACK_GOLD.get(), BackpackItemTags.IRON_INGOTS, BlockRegistry.BACKPACK_IRON.get());
+        backpackRecipe(BlockRegistry.BACKPACK_IRON.get(),BackpackItemTags.DIAMONDS, BlockRegistry.BACKPACK_DIAMOND.get());
 
         this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_NETHERITE.get())
                 .pattern("NDN").pattern("DBD").pattern("NDN")
-                .define('N', net.xstopho.resource_backpacks.datagen.BackpackItemTags.NETHERITE_INGOTS)
+                .define('N', BackpackItemTags.NETHERITE_INGOTS)
                 .define('D', BackpackItemTags.DIAMONDS)
                 .define('B', BlockRegistry.BACKPACK_DIAMOND.get())
                 .unlockedBy("has_diamond_backpack", has(BlockRegistry.BACKPACK_DIAMOND.get()))
@@ -72,7 +70,7 @@ public class BackpackRecipes extends RecipeProvider {
 
         @Override
         protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-            return new BackpackRecipeProvider(provider, recipeOutput);
+            return new BackpackRecipes(provider, recipeOutput);
         }
 
         @Override

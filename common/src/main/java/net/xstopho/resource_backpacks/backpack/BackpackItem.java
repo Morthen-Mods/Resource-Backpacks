@@ -63,7 +63,7 @@ public class BackpackItem extends BlockItem {
     }
 
     public MenuProvider getMenuProvider(ItemStack stack) {
-        BackpackInventory backpackInventory = new BackpackInventory(stack, backpackLevel.getMaxSize());
+        BackpackInventory backpackInventory = new BackpackInventory(stack, backpackLevel);
 
         return switch(backpackLevel) {
             case LEATHER -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.leatherMenu(i, inventory, backpackInventory), Component.translatable("block.resource_backpacks.backpack_leather"));

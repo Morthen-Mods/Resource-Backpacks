@@ -1,3 +1,6 @@
+#### v0.11.6-BETA
+- fixing quick move functionality
+
 #### v0.11.5-BETA
 - adding texture option with 4 options
   - Vanilla, Vanilla Dark, Ore UI and Ore UI Dark
