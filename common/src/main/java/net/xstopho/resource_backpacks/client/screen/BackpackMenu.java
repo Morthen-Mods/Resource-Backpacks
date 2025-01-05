@@ -12,6 +12,7 @@ import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
+import oshi.driver.windows.wmi.MSAcpiThermalZoneTemperature;
 
 import java.util.Objects;
 
@@ -119,14 +120,14 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     protected void addInventoryHotbarSlots(Container playerInventory, int xPos, int yPos) {
         for(int i = 0; i < 9; ++i) {
-            this.addSlot(new BackpackSlot(playerInventory, i, xPos + i * 18, yPos));
+            this.addSlot(new Slot(playerInventory, i, xPos + i * 18, yPos));
         }
     }
 
     protected void addInventoryExtendedSlots(Container playerInventory, int xPos, int yPos) {
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 9; ++j) {
-                this.addSlot(new BackpackSlot(playerInventory, j + (i + 1) * 9, xPos + j * 18, yPos + i * 18));
+                this.addSlot(new Slot(playerInventory, j + (i + 1) * 9, xPos + j * 18, yPos + i * 18));
             }
         }
     }
@@ -174,9 +175,13 @@ public class BackpackMenu extends AbstractContainerMenu {
 
         @Override
         public boolean mayPickup(Player player) {
-            if (player.getMainHandItem().getItem() instanceof BackpackItem) {
-                return !Objects.equals(player.getMainHandItem(), this.getItem());
+            ItemStack handItem = player.getMainHandItem();
+            ItemStack slotItem = this.getItem();
+
+            if (handItem.getItem() instanceof BackpackItem) {
+                return !Objects.equals(handItem, slotItem);
             }
+
             return true;
         }
 
@@ -186,7 +191,7 @@ public class BackpackMenu extends AbstractContainerMenu {
         }
 
         public boolean canMoveStack(ItemStack stack) {
-            if (container instanceof Inventory) return true;
+            if (this.container instanceof Inventory) return true;
 
             return stack.getItem().canFitInsideContainerItems();
         }

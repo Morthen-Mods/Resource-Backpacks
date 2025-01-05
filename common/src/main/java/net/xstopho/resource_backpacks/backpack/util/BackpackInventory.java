@@ -6,16 +6,24 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 
 public class BackpackInventory implements ImplementedInventory {
-    private final ItemStack stack;
-    private final NonNullList<ItemStack> items;
 
-    public BackpackInventory(ItemStack stack, int size) {
-        this.items = NonNullList.withSize(size, ItemStack.EMPTY);
+    private final NonNullList<ItemStack> items;
+    private final BackpackLevel backpackLevel;
+    private final ItemStack stack;
+
+    public BackpackInventory(ItemStack stack, BackpackLevel backpackLevel) {
+        this.items = NonNullList.withSize(backpackLevel.getSize(), ItemStack.EMPTY);
+        this.backpackLevel = backpackLevel;
         this.stack = stack;
         ItemContainerContents container = stack.get(DataComponents.CONTAINER);
         if (container != null) {
             container.copyInto(items);
         }
+    }
+
+    @Override
+    public int getContainerSize() {
+        return backpackLevel.getSize();
     }
 
     @Override
