@@ -9,8 +9,9 @@ dependencies {
     implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
 
+    implementation "dev.emi:emi-neoforge:${emi}"
+
     // Runtime Mods
-    runtimeOnly "maven.modrinth:emi:${emi}+neoforge"
     runtimeOnly "maven.modrinth:jade:${jade}+neoforge"
 }
 

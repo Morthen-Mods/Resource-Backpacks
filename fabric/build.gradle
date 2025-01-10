@@ -14,9 +14,10 @@ dependencies {
     modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${resource_config_api}"
     modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${resource_library}"
 
+    modImplementation "dev.emi:emi-fabric:${emi}"
+
     // Runtime Mods
     modRuntimeOnly "maven.modrinth:modmenu:${mod_menu}"
-    modRuntimeOnly "maven.modrinth:emi:${emi}+fabric"
     modRuntimeOnly "maven.modrinth:jade:${jade}+fabric"
 }
 
