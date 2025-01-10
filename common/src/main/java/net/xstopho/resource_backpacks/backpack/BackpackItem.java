@@ -17,12 +17,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
-import net.xstopho.resource_backpacks.config.BackpackConfig;
-import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
-import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.backpack.util.BackpackInventory;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
+import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
+import net.xstopho.resource_backpacks.config.BackpackConfig;
+import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 import java.util.List;
 import java.util.Optional;

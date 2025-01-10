@@ -9,10 +9,9 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
+import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
-import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
-import oshi.driver.windows.wmi.MSAcpiThermalZoneTemperature;
 
 import java.util.Objects;
 
