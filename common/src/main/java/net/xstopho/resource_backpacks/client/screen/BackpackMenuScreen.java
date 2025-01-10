@@ -53,7 +53,12 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
     @Override
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 4210752, false);
+        int color = -1;
+        switch (ClientConfig.style) {
+            case VANILLA, ORE_UI -> color = 4210752;
+        }
+
+        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, color, false);
     }
 
     private void renderBackpackMenu(GuiGraphics guiGraphics, int xPos, int yPos) {
@@ -115,8 +120,8 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
-    private ResourceLocation texture(String name) {
+    private ResourceLocation texture(String texture) {
         BackpackStyle style = ClientConfig.style;
-        return BackpackConstants.of(String.format("textures/gui/container/%s/%s.png", style.name().toLowerCase(), name));
+        return BackpackConstants.of(String.format("textures/gui/container/%s/%s.png", style.name().toLowerCase(), texture));
     }
 }
