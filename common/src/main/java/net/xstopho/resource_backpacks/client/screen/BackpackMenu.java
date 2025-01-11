@@ -107,7 +107,7 @@ public class BackpackMenu extends AbstractContainerMenu {
         int columns = backpackLevel.getColumns();
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
-                this.addSlot(new BackpackSlot(backpackInventory, column + (row * columns), 8 + column * 18, 18 + row * 18));
+                this.addSlot(new BackpackInventorySlot(backpackInventory, column + (row * columns), 8 + column * 18, 18 + row * 18));
             }
         }
     }
@@ -166,8 +166,8 @@ public class BackpackMenu extends AbstractContainerMenu {
         return backpackLevel;
     }
 
-    public static class BackpackSlot extends Slot {
-        public BackpackSlot(Container inventory, int index, int x, int y) {
+    private static class BackpackInventorySlot extends Slot {
+        public BackpackInventorySlot(Container inventory, int index, int x, int y) {
             super(inventory, index, x, y);
 
         }

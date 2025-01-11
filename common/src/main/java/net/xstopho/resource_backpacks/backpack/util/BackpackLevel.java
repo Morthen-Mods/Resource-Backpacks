@@ -39,11 +39,6 @@ public enum BackpackLevel {
         return this.getRows() * this.getColumns();
     }
 
-    public int getMaxSize() {
-
-        return maxSize;
-    }
-
     @Override
     public String toString() {
 
