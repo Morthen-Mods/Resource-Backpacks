@@ -21,8 +21,6 @@ public class InventoryClientTooltipComponent extends BaseClientTooltipComponent 
 
         if (component.level().equals(BackpackLevel.END)) {
             Player player = Minecraft.getInstance().player;
-
-            BackpackClientUtils.syncEnderChestInventory();
             this.items = getEnderChestItems(player);
         }
     }

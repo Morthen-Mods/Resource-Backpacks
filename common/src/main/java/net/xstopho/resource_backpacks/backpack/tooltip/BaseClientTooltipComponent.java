@@ -9,6 +9,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
+import net.xstopho.resource_backpacks.network.BackpackNetwork;
+import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
 
 import java.util.List;
 
@@ -22,7 +24,7 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
     }
 
     protected List<ItemStack> getEnderChestItems(Player player) {
-        BackpackClientUtils.syncEnderChestInventory();
+        BackpackNetwork.INSTANCE.sendToServer(new EnderChestRequestPayload());
 
         if (player != null) {
             PlayerEnderChestContainer container = player.getEnderChestInventory();

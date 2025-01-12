@@ -20,11 +20,7 @@ build
 
 # other
 eclipse
-*/runs/server/*
-*/runs/client/*
-*/runs/data/*
-# Files that should be included to "save time"
-!*/runs/client/options.txt
+*/runs
 
 # generated resources
 */src/generated

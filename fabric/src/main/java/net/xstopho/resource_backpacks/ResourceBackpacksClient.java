@@ -17,7 +17,8 @@ import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent
 import net.xstopho.resource_backpacks.client.BackpackModel;
 import net.xstopho.resource_backpacks.client.BackpackRenderLayer;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
-import net.xstopho.resource_backpacks.network.OpenBackpackPayload;
+import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
+import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 public class ResourceBackpacksClient implements ClientModInitializer {
@@ -26,14 +27,18 @@ public class ResourceBackpacksClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        BackpackNetwork.initClientPayloads();
-        initKeyMapping();
-
-        KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
-        KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
-
         BackpackConstants.clientInit();
+        registerTooltipComponents();
+        registerClientPayloads();
+        registerKeyMapping();
+        registerRendering();
+    }
 
+    private void registerClientPayloads() {
+        ClientPlayNetworking.registerGlobalReceiver(EnderChestResponsePayload.TYPE, (payload, context) -> EnderChestResponsePayload.handle(payload));
+    }
+
+    private void registerRendering() {
         EntityModelLayerRegistry.registerModelLayer(BackpackModel.BACKPACK_LAYER, BackpackModel::createLayer);
 
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
@@ -45,7 +50,9 @@ public class ResourceBackpacksClient implements ClientModInitializer {
                 registrationHelper.register(new BackpackRenderLayer<>(renderer, context.getModelSet()));
             }
         });
+    }
 
+    private void registerTooltipComponents() {
         TooltipComponentCallback.EVENT.register(component -> {
             if (component instanceof CompactTooltipComponent data) {
                 return new CompactClientTooltipComponent(data);
@@ -58,10 +65,13 @@ public class ResourceBackpacksClient implements ClientModInitializer {
         });
     }
 
-    private void initKeyMapping() {
+    private void registerKeyMapping() {
+        KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
+        KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
+
         ClientTickEvents.END_CLIENT_TICK.register(minecraft -> {
             if (openBackpack.consumeClick()) {
-                ClientPlayNetworking.send(new OpenBackpackPayload(1));
+                BackpackNetwork.INSTANCE.sendToServer(new OpenBackpackPayload());
             }
         });
     }
