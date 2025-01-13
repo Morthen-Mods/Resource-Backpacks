@@ -27,7 +27,7 @@ import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import java.util.List;
 import java.util.Optional;
 
-public class BackpackItem extends BlockItem implements Equipable {
+public class BackpackItem extends BlockItem {
 
     private final BackpackLevel backpackLevel;
 
@@ -81,11 +81,6 @@ public class BackpackItem extends BlockItem implements Equipable {
     public boolean canFitInsideContainerItems() {
         return false;
 
-    }
-
-    @Override
-    public EquipmentSlot getEquipmentSlot() {
-        return EquipmentSlot.CHEST;
     }
 
     @Override
