@@ -4,7 +4,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
@@ -17,10 +17,11 @@ public record OpenBackpackPayload() implements CustomPacketPayload {
 
     public static void handle(OpenBackpackPayload payload, ServerPlayer player) {
         player.getServer().execute(() -> {
-            ItemStack backpack = player.getInventory().getArmor(EquipmentSlot.CHEST.getIndex());
+            Inventory inventory = player.getInventory();
+            ItemStack stack = inventory.getItem(inventory.getContainerSize() - 1);
 
-            if (backpack.getItem() instanceof BackpackItem item) {
-                player.openMenu(item.getMenuProvider(backpack));
+            if (stack.getItem() instanceof BackpackItem backpack) {
+                player.openMenu(backpack.getMenuProvider(stack));
             }
         });
     }
