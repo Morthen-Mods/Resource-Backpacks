@@ -15,10 +15,6 @@ public class BackpackClientUtils {
         InputConstants.Key getKey();
     }
 
-    public static Player getLocalPlayer() {
-        return Minecraft.getInstance().player;
-    }
-
     /**
      * Check if the given KeyMapping is pressed.
      * @param keyMapping
