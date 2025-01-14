@@ -1,15 +1,72 @@
 package net.xstopho.resource_backpacks.mixin.common;
 
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Mutable;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Mixin(Inventory.class)
 public class InventoryMixin {
 
-    @ModifyArg(method = "<init>", index = 0, at = @At(value = "INVOKE", ordinal = 2, target = "Lnet/minecraft/core/NonNullList;withSize(ILjava/lang/Object;)Lnet/minecraft/core/NonNullList;"))
-    private int modifyOffhandList(int size) {
-        return 2;
+    @Shadow @Final @Mutable
+    private List<NonNullList<ItemStack>> compartments;
+
+    @Shadow
+    private Player player;
+
+    public final NonNullList<ItemStack> backpack = NonNullList.withSize(1, ItemStack.EMPTY);
+
+    @Inject(method = "<init>", at = @At("RETURN"))
+    private void resource_backpack$addBackpackToCompartments(Player player, CallbackInfo info) {
+        this.compartments = new ArrayList<>(this.compartments);
+        this.compartments.addLast(this.backpack);
+    }
+
+    @Inject(method = "getContainerSize", at = @At("RETURN"), cancellable = true)
+    private void resource_backpack$modifyContainerSize(CallbackInfoReturnable<Integer> cir) {
+        int size = 0;
+        for (NonNullList<ItemStack> nonNullList : this.compartments) {
+            size += nonNullList.size();
+        }
+        cir.setReturnValue(size);
+    }
+
+    @Inject(method = "isEmpty", at = @At("HEAD"), cancellable = true)
+    private void resource_backpack$modifyIsEmpty(CallbackInfoReturnable<Boolean> cir) {
+        if (!this.backpack.getFirst().isEmpty()) {
+            cir.setReturnValue(false);
+        }
+    }
+
+    @Inject(method = "save", at = @At("RETURN"), cancellable = true)
+    private void resource_backpack$saveBackpack(ListTag listTag, CallbackInfoReturnable<ListTag> cir) {
+        if (!this.backpack.getFirst().isEmpty()) {
+            CompoundTag backpackTag = new CompoundTag();
+            backpackTag.putByte("Slot", (byte) 255);
+            listTag.addLast(this.backpack.getFirst().save(this.player.registryAccess(), backpackTag));
+        }
+        cir.setReturnValue(listTag);
+    }
+
+    @Inject(method = "load", at = @At("RETURN"))
+    private void resource_backpack$loadBackpack(ListTag listTag, CallbackInfo info) {
+        this.backpack.clear();
+
+        CompoundTag backpackTag = (CompoundTag) listTag.getLast();
+        ItemStack backpack = ItemStack.parse(this.player.registryAccess(), backpackTag).orElse(ItemStack.EMPTY);
+        this.backpack.set(0, backpack);
     }
 }
