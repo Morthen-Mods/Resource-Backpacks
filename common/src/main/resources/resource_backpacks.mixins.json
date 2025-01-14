@@ -6,6 +6,7 @@
     "compatibilityLevel": "JAVA_21",
     "mixins": [
         "common.ShapedRecipeMixin",
+
         "common.InventoryMenuMixin",
         "common.InventoryMixin",
         "common.CreativeInventoryMenuMixin"

@@ -19,11 +19,12 @@ public abstract class CreativeInventoryMenuMixin extends EffectRenderingInventor
         super(menu, playerInventory, title);
     }
 
-    @Inject(at = @At(value = "INVOKE", target = "net/minecraft/world/inventory/Slot.<init>(Lnet/minecraft/world/Container;III)V"), method = "selectTab")
+    @Inject(at = @At("TAIL"), method = "selectTab")
     private void resource_backpack$addCreativeBackpackSlot(CreativeModeTab tab, CallbackInfo info) {
         if (tab.getType() == CreativeModeTab.Type.INVENTORY) {
             for (Slot slot : this.minecraft.player.inventoryMenu.slots) {
                 if (slot instanceof SurvivalBackpackSlot original) {
+                    this.menu.slots.remove(this.menu.slots.size() - 2);
                     this.menu.slots.add(new CreativeBackpackSlot(original, 127, 19));
                 }
             }
