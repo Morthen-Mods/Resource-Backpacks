@@ -5,3 +5,5 @@ accessible class net/minecraft/world/level/block/entity/BlockEntityType$BlockEnt
 
 accessible method net/minecraft/world/inventory/MenuType register (Ljava/lang/String;Lnet/minecraft/world/inventory/MenuType$MenuSupplier;)Lnet/minecraft/world/inventory/MenuType;
 accessible class net/minecraft/world/inventory/MenuType$MenuSupplier
+
+accessible class net/minecraft/client/gui/screens/inventory/CreativeModeInventoryScreen$SlotWrapper
