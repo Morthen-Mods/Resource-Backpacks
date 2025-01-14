@@ -22,8 +22,16 @@ public class AbstractContainerScreenMixin {
 
     @Inject(at = @At("TAIL"), method = "renderSlot")
     public void renderSlot(GuiGraphics guiGraphics, Slot slot, CallbackInfo info) {
-        if (slot instanceof BackpackSlot backpackSlot) {
-            backpackSlot.renderSurvival(guiGraphics);
+        if (slot instanceof SurvivalBackpackSlot) {
+            if ((Object) this instanceof InventoryScreen) {
+                renderSlot(guiGraphics, slot, false);
+            }
+        }
+
+        if (slot instanceof CreativeBackpackSlot) {
+            if ((Object) this instanceof CreativeModeInventoryScreen) {
+                renderSlot(guiGraphics, slot, true);
+            }
         }
     }
 
