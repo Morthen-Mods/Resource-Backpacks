@@ -9,7 +9,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.CreativeModeTab;
-import net.xstopho.resource_backpacks.client.slot.CreativeBackpackSlot;
 import net.xstopho.resource_backpacks.client.slot.SurvivalBackpackSlot;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -47,11 +46,8 @@ public abstract class CreativeInventoryMenuMixin extends EffectRenderingInventor
                 }
 
                 Slot slot = invMenu.getSlot(index);
-                if (slot instanceof SurvivalBackpackSlot) {
-                    this.menu.slots.addLast(new CreativeBackpackSlot(slot, 127, 19));
-                } else {
-                    this.menu.slots.add(new SlotWrapper(slot, index, x, y));
-                }
+                if (slot instanceof SurvivalBackpackSlot) continue;
+                this.menu.slots.add(new SlotWrapper(slot, index, x, y));
             }
 
             this.destroyItemSlot = new Slot(CONTAINER, 0, 173, 112);
