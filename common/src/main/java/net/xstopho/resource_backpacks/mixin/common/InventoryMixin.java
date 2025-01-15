@@ -53,20 +53,27 @@ public class InventoryMixin {
 
     @Inject(method = "save", at = @At("RETURN"), cancellable = true)
     private void resource_backpack$saveBackpack(ListTag listTag, CallbackInfoReturnable<ListTag> cir) {
-        if (!this.backpack.getFirst().isEmpty()) {
-            CompoundTag backpackTag = new CompoundTag();
-            backpackTag.putByte("Slot", (byte) 255);
-            listTag.addLast(this.backpack.getFirst().save(this.player.registryAccess(), backpackTag));
+        for (int index = 0; index < this.backpack.size(); index++) {
+            if (!this.backpack.get(index).isEmpty()) {
+                CompoundTag backpackTag = new CompoundTag();
+                backpackTag.putByte("Slot", (byte) (index + 254));
+                listTag.add(this.backpack.get(index).save(this.player.registryAccess(), backpackTag));
+            }
         }
         cir.setReturnValue(listTag);
     }
 
-    @Inject(method = "load", at = @At("RETURN"))
+    @Inject(method = "load", at = @At("HEAD"))
     private void resource_backpack$loadBackpack(ListTag listTag, CallbackInfo info) {
         this.backpack.clear();
 
-        CompoundTag backpackTag = (CompoundTag) listTag.getLast();
-        ItemStack backpack = ItemStack.parse(this.player.registryAccess(), backpackTag).orElse(ItemStack.EMPTY);
-        this.backpack.set(0, backpack);
+        for (int i = 0; i < listTag.size(); i++) {
+            CompoundTag backpackTag = listTag.getCompound(i);
+            int index = backpackTag.getByte("Slot") & 255;
+            ItemStack backpack = ItemStack.parse(this.player.registryAccess(), backpackTag).orElse(ItemStack.EMPTY);
+            if (index >= 254 && index < this.backpack.size() + 254) {
+                this.backpack.set(index - 254, backpack);
+            }
+        }
     }
 }
