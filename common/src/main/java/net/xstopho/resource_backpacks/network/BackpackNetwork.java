@@ -6,7 +6,7 @@ import net.xstopho.resourceconfigapi.platform.CoreServices;
 
 public interface BackpackNetwork {
 
-    static BackpackNetwork INSTANCE = CoreServices.load(BackpackNetwork.class);
+    BackpackNetwork INSTANCE = CoreServices.load(BackpackNetwork.class);
 
     void sendToClient(ServerPlayer player, CustomPacketPayload payload);
     void sendToServer(CustomPacketPayload payload);
