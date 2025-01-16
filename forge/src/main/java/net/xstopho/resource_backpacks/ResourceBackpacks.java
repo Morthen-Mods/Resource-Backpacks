@@ -9,7 +9,7 @@ import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipCompo
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
-import net.xstopho.resource_backpacks.network.BackpackNetwork;
+import net.xstopho.resource_backpacks.network.BackpackNetworkRegistry;
 
 @Mod(BackpackConstants.MOD_ID)
 public class ResourceBackpacks {
@@ -24,7 +24,8 @@ public class ResourceBackpacks {
     }
 
     private void initCommon(FMLCommonSetupEvent event) {
-        event.enqueueWork(BackpackNetwork::initPayloads);
+
+        event.enqueueWork(BackpackNetworkRegistry::registerPayloads);
     }
 
     private void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event) {

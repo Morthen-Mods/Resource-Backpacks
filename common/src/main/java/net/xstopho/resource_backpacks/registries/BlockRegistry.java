@@ -48,7 +48,7 @@ public class BlockRegistry {
         RegistryObject<Block> block = BLOCKS.register(id, () -> function.apply(blockBehavior.setId(blockId)));
 
         Item.Properties itemProperties = level == BackpackLevel.NETHERITE ? new Item.Properties().fireResistant() : new Item.Properties();
-        registerItem(id, properties -> new BackpackItem(block.get(), level, properties), itemProperties);
+        registerItem(id, properties -> new BackpackItem(block.get(), level, properties), itemProperties.useBlockDescriptionPrefix());
 
         return block;
     }

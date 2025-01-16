@@ -10,15 +10,13 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
@@ -29,9 +27,10 @@ import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedBlock{
+public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
 
     public static final MapCodec<BackpackBlock> CODEC = simpleCodec(BackpackBlock::new);
+    public static final BooleanProperty PLACED_ON_WALL = BooleanProperty.create("placed_on_wall");
 
     private final BackpackLevel backpackLevel;
 
@@ -46,6 +45,7 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+
         if (level instanceof ServerLevel) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof BackpackBlockEntity backpackBlockEntity) {
@@ -74,14 +74,12 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
     }
 
     @Override
-    protected BlockState updateShape(BlockState blockState, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos,
-                                     Direction direction, BlockPos blockPos1, BlockState blockState1, RandomSource randomSource) {
-
-        if (blockState.getValue(BlockStateProperties.WATERLOGGED)) {
-            scheduledTickAccess.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelReader));
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        if (state.getValue(BlockStateProperties.WATERLOGGED)) {
+            scheduledTickAccess.createTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
 
-        return super.updateShape(blockState, levelReader, scheduledTickAccess, blockPos, direction, blockPos1, blockState1, randomSource);
+        return super.updateShape(state, level, scheduledTickAccess, pos, direction, neighborPos, neighborState, random);
     }
 
     @Override
@@ -92,7 +90,8 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-        return BackpackBlockShapes.getVoxelShape(direction);
+        boolean onWall = state.getValue(PLACED_ON_WALL);
+        return BackpackBlockShapes.getVoxelShape(direction, onWall);
     }
 
     @Override
@@ -105,7 +104,14 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         FluidState fluidState = context.getLevel().getFluidState(context.getClickedPos());
 
+        boolean placedOnWall;
+        switch (context.getClickedFace()) {
+            case NORTH, EAST, WEST, SOUTH -> placedOnWall = true;
+            default -> placedOnWall = false;
+        }
+
         return defaultBlockState()
+                .setValue(PLACED_ON_WALL, placedOnWall)
                 .setValue(BlockStateProperties.HORIZONTAL_FACING, context.getHorizontalDirection().getOpposite())
                 .setValue(BlockStateProperties.WATERLOGGED, fluidState.is(Fluids.WATER));
     }
@@ -123,7 +129,8 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(BlockStateProperties.HORIZONTAL_FACING)
-                .add(BlockStateProperties.WATERLOGGED);
+                .add(BlockStateProperties.WATERLOGGED)
+                .add(PLACED_ON_WALL);
     }
 
     @Override

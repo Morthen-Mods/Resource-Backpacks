@@ -1,24 +1,25 @@
 package net.xstopho.resource_backpacks.handler;
 
+import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.network.EnderChestRequestPayload;
-import net.xstopho.resource_backpacks.network.EnderChestResponsePayload;
-import net.xstopho.resource_backpacks.network.OpenBackpackPayload;
+import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
+import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
+import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
 
 @EventBusSubscriber(modid = BackpackConstants.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class ModHandler {
 
     @SubscribeEvent
     public static void registerPayloads(RegisterPayloadHandlersEvent event) {
-        PayloadRegistrar payload = event.registrar(BackpackConstants.MOD_ID);
+        PayloadRegistrar registry = event.registrar(BackpackConstants.MOD_ID);
 
-        payload.playToServer(OpenBackpackPayload.TYPE, OpenBackpackPayload.CODEC, OpenBackpackPayload::apply);
-        payload.playToServer(EnderChestRequestPayload.TYPE, EnderChestRequestPayload.CODEC, EnderChestRequestPayload::apply);
+        registry.playToServer(OpenBackpackPayload.TYPE, OpenBackpackPayload.CODEC, (payload, context) -> OpenBackpackPayload.handle(payload, (ServerPlayer) context.player()));
+        registry.playToServer(EnderChestRequestPayload.TYPE, EnderChestRequestPayload.CODEC, (payload, context) -> EnderChestRequestPayload.handle(payload, (ServerPlayer) context.player()));
 
-        payload.playToClient(EnderChestResponsePayload.TYPE, EnderChestResponsePayload.CODEC, EnderChestResponsePayload::apply);
+        registry.playToClient(EnderChestResponsePayload.TYPE, EnderChestResponsePayload.CODEC, (payload, context) -> EnderChestResponsePayload.handle(payload));
     }
 }

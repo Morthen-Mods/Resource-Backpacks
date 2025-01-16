@@ -1,6 +1,8 @@
 package net.xstopho.resource_backpacks.handler;
 
+import net.minecraft.client.model.ArmorStandArmorModel;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.state.ArmorStandRenderState;
 import net.minecraft.client.renderer.entity.state.PlayerRenderState;
@@ -30,8 +32,6 @@ public class ModClientHandler {
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
         event.register(KeyMappingRegistry.OPEN_BACKPACK);
-        event.register(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
-        event.register(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
     }
 
     @SubscribeEvent
@@ -41,17 +41,17 @@ public class ModClientHandler {
 
     @SubscribeEvent
     public static void addRenderLayer(EntityRenderersEvent.AddLayers event) {
-        LivingEntityRenderer<Player, PlayerRenderState, HumanoidModel<PlayerRenderState>> playerRenderer = event.getSkin(PlayerSkin.Model.WIDE);
+        LivingEntityRenderer<Player, PlayerRenderState, PlayerModel> playerRenderer = event.getSkin(PlayerSkin.Model.WIDE);
         if (playerRenderer != null){
             playerRenderer.addLayer(new BackpackRenderLayer<>(playerRenderer, event.getEntityModels()));
         }
 
-        LivingEntityRenderer<Player, PlayerRenderState, HumanoidModel<PlayerRenderState>> playerSlimRenderer = event.getSkin(PlayerSkin.Model.SLIM);
+        LivingEntityRenderer<Player, PlayerRenderState, PlayerModel> playerSlimRenderer = event.getSkin(PlayerSkin.Model.SLIM);
         if (playerSlimRenderer != null) {
             playerSlimRenderer.addLayer(new BackpackRenderLayer<>(playerSlimRenderer, event.getEntityModels()));
         }
 
-        LivingEntityRenderer<ArmorStand, ArmorStandRenderState, HumanoidModel<ArmorStandRenderState>> armorStandRenderer = event.getRenderer(EntityType.ARMOR_STAND);
+        LivingEntityRenderer<ArmorStand, ArmorStandRenderState, ArmorStandArmorModel> armorStandRenderer = event.getRenderer(EntityType.ARMOR_STAND);
         if (armorStandRenderer != null) {
             armorStandRenderer.addLayer(new BackpackRenderLayer<>(armorStandRenderer, event.getEntityModels()));
         }
