@@ -6,6 +6,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.xstopho.resource_backpacks.client.slot.BackpackAccessor;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(Inventory.class)
-public class InventoryMixin {
+public class InventoryMixin implements BackpackAccessor {
 
     @Shadow @Final @Mutable
     private List<NonNullList<ItemStack>> compartments;
@@ -33,6 +34,11 @@ public class InventoryMixin {
     private void resource_backpack$addBackpackToCompartments(Player player, CallbackInfo info) {
         this.compartments = new ArrayList<>(this.compartments);
         this.compartments.addLast(this.backpack);
+    }
+
+    @Override
+    public ItemStack resource_backpack$getBackpack() {
+        return backpack.getFirst();
     }
 
     @Inject(method = "getContainerSize", at = @At("RETURN"), cancellable = true)
