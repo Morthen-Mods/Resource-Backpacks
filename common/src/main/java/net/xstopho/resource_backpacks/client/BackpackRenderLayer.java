@@ -13,8 +13,10 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
+import net.xstopho.resource_backpacks.client.slot.BackpackAccessor;
 
 public class BackpackRenderLayer<T extends LivingEntity, M extends HumanoidModel<T>> extends RenderLayer<T, M> {
 
@@ -30,21 +32,23 @@ public class BackpackRenderLayer<T extends LivingEntity, M extends HumanoidModel
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int lightness, T entity, float limbSwing,
                        float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        ItemStack stack = entity.getItemBySlot(EquipmentSlot.CHEST);
+        if (entity instanceof Player player) {
+            ItemStack stack = ((BackpackAccessor) player.getInventory()).resource_backpack$getBackpack();
 
-        if (stack.getItem() instanceof BackpackItem) {
-            poseStack.pushPose();
-            this.getParentModel().copyPropertiesTo(backpackModel);
+            if (stack.getItem() instanceof BackpackItem) {
+                poseStack.pushPose();
+                this.getParentModel().copyPropertiesTo(backpackModel);
 
-            if (entity.isCrouching()) {
-                poseStack.mulPose(Axis.XP.rotationDegrees(29));
-                poseStack.translate(0, 0.17, -0.095);
+                if (entity.isCrouching()) {
+                    poseStack.mulPose(Axis.XP.rotationDegrees(29));
+                    poseStack.translate(0, 0.17, -0.095);
+                }
+
+                VertexConsumer consumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(BackpackModel.getTexture(stack)));
+                this.backpackModel.renderToBuffer(poseStack, consumer, lightness, OverlayTexture.NO_OVERLAY);
+
+                poseStack.popPose();
             }
-
-            VertexConsumer consumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(BackpackModel.getTexture(stack)));
-            this.backpackModel.renderToBuffer(poseStack, consumer, lightness, OverlayTexture.NO_OVERLAY);
-
-            poseStack.popPose();
         }
     }
 
