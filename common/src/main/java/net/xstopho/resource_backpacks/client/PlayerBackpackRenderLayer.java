@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.client.slot.BackpackAccessor;
+import net.xstopho.resource_backpacks.client.slot.BackpackHolder;
 
 public class PlayerBackpackRenderLayer extends RenderLayer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
 
@@ -29,7 +29,7 @@ public class PlayerBackpackRenderLayer extends RenderLayer<AbstractClientPlayer,
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int lightness, AbstractClientPlayer player, float limbSwing,
                        float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        ItemStack backpack = ((BackpackAccessor) player.getInventory()).resource_backpack$getBackpack();
+        ItemStack backpack = ((BackpackHolder) player.getInventory()).resource_backpack$getBackpack();
 
         if (!backpack.isEmpty()) {
             poseStack.pushPose();
@@ -49,7 +49,7 @@ public class PlayerBackpackRenderLayer extends RenderLayer<AbstractClientPlayer,
 
     @Override
     protected ResourceLocation getTextureLocation(AbstractClientPlayer player) {
-        ItemStack backpack = ((BackpackAccessor) player.getInventory()).resource_backpack$getBackpack();
+        ItemStack backpack = ((BackpackHolder) player.getInventory()).resource_backpack$getBackpack();
         return BackpackModel.getTexture(backpack);
     }
 }

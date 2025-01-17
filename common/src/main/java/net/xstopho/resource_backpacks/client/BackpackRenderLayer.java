@@ -16,7 +16,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
-import net.xstopho.resource_backpacks.client.slot.BackpackAccessor;
+import net.xstopho.resource_backpacks.client.slot.BackpackHolder;
 
 public class BackpackRenderLayer<T extends LivingEntity, M extends HumanoidModel<T>> extends RenderLayer<T, M> {
 
@@ -33,7 +33,7 @@ public class BackpackRenderLayer<T extends LivingEntity, M extends HumanoidModel
                        float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
         if (entity instanceof Player player) {
-            ItemStack stack = ((BackpackAccessor) player.getInventory()).resource_backpack$getBackpack();
+            ItemStack stack = ((BackpackHolder) player.getInventory()).resource_backpack$getBackpack();
 
             if (stack.getItem() instanceof BackpackItem) {
                 poseStack.pushPose();
