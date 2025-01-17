@@ -16,6 +16,7 @@ import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipCom
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
 import net.xstopho.resource_backpacks.client.BackpackModel;
 import net.xstopho.resource_backpacks.client.BackpackRenderLayer;
+import net.xstopho.resource_backpacks.client.PlayerBackpackRenderLayer;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
 import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
@@ -43,11 +44,7 @@ public class ResourceBackpacksClient implements ClientModInitializer {
 
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
             if (entityRenderer instanceof PlayerRenderer renderer) {
-                registrationHelper.register(new BackpackRenderLayer<>(renderer, context.getModelSet()));
-            }
-
-            if (entityRenderer instanceof ArmorStandRenderer renderer) {
-                registrationHelper.register(new BackpackRenderLayer<>(renderer, context.getModelSet()));
+                registrationHelper.register(new PlayerBackpackRenderLayer(renderer, context.getModelSet()));
             }
         });
     }
