@@ -8,14 +8,12 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
 import net.xstopho.resource_backpacks.client.BackpackModel;
-import net.xstopho.resource_backpacks.client.BackpackRenderLayer;
 import net.xstopho.resource_backpacks.client.PlayerBackpackRenderLayer;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
@@ -45,10 +43,6 @@ public class ResourceBackpacksClient implements ClientModInitializer {
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
             if (entityRenderer instanceof PlayerRenderer renderer) {
                 registrationHelper.register(new PlayerBackpackRenderLayer(renderer, context.getModelSet()));
-            }
-
-            if (entityRenderer instanceof ArmorStandRenderer renderer) {
-                registrationHelper.register(new BackpackRenderLayer<>(renderer, context.getModelSet()));
             }
         });
     }
