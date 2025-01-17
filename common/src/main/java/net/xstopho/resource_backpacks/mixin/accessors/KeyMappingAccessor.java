@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.mixin.client;
+package net.xstopho.resource_backpacks.mixin.accessors;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;

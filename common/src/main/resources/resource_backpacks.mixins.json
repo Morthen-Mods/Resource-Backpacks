@@ -7,12 +7,12 @@
     "mixins": [
         "common.ShapedRecipeMixin",
 
-        "common.InventoryMenuMixin",
         "common.InventoryMixin",
+        "common.InventoryMenuMixin",
         "common.CreativeInventoryMenuMixin"
     ],
     "client": [
-        "client.KeyMappingAccessor",
+        "accessors.KeyMappingAccessor",
         "client.KeyMappingMixin"
     ],
     "server": [],
