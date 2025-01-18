@@ -9,14 +9,14 @@
 Resource Backpacks is built for all mainly used Mod-Loaders and aims to bring the same experience to each of them.
 
 ### Features
-- change the size for every backpack through the in-game config screen
-  - for Fabric ModMenu is required
+- change the size for every backpack through the in-game config screen(on Fabric ModMenu is required)
 - Place Backpacks like Shulkerboxes to interact with them
-  - can also be placed on walls for decoration purposes
 - Additional Inventory slot to equip the Backpack
+- All Keybinds are Configurable
+- When Backpack is equipped you can open it with `B`
 - Hold `Left-Shift` or `Left-Alt` for a preview of your Backpack Content
-  - `Left-Shift` gives you a compact overview of all Items with a combined amount
-  - `Left-Alt` shows the inventory size like when it is opened normally
+    - `Left-Shift` gives you a compact overview of all Items with a combined amount
+    - `Left-Alt` shows the inventory size like when it is opened normally
 
 ### Modpacks
 Feel free to use this Mod in your Modpack, there are no further requirements for that
@@ -28,7 +28,7 @@ Feel free to use this Mod in your Modpack, there are no further requirements for
 <img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/inventory/backpack_inventory.png">
 </details>
 <details>
-<summary>Backpack Models</summary>
+<summary>Backpack Model</summary>
 <img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/backpack_preview.gif" width="150">
 <img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/player_preview.gif" width="170">
 </details>
