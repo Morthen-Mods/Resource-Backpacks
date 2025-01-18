@@ -1,10 +1,7 @@
 package net.xstopho.resource_backpacks;
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenuScreen;
 import net.xstopho.resource_backpacks.config.BackpackConfig;
 import net.xstopho.resource_backpacks.config.ClientConfig;
@@ -20,12 +17,6 @@ public class BackpackConstants {
     public static final String MOD_ID = "resource_backpacks";
     public static final String MOD_NAME = "Resource Backpacks";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
-
-    public static final ResourceKey<? extends Registry<EquipmentAsset>> ROOT_ID =
-            ResourceKey.createRegistryKey(ResourceLocation.withDefaultNamespace("equipment_asset"));
-
-    public static final ResourceKey<EquipmentAsset> BACKPACK_EQUIPMENT_ASSET = createId("backpack");
-
 
     public static void commonInit() {
         ConfigRegistry.register(ClientConfig.class, MOD_ID);
@@ -53,9 +44,5 @@ public class BackpackConstants {
     public static ResourceLocation of(String id) {
 
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-    }
-
-    static ResourceKey<EquipmentAsset> createId(String name) {
-        return ResourceKey.create(ROOT_ID, ResourceLocation.withDefaultNamespace(name));
     }
 }

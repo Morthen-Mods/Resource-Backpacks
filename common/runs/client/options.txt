@@ -51,8 +51,8 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["vanilla","mod_resources","file/qrafty\u0027s-capitalized-font.zip","file/Groundstone GUI (Dark) 1.21.4.zip"]
-incompatibleResourcePacks:["file/qrafty\u0027s-capitalized-font.zip"]
+resourcePacks:["vanilla","fabric","file/qrafty\u0027s-capitalized-font.zip"]
+incompatibleResourcePacks:["resource_backpacks","resourceconfigapi","file/qrafty\u0027s-capitalized-font.zip"]
 lastServer:
 lang:en_us
 chatVisibility:0

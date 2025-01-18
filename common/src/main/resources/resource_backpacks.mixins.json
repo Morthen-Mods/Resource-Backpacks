@@ -5,11 +5,15 @@
     "refmap": "${mod_id}.refmap.json",
     "compatibilityLevel": "JAVA_21",
     "mixins": [
-        "common.ShapedRecipeAccessor",
-        "common.ShapedRecipeMixin"
+        "accessor.ShapedRecipeAccessor",
+        "common.ShapedRecipeMixin",
+
+        "common.InventoryMixin",
+        "common.InventoryMenuMixin",
+        "common.CreativeInventoryMenuMixin"
     ],
     "client": [
-        "client.KeyMappingAccessor",
+        "accessor.KeyMappingAccessor",
         "client.KeyMappingMixin"
     ],
     "server": [],

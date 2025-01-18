@@ -1,0 +1,6 @@
+{
+  "parent": "resource_backpacks:block/base/backpack_on_wall",
+  "textures": {
+    "texture": "resource_backpacks:block/backpack_gold"
+  }
+}

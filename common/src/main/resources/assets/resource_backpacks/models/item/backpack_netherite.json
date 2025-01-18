@@ -1,6 +1,3 @@
 {
-  "parent": "resource_backpacks:block/backpack",
-  "textures": {
-    "texture": "resource_backpacks:block/backpack_netherite"
-  }
+  "parent": "resource_backpacks:block/backpack_netherite"
 }

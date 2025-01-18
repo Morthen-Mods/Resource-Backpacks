@@ -3,6 +3,7 @@ package net.xstopho.resource_backpacks.mixin.client;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
+import net.xstopho.resource_backpacks.mixin.accessor.KeyMappingAccessor;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(KeyMapping.class)

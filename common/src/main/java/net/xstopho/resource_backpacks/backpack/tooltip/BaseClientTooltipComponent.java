@@ -5,11 +5,11 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
+import net.xstopho.resource_backpacks.network.BackpackNetwork;
+import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
     }
 
     protected List<ItemStack> getEnderChestItems(Player player) {
-        BackpackClientUtils.syncEnderChestInventory();
+        BackpackNetwork.INSTANCE.sendToServer(new EnderChestRequestPayload());
 
         if (player != null) {
             PlayerEnderChestContainer container = player.getEnderChestInventory();
@@ -49,7 +49,7 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
             int xPos = x + 2;
             int yPos = y + 13;
             guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + 13, yPos + 2, 200, -16777216);
-            guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, 200, ARGB.opaque(stack.getBarColor()));
+            guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, 200, stack.getBarColor());
         }
     }
 

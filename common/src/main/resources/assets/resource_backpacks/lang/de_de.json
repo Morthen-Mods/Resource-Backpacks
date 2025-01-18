@@ -39,12 +39,12 @@
   "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Rucksäcke in Rucksäcken",
   "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Erlaubt es dem Spieler Rucksäcke in Rücksäcke zu packen. Viel Spaß mit dem unendlichen Inventar.",
 
-  "config.resource_backpacks.backpacks.leather_backpack.label": "Leder Rucksack",
-  "config.resource_backpacks.backpacks.copper_backpack.label": "Kupfer Rucksack",
-  "config.resource_backpacks.backpacks.gold_backpack.label": "Gold Rucksack",
-  "config.resource_backpacks.backpacks.iron_backpack.label": "Risen Rucksack",
-  "config.resource_backpacks.backpacks.diamond_backpack.label": "Diamant Rucksack",
-  "config.resource_backpacks.backpacks.netherite_backpack.label": "Netherit Rucksack",
+  "config.resource_backpacks.backpacks.leather_backpack.label": "Lederrucksack",
+  "config.resource_backpacks.backpacks.copper_backpack.label": "Kupferrucksack",
+  "config.resource_backpacks.backpacks.gold_backpack.label": "Goldrucksack",
+  "config.resource_backpacks.backpacks.iron_backpack.label": "Eisenrucksack",
+  "config.resource_backpacks.backpacks.diamond_backpack.label": "Diamantrucksack",
+  "config.resource_backpacks.backpacks.netherite_backpack.label": "Netheritrucksack",
   "config.resource_backpacks.backpacks.row.label": "Reihen",
   "config.resource_backpacks.backpacks.column.label": "Spalten"
 }
