@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.client.BackpackModel;
+import net.xstopho.resource_backpacks.client.PlayerBackpackRenderLayer;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 @Mod.EventBusSubscriber(modid = BackpackConstants.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
