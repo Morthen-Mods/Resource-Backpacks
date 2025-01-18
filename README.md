@@ -15,6 +15,8 @@ Resource Backpacks is built for all mainly used Mod-Loaders and aims to bring th
   - can also be placed on walls for decoration purposes
 - Additional Inventory slot to equip the Backpack
 - Hold `Left-Shift` or `Left-Alt` for a preview of your Backpack Content
+  - `Left-Shift` gives you a compact overview of all Items with a combined amount
+  - `Left-Alt` shows the inventory size like when it is opened normally
 
 ### Modpacks
 Feel free to use this Mod in your Modpack, there are no further requirements for that
