@@ -1,7 +1,6 @@
 package net.xstopho.resource_backpacks.registries;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackBlockEntity;

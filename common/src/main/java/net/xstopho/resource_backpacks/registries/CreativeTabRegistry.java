@@ -1,9 +1,7 @@
 package net.xstopho.resource_backpacks.registries;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
