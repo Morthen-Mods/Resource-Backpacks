@@ -7,6 +7,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.xstopho.resource_backpacks.provider.BackpackBlockTags;
 import net.xstopho.resource_backpacks.provider.BackpackItemTags;
+import net.xstopho.resource_backpacks.provider.BackpackModels;
 import net.xstopho.resource_backpacks.provider.BackpackRecipes;
 
 @Mod(BackpackConstants.MOD_ID)
@@ -23,6 +24,7 @@ public class ResourceBackpacks {
         public static void generateData(GatherDataEvent.Client event) {
             event.createProvider(BackpackRecipes.Runner::new);
             event.createBlockAndItemTags(BackpackBlockTags::new, BackpackItemTags::new);
+            event.createProvider(BackpackModels::new);
         }
     }
 }
