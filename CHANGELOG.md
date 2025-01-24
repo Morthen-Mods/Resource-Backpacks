@@ -1,8 +1,5 @@
-#### v0.12.0-BETA
-- adding Backpack slot for Survival Inventory
-    - remove the ability to equip the Backpack on the Chest slot
-    - removes the ability to place Backpacks on ArmorStands for now
-- adding proper BlockStates when Backpack is placed on a wall
-- fixing Inventory Label Color for Backpacks, based on used style
-- internal network changes
-    - on forge this produces log spam on the client, when showing Ender Backpack Tooltip
+#### v0.12.5-BETA
+- adding the following Settings
+  - Chest Loot Settings
+- Every Backpack has Categories and each drop chance can be changed
+  - hover over the Settings name to see what Chest is included

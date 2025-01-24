@@ -5,7 +5,6 @@ plugins {
 
 dependencies {
     compileOnly(project(':common'))
-
 }
 
 tasks.named('compileJava', JavaCompile) {
