@@ -43,7 +43,7 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
     }
 
     private BackpackBlock(Properties properties) {
-        this(properties, BackpackLevel.DEFAULT);
+        this(properties, BackpackLevel.LEATHER);
     }
 
     @Override
