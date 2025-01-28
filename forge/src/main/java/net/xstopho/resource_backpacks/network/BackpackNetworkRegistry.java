@@ -22,20 +22,21 @@ public class BackpackNetworkRegistry {
                 .simpleChannel();
 
         ResourceBackpacks.NETWORK = channel;
+        int index = 0;
 
-        channel.messageBuilder(OpenBackpackPayload.class, 0, NetworkDirection.PLAY_TO_SERVER)
+        channel.messageBuilder(OpenBackpackPayload.class, index++, NetworkDirection.PLAY_TO_SERVER)
                 .decoder(OpenBackpackPayload.CODEC::decode)
                 .encoder((payload, byteBuf) -> OpenBackpackPayload.CODEC.encode(byteBuf, payload))
                 .consumerNetworkThread((BiConsumer<OpenBackpackPayload, CustomPayloadEvent.Context>) (payload, context) -> OpenBackpackPayload.handle(payload, context.getSender()))
                 .add();
 
-        channel.messageBuilder(EnderChestRequestPayload.class, 1, NetworkDirection.PLAY_TO_SERVER)
+        channel.messageBuilder(EnderChestRequestPayload.class, index++, NetworkDirection.PLAY_TO_SERVER)
                 .decoder(EnderChestRequestPayload.CODEC::decode)
                 .encoder((payload, byteBuf) -> EnderChestRequestPayload.CODEC.encode(byteBuf, payload))
                 .consumerNetworkThread((BiConsumer<EnderChestRequestPayload, CustomPayloadEvent.Context>) (payload, context) -> EnderChestRequestPayload.handle(payload, context.getSender()))
                 .add();
 
-        channel.messageBuilder(EnderChestResponsePayload.class, 2, NetworkDirection.PLAY_TO_CLIENT)
+        channel.messageBuilder(EnderChestResponsePayload.class, index++, NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(EnderChestResponsePayload.CODEC::decode)
                 .encoder((payload, byteBuf) -> EnderChestResponsePayload.CODEC.encode(byteBuf, payload))
                 .consumerNetworkThread((BiConsumer<EnderChestResponsePayload, CustomPayloadEvent.Context>) (payload, context) -> EnderChestResponsePayload.handle(payload))
