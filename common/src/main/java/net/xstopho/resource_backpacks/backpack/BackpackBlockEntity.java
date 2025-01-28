@@ -53,14 +53,13 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
     @Override
     protected AbstractContainerMenu createMenu(int i, Inventory inventory) {
         return switch(backpackLevel) {
-            case LEATHER -> BackpackMenu.leatherMenu(i, inventory, this);
-            case COPPER -> BackpackMenu.copperMenu(i, inventory, this);
-            case GOLD -> BackpackMenu.goldMenu(i, inventory, this);
-            case IRON -> BackpackMenu.ironMenu(i, inventory, this);
-            case DIAMOND -> BackpackMenu.diamondMenu(i, inventory, this);
-            case NETHERITE -> BackpackMenu.netheriteMenu(i, inventory, this);
-            case END -> BackpackMenu.endMenu(i, inventory, inventory.player.getEnderChestInventory());
-            default -> null;
+            case LEATHER -> BackpackMenu.leatherMenu(i, inventory, this, true);
+            case COPPER -> BackpackMenu.copperMenu(i, inventory, this, true);
+            case GOLD -> BackpackMenu.goldMenu(i, inventory, this, true);
+            case IRON -> BackpackMenu.ironMenu(i, inventory, this, true);
+            case DIAMOND -> BackpackMenu.diamondMenu(i, inventory, this, true);
+            case NETHERITE -> BackpackMenu.netheriteMenu(i, inventory, this, true);
+            case END -> BackpackMenu.endMenu(i, inventory, inventory.player.getEnderChestInventory(), true);
         };
     }
 
