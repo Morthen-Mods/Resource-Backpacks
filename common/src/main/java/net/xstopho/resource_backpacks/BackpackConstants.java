@@ -39,7 +39,6 @@ public class BackpackConstants {
     }
 
     public static void clientInit() {
-        MenuScreens.register(MenuTypeRegistry.DEFAULT_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.LEATHER_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.COPPER_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.GOLD_MENU.get(), BackpackMenuScreen::new);

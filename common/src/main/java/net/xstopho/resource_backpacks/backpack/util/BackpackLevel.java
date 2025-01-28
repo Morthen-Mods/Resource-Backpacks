@@ -5,8 +5,6 @@ import net.xstopho.resource_backpacks.config.BackpackConfig;
 import java.util.function.Supplier;
 
 public enum BackpackLevel {
-
-    DEFAULT(() -> 5, () -> 14, 256),
     LEATHER(() -> BackpackConfig.leatherRows, () -> BackpackConfig.leatherColumns, 22),
     COPPER(() -> BackpackConfig.copperRows, () -> BackpackConfig.copperColumns, 42),
     GOLD(() -> BackpackConfig.goldRows, () -> BackpackConfig.goldColumns, 64),

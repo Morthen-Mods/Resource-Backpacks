@@ -12,7 +12,6 @@ public class MenuTypeRegistry {
 
     private static final RegistryProvider<MenuType<?>> MENU_TYPES = RegistryProvider.get(Registries.MENU, BackpackConstants.MOD_ID);
 
-    public static final RegistryObject<MenuType<BackpackMenu>> DEFAULT_MENU = MENU_TYPES.register("default_menu", () -> new MenuType<>(BackpackMenu::defaultMenu, FeatureFlags.DEFAULT_FLAGS));
     public static final RegistryObject<MenuType<BackpackMenu>> LEATHER_MENU = MENU_TYPES.register("leather_menu", () -> new MenuType<>(BackpackMenu::leatherMenu, FeatureFlags.DEFAULT_FLAGS));
     public static final RegistryObject<MenuType<BackpackMenu>> COPPER_MENU = MENU_TYPES.register("copper_menu", () -> new MenuType<>(BackpackMenu::copperMenu, FeatureFlags.DEFAULT_FLAGS));
     public static final RegistryObject<MenuType<BackpackMenu>> GOLD_MENU = MENU_TYPES.register("gold_menu", () -> new MenuType<>(BackpackMenu::goldMenu, FeatureFlags.DEFAULT_FLAGS));
