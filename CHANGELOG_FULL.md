@@ -1,3 +1,6 @@
+#### v0.12.6-BETA
+- backpack in your hand gets locked when opened from inventory
+
 #### v0.12.5-BETA
 - adding the following Settings
   - Chest Loot Settings

@@ -8,6 +8,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.config.BackpackConfig;
@@ -119,14 +120,14 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     protected void addInventoryHotbarSlots(Container playerInventory, int xPos, int yPos) {
         for(int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, xPos + i * 18, yPos));
+            this.addSlot(new BackpackInventorySlot(playerInventory, i, xPos + i * 18, yPos));
         }
     }
 
     protected void addInventoryExtendedSlots(Container playerInventory, int xPos, int yPos) {
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(playerInventory, j + (i + 1) * 9, xPos + j * 18, yPos + i * 18));
+                this.addSlot(new BackpackInventorySlot(playerInventory, j + (i + 1) * 9, xPos + j * 18, yPos + i * 18));
             }
         }
     }
