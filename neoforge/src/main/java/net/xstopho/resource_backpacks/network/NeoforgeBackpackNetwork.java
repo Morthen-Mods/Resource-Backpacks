@@ -3,6 +3,7 @@ package net.xstopho.resource_backpacks.network;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.PlayerList;
+import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 public class NeoforgeBackpackNetwork implements BackpackNetwork {
@@ -19,6 +20,11 @@ public class NeoforgeBackpackNetwork implements BackpackNetwork {
                 PacketDistributor.sendToPlayer(player, payload);
             }
         }
+    }
+
+    @Override
+    public void sendToClientsTrackingEntity(LivingEntity livingEntity, CustomPacketPayload payload) {
+        PacketDistributor.sendToPlayersTrackingEntity(livingEntity, payload);
     }
 
     @Override
