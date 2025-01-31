@@ -26,6 +26,8 @@ public class ModClientHandler {
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
         event.register(KeyMappingRegistry.OPEN_BACKPACK);
+        event.register(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
+        event.register(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
     }
 
     @SubscribeEvent

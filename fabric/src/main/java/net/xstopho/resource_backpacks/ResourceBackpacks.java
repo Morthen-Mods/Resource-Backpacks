@@ -2,7 +2,13 @@ package net.xstopho.resource_backpacks;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
+import net.xstopho.resource_backpacks.client.slot.BackpackHolder;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
 import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
@@ -12,6 +18,21 @@ public class ResourceBackpacks implements ModInitializer {
     public void onInitialize() {
         BackpackConstants.commonInit();
         registerServerPayloads();
+
+        //TODO: remove with next update
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+            ServerPlayer player = handler.player;
+            ItemStack backpack = ((BackpackHolder) player.getInventory()).resource_backpack$getBackpack();
+
+            if (!backpack.isEmpty()) {
+                player.displayClientMessage(Component.literal("Don't run away, you dropped your Backpack by accident!"), false);
+                ItemEntity backpackEntity = new ItemEntity(player.level(), player.getX(), player.getY(), player.getZ(), backpack);
+                backpackEntity.setPickUpDelay(100);
+
+                player.level().addFreshEntity(backpackEntity);
+                ((BackpackHolder) player.getInventory()).resource_backpack$setBackpack(ItemStack.EMPTY);
+            }
+        });
     }
 
     private void registerServerPayloads() {

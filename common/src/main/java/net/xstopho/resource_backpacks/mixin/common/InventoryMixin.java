@@ -19,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.ArrayList;
 import java.util.List;
 
+//@Deprecated(forRemoval = true, since = "0.13.0-BETA")
 @Mixin(Inventory.class)
 public class InventoryMixin implements BackpackHolder {
 
@@ -39,6 +40,11 @@ public class InventoryMixin implements BackpackHolder {
     @Override
     public ItemStack resource_backpack$getBackpack() {
         return backpack.getFirst();
+    }
+
+    @Override
+    public void resource_backpack$setBackpack(ItemStack backpack) {
+        this.backpack.set(0, ItemStack.EMPTY);
     }
 
     @Inject(method = "getContainerSize", at = @At("RETURN"), cancellable = true)

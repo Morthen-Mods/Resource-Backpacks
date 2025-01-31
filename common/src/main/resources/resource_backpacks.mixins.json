@@ -7,6 +7,10 @@
     "mixins": [
         "common.ShapedRecipeMixin",
 
+        "common.LivingEntityMixin",
+        "common.PlayerMixin",
+        "common.ServerPlayerMixin",
+
         "common.InventoryMixin",
         "common.InventoryMenuMixin",
         "common.CreativeInventoryMenuMixin"
