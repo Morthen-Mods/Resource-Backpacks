@@ -10,7 +10,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
-import net.xstopho.resource_backpacks.client.slot.BackpackHolder;
+import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
+import net.xstopho.resource_backpacks.client.slot.BackpackHolderDeprecated;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
 import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
@@ -23,14 +24,14 @@ public class ResourceBackpacks implements ModInitializer {
 
         ServerPlayerEvents.COPY_FROM.register((oldPlayer, newPlayer, alive) -> {
             if (oldPlayer.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
-                net.xstopho.resource_backpacks.backpack.api.BackpackHolder.restorePlayerBackpack(oldPlayer, newPlayer);
+                BackpackHolder.restorePlayerBackpack(oldPlayer, newPlayer);
             }
         });
 
         //TODO: remove with next update
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             ServerPlayer player = handler.player;
-            ItemStack backpack = ((BackpackHolder) player.getInventory()).resource_backpack$getBackpack();
+            ItemStack backpack = ((BackpackHolderDeprecated) player.getInventory()).resource_backpack$getBackpack();
 
             if (!backpack.isEmpty()) {
                 player.displayClientMessage(Component.literal("Don't run away, you dropped your Backpack by accident!"), false);
@@ -38,7 +39,7 @@ public class ResourceBackpacks implements ModInitializer {
                 backpackEntity.setPickUpDelay(100);
 
                 player.level().addFreshEntity(backpackEntity);
-                ((BackpackHolder) player.getInventory()).resource_backpack$setBackpack(ItemStack.EMPTY);
+                ((BackpackHolderDeprecated) player.getInventory()).resource_backpack$setBackpack(ItemStack.EMPTY);
             }
         });
     }
