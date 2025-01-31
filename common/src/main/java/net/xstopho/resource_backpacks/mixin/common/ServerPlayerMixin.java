@@ -20,6 +20,6 @@ public abstract class ServerPlayerMixin extends Player {
 
     @Inject(method = "die", at = @At("TAIL"))
     public void resource_backpacks$die(DamageSource source, CallbackInfo info) {
-        ((BackpackHolder) this).resource_backpacks$dropBackpack(this);
+        ((BackpackHolder) this).dropBackpack(this);
     }
 }

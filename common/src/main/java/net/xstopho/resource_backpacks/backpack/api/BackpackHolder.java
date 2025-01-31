@@ -14,11 +14,11 @@ import org.jetbrains.annotations.ApiStatus;
 @ApiStatus.Internal
 public interface BackpackHolder {
 
-    ItemStack resource_backpacks$getBackpack();
-    void resource_backpacks$setBackpack(ItemStack backpack);
+    ItemStack getBackpack();
+    void setBackpack(ItemStack backpack);
 
-    static void resource_backpacks$restoreBackpack(ServerPlayer oldPlayer, ServerPlayer newPlayer) {
-        ItemStack backpack = ((BackpackHolder) oldPlayer).resource_backpacks$getBackpack();
+    static void restorePlayerBackpack(ServerPlayer oldPlayer, ServerPlayer newPlayer) {
+        ItemStack backpack = ((BackpackHolder) oldPlayer).getBackpack();
         for (Slot slot : newPlayer.inventoryMenu.slots) {
             if (slot instanceof BackpackSlot) {
                 slot.set(backpack);
@@ -26,28 +26,28 @@ public interface BackpackHolder {
         }
     }
 
-    default void resource_backpacks$dropBackpack(LivingEntity entity) {
-        ItemStack backpack = ((BackpackHolder) entity).resource_backpacks$getBackpack();
+    default void dropBackpack(LivingEntity entity) {
+        ItemStack backpack = ((BackpackHolder) entity).getBackpack();
         if (!backpack.isEmpty()) {
             if (!entity.level().isClientSide()) {
                 if (!entity.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
                     entity.spawnAtLocation(backpack);
-                    this.resource_backpacks$setBackpack(ItemStack.EMPTY);
+                    this.setBackpack(ItemStack.EMPTY);
                 }
             }
         }
     }
 
-    default void resource_backpacks$readBackpack(CompoundTag tag, HolderLookup.Provider registryAccess) {
+    default void readBackpackFromCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
         if (tag.contains("resource_backpacks$backpack")) {
             ItemStack backpack = ItemStack.parse(registryAccess, tag.getCompound("resource_backpacks$backpack")).orElse(ItemStack.EMPTY);
-            this.resource_backpacks$setBackpack(backpack);
+            this.setBackpack(backpack);
         }
     }
 
-    default void resource_backpacks$saveBackpack(CompoundTag tag, HolderLookup.Provider registryAccess) {
-        if (!this.resource_backpacks$getBackpack().isEmpty()) {
-            Tag backpack = this.resource_backpacks$getBackpack().save(registryAccess);
+    default void saveBackpackOnCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
+        if (!this.getBackpack().isEmpty()) {
+            Tag backpack = this.getBackpack().save(registryAccess);
             tag.put("resource_backpacks$backpack", backpack);
         }
     }

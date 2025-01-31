@@ -23,7 +23,7 @@ public class ResourceBackpacks implements ModInitializer {
 
         ServerPlayerEvents.COPY_FROM.register((oldPlayer, newPlayer, alive) -> {
             if (oldPlayer.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
-                net.xstopho.resource_backpacks.backpack.api.BackpackHolder.resource_backpacks$restoreBackpack(oldPlayer, newPlayer);
+                net.xstopho.resource_backpacks.backpack.api.BackpackHolder.restorePlayerBackpack(oldPlayer, newPlayer);
             }
         });
 

@@ -31,7 +31,7 @@ public abstract class PlayerMixin extends LivingEntity {
     public void resource_backpacks$readData(CompoundTag tag, CallbackInfo info) {
         for (Slot slot : this.inventoryMenu.slots) {
             if (slot instanceof BackpackSlot backpackSlot) {
-                ItemStack backpack = ((BackpackHolder) this).resource_backpacks$getBackpack();
+                ItemStack backpack = ((BackpackHolder) this).getBackpack();
                 backpackSlot.container.setItem(0, backpack);
             }
         }

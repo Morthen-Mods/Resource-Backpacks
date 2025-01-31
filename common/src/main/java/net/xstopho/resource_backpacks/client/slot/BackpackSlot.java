@@ -3,7 +3,7 @@ package net.xstopho.resource_backpacks.client.slot;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -15,16 +15,16 @@ import org.jetbrains.annotations.Nullable;
 public class BackpackSlot extends Slot {
 
     private static final ResourceLocation BACKPACK_SPRITE = BackpackConstants.of("item/empty_slot_backpack");
-    private final Player player;
+    private final LivingEntity entity;
 
-    public BackpackSlot(Container container, Player player, int x, int y) {
+    public BackpackSlot(Container container, LivingEntity entity, int x, int y) {
         super(container, 0, x, y);
-        this.player = player;
+        this.entity = entity;
     }
 
     @Override
     public void setChanged() {
-        ((BackpackHolder) player).resource_backpacks$setBackpack(getItem());
+        ((BackpackHolder) entity).setBackpack(getItem());
     }
 
     @Override

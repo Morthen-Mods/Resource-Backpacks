@@ -24,24 +24,23 @@ public abstract class LivingEntityMixin extends Entity implements BackpackHolder
         super(entityType, level);
     }
 
-
     @Override
-    public ItemStack resource_backpacks$getBackpack() {
+    public ItemStack getBackpack() {
         return backpack.getFirst();
     }
 
     @Override
-    public void resource_backpacks$setBackpack(ItemStack backpack) {
+    public void setBackpack(ItemStack backpack) {
         this.backpack.set(0, backpack);
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
     public void resource_backpacks$saveData(CompoundTag tag, CallbackInfo info) {
-        this.resource_backpacks$saveBackpack(tag, this.registryAccess());
+        this.saveBackpackOnCompound(tag, this.registryAccess());
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
     public void resource_backpacks$readData(CompoundTag tag, CallbackInfo info) {
-        this.resource_backpacks$readBackpack(tag, this.registryAccess());
+        this.readBackpackFromCompound(tag, this.registryAccess());
     }
 }
