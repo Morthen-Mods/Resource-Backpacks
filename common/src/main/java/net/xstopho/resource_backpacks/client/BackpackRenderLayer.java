@@ -3,7 +3,7 @@ package net.xstopho.resource_backpacks.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -15,18 +15,19 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 
-public class BackpackRenderLayer extends RenderLayer<LivingEntity, HumanoidModel<LivingEntity>> {
+public class BackpackRenderLayer<T extends LivingEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
 
-    private final BackpackModel<LivingEntity> backpackModel;
+    private final BackpackModel<T> backpackModel;
 
-    public BackpackRenderLayer(RenderLayerParent<LivingEntity, HumanoidModel<LivingEntity>> renderer, EntityModelSet modelSet) {
+    public BackpackRenderLayer(RenderLayerParent<T, M> renderer, EntityModelSet modelSet) {
         super(renderer);
 
         this.backpackModel = new BackpackModel<>(modelSet.bakeLayer(BackpackModel.BACKPACK_LAYER));
     }
 
+
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int lightness, LivingEntity entity, float limbSwing,
+    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int lightness, T entity, float limbSwing,
                        float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
         ItemStack backpack = ((BackpackHolder) entity).getBackpack();

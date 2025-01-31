@@ -17,7 +17,9 @@
     ],
     "client": [
         "accessors.KeyMappingAccessor",
-        "client.KeyMappingMixin"
+
+        "client.KeyMappingMixin",
+        "client.LivingEntityRendererMixin"
     ],
     "server": [],
     "injectors": {
