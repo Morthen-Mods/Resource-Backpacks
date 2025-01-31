@@ -15,6 +15,7 @@ import net.xstopho.resource_backpacks.client.BackpackModel;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
 import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
+import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 public class ResourceBackpacksClient implements ClientModInitializer {
@@ -32,6 +33,7 @@ public class ResourceBackpacksClient implements ClientModInitializer {
 
     private void registerClientPayloads() {
         ClientPlayNetworking.registerGlobalReceiver(EnderChestResponsePayload.TYPE, (payload, context) -> EnderChestResponsePayload.handle(payload));
+        ClientPlayNetworking.registerGlobalReceiver(SyncEntityBackpackPayload.TYPE, (payload, context) -> SyncEntityBackpackPayload.handle(payload));
     }
 
     private void registerRendering() {

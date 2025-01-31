@@ -9,6 +9,7 @@ import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
 import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
+import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
 
 @EventBusSubscriber(modid = BackpackConstants.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class ModHandler {
@@ -21,5 +22,6 @@ public class ModHandler {
         registry.playToServer(EnderChestRequestPayload.TYPE, EnderChestRequestPayload.CODEC, (payload, context) -> EnderChestRequestPayload.handle(payload, (ServerPlayer) context.player()));
 
         registry.playToClient(EnderChestResponsePayload.TYPE, EnderChestResponsePayload.CODEC, (payload, context) -> EnderChestResponsePayload.handle(payload));
+        registry.playToClient(SyncEntityBackpackPayload.TYPE, SyncEntityBackpackPayload.CODEC, (payload, context) -> SyncEntityBackpackPayload.handle(payload));
     }
 }
