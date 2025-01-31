@@ -16,7 +16,7 @@ public record SyncEntityBackpackPayload(int entityId, ItemStack backpack) implem
     public static final Type<SyncEntityBackpackPayload> TYPE = new Type<>(BackpackConstants.of("sync_entity_backpack_payload"));
     public static final StreamCodec<RegistryFriendlyByteBuf, SyncEntityBackpackPayload> CODEC =
             StreamCodec.composite(ByteBufCodecs.INT, SyncEntityBackpackPayload::entityId,
-                    ItemStack.STREAM_CODEC, SyncEntityBackpackPayload::backpack,
+                    ItemStack.OPTIONAL_STREAM_CODEC, SyncEntityBackpackPayload::backpack,
                     SyncEntityBackpackPayload::new);
 
     public static void handle(SyncEntityBackpackPayload payload) {

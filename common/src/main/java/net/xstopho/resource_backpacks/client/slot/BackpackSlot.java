@@ -10,6 +10,8 @@ import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
+import net.xstopho.resource_backpacks.network.BackpackNetwork;
+import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
 import org.jetbrains.annotations.Nullable;
 
 public class BackpackSlot extends Slot {
@@ -25,6 +27,9 @@ public class BackpackSlot extends Slot {
     @Override
     public void setChanged() {
         ((BackpackHolder) entity).setBackpack(getItem());
+        if (!entity.level().isClientSide()) {
+            BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(entity, new SyncEntityBackpackPayload(entity.getId(), getItem()));
+        }
     }
 
     @Override

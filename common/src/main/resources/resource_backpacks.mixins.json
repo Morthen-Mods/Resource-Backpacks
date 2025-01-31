@@ -10,6 +10,7 @@
         "common.LivingEntityMixin",
         "common.PlayerMixin",
         "common.ServerPlayerMixin",
+        "common.ServerEntityMixin",
 
         "common.InventoryMixin",
         "common.InventoryMenuMixin",

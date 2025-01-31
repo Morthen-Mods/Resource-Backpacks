@@ -23,9 +23,7 @@ public class FabricBackpackNetwork implements BackpackNetwork {
     public void sendToAllClients(ServerPlayer except, CustomPacketPayload payload) {
         PlayerList playerList = except.getServer().getPlayerList();
         for (ServerPlayer player : playerList.getPlayers()) {
-            if (player != except) {
-                ServerPlayNetworking.send(player, payload);
-            }
+            ServerPlayNetworking.send(player, payload);
         }
     }
 
