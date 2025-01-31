@@ -45,7 +45,7 @@ public class BackpackNetworkRegistry {
         channel.messageBuilder(SyncEntityBackpackPayload.class, 3, NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(SyncEntityBackpackPayload.CODEC::decode)
                 .encoder((payload, byteBuf) -> SyncEntityBackpackPayload.CODEC.encode(byteBuf, payload))
-                .consumerNetworkThread((BiConsumer<SyncEntityBackpackPayload, CustomPayloadEvent.Context>)(payload, context) -> SyncEntityBackpackPayload.handle(payload))
+                .consumerNetworkThread((BiConsumer<SyncEntityBackpackPayload, CustomPayloadEvent.Context>) (payload, context) -> SyncEntityBackpackPayload.handle(payload))
                 .add();
 
         return channel;
