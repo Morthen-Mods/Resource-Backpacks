@@ -25,6 +25,7 @@ public class BackpackRenderLayer<T extends LivingEntity, M extends EntityModel<T
         super(renderer);
 
         this.backpackModel = new BackpackModel<>(modelSet.bakeLayer(BackpackModel.BACKPACK_LAYER));
+        this.getParentModel().copyPropertiesTo(this.backpackModel);
     }
 
 
@@ -49,12 +50,6 @@ public class BackpackRenderLayer<T extends LivingEntity, M extends EntityModel<T
     protected ResourceLocation getTextureLocation(LivingEntity entity) {
         ItemStack backpack = ((BackpackHolder) entity).getBackpack();
         return BackpackModel.getTexture(backpack);
-    }
-
-
-    @Override
-    public void copyProperties() {
-        this.getParentModel().copyPropertiesTo(this.backpackModel);
     }
 
     @Override

@@ -8,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 
 public interface BackpackRenderer<T extends LivingEntity> {
 
-    void copyProperties();
     void renderBackpackModel(PoseStack poseStack, MultiBufferSource buffer, int light, ItemStack backpack);
 
     default void renderOnHumanoid(PoseStack poseStack, MultiBufferSource buffer, T entity, int light, ItemStack backpack) {
@@ -16,7 +15,6 @@ public interface BackpackRenderer<T extends LivingEntity> {
         if (backpack.isEmpty()) return;
 
         poseStack.pushPose();
-        copyProperties();
 
         if (entity.isCrouching()) {
             poseStack.mulPose(Axis.XP.rotationDegrees(29));
@@ -24,7 +22,6 @@ public interface BackpackRenderer<T extends LivingEntity> {
         }
 
         renderBackpackModel(poseStack, buffer, light, backpack);
-
         poseStack.popPose();
 
     }
@@ -33,13 +30,11 @@ public interface BackpackRenderer<T extends LivingEntity> {
         if (backpack.isEmpty()) return;
 
         poseStack.pushPose();
-        copyProperties();
 
         poseStack.scale(0.75f, 0.75f, 0.75f);
         poseStack.translate(0f, 0.5f, 0f);
 
         renderBackpackModel(poseStack, buffer, light, backpack);
-
         poseStack.popPose();
     }
 
@@ -47,13 +42,12 @@ public interface BackpackRenderer<T extends LivingEntity> {
         if (backpack.isEmpty()) return;
 
         poseStack.pushPose();
-        copyProperties();
+
         poseStack.scale(0.75f, 0.75f, 0.75f);
         poseStack.mulPose(Axis.YP.rotationDegrees(180));
         poseStack.translate(0f, 1.225f, 0.14f);
 
         renderBackpackModel(poseStack, buffer, light, backpack);
-
         poseStack.popPose();
     }
 }
