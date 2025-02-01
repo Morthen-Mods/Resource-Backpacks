@@ -30,7 +30,17 @@ public interface BackpackRenderer<T extends LivingEntity> {
     }
 
     default void renderOnCreeper(PoseStack poseStack, MultiBufferSource buffer, T entity, int light, ItemStack backpack) {
+        if (backpack.isEmpty()) return;
 
+        poseStack.pushPose();
+        copyProperties();
+
+        poseStack.scale(0.75f, 0.75f, 0.75f);
+        poseStack.translate(0f, 0.5f, 0f);
+
+        renderBackpackModel(poseStack, buffer, light, backpack);
+
+        poseStack.popPose();
     }
 
     default void renderOnArmorStand(PoseStack poseStack, MultiBufferSource buffer, T entity, int light, ItemStack backpack) {

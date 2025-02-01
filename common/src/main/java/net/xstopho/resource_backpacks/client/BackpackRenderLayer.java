@@ -3,6 +3,7 @@ package net.xstopho.resource_backpacks.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.ArmorStandModel;
+import net.minecraft.client.model.CreeperModel;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -32,8 +33,13 @@ public class BackpackRenderLayer<T extends LivingEntity, M extends EntityModel<T
                        float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
         ItemStack backpack = ((BackpackHolder) entity).getBackpack();
+
         if (getParentModel() instanceof ArmorStandModel) {
             renderOnArmorStand(poseStack,  bufferSource, entity, light, backpack);
+
+        } else if (getParentModel() instanceof CreeperModel<?>){
+            renderOnCreeper(poseStack, bufferSource, entity, light, backpack);
+
         } else {
             renderOnHumanoid(poseStack, bufferSource, entity, light, backpack);
         }
