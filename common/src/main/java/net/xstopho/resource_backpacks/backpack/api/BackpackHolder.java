@@ -3,8 +3,8 @@ package net.xstopho.resource_backpacks.backpack.api;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.client.slot.BackpackSlot;
@@ -16,7 +16,7 @@ public interface BackpackHolder {
     ItemStack getBackpack();
     void setBackpack(ItemStack backpack);
 
-    static void restorePlayerBackpack(ServerPlayer oldPlayer, ServerPlayer newPlayer) {
+    static void restorePlayerBackpack(Player oldPlayer, Player newPlayer) {
         ItemStack backpack = ((BackpackHolder) oldPlayer).getBackpack();
         for (Slot slot : newPlayer.inventoryMenu.slots) {
             if (slot instanceof BackpackSlot) {
