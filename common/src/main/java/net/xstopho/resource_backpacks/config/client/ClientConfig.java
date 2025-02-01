@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.config;
+package net.xstopho.resource_backpacks.config.client;
 
 import net.xstopho.resource_backpacks.backpack.util.BackpackStyle;
 import net.xstopho.resourceconfigapi.annotations.Config;
