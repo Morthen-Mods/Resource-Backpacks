@@ -35,10 +35,10 @@ public class BackpackRenderLayer<T extends LivingEntity, M extends EntityModel<T
         ItemStack backpack = ((BackpackHolder) entity).getBackpack();
 
         if (getParentModel() instanceof ArmorStandModel) {
-            renderOnArmorStand(poseStack,  bufferSource, entity, light, backpack);
+            renderOnArmorStand(poseStack,  bufferSource, light, backpack);
 
         } else if (getParentModel() instanceof CreeperModel<?>){
-            renderOnCreeper(poseStack, bufferSource, entity, light, backpack);
+            renderOnCreeper(poseStack, bufferSource, light, backpack);
 
         } else {
             renderOnHumanoid(poseStack, bufferSource, entity, light, backpack);

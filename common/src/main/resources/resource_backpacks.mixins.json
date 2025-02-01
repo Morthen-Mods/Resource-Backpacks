@@ -8,6 +8,7 @@
         "common.ShapedRecipeMixin",
 
         "common.LivingEntityMixin",
+        "common.ArmorStandMixin",
         "common.PlayerMixin",
         "common.ServerPlayerMixin",
         "common.ServerEntityMixin",
