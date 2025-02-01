@@ -112,5 +112,13 @@
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.label": "Baús do Tesouro",
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.tooltip": "Inclui os seguintes Baús:\n- Mansão da Floresta",
   "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.label": "Recompensa da Câmara de Prova",
-  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Recompensa Única e Ominosa"
+  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Recompensa Única e Ominosa",
+
+  "config.resource_backpacks.entity_config": "Configuração de entidade",
+  "config.resource_backpacks.entity_config.spawn_chance.label": "Chances de Aparição",
+  "config.resource_backpacks.entity_config.zombiespawnwithleatherbackpack.label": "Zumbi com Mochila de Couro",
+  "config.resource_backpacks.entity_config.zombiespawnwithcopperbackpack.label": "Zumbi com Mochila de Cobre",
+  "config.resource_backpacks.entity_config.creeperspawnwithleatherbackpack.label": "Creeper com Mochila de Couro",
+  "config.resource_backpacks.entity_config.creeperspawnwithcopperbackpack.label": "Creeper com Mochila de Cobre"
+
 }
