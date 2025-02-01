@@ -2,6 +2,7 @@ package net.xstopho.resource_backpacks.mixin.common;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -32,6 +33,11 @@ public abstract class LivingEntityMixin extends Entity implements BackpackHolder
     @Override
     public void setBackpack(ItemStack backpack) {
         this.backpack.set(0, backpack);
+    }
+
+    @Inject(method = "die", at = @At("TAIL"))
+    public void resource_backpacks$die(DamageSource source, CallbackInfo info) {
+        this.dropBackpack((LivingEntity) (Object) this);
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))

@@ -2,6 +2,7 @@ package net.xstopho.resource_backpacks;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.client.slot.BackpackHolderDeprecated;
+import net.xstopho.resource_backpacks.modifier.EntityModifier;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
 import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
@@ -28,6 +30,8 @@ public class ResourceBackpacks implements ModInitializer {
                 BackpackHolder.restorePlayerBackpack(oldPlayer, newPlayer);
             }
         });
+
+        ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> EntityModifier.modifyEntities(entity));
 
         //TODO: remove with next update
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
