@@ -48,11 +48,8 @@ public abstract class ArmorStandMixin extends LivingEntity {
             if (getClickedSlot(vec) == EquipmentSlot.MAINHAND) {
                 ItemStack armorStandStack = ((BackpackHolder) this).getBackpack();
                 if (!armorStandStack.isEmpty()) {
-                    if (player.getItemInHand(hand).isEmpty()) {
-                        player.setItemSlot(EquipmentSlot.MAINHAND, armorStandStack);
-                    } else {
-                        player.getInventory().add(armorStandStack);
-                    }
+                    player.setItemInHand(hand, armorStandStack);
+
                     ((BackpackHolder) this).setBackpack(ItemStack.EMPTY);
                     if (!this.level().isClientSide()) {
                         BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(this, new SyncEntityBackpackPayload(this.getId(), ItemStack.EMPTY));
@@ -72,8 +69,7 @@ public abstract class ArmorStandMixin extends LivingEntity {
                 ItemStack backpackCopy = armorStandBackpack.copy();
                 ((BackpackHolder) this).setBackpack(handStack);
 
-                player.getItemInHand(hand).shrink(1);
-                player.getInventory().add(backpackCopy);
+                player.setItemInHand(hand, backpackCopy);
             }
         }
 
