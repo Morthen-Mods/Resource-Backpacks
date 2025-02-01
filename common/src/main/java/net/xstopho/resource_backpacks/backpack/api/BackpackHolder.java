@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.GameRules;
 import net.xstopho.resource_backpacks.client.slot.BackpackSlot;
 import org.jetbrains.annotations.ApiStatus;
 
@@ -30,10 +29,8 @@ public interface BackpackHolder {
         ItemStack backpack = ((BackpackHolder) entity).getBackpack();
         if (!backpack.isEmpty()) {
             if (!entity.level().isClientSide()) {
-                if (!entity.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
-                    entity.spawnAtLocation(backpack);
-                    this.setBackpack(ItemStack.EMPTY);
-                }
+                entity.spawnAtLocation(backpack);
+                this.setBackpack(ItemStack.EMPTY);
             }
         }
     }
