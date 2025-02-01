@@ -124,6 +124,11 @@ key_key.hotbar.9:key.keyboard.9
 key_key.resource_backpacks.open_backpack:key.keyboard.r
 key_key.resource_backpacks.show_compact_preview:key.keyboard.left.shift
 key_key.resource_backpacks.show_inventory_preview:key.keyboard.left.alt
+key_key.jade.config:key.keyboard.keypad.0
+key_key.jade.show_overlay:key.keyboard.keypad.1
+key_key.jade.toggle_liquid:key.keyboard.keypad.2
+key_key.jade.narrate:key.keyboard.keypad.5
+key_key.jade.show_details:key.keyboard.left.shift
 soundCategory_master:0.2582781456953642
 soundCategory_music:0.2007042253521127
 soundCategory_record:1.0
