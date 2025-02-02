@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.entity.LivingEntity;
 
 public class FabricBackpackNetwork implements BackpackNetwork {
@@ -17,14 +16,6 @@ public class FabricBackpackNetwork implements BackpackNetwork {
     @Override
     public void sendToServer(CustomPacketPayload payload) {
         ClientPlayNetworking.send(payload);
-    }
-
-    @Override
-    public void sendToAllClients(ServerPlayer except, CustomPacketPayload payload) {
-        PlayerList playerList = except.getServer().getPlayerList();
-        for (ServerPlayer player : playerList.getPlayers()) {
-            ServerPlayNetworking.send(player, payload);
-        }
     }
 
     @Override

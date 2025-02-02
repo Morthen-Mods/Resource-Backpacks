@@ -10,7 +10,6 @@ public interface BackpackNetwork {
     BackpackNetwork INSTANCE = CoreServices.load(BackpackNetwork.class);
 
     void sendToClient(ServerPlayer player, CustomPacketPayload payload);
-    void sendToAllClients(ServerPlayer except, CustomPacketPayload payload);
     void sendToClientsTrackingEntity(LivingEntity livingEntity, CustomPacketPayload payload);
 
     void sendToServer(CustomPacketPayload payload);

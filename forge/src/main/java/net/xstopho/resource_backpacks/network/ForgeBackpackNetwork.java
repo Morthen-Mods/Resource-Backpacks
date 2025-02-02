@@ -14,11 +14,6 @@ public class ForgeBackpackNetwork implements BackpackNetwork {
     }
 
     @Override
-    public void sendToAllClients(ServerPlayer except, CustomPacketPayload payload) {
-        ResourceBackpacks.NETWORK.send(payload, PacketDistributor.ALL.noArg());
-    }
-
-    @Override
     public void sendToClientsTrackingEntity(LivingEntity livingEntity, CustomPacketPayload payload) {
         ResourceBackpacks.NETWORK.send(payload, PacketDistributor.TRACKING_ENTITY.with(livingEntity));
     }
