@@ -32,7 +32,7 @@ public abstract class CreativeInventoryMenuMixin extends EffectRenderingInventor
     }
 
     @Inject(at = @At(value = "INVOKE", target = "net/minecraft/world/inventory/Slot.<init>(Lnet/minecraft/world/Container;III)V"), method = "selectTab")
-    private void addCreativeTrinketSlots(CreativeModeTab tab, CallbackInfo info) {
+    private void resource_backpacks$addCreativeBackpackSlot(CreativeModeTab tab, CallbackInfo info) {
         for (Slot slot : this.minecraft.player.inventoryMenu.slots) {
             if (slot instanceof BackpackSlot) {
                 this.menu.slots.set(slot.index, new SlotWrapper(slot, slot.index, 127, 20));

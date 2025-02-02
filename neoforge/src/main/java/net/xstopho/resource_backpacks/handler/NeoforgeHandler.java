@@ -23,6 +23,7 @@ public class NeoforgeHandler {
     public static void registerPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         BackpackForRemoval.sendPlayerMessage(event.getEntity());
     }
+
     @SubscribeEvent
     public static void registerPlayerClone(PlayerEvent.Clone event) {
         Player newPlayer = event.getEntity();
