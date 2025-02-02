@@ -1,6 +1,5 @@
 package net.xstopho.resource_backpacks.network;
 
-import net.minecraftforge.event.network.CustomPayloadEvent;
 import net.minecraftforge.network.Channel;
 import net.minecraftforge.network.ChannelBuilder;
 import net.minecraftforge.network.NetworkDirection;
@@ -11,8 +10,6 @@ import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
 import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
 import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
-
-import java.util.function.BiConsumer;
 
 public class BackpackNetworkRegistry {
 
@@ -27,26 +24,30 @@ public class BackpackNetworkRegistry {
         channel.messageBuilder(OpenBackpackPayload.class, 0, NetworkDirection.PLAY_TO_SERVER)
                 .decoder(OpenBackpackPayload.CODEC::decode)
                 .encoder((payload, byteBuf) -> OpenBackpackPayload.CODEC.encode(byteBuf, payload))
-                .consumerNetworkThread((BiConsumer<OpenBackpackPayload, CustomPayloadEvent.Context>) (payload, context) -> OpenBackpackPayload.handle(payload, context.getSender()))
-                .add();
+                .consumerNetworkThread((payload, context) -> {
+                    context.enqueueWork(() -> OpenBackpackPayload.handle(payload, context.getSender()));
+                }).add();
 
         channel.messageBuilder(EnderChestRequestPayload.class, 1, NetworkDirection.PLAY_TO_SERVER)
                 .decoder(EnderChestRequestPayload.CODEC::decode)
                 .encoder((payload, byteBuf) -> EnderChestRequestPayload.CODEC.encode(byteBuf, payload))
-                .consumerNetworkThread((BiConsumer<EnderChestRequestPayload, CustomPayloadEvent.Context>) (payload, context) -> EnderChestRequestPayload.handle(payload, context.getSender()))
-                .add();
+                .consumerNetworkThread((payload, context) -> {
+                    context.enqueueWork(() -> EnderChestRequestPayload.handle(payload, context.getSender()));
+                }).add();
 
         channel.messageBuilder(EnderChestResponsePayload.class, 2, NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(EnderChestResponsePayload.CODEC::decode)
                 .encoder((payload, byteBuf) -> EnderChestResponsePayload.CODEC.encode(byteBuf, payload))
-                .consumerNetworkThread((BiConsumer<EnderChestResponsePayload, CustomPayloadEvent.Context>) (payload, context) -> EnderChestResponsePayload.handle(payload))
-                .add();
+                .consumerNetworkThread((payload, context) -> {
+                    context.enqueueWork(() -> EnderChestResponsePayload.handle(payload));
+                }).add();
 
         channel.messageBuilder(SyncEntityBackpackPayload.class, 3, NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(SyncEntityBackpackPayload.CODEC::decode)
                 .encoder((payload, byteBuf) -> SyncEntityBackpackPayload.CODEC.encode(byteBuf, payload))
-                .consumerNetworkThread((BiConsumer<SyncEntityBackpackPayload, CustomPayloadEvent.Context>) (payload, context) -> SyncEntityBackpackPayload.handle(payload))
-                .add();
+                .consumerNetworkThread((payload, context) -> {
+                    context.enqueueWork(() -> SyncEntityBackpackPayload.handle(payload));
+                }).add();
 
         return channel;
     }
