@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Deprecated(forRemoval = true, since = "0.13.0-BETA")
+@Deprecated(forRemoval = true, since = "0.13.0-BETA")
 @Mixin(Inventory.class)
 public class InventoryMixin implements BackpackHolderDeprecated {
 

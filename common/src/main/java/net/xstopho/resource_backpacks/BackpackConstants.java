@@ -17,9 +17,6 @@ import net.xstopho.resourcelibrary.modifier.LootTableModifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//TODO:
-//  - general code cleanup, package restructuring and more docs
-
 public class BackpackConstants {
     public static final String MOD_ID = "resource_backpacks";
     public static final String MOD_NAME = "Resource Backpacks";
