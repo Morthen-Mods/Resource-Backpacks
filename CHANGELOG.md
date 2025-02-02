@@ -10,3 +10,4 @@
 - apply Gamemode and keepInventory correctly on Player respawn
 - Zombies and Creeper can spawn with a leather or copper Backpack
   - chances can be changed in config screen
+  - Backpacks only drop when killed by a Player
