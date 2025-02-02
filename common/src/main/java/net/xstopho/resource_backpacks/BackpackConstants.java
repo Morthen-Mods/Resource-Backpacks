@@ -6,6 +6,7 @@ import net.xstopho.resource_backpacks.client.screen.BackpackMenuScreen;
 import net.xstopho.resource_backpacks.config.common.BackpackConfig;
 import net.xstopho.resource_backpacks.config.common.ChestLootConfig;
 import net.xstopho.resource_backpacks.config.client.ClientConfig;
+import net.xstopho.resource_backpacks.config.common.EntityConfig;
 import net.xstopho.resource_backpacks.modifier.ChestLootModifier;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
@@ -25,8 +26,10 @@ public class BackpackConstants {
 
     public static void commonInit() {
         ConfigRegistry.register(ClientConfig.class, MOD_ID);
+
         ConfigRegistry.register(BackpackConfig.class, MOD_ID);
         ConfigRegistry.register(ChestLootConfig.class, MOD_ID);
+        ConfigRegistry.register(EntityConfig.class, MOD_ID);
 
         ChestLootModifier.initLootModifier(modifier);
 
