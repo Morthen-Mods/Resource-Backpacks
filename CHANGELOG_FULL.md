@@ -1,3 +1,16 @@
+#### v0.13.0-BETA
+- Backpack from Backpack Slot gets dropped the first time you enter a World or server
+  - needed because of internal changes for the Backpack Slot
+- adding missing keybind settings to neoforge
+- adding Backpack Slot for Creative Menu
+- fixing Render issues with Backpacks
+  - Entity Data wasn't synced correctly
+- ArmorStands accepts Backpacks again as an additional slot
+- apply Gamemode and keepInventory correctly on Player respawn
+- Zombies and Creeper can spawn with a leather or copper Backpack
+  - chances can be changed in config screen
+  - Backpacks only drop when killed by a Player
+
 #### v0.12.6-BETA
 - backpack in your hand gets locked when opened from inventory
 
@@ -35,13 +48,9 @@
 
 #### v0.10.7-BETA
 - fix for Forge Server crashes due to executing client code on server side.
-  - don't know why but on 1.21.4 it disables the preview for End Backpacks when playing on a server
 
 #### v0.10.6-BETA
 - changing behavior of Preview Tooltips, this prevents crashes when one of the KeyBinds isn't bound
-
-#### v0.10.5-BETA
-- fix indexing issue for Backpack Slots
 
 #### v0.10.4-BETA
 - fixing Ender Chest duplication glitch
@@ -49,7 +58,6 @@
 - replace Backpack rendering Mixin with loader specific rendering registration
 
 #### v0.10.2-BETA
-- update to 1.21.4
 - disabling ender backpack preview due to a duplication glitch
 
 #### v0.10.1-BETA

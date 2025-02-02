@@ -114,5 +114,12 @@
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.label": "Treasure Chests",
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.tooltip": "Includes the following Chests:\n- Woodland Mansion",
   "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.label": "Trial Chamber Reward",
-  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Unique ominous reward"
+  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Unique ominous reward",
+
+  "config.resource_backpacks.entity_config": "Entity config",
+  "config.resource_backpacks.entity_config.spawn_chance.label": "Spawn Chances",
+  "config.resource_backpacks.entity_config.zombiespawnwithleatherbackpack.label": "Zombie with Leather Backpack",
+  "config.resource_backpacks.entity_config.zombiespawnwithcopperbackpack.label": "Zombie with Copper Backpack",
+  "config.resource_backpacks.entity_config.creeperspawnwithleatherbackpack.label": "Creeper with Leather Backpack",
+  "config.resource_backpacks.entity_config.creeperspawnwithcopperbackpack.label": "Creeper with Copper Backpack"
 }

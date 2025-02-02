@@ -112,5 +112,13 @@
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.label": "Hazine Sandıkları",
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.tooltip": "Aşağıdaki Sandıkları içerir:\n- Orman Köşkü",
   "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.label": "Deneme Odası Ödülü",
-  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Benzersiz uğursuz ödül"
+  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Benzersiz uğursuz ödül",
+
+  "config.resource_backpacks.entity_config": "Varlık yapılandırması",
+  "config.resource_backpacks.entity_config.spawn_chance.label": "Oluşma Şansı",
+  "config.resource_backpacks.entity_config.zombiespawnwithleatherbackpack.label": "Deri Sırt Çantalı Zombi",
+  "config.resource_backpacks.entity_config.zombiespawnwithcopperbackpack.label": "Bakır Sırt Çantalı Zombi",
+  "config.resource_backpacks.entity_config.creeperspawnwithleatherbackpack.label": "Deri Sırt Çantalı Creeper",
+  "config.resource_backpacks.entity_config.creeperspawnwithcopperbackpack.label": "Bakır Sırt Çantalı Creeper"
+
 }

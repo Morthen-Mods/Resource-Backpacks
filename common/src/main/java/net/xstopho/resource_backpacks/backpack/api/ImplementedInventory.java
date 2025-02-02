@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.backpack.util;
+package net.xstopho.resource_backpacks.backpack.api;
 
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;

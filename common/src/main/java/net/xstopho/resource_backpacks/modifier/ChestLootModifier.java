@@ -1,6 +1,6 @@
-package net.xstopho.resource_backpacks.loot_modifier;
+package net.xstopho.resource_backpacks.modifier;
 
-import net.xstopho.resource_backpacks.config.ChestLootConfig;
+import net.xstopho.resource_backpacks.config.common.ChestLootConfig;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resourcelibrary.modifier.LootTableModifier;
 import net.xstopho.resourcelibrary.modifier.loot_tables.ChestLootTables;

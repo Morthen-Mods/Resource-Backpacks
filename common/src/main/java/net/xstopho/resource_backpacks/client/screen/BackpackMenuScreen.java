@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.util.BackpackStyle;
-import net.xstopho.resource_backpacks.config.ClientConfig;
+import net.xstopho.resource_backpacks.config.client.ClientConfig;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 
@@ -72,6 +72,7 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
         renderHorizontalSide(guiGraphics, xPos + 11, yPos, 4f, 0f, this.getWidth() - 22, 18); // Top
         renderHorizontalSide(guiGraphics, xPos + 11, yPos + getHeight() - 7, 4f, 4f, this.getWidth() - 22, 18); // Bottom
 
+
         renderVerticalSide(guiGraphics, xPos, yPos + 11, 0f, 4f, 18, this.getHeight() - 11); // Left
         renderVerticalSide(guiGraphics, xPos + getWidth() - 18, yPos + 11 , 4f, 4f, 18, this.getHeight() - 11); // Right
 
@@ -98,7 +99,7 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
     private void renderPlayerInventory(GuiGraphics guiGraphics, int xPos, int yPos) {
         ResourceLocation inventory = this.columns < 10 ? INVENTORY_NORMAL : INVENTORY_EXTENDED;
-        guiGraphics.blit(RenderType::guiTextured, inventory, xPos + ((getWidth() - 176) / 2), yPos + getHeight() + 7,
+        guiGraphics.blit(RenderType::guiTextured, inventory, xPos + ((getWidth() - 175) / 2), yPos + getHeight() + 7,
                 0f, 0f, 176, 87, 176, 87);
     }
 

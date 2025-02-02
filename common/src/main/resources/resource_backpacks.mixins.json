@@ -8,13 +8,21 @@
         "accessor.ShapedRecipeAccessor",
         "common.ShapedRecipeMixin",
 
+        "common.LivingEntityMixin",
+        "common.ArmorStandMixin",
+        "common.PlayerMixin",
+        "common.ServerPlayerMixin",
+        "common.ServerEntityMixin",
+
         "common.InventoryMixin",
         "common.InventoryMenuMixin",
         "common.CreativeInventoryMenuMixin"
     ],
     "client": [
         "accessor.KeyMappingAccessor",
-        "client.KeyMappingMixin"
+        "client.KeyMappingMixin",
+        "client.LivingEntityRendererMixin",
+        "client.LivingEntityRenderStateMixin"
     ],
     "server": [],
     "injectors": {

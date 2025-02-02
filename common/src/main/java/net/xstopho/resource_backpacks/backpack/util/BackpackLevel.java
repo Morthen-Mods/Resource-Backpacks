@@ -1,6 +1,6 @@
 package net.xstopho.resource_backpacks.backpack.util;
 
-import net.xstopho.resource_backpacks.config.BackpackConfig;
+import net.xstopho.resource_backpacks.config.common.BackpackConfig;
 
 import java.util.function.Supplier;
 

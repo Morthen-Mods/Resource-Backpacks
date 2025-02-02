@@ -6,7 +6,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.client.slot.BackpackHolder;
+import net.xstopho.resource_backpacks.client.slot.BackpackHolderDeprecated;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(Inventory.class)
-public class InventoryMixin implements BackpackHolder {
+public class InventoryMixin implements BackpackHolderDeprecated {
 
     @Shadow @Final @Mutable
     private List<NonNullList<ItemStack>> compartments;
@@ -81,5 +81,10 @@ public class InventoryMixin implements BackpackHolder {
     @Override
     public ItemStack resource_backpack$getBackpack() {
         return backpack.getFirst();
+    }
+
+    @Override
+    public void resource_backpack$setBackpack(ItemStack backpack) {
+        this.backpack.set(0, backpack);
     }
 }
