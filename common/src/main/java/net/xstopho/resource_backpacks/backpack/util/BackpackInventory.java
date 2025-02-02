@@ -4,6 +4,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
+import net.xstopho.resource_backpacks.backpack.api.ImplementedInventory;
 
 public class BackpackInventory implements ImplementedInventory {
 
