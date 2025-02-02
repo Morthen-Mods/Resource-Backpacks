@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
-import net.xstopho.resource_backpacks.backpack.util.ImplementedInventory;
+import net.xstopho.resource_backpacks.backpack.api.ImplementedInventory;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
 import org.jetbrains.annotations.NotNull;

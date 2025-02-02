@@ -112,5 +112,13 @@
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.label": "Сундуки с сокровищами",
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.tooltip": "Включает следующие сундуки:\n- Лесной особняк",
   "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.label": "Награда за испытательную камеру",
-  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Уникальная зловещая награда"
+  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Уникальная зловещая награда",
+
+  "config.resource_backpacks.entity_config": "Конфигурация сущностей",
+  "config.resource_backpacks.entity_config.spawn_chance.label": "Шанс появления",
+  "config.resource_backpacks.entity_config.zombiespawnwithleatherbackpack.label": "Зомби с кожаным рюкзаком",
+  "config.resource_backpacks.entity_config.zombiespawnwithcopperbackpack.label": "Зомби с медным рюкзаком",
+  "config.resource_backpacks.entity_config.creeperspawnwithleatherbackpack.label": "Крипер с кожаным рюкзаком",
+  "config.resource_backpacks.entity_config.creeperspawnwithcopperbackpack.label": "Крипер с медным рюкзаком"
+
 }

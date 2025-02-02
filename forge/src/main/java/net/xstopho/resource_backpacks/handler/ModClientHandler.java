@@ -5,13 +5,16 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.state.PlayerRenderState;
 import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameRules;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.xstopho.resource_backpacks.BackpackConstants;
+import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.client.BackpackModel;
 import net.xstopho.resource_backpacks.client.PlayerBackpackRenderLayer;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
@@ -34,18 +37,5 @@ public class ModClientHandler {
     @SubscribeEvent
     public static void registerRenderLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(BackpackModel.BACKPACK_LAYER, BackpackModel::createLayer);
-    }
-
-    @SubscribeEvent
-    public static void addRenderLayer(EntityRenderersEvent.AddLayers event) {
-        LivingEntityRenderer<Player, PlayerRenderState, PlayerModel> playerRenderer = event.getPlayerSkin(PlayerSkin.Model.WIDE);
-        if (playerRenderer != null){
-            playerRenderer.addLayer(new PlayerBackpackRenderLayer(playerRenderer, event.getEntityModels()));
-        }
-
-        LivingEntityRenderer<Player, PlayerRenderState, PlayerModel> playerSlimRenderer = event.getPlayerSkin(PlayerSkin.Model.SLIM);
-        if (playerSlimRenderer != null) {
-            playerSlimRenderer.addLayer(new PlayerBackpackRenderLayer(playerSlimRenderer, event.getEntityModels()));
-        }
     }
 }

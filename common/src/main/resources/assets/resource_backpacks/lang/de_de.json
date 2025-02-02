@@ -76,7 +76,7 @@
   "config.resource_backpacks.chest_loot.copperbackpackother.label": "Andere Truhen",
   "config.resource_backpacks.chest_loot.copperbackpackother.tooltip": "Enthält die folgenden Truhen:\n- Plünderer-Außenposten\n- Verlassene Minenschächte",
 
-  "config.resource_backpacks.chest_loot.iron_backpack.label": "Eisentaschen - Chancen",
+  "config.resource_backpacks.chest_loot.iron_backpack.label": "Eisenrucksack - Chancen",
   "config.resource_backpacks.chest_loot.ironbackpackvillage.label": "Dorftruhen",
   "config.resource_backpacks.chest_loot.ironbackpackvillage.tooltip": "Enthält die folgenden Truhen:\n- Werkzeugschmied",
   "config.resource_backpacks.chest_loot.ironbackpackstronghold.label": "Festungstruhen",
@@ -112,5 +112,12 @@
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.label": "Schatztruhen",
   "config.resource_backpacks.chest_loot.netheritebackpacktreasure.tooltip": "Enthält die folgenden Truhen:\n- Waldanwesen",
   "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.label": "Prüfungskammer-Belohnung",
-  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Einzigartige ominöse Belohnung"
+  "config.resource_backpacks.chest_loot.netheritebackpacktrialchambers.tooltip": "Einzigartige ominöse Belohnung",
+
+  "config.resource_backpacks.entity_config": "Monster",
+  "config.resource_backpacks.entity_config.spawn_chance.label": "Spawn Chancen",
+  "config.resource_backpacks.entity_config.zombiespawnwithleatherbackpack.label": "Zombie mit Lederrucksack",
+  "config.resource_backpacks.entity_config.zombiespawnwithcopperbackpack.label": "Zombie mit Kupferrucksack",
+  "config.resource_backpacks.entity_config.creeperspawnwithleatherbackpack.label": "Creeper mit Lederrucksack",
+  "config.resource_backpacks.entity_config.creeperspawnwithcopperbackpack.label": "Creeper mit Kupferrucksack"
 }

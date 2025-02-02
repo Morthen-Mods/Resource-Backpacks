@@ -22,7 +22,7 @@ import net.xstopho.resource_backpacks.backpack.util.BackpackInventory;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
-import net.xstopho.resource_backpacks.config.BackpackConfig;
+import net.xstopho.resource_backpacks.config.common.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 import java.util.List;

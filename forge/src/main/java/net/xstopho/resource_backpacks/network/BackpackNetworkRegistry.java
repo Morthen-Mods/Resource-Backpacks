@@ -10,6 +10,7 @@ import net.xstopho.resource_backpacks.ResourceBackpacks;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
 import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
+import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
 
 import java.util.function.BiConsumer;
 
@@ -39,6 +40,12 @@ public class BackpackNetworkRegistry {
                 .decoder(EnderChestResponsePayload.CODEC::decode)
                 .encoder((payload, byteBuf) -> EnderChestResponsePayload.CODEC.encode(byteBuf, payload))
                 .consumerNetworkThread((BiConsumer<EnderChestResponsePayload, CustomPayloadEvent.Context>) (payload, context) -> EnderChestResponsePayload.handle(payload))
+                .add();
+
+        channel.messageBuilder(SyncEntityBackpackPayload.class, 3, NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(SyncEntityBackpackPayload.CODEC::decode)
+                .encoder((payload, byteBuf) -> SyncEntityBackpackPayload.CODEC.encode(byteBuf, payload))
+                .consumerNetworkThread((BiConsumer<SyncEntityBackpackPayload, CustomPayloadEvent.Context>) (payload, context) -> SyncEntityBackpackPayload.handle(payload))
                 .add();
 
         return channel;

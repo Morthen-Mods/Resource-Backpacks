@@ -10,7 +10,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
-import net.xstopho.resource_backpacks.config.BackpackConfig;
+import net.xstopho.resource_backpacks.config.common.BackpackConfig;
 import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
 import org.jetbrains.annotations.NotNull;
 

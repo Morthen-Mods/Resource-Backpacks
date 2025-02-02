@@ -14,7 +14,7 @@ import net.minecraft.client.renderer.entity.state.PlayerRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.client.slot.BackpackHolder;
+import net.xstopho.resource_backpacks.client.slot.BackpackHolderDeprecated;
 
 public class PlayerBackpackRenderLayer extends RenderLayer<PlayerRenderState, PlayerModel> {
 
@@ -29,7 +29,7 @@ public class PlayerBackpackRenderLayer extends RenderLayer<PlayerRenderState, Pl
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int light, PlayerRenderState renderState, float v, float v1) {
         Player player = Minecraft.getInstance().player;
-        ItemStack backpack = ((BackpackHolder) player.getInventory()).resource_backpack$getBackpack();
+        ItemStack backpack = ((BackpackHolderDeprecated) player.getInventory()).resource_backpack$getBackpack();
 
         if (!backpack.isEmpty()) {
             poseStack.pushPose();
