@@ -8,6 +8,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
+import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 
 public record OpenBackpackPayload() implements CustomPacketPayload {
     public static final Type<OpenBackpackPayload> TYPE = new Type<>(BackpackConstants.of("open_backpack_payload"));
@@ -15,11 +16,10 @@ public record OpenBackpackPayload() implements CustomPacketPayload {
 
     public static void handle(OpenBackpackPayload payload, ServerPlayer player) {
         player.getServer().execute(() -> {
-            Inventory inventory = player.getInventory();
-            ItemStack stack = inventory.getItem(inventory.getContainerSize() - 1);
+            ItemStack backpack = ((BackpackHolder) player).getBackpack();
 
-            if (stack.getItem() instanceof BackpackItem backpack) {
-                player.openMenu(backpack.getMenuProvider(stack));
+            if (backpack.getItem() instanceof BackpackItem backpackItem) {
+                player.openMenu(backpackItem.getMenuProvider(backpack));
             }
         });
     }
