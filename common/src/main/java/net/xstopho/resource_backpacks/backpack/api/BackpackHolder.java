@@ -25,12 +25,11 @@ public interface BackpackHolder {
         }
     }
 
-    default void dropBackpack(LivingEntity entity) {
+    static void dropBackpack(LivingEntity entity) {
         ItemStack backpack = ((BackpackHolder) entity).getBackpack();
         if (!backpack.isEmpty()) {
             if (!entity.level().isClientSide()) {
                 entity.spawnAtLocation(backpack);
-                this.setBackpack(ItemStack.EMPTY);
             }
         }
     }

@@ -35,7 +35,7 @@ public abstract class ArmorStandMixin extends LivingEntity {
 
     @Inject(method = "brokenByAnything", at = @At("TAIL"))
     public void resource_backpacks$brokenByAnything(ServerLevel level, DamageSource source, CallbackInfo info) {
-        ((BackpackHolder) this).dropBackpack(this);
+        BackpackHolder.dropBackpack(this);
     }
 
     @Inject(method = "interactAt", at = @At("HEAD"), cancellable = true)

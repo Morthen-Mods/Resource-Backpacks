@@ -23,7 +23,7 @@ public abstract class ServerPlayerMixin extends Player {
     public void resource_backpacks$die(DamageSource source, CallbackInfo info) {
         boolean keepInventory = this.level().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY);
         if (!keepInventory && !this.isCreative() && !this.isSpectator()) {
-            ((BackpackHolder) this).dropBackpack(this);
+            BackpackHolder.dropBackpack(this);
         }
     }
 }
