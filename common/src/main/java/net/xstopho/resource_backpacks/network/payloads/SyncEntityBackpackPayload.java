@@ -21,6 +21,8 @@ public record SyncEntityBackpackPayload(int entityId, ItemStack backpack) implem
 
     public static void handle(SyncEntityBackpackPayload payload) {
         Level level = Minecraft.getInstance().level;
+
+        if (level == null) return;
         Entity entity = level.getEntity(payload.entityId());
 
         if (entity instanceof LivingEntity livingEntity) {
