@@ -19,8 +19,8 @@ public class BackpackSlot extends Slot {
     private static final ResourceLocation BACKPACK_SPRITE = BackpackConstants.of("item/empty_slot_backpack");
     private final LivingEntity entity;
 
-    public BackpackSlot(Container container, LivingEntity entity, int x, int y) {
-        super(container, 0, x, y);
+    public BackpackSlot(Container container, LivingEntity entity) {
+        super(container, 0, 26, 62);
         this.entity = entity;
     }
 

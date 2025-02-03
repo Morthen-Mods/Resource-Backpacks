@@ -9,10 +9,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.world.level.GameRules;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.modifier.EntityModifier;
-import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
-import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
-import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
-import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
+import net.xstopho.resource_backpacks.network.payloads.*;
 
 public class ResourceBackpacks implements ModInitializer {
     @Override
@@ -40,6 +37,9 @@ public class ResourceBackpacks implements ModInitializer {
 
         PayloadTypeRegistry.playC2S().register(EnderChestRequestPayload.TYPE, EnderChestRequestPayload.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(EnderChestRequestPayload.TYPE, (payload, context) -> EnderChestRequestPayload.handle(payload, context.player()));
+
+        PayloadTypeRegistry.playC2S().register(SyncCreativeSlotPayload.TYPE, SyncCreativeSlotPayload.CODEC);
+        ServerPlayNetworking.registerGlobalReceiver(SyncCreativeSlotPayload.TYPE, (payload, context) -> SyncCreativeSlotPayload.handle(payload, context.player()));
 
         PayloadTypeRegistry.playS2C().register(EnderChestResponsePayload.TYPE, EnderChestResponsePayload.CODEC);
         PayloadTypeRegistry.playS2C().register(SyncEntityBackpackPayload.TYPE, SyncEntityBackpackPayload.CODEC);

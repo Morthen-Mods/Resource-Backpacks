@@ -6,10 +6,7 @@ import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.SimpleChannel;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.ResourceBackpacks;
-import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
-import net.xstopho.resource_backpacks.network.payloads.EnderChestResponsePayload;
-import net.xstopho.resource_backpacks.network.payloads.OpenBackpackPayload;
-import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
+import net.xstopho.resource_backpacks.network.payloads.*;
 
 public class BackpackNetworkRegistry {
 
@@ -47,6 +44,13 @@ public class BackpackNetworkRegistry {
                 .encoder((payload, byteBuf) -> SyncEntityBackpackPayload.CODEC.encode(byteBuf, payload))
                 .consumerNetworkThread((payload, context) -> {
                     context.enqueueWork(() -> SyncEntityBackpackPayload.handle(payload));
+                }).add();
+
+        channel.messageBuilder(SyncCreativeSlotPayload.class, 4, NetworkDirection.PLAY_TO_SERVER)
+                .decoder(SyncCreativeSlotPayload.CODEC::decode)
+                .encoder((payload, byteBuf) -> SyncCreativeSlotPayload.CODEC.encode(byteBuf, payload))
+                .consumerNetworkThread((payload, context) -> {
+                    context.enqueueWork(() -> SyncCreativeSlotPayload.handle(payload, context.getSender()));
                 }).add();
 
         return channel;

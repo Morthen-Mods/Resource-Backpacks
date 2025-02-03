@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.CreativeModeTab;
 import net.xstopho.resource_backpacks.client.slot.BackpackSlot;
+import net.xstopho.resource_backpacks.client.slot.BackpackSlotExtension;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -33,9 +34,9 @@ public abstract class CreativeInventoryMenuMixin extends EffectRenderingInventor
 
     @Inject(at = @At(value = "INVOKE", target = "net/minecraft/world/inventory/Slot.<init>(Lnet/minecraft/world/Container;III)V"), method = "selectTab")
     private void resource_backpacks$addCreativeBackpackSlot(CreativeModeTab tab, CallbackInfo info) {
-        for (Slot slot : this.minecraft.player.inventoryMenu.slots) {
-            if (slot instanceof BackpackSlot) {
-                this.menu.slots.set(slot.index, new SlotWrapper(slot, slot.index, 127, 20));
+        for (Slot slot : this.menu.slots) {
+            if (((BackpackSlotExtension) slot).getTarget() instanceof BackpackSlot) {
+                ((BackpackSlotExtension) slot).setPosition(127, 20);
             }
         }
     }

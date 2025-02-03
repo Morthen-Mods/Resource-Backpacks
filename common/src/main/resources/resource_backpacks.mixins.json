@@ -20,6 +20,9 @@
     "client": [
         "accessors.KeyMappingAccessor",
 
+        "client.SlotMixin",
+        "client.SlotWrapperMixin",
+
         "client.KeyMappingMixin",
         "client.LivingEntityRendererMixin"
     ],
