@@ -3,7 +3,7 @@ package net.xstopho.resource_backpacks.client.slot;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -11,24 +11,29 @@ import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
+import net.xstopho.resource_backpacks.network.payloads.SyncCreativeSlotPayload;
 import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
 import org.jetbrains.annotations.Nullable;
 
 public class BackpackSlot extends Slot {
 
     private static final ResourceLocation BACKPACK_SPRITE = BackpackConstants.of("item/empty_slot_backpack");
-    private final LivingEntity entity;
+    private final Player player;
 
-    public BackpackSlot(Container container, LivingEntity entity) {
+    public BackpackSlot(Container container, Player player) {
         super(container, 0, 26, 62);
-        this.entity = entity;
+        this.player = player;
     }
 
     @Override
     public void setChanged() {
-        ((BackpackHolder) entity).setBackpack(getItem());
-        if (!entity.level().isClientSide()) {
-            BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(entity, new SyncEntityBackpackPayload(entity.getId(), getItem()));
+        ((BackpackHolder) player).setBackpack(getItem());
+        if (!player.level().isClientSide()) {
+            BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(player, new SyncEntityBackpackPayload(player.getId(), getItem()));
+        } else {
+            if (player.isCreative()) {
+                BackpackNetwork.INSTANCE.sendToServer(new SyncCreativeSlotPayload(this.index, getItem()));
+            }
         }
     }
 
