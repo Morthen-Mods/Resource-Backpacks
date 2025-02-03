@@ -21,6 +21,6 @@ public abstract class InventoryMenuMixin extends AbstractCraftingMenu {
 
     @Inject(at = @At("TAIL"), method = "<init>")
     public void init(Inventory playerInventory, boolean active, final Player player, CallbackInfo info) {
-        this.addSlot(new BackpackSlot(new SimpleContainer(1), player, 26, 62));
+        this.addSlot(new BackpackSlot(new SimpleContainer(1), player));
     }
 }
