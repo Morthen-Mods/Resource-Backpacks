@@ -12,6 +12,8 @@ Resource Backpacks is built for all mainly used Mod-Loaders and aims to bring th
 - change the size for every backpack through the in-game config screen(on Fabric ModMenu is required)
 - Place Backpacks like Shulkerboxes to interact with them
 - Additional Inventory slot to equip the Backpack
+- Place your Backpack on Armor Stands
+- Zombies and Creeper have a chance to spawn with a Backpack
 - All Keybinds are Configurable
 - When Backpack is equipped you can open it with `B`
 - Hold `Left-Shift` or `Left-Alt` for a preview of your Backpack Content
@@ -29,6 +31,7 @@ Feel free to use this Mod in your Modpack, there are no further requirements for
 </details>
 <details>
 <summary>Backpack Model</summary>
+<img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/armor_stand_render.gif" width="170">
 <img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/backpack_preview.gif" width="150">
 <img src="https://raw.githubusercontent.com/Stein-N/resources/main/images/resource_backpacks/player_preview.gif" width="170">
 </details>
