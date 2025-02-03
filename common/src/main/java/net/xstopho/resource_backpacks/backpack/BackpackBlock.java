@@ -1,7 +1,6 @@
 package net.xstopho.resource_backpacks.backpack;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -24,7 +23,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.util.BackpackBlockShapes;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import org.jetbrains.annotations.NotNull;
