@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:chest",
+    "U": "#c:backpack/leather_ingredient"
+  },
+  "pattern": [
+    "UUU",
+    "UBU",
+    "UUU"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_backpacks:backpack_leather"
+  }
+}
