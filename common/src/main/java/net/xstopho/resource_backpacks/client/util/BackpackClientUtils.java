@@ -3,6 +3,12 @@ package net.xstopho.resource_backpacks.client.util;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.PeriodicNotificationManager;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+
+import java.util.logging.Level;
 
 public class BackpackClientUtils {
 
@@ -24,5 +30,17 @@ public class BackpackClientUtils {
 
         int keyCode = ((BackpackClientUtils.KeyMappingAccess) keyMapping).getKey().getValue();
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
+    }
+
+    public static Entity getEntityById(int entityId) {
+        ClientLevel level = Minecraft.getInstance().level;
+        if (level == null) return null;
+
+        Entity entity = level.getEntity(entityId);
+
+        if (entity instanceof LivingEntity) {
+            return entity;
+        }
+        return null;
     }
 }

@@ -1,3 +1,6 @@
+#### v0.13.1-BETA
+- fix server crashes, due to misplaced Mixin
+
 #### v0.13.0-BETA
 - Backpack from Backpack Slot gets dropped the first time you enter a World or server
   - needed because of internal changes for the Backpack Slot

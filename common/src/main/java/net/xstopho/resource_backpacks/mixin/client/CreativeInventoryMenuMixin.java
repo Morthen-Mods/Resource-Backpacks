@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.mixin.common;
+package net.xstopho.resource_backpacks.mixin.client;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;

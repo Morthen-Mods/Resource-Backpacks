@@ -1,12 +1,2 @@
-#### v0.13.0-BETA
-- Backpack from Backpack Slot gets dropped the first time you enter a World or server
-  - needed because of internal changes for the Backpack Slot
-- adding missing keybind settings to neoforge
-- adding Backpack Slot for Creative Menu
-- fixing Render issues with Backpacks
-  - Entity Data wasn't synced correctly
-- ArmorStands accepts Backpacks again as an additional slot
-- apply Gamemode and keepInventory correctly on Player respawn
-- Zombies and Creeper can spawn with a leather or copper Backpack
-  - chances can be changed in config screen
-  - Backpacks only drop when killed by a Player
+#### v0.13.1-BETA
+- fix server crashes, due to misplaced Mixin
