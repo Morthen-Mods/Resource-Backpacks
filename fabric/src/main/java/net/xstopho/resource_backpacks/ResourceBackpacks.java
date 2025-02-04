@@ -24,9 +24,6 @@ public class ResourceBackpacks implements ModInitializer {
         });
 
         ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> EntityModifier.modifyEntities(entity));
-
-        //TODO: remove with next update
-        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> BackpackForRemoval.sendPlayerMessage(handler.getPlayer()));
     }
 
     private void registerServerPayloads() {

@@ -14,7 +14,6 @@
         "common.ServerPlayerMixin",
         "common.ServerEntityMixin",
 
-        "common.InventoryMixin",
         "common.InventoryMenuMixin"
     ],
     "client": [

@@ -7,7 +7,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.BackpackForRemoval;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.modifier.EntityModifier;
 
@@ -17,11 +16,6 @@ public class ForgeHandler {
     @SubscribeEvent
     public static void registerEntityLoad(EntityJoinLevelEvent event) {
         EntityModifier.modifyEntities(event.getEntity());
-    }
-
-    @SubscribeEvent
-    public static void registerPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
-        BackpackForRemoval.sendPlayerMessage(event.getEntity());
     }
 
     @SubscribeEvent
