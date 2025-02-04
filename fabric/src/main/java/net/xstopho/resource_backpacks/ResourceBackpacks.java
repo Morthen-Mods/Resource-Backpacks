@@ -4,7 +4,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.world.level.GameRules;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
@@ -24,11 +23,6 @@ public class ResourceBackpacks implements ModInitializer {
         });
 
         ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> EntityModifier.modifyEntities(entity));
-
-        //TODO: remove with next update
-        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
-            BackpackForRemoval.sendPlayerMessage(handler.getPlayer());
-        });
     }
 
     private void registerServerPayloads() {
