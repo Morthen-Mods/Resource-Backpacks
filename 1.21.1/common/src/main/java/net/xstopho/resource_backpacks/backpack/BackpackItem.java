@@ -13,8 +13,8 @@ import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.xstopho.resource_backpacks.backpack.tooltip.CompactTooltipComponent;
-import net.xstopho.resource_backpacks.backpack.tooltip.InventoryTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipComponent;
+import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.util.BackpackInventory;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
@@ -86,10 +86,10 @@ public class BackpackItem extends BlockItem {
         Optional<TooltipComponent> tooltipComponent = Optional.empty();
 
         if (enableCompactPreview()) {
-            tooltipComponent = Optional.of(new CompactTooltipComponent(content, backpackLevel));
+            tooltipComponent = Optional.of(new CompactClientTooltipComponent.CompactTooltipComponent(content, backpackLevel));
 
         } else if (enableInventoryPreview()) {
-            tooltipComponent = Optional.of(new InventoryTooltipComponent(content, backpackLevel));
+            tooltipComponent = Optional.of(new InventoryClientTooltipComponent.InventoryTooltipComponent(content, backpackLevel));
         }
 
         return tooltipComponent;

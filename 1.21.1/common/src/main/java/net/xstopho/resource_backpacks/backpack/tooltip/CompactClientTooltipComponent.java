@@ -4,7 +4,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 
 import java.util.ArrayList;
@@ -12,6 +14,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class CompactClientTooltipComponent extends BaseClientTooltipComponent {
+    public record CompactTooltipComponent(ItemContainerContents content, BackpackLevel level) implements TooltipComponent {}
 
     private List<StackHolder> items;
 
