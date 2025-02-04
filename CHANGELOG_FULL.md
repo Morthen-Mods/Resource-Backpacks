@@ -1,3 +1,6 @@
+#### v0.13.2-BETA
+- fix client crash
+
 #### v0.13.1-BETA
 - fix server crashes, due to misplaced Mixin
 

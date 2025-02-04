@@ -22,7 +22,7 @@
         "client.SlotMixin",
         "client.SlotWrapperMixin",
 
-        "client.CreativeInventoryScreenMixin",
+        "client.CreativeInventoryMenuMixin",
 
         "client.KeyMappingMixin",
         "client.LivingEntityRendererMixin",
