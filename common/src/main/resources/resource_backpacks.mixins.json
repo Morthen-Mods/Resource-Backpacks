@@ -15,14 +15,15 @@
         "common.ServerEntityMixin",
 
         "common.InventoryMixin",
-        "common.InventoryMenuMixin",
-        "common.CreativeInventoryMenuMixin"
+        "common.InventoryMenuMixin"
     ],
     "client": [
         "accessor.KeyMappingAccessor",
 
         "client.SlotMixin",
         "client.SlotWrapperMixin",
+
+        "client.CreativeInventoryScreenMixin",
 
         "client.KeyMappingMixin",
         "client.LivingEntityRendererMixin",
