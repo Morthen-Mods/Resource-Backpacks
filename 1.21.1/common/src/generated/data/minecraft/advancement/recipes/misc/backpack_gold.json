@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_backpack_copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_backpacks:backpack_copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:backpack_gold"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_backpack_copper"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:backpack_gold"
+    ]
+  }
+}

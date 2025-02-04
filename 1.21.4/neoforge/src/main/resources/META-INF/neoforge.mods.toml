@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "${neoforge_loader_version_range}"
+loaderVersion = "[2,]"
 license = "${mod_license}"
 
 [[mods]]
@@ -8,10 +8,13 @@ license = "${mod_license}"
     displayName = "${mod_name}"
     authors = "${mod_author}"
     description = '''${mod_description}'''
-    logoFile = "icon_forge.png"
+    logoFile = "icon.png"
 
 [[mixins]]
     config = "${mod_id}.mixins.json"
+
+[[accessTransformers]]
+    file="META-INF/accesstransformer.cfg"
 
 [[dependencies.${mod_id}]]
     modId = "neoforge"
@@ -22,7 +25,21 @@ license = "${mod_license}"
 
 [[dependencies.${mod_id}]]
     modId = "minecraft"
-    required = true
+    type = "required"
     versionRange = "${minecraft_version_range}"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.${mod_id}]]
+    modId = "resourceconfigapi"
+    type = "required"
+    versionRange = "[${resource_config_api},)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.${mod_id}]]
+    modId = "resourcelibrary"
+    type = "required"
+    versionRange = "[${resource_library},)"
     ordering = "NONE"
     side = "BOTH"

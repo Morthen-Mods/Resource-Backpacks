@@ -1,0 +1,16 @@
+// 1.21.1	2025-02-04T20:25:59.5205347	Tags for minecraft:item mod id resource_backpacks
+dc8b7390472c3e400aa99b5c80167b09df48a1a2 data/c/tags/item/backpacks.json
+531d9c618413bb09b7584580c4d8aa333b30ab80 data/c/tags/item/backpack/copper.json
+08e5c1fbf37fdf0b66aa3c91654e4ab433060095 data/c/tags/item/backpack/diamond.json
+85872548cc4b89909d7d09e4a1df3c1ec8e299d0 data/c/tags/item/backpack/end.json
+769e7ac637809fad617a6b9e8003bd1dad99424f data/c/tags/item/backpack/gold.json
+d249d01c299b916df433796b2a455f13587a82d2 data/c/tags/item/backpack/iron.json
+c09fecaed6fdd7372a752f64b6f3ae30cc882442 data/c/tags/item/backpack/leather.json
+a7842cdea55d1133d0e94eac6e9d6c8a949d9da4 data/c/tags/item/backpack/leather_ingredient.json
+07434e9931f6735b58e2306978dc63b0fda1155f data/c/tags/item/backpack/netherite.json
+6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/c/tags/item/copper_ingots.json
+fdab8ddd5529ae14b26bc1853b004131135318a4 data/c/tags/item/diamonds.json
+f2aa87f54e7951ea0cf81ac252c2abe279b0c936 data/c/tags/item/gold_ingots.json
+736f4ef35696340b932cdb679c5a32e7b28db783 data/c/tags/item/iron_ingots.json
+c2e9d23bf02859e81cb917b7e689b2d2269aa2e2 data/c/tags/item/leather.json
+f7a8c659163fbac23438e07049cc42e0aa39eb9a data/c/tags/item/netherite_ingots.json

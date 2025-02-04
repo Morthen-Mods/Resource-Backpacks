@@ -63,6 +63,10 @@ processResources {
             // Forge Keys
             "forge_version": forge_version,
             "forge_version_range": forge_version_range,
+
+            // Dependencies
+            "resource_config_api": resource_config_api,
+            "resource_library": resource_library
     ]
 
     filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/neoforge.mods.toml', 'META-INF/mods.toml', '*.mixins.json']) {

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "resource_backpacks:backpack_iron"
+    },
+    "C": {
+      "item": "minecraft:ender_chest"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "pattern": [
+    "DCD",
+    "EBE",
+    "DCD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_backpacks:backpack_end"
+  }
+}

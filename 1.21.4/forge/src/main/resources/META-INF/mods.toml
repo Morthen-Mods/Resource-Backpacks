@@ -6,10 +6,9 @@ license = "${mod_license}"
     modId = "${mod_id}"
     version = "${version}"
     displayName = "${mod_name}"
-    logoFile = "icon_forge.png"
-    credits = "${mod_credits}"
     authors = "${mod_author}"
     description = '''${mod_description}'''
+    logoFile = "icon.png"
 
 [[dependencies.${mod_id}]]
     modId = "forge"
@@ -22,5 +21,19 @@ license = "${mod_license}"
     modId = "minecraft"
     mandatory = true
     versionRange = "${minecraft_version_range}"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.${mod_id}]]
+    modId = "resourceconfigapi"
+    mandatory = true
+    versionRange = "[${resource_config_api}, )"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.${mod_id}]]
+    modId = "resourcelibrary"
+    mandatory = true
+    versionRange = "[${resource_library}, )"
     ordering = "NONE"
     side = "BOTH"

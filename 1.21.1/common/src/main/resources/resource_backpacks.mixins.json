@@ -1,0 +1,34 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.xstopho.resource_backpacks.mixin",
+    "refmap": "${mod_id}.refmap.json",
+    "compatibilityLevel": "JAVA_21",
+    "mixins": [
+        "common.ShapedRecipeMixin",
+
+        "common.LivingEntityMixin",
+        "common.ArmorStandMixin",
+        "common.PlayerMixin",
+        "common.ServerPlayerMixin",
+        "common.ServerEntityMixin",
+
+        "common.InventoryMenuMixin"
+    ],
+    "client": [
+        "accessors.KeyMappingAccessor",
+
+        "client.SlotMixin",
+        "client.SlotWrapperMixin",
+
+        "client.CreativeInventoryMenuMixin",
+
+        "client.KeyMappingMixin",
+        "client.LivingEntityRendererMixin"
+    ],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
+
