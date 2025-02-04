@@ -1,21 +1,23 @@
 plugins {
     id 'ml-common'
-    id 'ml-loader-publish'
+    id 'ml-publish'
+    id 'java-library'
 }
 
+def directory = project.projectDir.parent.split("\\\\").last()
+
 dependencies {
-    compileOnly(project(':common'))
+    compileOnly(project(":${directory}:common"))
 }
 
 tasks.named('compileJava', JavaCompile) {
-    source(project(':common').sourceSets.main.allSource)
+    source(project(":${directory}:common").sourceSets.main.allSource)
 }
 
 tasks.named('javadoc', Javadoc) {
-    source(project(':common').sourceSets.main.allJava)
+    source(project(":${directory}:common").sourceSets.main.allJava)
 }
 
 processResources {
-    from project(':common').sourceSets.main.resources
-    from file('../common/src/generated')
+    from project(":${directory}:common").sourceSets.main.resources
 }

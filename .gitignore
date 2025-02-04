@@ -20,12 +20,6 @@ build
 
 # other
 eclipse
-*/runs/server/*
-*/runs/client/*
-*/runs/data/*
-# Files that should be included to "save time"
-!*/runs/client/options.txt
-!*/runs/server/eula.txt
-
-# generated resources
-*/src/generated
+/1.21.1/common/runs/
+/1.21.3/common/runs/
+/1.21.4/common/runs/
