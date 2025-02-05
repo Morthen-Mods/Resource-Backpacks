@@ -7,8 +7,10 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.xstopho.resource_backpacks.BackpackConstants;
+import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 import net.xstopho.resource_backpacks.network.BackpackCodecs;
 import org.jetbrains.annotations.Nullable;
 
@@ -24,7 +26,7 @@ public record EnderChestResponsePayload(@Nullable ListTag inventory) implements 
     public static void handle(EnderChestResponsePayload payload) {
         if (payload.inventory() == null) return;
 
-        LocalPlayer player = Minecraft.getInstance().player;
+        Player player = BackpackClientUtils.getPlayer();
 
         if (player != null) {
             player.getEnderChestInventory().fromTag(payload.inventory(), player.registryAccess());

@@ -3,12 +3,11 @@ package net.xstopho.resource_backpacks.client.util;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.PeriodicNotificationManager;
+import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-
-import java.util.logging.Level;
+import net.minecraft.world.entity.player.Player;
 
 public class BackpackClientUtils {
 
@@ -22,8 +21,8 @@ public class BackpackClientUtils {
 
     /**
      * Check if the given KeyMapping is pressed.
-     * @param keyMapping
-     * @return
+     * @param keyMapping Configurable {@link KeyMapping}
+     * @return {@link Boolean}
      */
     public static boolean hasKeyDown(KeyMapping keyMapping) {
         if (keyMapping.isUnbound()) return false;
@@ -32,6 +31,19 @@ public class BackpackClientUtils {
         return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
     }
 
+    /**
+     * Get the LocalPlayer
+     * @return player
+     */
+    public static Player getPlayer() {
+        return Minecraft.getInstance().player;
+    }
+
+    /**
+     * get the Entity by its ID, used to hide Client code in {@link SyncEntityBackpackPayload}
+     * @param entityId {@link Integer}
+     * @return {@link Entity}
+     */
     public static Entity getEntityById(int entityId) {
         ClientLevel level = Minecraft.getInstance().level;
         if (level == null) return null;
