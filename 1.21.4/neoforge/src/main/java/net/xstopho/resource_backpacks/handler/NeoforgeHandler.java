@@ -21,7 +21,8 @@ public class NeoforgeHandler {
     @SubscribeEvent
     public static void registerPlayerClone(PlayerEvent.Clone event) {
         Player newPlayer = event.getEntity();
-        if (newPlayer.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY) || newPlayer.isCreative() || newPlayer.isSpectator()) {
+        boolean keepInventory = newPlayer.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY);
+        if (keepInventory || newPlayer.isCreative() || newPlayer.isSpectator()) {
             BackpackHolder.restorePlayerBackpack(event.getOriginal(), newPlayer);
         }
     }

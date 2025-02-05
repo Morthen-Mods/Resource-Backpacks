@@ -18,7 +18,8 @@ public class ResourceBackpacks implements ModInitializer {
         registerServerPayloads();
 
         ServerPlayerEvents.COPY_FROM.register((oldPlayer, newPlayer, alive) -> {
-            if (newPlayer.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY) || newPlayer.isCreative() || newPlayer.isSpectator()) {
+            boolean keepInventory = newPlayer.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY);
+            if (keepInventory || newPlayer.isCreative() || newPlayer.isSpectator()) {
                 BackpackHolder.restorePlayerBackpack(oldPlayer, newPlayer);
             }
         });
