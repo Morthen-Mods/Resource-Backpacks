@@ -42,6 +42,7 @@ processResources {
             // Project related Keys
             "version": version,
             "group": project.group,
+            "java_version": java_version,
 
             // Mod related Keys
             "minecraft_version": minecraft_version,
