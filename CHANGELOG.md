@@ -1,2 +1,3 @@
 #### v0.13.5-BETA
-- some internal changes
+- internal changes and cleanup
+- network fixes for 1.21.3

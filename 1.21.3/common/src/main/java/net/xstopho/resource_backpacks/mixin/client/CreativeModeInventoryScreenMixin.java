@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CreativeModeInventoryScreen.class)
-public abstract class CreativeInventoryMenuMixin extends AbstractContainerScreen<ItemPickerMenu> {
+public abstract class CreativeModeInventoryScreenMixin extends AbstractContainerScreen<ItemPickerMenu> {
 
     @Unique
     private final ResourceLocation SLOT = ResourceLocation.withDefaultNamespace("textures/gui/sprites/container/slot.png");
@@ -28,7 +28,7 @@ public abstract class CreativeInventoryMenuMixin extends AbstractContainerScreen
     @Shadow
     private static CreativeModeTab selectedTab;
 
-    public CreativeInventoryMenuMixin(ItemPickerMenu menu, Inventory playerInventory, Component title) {
+    public CreativeModeInventoryScreenMixin(ItemPickerMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
     }
 

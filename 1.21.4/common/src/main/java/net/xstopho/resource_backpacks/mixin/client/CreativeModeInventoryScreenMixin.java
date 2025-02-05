@@ -1,9 +1,10 @@
 package net.xstopho.resource_backpacks.mixin.client;
 
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen.ItemPickerMenu;
-import net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -19,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CreativeModeInventoryScreen.class)
-public abstract class CreativeInventoryMenuMixin extends EffectRenderingInventoryScreen<ItemPickerMenu> {
+public abstract class CreativeModeInventoryScreenMixin extends AbstractContainerScreen<ItemPickerMenu> {
 
     @Unique
     private final ResourceLocation SLOT = ResourceLocation.withDefaultNamespace("textures/gui/sprites/container/slot.png");
@@ -27,7 +28,7 @@ public abstract class CreativeInventoryMenuMixin extends EffectRenderingInventor
     @Shadow
     private static CreativeModeTab selectedTab;
 
-    public CreativeInventoryMenuMixin(ItemPickerMenu menu, Inventory playerInventory, Component title) {
+    public CreativeModeInventoryScreenMixin(ItemPickerMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
     }
 
@@ -43,7 +44,7 @@ public abstract class CreativeInventoryMenuMixin extends EffectRenderingInventor
     @Inject(method = "renderBg", at = @At("TAIL"))
     private void resource_backpacks$renderSlot(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY, CallbackInfo info) {
         if (this.selectedTab.getType() == CreativeModeTab.Type.INVENTORY) {
-            guiGraphics.blit(SLOT, this.leftPos + 126, this.topPos + 19, 0, 0, 18, 18, 18, 18);
+            guiGraphics.blit(RenderType::guiTextured, SLOT, this.leftPos + 126, this.topPos + 19, 0, 0, 18, 18, 18, 18);
         }
     }
 }
