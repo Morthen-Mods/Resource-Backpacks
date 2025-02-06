@@ -10,14 +10,14 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Inventar anzeigen",
 
   "tag.item.c.backpacks": "Rucksäcke",
-  "tag.item.c.backpack.leather_ingredient": "Leder Alternativen",
-  "tag.item.c.backpack.leather": "Leder Rucksack",
-  "tag.item.c.backpack.copper": "Kupfer Rucksack",
-  "tag.item.c.backpack.gold": "Gold Rucksack",
-  "tag.item.c.backpack.iron": "Eisen Rucksack",
-  "tag.item.c.backpack.diamond": "Diamant Rucksack",
-  "tag.item.c.backpack.netherite": "Netherit Rucksack",
-  "tag.item.c.backpack.end": "End Rucksack",
+  "tag.item.c.backpacks.leather_ingredient": "Leder Alternativen",
+  "tag.item.c.backpacks.leather": "Leder Rucksack",
+  "tag.item.c.backpacks.copper": "Kupfer Rucksack",
+  "tag.item.c.backpacks.gold": "Gold Rucksack",
+  "tag.item.c.backpacks.iron": "Eisen Rucksack",
+  "tag.item.c.backpacks.diamond": "Diamant Rucksack",
+  "tag.item.c.backpacks.netherite": "Netherit Rucksack",
+  "tag.item.c.backpacks.end": "End Rucksack",
 
   "component.resource_backpacks.screen.fallback": "Rucksack",
 

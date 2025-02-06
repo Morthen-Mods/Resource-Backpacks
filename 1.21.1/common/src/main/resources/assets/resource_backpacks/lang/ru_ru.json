@@ -10,14 +10,14 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Показать полный инвентарь",
 
   "tag.item.c.backpacks": "Рюкзаки",
-  "tag.item.c.backpack.leather_ingredient": "Кожаные ингредиенты",
-  "tag.item.c.backpack.leather": "Кожаный рюкзак",
-  "tag.item.c.backpack.copper": "Медный рюкзак",
-  "tag.item.c.backpack.gold": "Золотой рюкзак",
-  "tag.item.c.backpack.iron": "Железный рюкзак",
-  "tag.item.c.backpack.diamond": "Алмазный рюкзак",
-  "tag.item.c.backpack.netherite": "Незеритовый рюкзак",
-  "tag.item.c.backpack.end": "Эндер рюкзак",
+  "tag.item.c.backpacks.leather_ingredient": "Кожаные ингредиенты",
+  "tag.item.c.backpacks.leather": "Кожаный рюкзак",
+  "tag.item.c.backpacks.copper": "Медный рюкзак",
+  "tag.item.c.backpacks.gold": "Золотой рюкзак",
+  "tag.item.c.backpacks.iron": "Железный рюкзак",
+  "tag.item.c.backpacks.diamond": "Алмазный рюкзак",
+  "tag.item.c.backpacks.netherite": "Незеритовый рюкзак",
+  "tag.item.c.backpacks.end": "Эндер рюкзак",
 
   "component.resource_backpacks.screen.fallback": "Рюкзаки",
 

@@ -10,14 +10,14 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Tam Envanteri Göster",
 
   "tag.item.c.backpacks": "Sırt Çantaları",
-  "tag.item.c.backpack.leather_ingredient": "Deri Malzemeleri",
-  "tag.item.c.backpack.leather": "Deri Sırt Çantası",
-  "tag.item.c.backpack.copper": "Bakır Sırt Çantası",
-  "tag.item.c.backpack.gold": "Altın Sırt Çantası",
-  "tag.item.c.backpack.iron": "Demir Sırt Çantası",
-  "tag.item.c.backpack.diamond": "Elmas Sırt Çantası",
-  "tag.item.c.backpack.netherite": "Netherit Sırt Çantası",
-  "tag.item.c.backpack.end": "Son Sırt Çantası",
+  "tag.item.c.backpacks.leather_ingredient": "Deri Malzemeleri",
+  "tag.item.c.backpacks.leather": "Deri Sırt Çantası",
+  "tag.item.c.backpacks.copper": "Bakır Sırt Çantası",
+  "tag.item.c.backpacks.gold": "Altın Sırt Çantası",
+  "tag.item.c.backpacks.iron": "Demir Sırt Çantası",
+  "tag.item.c.backpacks.diamond": "Elmas Sırt Çantası",
+  "tag.item.c.backpacks.netherite": "Netherit Sırt Çantası",
+  "tag.item.c.backpacks.end": "Son Sırt Çantası",
 
   "component.resource_backpacks.screen.fallback": "Sırt Çantaları",
 

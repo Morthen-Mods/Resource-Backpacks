@@ -10,14 +10,14 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Mostrar Inventário Completo",
 
   "tag.item.c.backpacks": "Mochilas",
-  "tag.item.c.backpack.leather_ingredient": "Ingredientes de Couro",
-  "tag.item.c.backpack.leather": "Mochila de Couro",
-  "tag.item.c.backpack.copper": "Mochila de Cobre",
-  "tag.item.c.backpack.gold": "Mochila de Ouro",
-  "tag.item.c.backpack.iron": "Mochila de Ferro",
-  "tag.item.c.backpack.diamond": "Mochila de Diamante",
-  "tag.item.c.backpack.netherite": "Mochila de Netherita",
-  "tag.item.c.backpack.end": "Mochila do Fim",
+  "tag.item.c.backpacks.leather_ingredient": "Ingredientes de Couro",
+  "tag.item.c.backpacks.leather": "Mochila de Couro",
+  "tag.item.c.backpacks.copper": "Mochila de Cobre",
+  "tag.item.c.backpacks.gold": "Mochila de Ouro",
+  "tag.item.c.backpacks.iron": "Mochila de Ferro",
+  "tag.item.c.backpacks.diamond": "Mochila de Diamante",
+  "tag.item.c.backpacks.netherite": "Mochila de Netherita",
+  "tag.item.c.backpacks.end": "Mochila do Fim",
 
   "component.resource_backpacks.screen.fallback": "Mochilas",
 

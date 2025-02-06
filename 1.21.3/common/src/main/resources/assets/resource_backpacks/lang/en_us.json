@@ -10,14 +10,13 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Show full Inventory",
 
   "tag.item.c.backpacks": "Backpacks",
-  "tag.item.c.backpack.leather_ingredient": "Leather Ingredients",
-  "tag.item.c.backpack.leather": "Leather Backpack",
-  "tag.item.c.backpack.copper": "Copper Backpack",
-  "tag.item.c.backpack.gold": "Gold Backpack",
-  "tag.item.c.backpack.iron": "Iron Backpack",
-  "tag.item.c.backpack.diamond": "Diamond Backpack",
-  "tag.item.c.backpack.netherite": "Netherite Backpack",
-  "tag.item.c.backpack.end": "End Backpack",
+  "tag.item.c.backpacks.leather": "Leather Backpack",
+  "tag.item.c.backpacks.copper": "Copper Backpack",
+  "tag.item.c.backpacks.gold": "Gold Backpack",
+  "tag.item.c.backpacks.iron": "Iron Backpack",
+  "tag.item.c.backpacks.diamond": "Diamond Backpack",
+  "tag.item.c.backpacks.netherite": "Netherite Backpack",
+  "tag.item.c.backpacks.end": "End Backpack",
 
   "component.resource_backpacks.screen.fallback": "Backpacks",
 
