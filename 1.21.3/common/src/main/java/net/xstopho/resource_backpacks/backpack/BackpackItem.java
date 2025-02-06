@@ -65,13 +65,13 @@ public class BackpackItem extends BlockItem {
         BackpackInventory backpackInventory = new BackpackInventory(stack, backpackLevel);
 
         return switch(backpackLevel) {
-            case LEATHER -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.leatherMenu(i, inventory, backpackInventory, false), Component.translatable("block.resource_backpacks.backpack_leather"));
-            case COPPER -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.copperMenu(i, inventory, backpackInventory, false), Component.translatable("block.resource_backpacks.backpack_copper"));
-            case GOLD -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.goldMenu(i, inventory, backpackInventory, false), Component.translatable("block.resource_backpacks.backpack_gold"));
-            case IRON -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.ironMenu(i, inventory, backpackInventory, false), Component.translatable("block.resource_backpacks.backpack_iron"));
-            case DIAMOND -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.diamondMenu(i, inventory, backpackInventory, false), Component.translatable("block.resource_backpacks.backpack_diamond"));
-            case NETHERITE -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.netheriteMenu(i, inventory, backpackInventory, false), Component.translatable("block.resource_backpacks.backpack_netherite"));
-            case END -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.endMenu(i, inventory, player.getEnderChestInventory(), false), Component.translatable("block.resource_backpacks.backpack_end"));
+            case LEATHER -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.leatherMenu(i, inventory, backpackInventory, false), this.getName());
+            case COPPER -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.copperMenu(i, inventory, backpackInventory, false), this.getName());
+            case GOLD -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.goldMenu(i, inventory, backpackInventory, false), this.getName());
+            case IRON -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.ironMenu(i, inventory, backpackInventory, false), this.getName());
+            case DIAMOND -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.diamondMenu(i, inventory, backpackInventory, false), this.getName());
+            case NETHERITE -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.netheriteMenu(i, inventory, backpackInventory, false), this.getName());
+            case END -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.endMenu(i, inventory, player.getEnderChestInventory(), false), this.getName());
         };
     }
 
