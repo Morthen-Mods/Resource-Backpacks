@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": "minecraft:chest",
-    "U": "#c:backpack/leather_ingredient"
+    "U": "#c:leathers"
   },
   "pattern": [
     "UUU",

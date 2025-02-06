@@ -3,8 +3,8 @@
   "category": "misc",
   "key": {
     "B": "resource_backpacks:backpack_diamond",
-    "D": "#c:diamonds",
-    "N": "#c:netherite_ingots"
+    "D": "#c:gems/diamond",
+    "N": "#c:ingots/netherite"
   },
   "pattern": [
     "NDN",

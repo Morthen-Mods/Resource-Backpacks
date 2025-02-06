@@ -3,8 +3,8 @@
   "category": "misc",
   "key": {
     "B": "resource_backpacks:backpack_iron",
-    "C": "minecraft:ender_chest",
-    "D": "minecraft:diamond",
+    "C": "#c:chests/ender",
+    "D": "#c:gems/diamond",
     "E": "minecraft:ender_eye"
   },
   "pattern": [

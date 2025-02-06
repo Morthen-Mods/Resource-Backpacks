@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": "resource_backpacks:backpack_copper",
-    "U": "#c:gold_ingots"
+    "U": "#c:ingots/gold"
   },
   "pattern": [
     "UUU",
