@@ -17,7 +17,14 @@
   "tag.item.c.backpacks.iron": "Eisen Rucksack",
   "tag.item.c.backpacks.diamond": "Diamant Rucksack",
   "tag.item.c.backpacks.netherite": "Netherit Rucksack",
-  "tag.item.c.backpacks.end": "End Rucksack",
+  "tag.item.c.backpacks.end": "Ender Rucksack",
+  "tag.item.c.chests.ender": "EnderTruhe",
+  "tag.item.c.gems.diamond": "Diamanten",
+  "tag.item.c.ingots.copper": "Kupferbarren",
+  "tag.item.c.ingots.gold": "Goldbarren",
+  "tag.item.c.ingots.iron": "Eisenbarren",
+  "tag.item.c.ingots.netherite": "Netheritbarren",
+  "tag.item.c.leathers": "Leder",
 
   "component.resource_backpacks.screen.fallback": "Rucksack",
 

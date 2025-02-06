@@ -18,6 +18,13 @@
   "tag.item.c.backpacks.diamond": "Elmas Sırt Çantası",
   "tag.item.c.backpacks.netherite": "Netherit Sırt Çantası",
   "tag.item.c.backpacks.end": "Son Sırt Çantası",
+  "tag.item.c.chests.ender": "Ender Sandıkları",
+  "tag.item.c.gems.diamond": "Elmaslar",
+  "tag.item.c.ingots.copper": "Bakır Külçeleri",
+  "tag.item.c.ingots.gold": "Altın Külçeleri",
+  "tag.item.c.ingots.iron": "Demir Külçeleri",
+  "tag.item.c.ingots.netherite": "Netherite Külçeleri",
+  "tag.item.c.leathers": "Deri",
 
   "component.resource_backpacks.screen.fallback": "Sırt Çantaları",
 

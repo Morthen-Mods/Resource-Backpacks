@@ -18,6 +18,13 @@
   "tag.item.c.backpacks.diamond": "Алмазный рюкзак",
   "tag.item.c.backpacks.netherite": "Незеритовый рюкзак",
   "tag.item.c.backpacks.end": "Эндер рюкзак",
+  "tag.item.c.chests.ender": "Сундуки Края",
+  "tag.item.c.gems.diamond": "Алмазы",
+  "tag.item.c.ingots.copper": "Медные слитки",
+  "tag.item.c.ingots.gold": "Золотые слитки",
+  "tag.item.c.ingots.iron": "Железные слитки",
+  "tag.item.c.ingots.netherite": "Незеритовые слитки",
+  "tag.item.c.leathers": "Кожа",
 
   "component.resource_backpacks.screen.fallback": "Рюкзаки",
 

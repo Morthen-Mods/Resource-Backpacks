@@ -17,6 +17,13 @@
   "tag.item.c.backpacks.diamond": "Diamond Backpack",
   "tag.item.c.backpacks.netherite": "Netherite Backpack",
   "tag.item.c.backpacks.end": "End Backpack",
+  "tag.item.c.chests.ender": "Ender Chests",
+  "tag.item.c.gems.diamond": "Diamonds",
+  "tag.item.c.ingots.copper": "Copper Ingots",
+  "tag.item.c.ingots.gold": "Gold Ingots",
+  "tag.item.c.ingots.iron": "Iron Ingots",
+  "tag.item.c.ingots.netherite": "Netherite Ingots",
+  "tag.item.c.leathers": "Leathers",
 
   "component.resource_backpacks.screen.fallback": "Backpacks",
 

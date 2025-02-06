@@ -18,6 +18,13 @@
   "tag.item.c.backpacks.diamond": "Mochila de Diamante",
   "tag.item.c.backpacks.netherite": "Mochila de Netherita",
   "tag.item.c.backpacks.end": "Mochila do Fim",
+  "tag.item.c.chests.ender": "Baus do Ender",
+  "tag.item.c.gems.diamond": "Diamantes",
+  "tag.item.c.ingots.copper": "Lingotes de Cobre",
+  "tag.item.c.ingots.gold": "Lingotes de Ouro",
+  "tag.item.c.ingots.iron": "Lingotes de Ferro",
+  "tag.item.c.ingots.netherite": "Lingotes de Netherite",
+  "tag.item.c.leathers": "Couros",
 
   "component.resource_backpacks.screen.fallback": "Mochilas",
 

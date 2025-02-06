@@ -18,6 +18,13 @@
   "tag.item.c.backpacks.diamond": "钻石背包",
   "tag.item.c.backpacks.netherite": "下界合金背包",
   "tag.item.c.backpacks.end": "末地背包",
+  "tag.item.c.chests.ender": "末影箱",
+  "tag.item.c.gems.diamond": "钻石",
+  "tag.item.c.ingots.copper": "铜锭",
+  "tag.item.c.ingots.gold": "金锭",
+  "tag.item.c.ingots.iron": "铁锭",
+  "tag.item.c.ingots.netherite": "下界合金锭",
+  "tag.item.c.leathers": "皮革",
 
   "component.resource_backpacks.screen.fallback": "背包",
 
