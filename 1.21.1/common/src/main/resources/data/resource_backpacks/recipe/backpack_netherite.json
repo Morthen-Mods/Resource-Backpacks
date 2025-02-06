@@ -6,10 +6,10 @@
       "item": "resource_backpacks:backpack_diamond"
     },
     "D": {
-      "tag": "c:diamonds"
+      "tag": "c:gems/diamond"
     },
     "N": {
-      "tag": "c:netherite_ingots"
+      "tag": "c:ingots/netherite"
     }
   },
   "pattern": [

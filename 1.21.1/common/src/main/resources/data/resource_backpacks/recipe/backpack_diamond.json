@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "B": {
-      "item": "minecraft:chest"
+      "item": "resource_backpacks:backpack_iron"
     },
     "U": {
-      "tag": "c:backpack/leather_ingredient"
+      "tag": "c:gems/diamond"
     }
   },
   "pattern": [
@@ -16,6 +16,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "resource_backpacks:backpack_leather"
+    "id": "resource_backpacks:backpack_diamond"
   }
 }

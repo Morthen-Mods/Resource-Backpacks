@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "B": {
-      "item": "resource_backpacks:backpack_gold"
+      "item": "resource_backpacks:backpack_leather"
     },
     "U": {
-      "tag": "c:iron_ingots"
+      "tag": "c:ingots/copper"
     }
   },
   "pattern": [
@@ -16,6 +16,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "resource_backpacks:backpack_iron"
+    "id": "resource_backpacks:backpack_copper"
   }
 }

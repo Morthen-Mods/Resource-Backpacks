@@ -6,10 +6,10 @@
       "item": "resource_backpacks:backpack_iron"
     },
     "C": {
-      "item": "minecraft:ender_chest"
+      "item": "c:chests/ender"
     },
     "D": {
-      "item": "minecraft:diamond"
+      "item": "c:gems/diamond"
     },
     "E": {
       "item": "minecraft:ender_eye"
