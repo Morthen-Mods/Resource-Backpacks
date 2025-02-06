@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": "resource_backpacks:backpack_iron",
-    "U": "#c:diamonds"
+    "U": "#c:gems/diamond"
   },
   "pattern": [
     "UUU",

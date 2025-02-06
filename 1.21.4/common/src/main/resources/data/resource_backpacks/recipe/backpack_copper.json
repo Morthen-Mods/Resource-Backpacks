@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": "resource_backpacks:backpack_leather",
-    "U": "#c:copper_ingots"
+    "U": "#c:ingots/copper"
   },
   "pattern": [
     "UUU",
