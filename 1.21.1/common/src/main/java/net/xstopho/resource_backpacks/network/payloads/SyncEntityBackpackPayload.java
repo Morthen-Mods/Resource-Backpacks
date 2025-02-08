@@ -21,6 +21,7 @@ public record SyncEntityBackpackPayload(int entityId, ItemStack backpack) implem
     public static void handle(SyncEntityBackpackPayload payload) {
         Entity entity = BackpackClientUtils.getEntityById(payload.entityId());
 
+        if (entity == null) return;
         if (entity instanceof LivingEntity livingEntity) {
             ((BackpackHolder) livingEntity).setBackpack(payload.backpack());
         }

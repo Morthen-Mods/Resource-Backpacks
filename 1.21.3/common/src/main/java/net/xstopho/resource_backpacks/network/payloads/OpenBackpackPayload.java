@@ -17,6 +17,7 @@ public record OpenBackpackPayload() implements CustomPacketPayload {
         player.getServer().execute(() -> {
             ItemStack backpack = ((BackpackHolder) player).getBackpack();
 
+            if (backpack == null) return;
             if (backpack.getItem() instanceof BackpackItem backpackItem) {
                 player.openMenu(backpackItem.getMenuProvider(backpack));
             }
