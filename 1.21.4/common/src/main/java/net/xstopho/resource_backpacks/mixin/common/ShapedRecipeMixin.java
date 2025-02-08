@@ -11,6 +11,7 @@ import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.mixin.accessor.ShapedRecipeAccessor;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -40,6 +41,7 @@ public abstract class ShapedRecipeMixin {
         }
     }
 
+    @Unique
     private boolean emptyContainer(ItemContainerContents container) {
         for (ItemStack stack : container.stream().toList()) {
             if (stack.getItem() != Items.AIR) {
