@@ -25,7 +25,7 @@ public abstract class CreativeModeInventoryScreenMixin extends EffectRenderingIn
     private final ResourceLocation SLOT = ResourceLocation.withDefaultNamespace("textures/gui/sprites/container/slot.png");
 
     @Shadow
-    private CreativeModeTab selectedTab;
+    private static CreativeModeTab selectedTab;
 
     public CreativeModeInventoryScreenMixin(ItemPickerMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
