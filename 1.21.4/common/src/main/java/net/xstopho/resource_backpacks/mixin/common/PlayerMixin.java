@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Player.class)
-public abstract class PlayerMixin extends LivingEntity {
+public abstract class PlayerMixin extends LivingEntity implements BackpackHolder {
 
     @Shadow @Final
     public InventoryMenu inventoryMenu;
@@ -30,9 +30,8 @@ public abstract class PlayerMixin extends LivingEntity {
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
     public void resource_backpacks$readData(CompoundTag tag, CallbackInfo info) {
         for (Slot slot : this.inventoryMenu.slots) {
-            if (slot instanceof BackpackSlot backpackSlot) {
-                ItemStack backpack = ((BackpackHolder) this).getBackpack();
-                backpackSlot.container.setItem(0, backpack);
+            if (slot instanceof BackpackSlot) {
+                slot.set(this.getBackpack());
             }
         }
     }

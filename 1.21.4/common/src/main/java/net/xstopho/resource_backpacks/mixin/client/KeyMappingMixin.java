@@ -11,6 +11,6 @@ public abstract class KeyMappingMixin implements BackpackClientUtils.KeyMappingA
 
     @Override
     public InputConstants.Key getKey() {
-        return ((KeyMappingAccessor) this).backpack$getKey();
+        return ((KeyMappingAccessor) this).resource_backpacks$getKey();
     }
 }

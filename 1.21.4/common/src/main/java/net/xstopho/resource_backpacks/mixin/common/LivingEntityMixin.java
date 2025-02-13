@@ -39,7 +39,7 @@ public abstract class LivingEntityMixin extends Entity implements BackpackHolder
     @Inject(method = "die", at = @At("TAIL"))
     public void resource_backpacks$die(DamageSource source, CallbackInfo info) {
         if (source.getEntity() instanceof Player) {
-            BackpackHolder.dropBackpack((LivingEntity) (Object) this);
+            this.dropBackpack(this.level(), this.getOnPos());
         }
     }
 

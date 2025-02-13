@@ -25,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ArmorStand.class)
-public abstract class ArmorStandMixin extends LivingEntity {
+public abstract class ArmorStandMixin extends LivingEntity implements BackpackHolder {
 
     @Shadow
     public abstract EquipmentSlot getClickedSlot(Vec3 vector);
@@ -36,7 +36,7 @@ public abstract class ArmorStandMixin extends LivingEntity {
 
     @Inject(method = "brokenByAnything", at = @At("TAIL"))
     public void resource_backpacks$brokenByAnything(ServerLevel level, DamageSource source, CallbackInfo info) {
-        BackpackHolder.dropBackpack(this);
+        this.dropBackpack(level, this.getOnPos());
     }
 
     @Inject(method = "interactAt", at = @At("HEAD"), cancellable = true)
@@ -47,11 +47,11 @@ public abstract class ArmorStandMixin extends LivingEntity {
 
         } else if (handStack.isEmpty()) {
             if (getClickedSlot(vec) == EquipmentSlot.MAINHAND) {
-                ItemStack armorStandStack = ((BackpackHolder) this).getBackpack();
+                ItemStack armorStandStack = this.getBackpack();
                 if (!armorStandStack.isEmpty()) {
                     player.setItemInHand(hand, armorStandStack);
 
-                    ((BackpackHolder) this).setBackpack(ItemStack.EMPTY);
+                    this.setBackpack(ItemStack.EMPTY);
                     if (!this.level().isClientSide()) {
                         BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(this, new SyncEntityBackpackPayload(this.getId(), ItemStack.EMPTY));
                     }
@@ -63,13 +63,13 @@ public abstract class ArmorStandMixin extends LivingEntity {
     @Unique
     private InteractionResult setOrSwapBackpack(Player player, InteractionHand hand, ItemStack handStack) {
         if (handStack.getItem() instanceof BackpackItem) {
-            ItemStack armorStandBackpack = ((BackpackHolder) this).getBackpack();
+            ItemStack armorStandBackpack = this.getBackpack();
             if (armorStandBackpack.isEmpty()) {
-                ((BackpackHolder) this).setBackpack(handStack);
+                this.setBackpack(handStack);
                 player.getItemInHand(hand).shrink(1);
             } else {
                 ItemStack backpackCopy = armorStandBackpack.copy();
-                ((BackpackHolder) this).setBackpack(handStack);
+                this.setBackpack(handStack);
 
                 player.setItemInHand(hand, backpackCopy);
             }
