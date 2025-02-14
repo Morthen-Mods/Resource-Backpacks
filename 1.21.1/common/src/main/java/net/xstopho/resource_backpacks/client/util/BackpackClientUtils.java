@@ -7,17 +7,10 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.xstopho.resource_backpacks.mixin.accessors.KeyMappingAccessor;
 import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
 
 public class BackpackClientUtils {
-
-    /**
-     * Used to get the current set Key, because {@link KeyMapping}
-     * only allows to get the default key.
-     */
-    public interface KeyMappingAccess {
-        InputConstants.Key getKey();
-    }
 
     /**
      * Check if the given KeyMapping is pressed.
@@ -27,8 +20,12 @@ public class BackpackClientUtils {
     public static boolean hasKeyDown(KeyMapping keyMapping) {
         if (keyMapping.isUnbound()) return false;
 
-        int keyCode = ((KeyMappingAccess) keyMapping).getKey().getValue();
-        return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
+        if (keyMapping instanceof KeyMappingAccessor accessor) {
+            int keyCode = accessor.resource_backpacks$getKey().getValue();
+            return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
+        }
+
+        return false;
     }
 
     /**

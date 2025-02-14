@@ -23,8 +23,6 @@
         "client.SlotWrapperMixin",
 
         "client.CreativeModeInventoryScreenMixin",
-
-        "client.KeyMappingMixin",
         "client.LivingEntityRendererMixin",
         "client.LivingEntityRenderStateMixin"
     ],
