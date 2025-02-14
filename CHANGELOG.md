@@ -1,4 +1,7 @@
 #### v0.13.5-BETA
+- fixing an issue where the play was unable to sprint
+  - was due to an KeyBind collision and bad code
+- fixing an incompatibility issue with the feather client
 - internal changes and cleanup
 - add all tag translations for Recipe Viewer
 - use correct common tag convention
