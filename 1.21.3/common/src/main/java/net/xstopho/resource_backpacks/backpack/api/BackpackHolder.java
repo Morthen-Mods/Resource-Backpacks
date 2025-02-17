@@ -28,7 +28,7 @@ public interface BackpackHolder {
     }
 
     default void dropBackpack(Level level, BlockPos pos) {
-        ItemStack backpack = getBackpack();
+        ItemStack backpack = this.getBackpack();
         if (!backpack.isEmpty() && !level.isClientSide()) {
             ItemEntity entity = new ItemEntity(level, pos.getX(), pos.getY() + 1, pos.getZ(), backpack);
             entity.setDefaultPickUpDelay();
