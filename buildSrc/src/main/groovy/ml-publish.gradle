@@ -15,6 +15,9 @@ publishMods {
         projectId = modrinth_id
 
         minecraftVersions.add(project.minecraft_version)
+
+        requires('resource-library')
+        requires('resource-config-api')
     }
 
     curseforge {
@@ -28,5 +31,8 @@ publishMods {
 
 
         minecraftVersions.add(project.minecraft_version)
+
+        requires('resource-library')
+        requires('resource-config-api')
     }
 }
