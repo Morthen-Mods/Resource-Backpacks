@@ -1,14 +1,14 @@
 package net.xstopho.resource_backpacks.mixin.client;
 
 import net.minecraft.world.inventory.Slot;
-import net.xstopho.resource_backpacks.client.slot.BackpackSlotExtension;
+import net.xstopho.resource_backpacks.client.slot.SlotExtension;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(Slot.class)
-public abstract class SlotMixin implements BackpackSlotExtension {
+public abstract class SlotMixin implements SlotExtension {
 
     @Shadow @Final @Mutable
     public int x;
