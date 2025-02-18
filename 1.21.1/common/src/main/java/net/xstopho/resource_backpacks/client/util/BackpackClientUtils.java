@@ -7,7 +7,7 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.xstopho.resource_backpacks.mixin.accessors.KeyMappingAccessor;
+import net.xstopho.resource_backpacks.mixin.accessor.KeyMappingAccessor;
 import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
 
 public class BackpackClientUtils {
@@ -21,7 +21,7 @@ public class BackpackClientUtils {
         if (keyMapping.isUnbound()) return false;
 
         if (keyMapping instanceof KeyMappingAccessor accessor) {
-            int keyCode = accessor.resource_backpacks$getKey().getValue();
+            int keyCode = accessor.getKey().getValue();
             return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
         }
 

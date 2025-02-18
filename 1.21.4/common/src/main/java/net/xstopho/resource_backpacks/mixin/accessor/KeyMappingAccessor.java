@@ -9,5 +9,5 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface KeyMappingAccessor {
 
     @Accessor("key")
-    InputConstants.Key resource_backpacks$getKey();
+    InputConstants.Key getKey();
 }

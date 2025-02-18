@@ -21,7 +21,7 @@ public class BackpackClientUtils {
         if (keyMapping.isUnbound()) return false;
 
         if (keyMapping instanceof KeyMappingAccessor accessor) {
-            int keyCode = accessor.resource_backpacks$getKey().getValue();
+            int keyCode = accessor.getKey().getValue();
             return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
         }
 

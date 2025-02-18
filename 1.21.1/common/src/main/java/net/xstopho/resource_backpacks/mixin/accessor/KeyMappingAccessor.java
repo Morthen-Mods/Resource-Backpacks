@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.mixin.accessors;
+package net.xstopho.resource_backpacks.mixin.accessor;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
@@ -9,5 +9,5 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface KeyMappingAccessor {
 
     @Accessor("key")
-    InputConstants.Key resource_backpacks$getKey();
+    InputConstants.Key getKey();
 }
