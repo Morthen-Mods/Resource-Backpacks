@@ -31,10 +31,9 @@ public class BackpackSlot extends Slot {
         ((BackpackHolder) player).setBackpack(getItem());
         if (!player.level().isClientSide()) {
             BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(player, new SyncEntityBackpackPayload(player.getId(), getItem()));
-        } else {
-            if (player.isCreative()) {
-                BackpackNetwork.INSTANCE.sendToServer(new SyncCreativeSlotPayload(index, getItem()));
-            }
+
+        } else if (player.isCreative()) {
+            BackpackNetwork.INSTANCE.sendToServer(new SyncCreativeSlotPayload(index, getItem()));
         }
     }
 
