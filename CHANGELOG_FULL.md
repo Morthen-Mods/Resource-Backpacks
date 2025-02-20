@@ -1,3 +1,9 @@
+#### v1.0.0
+- fixing Mipmap issue
+  - due to wrong sized Slot texture
+- more internal cleanup and optimizations
+- reduce network stress
+
 #### v0.13.5-BETA
 - fixing an issue where the play was unable to sprint
   - was due to an KeyBind collision and bad code
