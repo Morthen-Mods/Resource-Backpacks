@@ -16,7 +16,7 @@
         "common.InventoryMenuMixin"
     ],
     "client": [
-        "accessors.KeyMappingAccessor",
+        "accessor.KeyMappingAccessor",
 
         "client.SlotMixin",
         "client.SlotWrapperMixin",

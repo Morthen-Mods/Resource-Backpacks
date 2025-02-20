@@ -4,7 +4,7 @@ plugins {
 
 publishMods {
     displayName = file.map { it.asFile.name }
-    type = BETA
+    type = STABLE
 
     var changelogFile = rootProject.file('CHANGELOG.md')
     if (changelogFile.exists()) changelog = changelogFile.text
