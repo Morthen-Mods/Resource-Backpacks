@@ -21,14 +21,12 @@ public abstract class ServerEntityMixin {
     @Shadow @Final
     private Entity entity;
 
-    /**
-     * Syncs the Entity Data every 2-3 seconds
-     */
+    // Syncs the Entity Data every 2-3 seconds
     @Inject(method = "addPairing", at = @At("RETURN"))
     private void resource_backpacks$addPairing(ServerPlayer player, CallbackInfo info) {
         if (entity instanceof LivingEntity livingEntity) {
             ItemStack backpack = ((BackpackHolder) livingEntity).getBackpack();
-            BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(livingEntity, new SyncEntityBackpackPayload(livingEntity.getId(), backpack));
+            BackpackNetwork.INSTANCE.sendToClient(player, new SyncEntityBackpackPayload(livingEntity.getId(), backpack));
         }
     }
 }
