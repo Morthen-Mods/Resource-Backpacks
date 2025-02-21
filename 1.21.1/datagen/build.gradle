@@ -1,0 +1,34 @@
+plugins {
+    id 'ml-loader'
+    id 'net.neoforged.moddev'
+}
+
+dependencies {
+    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
+    implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
+}
+
+neoForge {
+    version = neoforge_version
+
+    def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) accessTransformers = [at]
+
+    parchment {
+        minecraftVersion = minecraft_version
+        mappingsVersion = parchment_version
+    }
+
+    runs {
+
+        data {
+            data()
+            ideName = "Common Datagen (1.21.1)"
+            gameDirectory = file('../common/runs/data')
+            programArguments = ['--mod', project.mod_id, '--all', '--output', file('../common/src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()]
+        }
+    }
+    mods {
+        "${mod_id}" { sourceSet sourceSets.main }
+    }
+}
