@@ -1,6 +1,0 @@
-{
-  "parent": "resource_backpacks:block/base/backpack",
-  "textures": {
-    "texture": "resource_backpacks:block/backpack_diamond"
-  }
-}
