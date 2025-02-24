@@ -41,4 +41,11 @@ neoForge {
 publishMods {
     file = jar.archiveFile
     modLoaders.addAll("neoforge")
+
+    modrinth {
+        minecraftVersions.addAll("1.21.2", "1.21.3")
+    }
+    curseforge {
+        minecraftVersions.addAll("1.21.2", "1.21.3")
+    }
 }

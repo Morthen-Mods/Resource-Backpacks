@@ -14,8 +14,6 @@ publishMods {
         accessToken = MODRINTH_API_KEY
         projectId = modrinth_id
 
-        minecraftVersions.add(project.minecraft_version)
-
         requires('resource-library')
         requires('resource-config-api')
     }
@@ -28,9 +26,6 @@ publishMods {
         serverRequired = true
 
         javaVersions.add(JavaVersion.VERSION_21)
-
-
-        minecraftVersions.add(project.minecraft_version)
 
         requires('resource-library')
         requires('resource-config-api')
