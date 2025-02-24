@@ -1,3 +1,6 @@
+#### v1.0.1
+- fixed upgraded backpacks can only be crafted once
+
 #### v1.0.0
 - first stable release
 - fixing Mipmap issue

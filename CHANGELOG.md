@@ -1,6 +1,2 @@
-#### v1.0.0
-- first stable release
-- fixing Mipmap issue
-  - due to wrong sized Slot texture
-- more internal cleanup and optimizations
-- reduce network stress
+#### v1.0.1
+- fixed upgraded backpacks can only be crafted once
