@@ -1,2 +1,2 @@
-#### v1.0.1
-- fixed upgraded backpacks can only be crafted once
+#### v1.0.2
+- requested the wrong Resource Config API version
