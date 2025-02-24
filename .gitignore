@@ -20,5 +20,10 @@ build
 
 # other
 eclipse
-*/common/runs/
+*/common/runs/client/*
+!*/common/runs/client/options.txt
+*/common/runs/data/*
+*/common/runs/server/*
+!*/common/runs/server/eula.txt
+!*/common/runs/server/server.properties
 */common/src/generated/
