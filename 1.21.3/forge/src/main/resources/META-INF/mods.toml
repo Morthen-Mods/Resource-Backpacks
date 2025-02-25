@@ -28,12 +28,12 @@ license = "${mod_license}"
     modId = "resourceconfigapi"
     mandatory = true
     versionRange = "[${resource_config_api}, )"
-    ordering = "NONE"
+    ordering = "AFTER"
     side = "BOTH"
 
 [[dependencies.${mod_id}]]
     modId = "resourcelibrary"
     mandatory = true
     versionRange = "[${resource_library}, )"
-    ordering = "NONE"
+    ordering = "AFTER"
     side = "BOTH"
