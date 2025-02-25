@@ -8,7 +8,7 @@ import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
 
 public record EnderChestRequestPayload() implements CustomPacketPayload {
-    public static final Type<EnderChestRequestPayload> TYPE = new Type<>(BackpackConstants.of("ender_chest_request_payload"));
+    public static final Type<EnderChestRequestPayload> TYPE = BackpackConstants.type("ender_chest_request_payload");
     public static final StreamCodec<RegistryFriendlyByteBuf, EnderChestRequestPayload> CODEC = StreamCodec.unit(new EnderChestRequestPayload());
 
     public static void handle(EnderChestRequestPayload payload, ServerPlayer player) {

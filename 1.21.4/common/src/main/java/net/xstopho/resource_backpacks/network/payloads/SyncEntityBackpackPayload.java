@@ -12,7 +12,7 @@ import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 
 public record SyncEntityBackpackPayload(int entityId, ItemStack backpack) implements CustomPacketPayload {
-    public static final Type<SyncEntityBackpackPayload> TYPE = new Type<>(BackpackConstants.of("sync_entity_backpack_payload"));
+    public static final Type<SyncEntityBackpackPayload> TYPE = BackpackConstants.type("sync_entity_backpack_payload");
     public static final StreamCodec<RegistryFriendlyByteBuf, SyncEntityBackpackPayload> CODEC =
             StreamCodec.composite(ByteBufCodecs.INT, SyncEntityBackpackPayload::entityId,
                     ItemStack.OPTIONAL_STREAM_CODEC, SyncEntityBackpackPayload::backpack,

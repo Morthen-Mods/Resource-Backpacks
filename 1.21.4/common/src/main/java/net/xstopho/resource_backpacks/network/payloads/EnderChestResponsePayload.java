@@ -13,7 +13,7 @@ import net.xstopho.resource_backpacks.network.BackpackCodecs;
 import org.jetbrains.annotations.Nullable;
 
 public record EnderChestResponsePayload(@Nullable ListTag inventory) implements CustomPacketPayload {
-    public static final Type<EnderChestResponsePayload> TYPE = new Type<>(BackpackConstants.of("ender_chest_response_payload"));
+    public static final Type<EnderChestResponsePayload> TYPE = BackpackConstants.type("ender_chest_response_payload");
     public static final StreamCodec<RegistryFriendlyByteBuf, EnderChestResponsePayload> CODEC =
             StreamCodec.composite(BackpackCodecs.ENDER_CHEST, EnderChestResponsePayload::inventory, EnderChestResponsePayload::new);
 

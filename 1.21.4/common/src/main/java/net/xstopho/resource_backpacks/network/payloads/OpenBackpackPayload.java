@@ -10,7 +10,7 @@ import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 
 public record OpenBackpackPayload() implements CustomPacketPayload {
-    public static final Type<OpenBackpackPayload> TYPE = new Type<>(BackpackConstants.of("open_backpack_payload"));
+    public static final Type<OpenBackpackPayload> TYPE = BackpackConstants.type("open_backpack_payload");
     public static final StreamCodec<RegistryFriendlyByteBuf, OpenBackpackPayload> CODEC = StreamCodec.unit(new OpenBackpackPayload());
 
     public static void handle(OpenBackpackPayload payload, ServerPlayer player) {

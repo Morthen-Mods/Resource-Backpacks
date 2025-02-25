@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 
 public record SyncCreativeSlotPayload(int index, ItemStack itemStack) implements CustomPacketPayload {
-    public static final Type<SyncCreativeSlotPayload> TYPE = new Type<>(BackpackConstants.of("sync_creative_slot_payload"));
+    public static final Type<SyncCreativeSlotPayload> TYPE = BackpackConstants.type("sync_creative_slot_payload");
     public static final StreamCodec<RegistryFriendlyByteBuf, SyncCreativeSlotPayload> CODEC =
             StreamCodec.composite(ByteBufCodecs.INT, SyncCreativeSlotPayload::index,
                     ItemStack.OPTIONAL_STREAM_CODEC, SyncCreativeSlotPayload::itemStack,
