@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
 import net.xstopho.resource_backpacks.network.payloads.EnderChestRequestPayload;
@@ -69,26 +70,30 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
                 : Component.literal(String.valueOf(count));
     }
 
-    public static class StackHolder {
+    public static final class StackHolder {
 
         private final ItemStack stack;
         private int count;
 
-        public StackHolder(ItemStack stack, int count) {
+        public StackHolder(ItemStack stack) {
             this.stack = stack;
-            this.count = count;
+            this.count = stack.getCount();
         }
 
         public ItemStack getStack() {
             return stack;
         }
 
+        public Item getItem() {
+            return stack.getItem();
+        }
+
         public int getCount() {
             return count;
         }
 
-        public boolean combine(int stackCount) {
-            this.count += stackCount;
+        public boolean combine(ItemStack stack) {
+            this.count += stack.getCount();
             return true;
         }
     }

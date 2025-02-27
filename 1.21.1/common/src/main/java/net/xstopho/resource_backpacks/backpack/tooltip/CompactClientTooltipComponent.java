@@ -1,6 +1,5 @@
 package net.xstopho.resource_backpacks.backpack.tooltip;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.player.Player;
@@ -8,6 +7,7 @@ import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
+import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -16,18 +16,15 @@ import java.util.List;
 public class CompactClientTooltipComponent extends BaseClientTooltipComponent {
     public record CompactTooltipComponent(ItemContainerContents content, BackpackLevel level) implements TooltipComponent {}
 
-    private List<StackHolder> items;
+    private final List<StackHolder> items;
 
     public CompactClientTooltipComponent(CompactTooltipComponent component) {
-        List<ItemStack> contentItemList = component.content().stream().toList();
-        this.items = getCompactItemList(contentItemList);
-
-        if (component.level().equals(BackpackLevel.END)) {
-            Player player = Minecraft.getInstance().player;
-
-            List<ItemStack> enderChestItems = this.getEnderChestItems(player);
-            this.items = getCompactItemList(enderChestItems);
+        List<ItemStack> itemList = component.content().stream().toList();
+        if (component.level.equals(BackpackLevel.END)) {
+            Player player = BackpackClientUtils.getPlayer();
+            itemList = this.getEnderChestItems(player);
         }
+        this.items = getCompactItemList(itemList);
     }
 
     @Override
@@ -63,13 +60,13 @@ public class CompactClientTooltipComponent extends BaseClientTooltipComponent {
 
         for (ItemStack stack : items) {
             boolean combined = false;
-            if (stack != ItemStack.EMPTY) {
+            if (!stack.isEmpty()) {
                 for (StackHolder holder : holderList) {
-                    if (stack.getItem() == holder.getStack().getItem() && !stack.isDamageableItem()) {
-                        combined = holder.combine(stack.getCount());
+                    if (stack.getItem() == holder.getItem() && !stack.isDamageableItem()) {
+                        combined = holder.combine(stack);
                     }
                 }
-                if (!combined) holderList.add(new StackHolder(stack, stack.getCount()));
+                if (!combined) holderList.add(new StackHolder(stack));
             }
         }
 
