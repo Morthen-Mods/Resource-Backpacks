@@ -28,10 +28,12 @@ public abstract class PlayerMixin extends LivingEntity implements BackpackHolder
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
     public void resource_backpacks$readData(CompoundTag tag, CallbackInfo info) {
-        for (Slot slot : this.inventoryMenu.slots) {
-            if (slot instanceof BackpackSlot) {
-                slot.set(this.getBackpack());
+        this.getBackpack().ifPresent(itemStack -> {
+            for (Slot slot : this.inventoryMenu.slots) {
+                if (slot instanceof BackpackSlot) {
+                    slot.set(itemStack);
+                }
             }
-        }
+        });
     }
 }

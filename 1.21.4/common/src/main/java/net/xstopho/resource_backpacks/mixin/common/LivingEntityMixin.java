@@ -1,6 +1,7 @@
 package net.xstopho.resource_backpacks.mixin.common;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.datafix.fixes.OptionsAccessibilityOnboardFix;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -15,24 +16,26 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Optional;
+
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements BackpackHolder {
 
     @Unique
-    private ItemStack backpack = ItemStack.EMPTY;
+    private Optional<ItemStack> backpack = Optional.empty();
 
     public LivingEntityMixin(EntityType<?> entityType, Level level) {
         super(entityType, level);
     }
 
     @Override
-    public ItemStack getBackpack() {
+    public Optional<ItemStack> getBackpack() {
         return backpack;
     }
 
     @Override
     public void setBackpack(ItemStack backpack) {
-        this.backpack = backpack;
+        this.backpack = Optional.of(backpack);
     }
 
     @Inject(method = "die", at = @At("TAIL"))

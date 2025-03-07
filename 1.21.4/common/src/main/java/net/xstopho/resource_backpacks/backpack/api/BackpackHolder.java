@@ -12,41 +12,47 @@ import net.minecraft.world.level.Level;
 import net.xstopho.resource_backpacks.client.slot.BackpackSlot;
 import org.jetbrains.annotations.ApiStatus;
 
+import java.util.Optional;
+
 @ApiStatus.Internal
 public interface BackpackHolder {
+    String tagId = "resource_backpacks$backpack";
 
-    ItemStack getBackpack();
+    Optional<ItemStack> getBackpack();
     void setBackpack(ItemStack backpack);
 
     static void restorePlayerBackpack(Player oldPlayer, Player newPlayer) {
-        ItemStack backpack = ((BackpackHolder) oldPlayer).getBackpack();
-        for (Slot slot : newPlayer.inventoryMenu.slots) {
-            if (slot instanceof BackpackSlot) {
-                slot.set(backpack);
+        ((BackpackHolder) oldPlayer).getBackpack().ifPresent(itemStack -> {
+            for (Slot slot : newPlayer.inventoryMenu.slots) {
+                if (slot instanceof BackpackSlot) {
+                    slot.set(itemStack);
+                }
             }
-        }
+        });
     }
 
     default void dropBackpack(Level level, BlockPos pos) {
-        ItemStack backpack = this.getBackpack();
-        if (!backpack.isEmpty() && !level.isClientSide()) {
-            ItemEntity entity = new ItemEntity(level, pos.getX(), pos.getY() + 1, pos.getZ(), backpack);
-            entity.setDefaultPickUpDelay();
-            level.addFreshEntity(entity);
-        }
+        this.getBackpack().ifPresent(itemStack -> {
+            if (!itemStack.isEmpty() && !level.isClientSide()) {
+                ItemEntity entity = new ItemEntity(level, pos.getX(), pos.getY() + 1, pos.getZ(), itemStack);
+                entity.setDefaultPickUpDelay();
+                level.addFreshEntity(entity);
+            }
+        });
     }
 
     default void readBackpackFromCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
-        if (tag.contains("resource_backpacks$backpack")) {
-            ItemStack backpack = ItemStack.parse(registryAccess, tag.getCompound("resource_backpacks$backpack")).orElse(ItemStack.EMPTY);
+        if (tag.contains(tagId)) {
+            ItemStack backpack = ItemStack.parse(registryAccess, tag.getCompound(tagId)).orElse(ItemStack.EMPTY);
             this.setBackpack(backpack);
         }
     }
 
     default void saveBackpackOnCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
-        if (!this.getBackpack().isEmpty()) {
-            Tag backpack = this.getBackpack().save(registryAccess);
-            tag.put("resource_backpacks$backpack", backpack);
-        }
+        this.getBackpack().ifPresent(itemStack -> {
+            if (itemStack.isEmpty()) return;
+            Tag backpack = itemStack.save(registryAccess);
+            tag.put(tagId, backpack);
+        });
     }
 }

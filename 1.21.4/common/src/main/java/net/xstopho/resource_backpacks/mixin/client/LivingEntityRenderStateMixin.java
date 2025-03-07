@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Unique;
 public abstract class LivingEntityRenderStateMixin extends EntityRenderState implements BackpackRenderState {
 
     @Unique
-    public ItemStack backpack;
+    public ItemStack backpack = ItemStack.EMPTY;
 
     @Override
     public ItemStack getBackpack() {

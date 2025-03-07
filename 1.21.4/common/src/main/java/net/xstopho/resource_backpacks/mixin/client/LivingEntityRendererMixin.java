@@ -29,7 +29,10 @@ public abstract class LivingEntityRendererMixin {
 
     @Inject(method = "extractRenderState", at = @At("TAIL"))
     public void resource_backpacks$extractRenderState(LivingEntity livingEntity, LivingEntityRenderState renderState, float partialTicks, CallbackInfo info) {
-        ItemStack backpack = ((BackpackHolder) livingEntity).getBackpack();
-        ((BackpackRenderState) renderState).setBackpack(backpack);
+        ((BackpackHolder) livingEntity).getBackpack().ifPresent(itemStack -> {
+            if (renderState instanceof BackpackRenderState backpackRenderState) {
+                backpackRenderState.setBackpack(itemStack);
+            }
+        });
     }
 }

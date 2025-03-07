@@ -25,8 +25,9 @@ public abstract class ServerEntityMixin {
     @Inject(method = "addPairing", at = @At("RETURN"))
     private void resource_backpacks$addPairing(ServerPlayer player, CallbackInfo info) {
         if (entity instanceof LivingEntity livingEntity) {
-            ItemStack backpack = ((BackpackHolder) livingEntity).getBackpack();
-            BackpackNetwork.INSTANCE.sendToClient(player, new SyncEntityBackpackPayload(livingEntity.getId(), backpack));
+            ((BackpackHolder) livingEntity).getBackpack().ifPresent(itemStack -> {
+                BackpackNetwork.INSTANCE.sendToClient(player, new SyncEntityBackpackPayload(livingEntity.getId(), itemStack));
+            });
         }
     }
 }

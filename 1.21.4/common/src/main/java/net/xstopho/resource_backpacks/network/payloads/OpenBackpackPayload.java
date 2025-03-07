@@ -15,12 +15,11 @@ public record OpenBackpackPayload() implements CustomPacketPayload {
 
     public static void handle(OpenBackpackPayload payload, ServerPlayer player) {
         player.getServer().execute(() -> {
-            ItemStack backpack = ((BackpackHolder) player).getBackpack();
-
-            if (backpack == null) return;
-            if (backpack.getItem() instanceof BackpackItem backpackItem) {
-                player.openMenu(backpackItem.getMenuProvider(backpack));
-            }
+            ((BackpackHolder) player).getBackpack().ifPresent(itemStack -> {
+                if (itemStack.getItem() instanceof BackpackItem backpackItem) {
+                    player.openMenu(backpackItem.getMenuProvider(itemStack));
+                }
+            });
         });
     }
 

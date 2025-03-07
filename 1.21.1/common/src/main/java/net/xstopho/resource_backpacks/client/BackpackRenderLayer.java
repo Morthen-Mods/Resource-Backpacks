@@ -33,22 +33,22 @@ public class BackpackRenderLayer<T extends LivingEntity, M extends EntityModel<T
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int light, T entity, float limbSwing,
                        float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        ItemStack backpack = ((BackpackHolder) entity).getBackpack();
+        ((BackpackHolder) entity).getBackpack().ifPresent(itemStack -> {
+            if (getParentModel() instanceof ArmorStandModel) {
+                renderOnArmorStand(poseStack,  bufferSource, light, itemStack);
 
-        if (getParentModel() instanceof ArmorStandModel) {
-            renderOnArmorStand(poseStack,  bufferSource, light, backpack);
+            } else if (getParentModel() instanceof CreeperModel<?>){
+                renderOnCreeper(poseStack, bufferSource, light, itemStack);
 
-        } else if (getParentModel() instanceof CreeperModel<?>){
-            renderOnCreeper(poseStack, bufferSource, light, backpack);
-
-        } else {
-            renderOnHumanoid(poseStack, bufferSource, entity, light, backpack);
-        }
+            } else {
+                renderOnHumanoid(poseStack, bufferSource, entity, light, itemStack);
+            }
+        });
     }
 
     @Override
     protected ResourceLocation getTextureLocation(LivingEntity entity) {
-        ItemStack backpack = ((BackpackHolder) entity).getBackpack();
+        ItemStack backpack = ((BackpackHolder) entity).getBackpack().orElse(ItemStack.EMPTY);
         return BackpackModel.getTexture(backpack);
     }
 
