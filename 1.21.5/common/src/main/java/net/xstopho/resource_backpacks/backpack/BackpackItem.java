@@ -1,8 +1,5 @@
 package net.xstopho.resource_backpacks.backpack;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -11,12 +8,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.ItemContainerContents;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.xstopho.resource_backpacks.backpack.component.BackpackContainerComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.util.BackpackInventory;
@@ -24,22 +19,18 @@ import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 import net.xstopho.resource_backpacks.config.common.BackpackConfig;
-import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
+import net.xstopho.resource_backpacks.registries.DataComponentRegistry;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public class BackpackItem extends BlockItem {
 
     private final BackpackLevel backpackLevel;
 
     public BackpackItem(Block block, BackpackLevel backpackLevel, Properties properties) {
-        super(block, properties.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
+        super(block, properties.component(DataComponentRegistry.BACKPACK_CONTAINER.get(), BackpackContainerComponent.EMPTY));
         this.backpackLevel = backpackLevel;
     }
-
-
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand usedHand) {
@@ -89,44 +80,16 @@ public class BackpackItem extends BlockItem {
 
     @Override
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
-        ItemContainerContents content = stack.get(DataComponents.CONTAINER);
+        BackpackContainerComponent content = stack.get(DataComponentRegistry.BACKPACK_CONTAINER.get());
         Optional<TooltipComponent> tooltipComponent = Optional.empty();
 
-        if (enableCompactPreview()) {
+        if (BackpackClientUtils.enableCompactPreview()) {
             tooltipComponent = Optional.of(new CompactClientTooltipComponent.CompactTooltipComponent(content, backpackLevel));
 
-        } else if (enableInventoryPreview()) {
+        } else if (BackpackClientUtils.enableInventoryPreview()) {
             tooltipComponent = Optional.of(new InventoryClientTooltipComponent.InventoryTooltipComponent(content, backpackLevel));
         }
 
         return tooltipComponent;
-    }
-
-    //TODO: use the correct way via DataComponents
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> consumer, TooltipFlag tooltipFlag) {
-        if (!enableCompactPreview() && !enableInventoryPreview()) {
-            if (!KeyMappingRegistry.SHOW_COMPACT_PREVIEW.isUnbound()) {
-                consumer.accept(KeyMappingRegistry.SHOW_COMPACT_PREVIEW.getTranslatedKeyMessage().copy().withStyle(ChatFormatting.GOLD)
-                        .append(Component.literal(": "))
-                        .append(Component.translatable("tooltip.resource_backpacks.info.compact_preview").withStyle(ChatFormatting.WHITE)));
-            }
-
-            if (!KeyMappingRegistry.SHOW_INVENTORY_PREVIEW.isUnbound()) {
-                consumer.accept(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW.getTranslatedKeyMessage().copy().withStyle(ChatFormatting.GOLD)
-                        .append(Component.literal(": "))
-                        .append(Component.translatable("tooltip.resource_backpacks.info.inventory_preview").withStyle(ChatFormatting.WHITE)));
-            }
-        }
-        super.appendHoverText(stack, context, tooltipDisplay, consumer, tooltipFlag);
-    }
-
-
-    private boolean enableCompactPreview() {
-        return BackpackClientUtils.hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
-    }
-
-    private boolean enableInventoryPreview() {
-        return BackpackClientUtils.hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
     }
 }

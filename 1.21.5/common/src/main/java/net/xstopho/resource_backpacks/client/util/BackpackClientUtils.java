@@ -9,8 +9,17 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.xstopho.resource_backpacks.mixin.accessor.KeyMappingAccessor;
 import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
+import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 public class BackpackClientUtils {
+
+    public static boolean enableCompactPreview() {
+        return hasKeyDown(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
+    }
+
+    public static boolean enableInventoryPreview() {
+        return hasKeyDown(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
+    }
 
     /**
      * Check if the given KeyMapping is pressed.
