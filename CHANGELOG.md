@@ -1,3 +1,5 @@
-#### v1.0.3
-- fix load ordering for Forge and NeoForge
-    - could trigger crashes when the mod is in a large scale ModPack
+### v1.1.0
+  - update to 1.21.5
+  - fixing issue where Backpacks disappear when 
+    killing the Ender Dragon the first time
+  - fixing render issue when Fresh Moves is installed

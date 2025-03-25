@@ -3,6 +3,7 @@ package net.xstopho.resource_backpacks.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -61,5 +62,9 @@ public class BackpackModel<T extends Entity> extends EntityModel<T> {
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
         this.backpack.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+    }
+
+    public void setupAngles(HumanoidModel<?> model) {
+        this.backpack.copyFrom(model.body);
     }
 }

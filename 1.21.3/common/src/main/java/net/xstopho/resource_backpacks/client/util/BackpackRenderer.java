@@ -16,11 +16,11 @@ public interface BackpackRenderer<T extends LivingEntityRenderState> {
         if (backpack.isEmpty()) return;
 
         poseStack.pushPose();
+        poseStack.translate(-0.25,0,0.125);
 
         if (renderState instanceof PlayerRenderState playerState) {
             if (playerState.isCrouching) {
-                poseStack.mulPose(Axis.XP.rotationDegrees(29));
-                poseStack.translate(0, 0.17, -0.095);
+                poseStack.translate(0, -0.0625, -0.015);
             }
         }
 

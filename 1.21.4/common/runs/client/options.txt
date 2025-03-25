@@ -1,4 +1,4 @@
-version:3955
+version:4189
 ao:true
 biomeBlendRadius:2
 enableVsync:true
@@ -12,11 +12,12 @@ darknessEffectScale:1.0
 glintSpeed:0.5
 glintStrength:0.75
 prioritizeChunkUpdates:0
-fullscreen:false
+fullscreen:true
 gamma:0.5
 graphicsMode:1
-guiScale:0
+guiScale:3
 maxFps:120
+inactivityFpsLimit:"afk"
 mipmapLevels:4
 narrator:0
 particles:0
@@ -27,6 +28,7 @@ simulationDistance:12
 screenEffectScale:1.0
 soundDevice:""
 autoJump:false
+rotateWithMinecart:false
 operatorItemsTab:false
 autoSuggestions:true
 chatColors:true
@@ -47,9 +49,10 @@ hideSplashTexts:false
 mouseSensitivity:0.3028169014084507
 damageTiltStrength:1.0
 highContrast:false
+highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["fabric"]
-incompatibleResourcePacks:[]
+resourcePacks:["vanilla","fabric"]
+incompatibleResourcePacks:["resource_backpacks","resourceconfigapi"]
 lastServer:
 lang:en_us
 chatVisibility:0
@@ -78,7 +81,6 @@ glDebugVerbosity:1
 skipMultiplayerWarning:false
 hideMatchedNames:true
 joinedFirstServer:false
-hideBundleTutorial:false
 syncChunkWrites:true
 showAutosaveIndicator:true
 allowServerListing:true
@@ -121,7 +123,6 @@ key_key.hotbar.6:key.keyboard.6
 key_key.hotbar.7:key.keyboard.7
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
-key_key.modmenu.open_menu:key.keyboard.unknown
 key_key.resource_backpacks.open_backpack:key.keyboard.b
 key_key.resource_backpacks.show_compact_preview:key.keyboard.left.shift
 key_key.resource_backpacks.show_inventory_preview:key.keyboard.left.alt

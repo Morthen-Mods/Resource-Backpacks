@@ -15,10 +15,10 @@ public interface BackpackRenderer<T extends LivingEntity> {
         if (backpack.isEmpty()) return;
 
         poseStack.pushPose();
+        poseStack.translate(-0.25,0,0.125);
 
         if (entity.isCrouching()) {
-            poseStack.mulPose(Axis.XP.rotationDegrees(29));
-            poseStack.translate(0, 0.17, -0.095);
+            poseStack.translate(0, -0.0625, -0.015);
         }
 
         renderBackpackModel(poseStack, buffer, light, backpack);

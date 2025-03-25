@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.ArmorStandModel;
 import net.minecraft.client.model.CreeperModel;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -40,7 +41,8 @@ public class BackpackRenderLayer<T extends LivingEntity, M extends EntityModel<T
             } else if (getParentModel() instanceof CreeperModel<?>){
                 renderOnCreeper(poseStack, bufferSource, light, itemStack);
 
-            } else {
+            } else if (getParentModel() instanceof HumanoidModel<?> model) {
+                this.backpackModel.setupAngles(model);
                 renderOnHumanoid(poseStack, bufferSource, entity, light, itemStack);
             }
         });

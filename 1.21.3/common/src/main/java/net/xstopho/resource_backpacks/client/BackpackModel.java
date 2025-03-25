@@ -1,6 +1,7 @@
 package net.xstopho.resource_backpacks.client;
 
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -18,10 +19,12 @@ public class BackpackModel<T extends LivingEntityRenderState> extends EntityMode
 
     public static final ModelLayerLocation BACKPACK_LAYER = new ModelLayerLocation(ResourceLocation.withDefaultNamespace("player"), "backpack");
 
+    private final ModelPart backpack;
+
     public BackpackModel(ModelPart root) {
         super(root);
 
-        root.getChild("backpack");
+        this.backpack = root.getChild("backpack");
     }
 
     public static LayerDefinition createLayer() {
@@ -48,5 +51,9 @@ public class BackpackModel<T extends LivingEntityRenderState> extends EntityMode
         }
 
         return BackpackConstants.of("textures/entity/backpack_" + type + ".png");
+    }
+
+    public void setupAngles(HumanoidModel<?> model) {
+        this.backpack.copyFrom(model.body);
     }
 }
