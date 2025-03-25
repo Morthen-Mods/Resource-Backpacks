@@ -26,4 +26,13 @@ public abstract class ServerPlayerMixin extends Player implements BackpackHolder
             this.dropBackpack(this.level(), this.getOnPos());
         }
     }
+
+    @Inject(method = "restoreFrom", at = @At("TAIL"))
+    public void resource_backpacks$restoreFrom(ServerPlayer oldPlayer, boolean keepEverything, CallbackInfo info) {
+        ServerPlayer newPlayer = (ServerPlayer) (Object) this;
+        boolean keepInventory = this.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY);
+        if (keepInventory || this.isCreative() || this.isSpectator() || keepEverything) {
+            BackpackHolder.restorePlayerBackpack(oldPlayer, newPlayer);
+        }
+    }
 }

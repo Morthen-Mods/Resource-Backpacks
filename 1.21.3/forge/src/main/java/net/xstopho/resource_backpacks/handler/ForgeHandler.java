@@ -17,13 +17,4 @@ public class ForgeHandler {
     public static void registerEntityLoad(EntityJoinLevelEvent event) {
         EntityModifier.modifyEntities(event.getEntity());
     }
-
-    @SubscribeEvent
-    public static void registerPlayerClone(PlayerEvent.Clone event) {
-        Player newPlayer = event.getEntity();
-        boolean keepInventory = newPlayer.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY);
-        if (keepInventory || newPlayer.isCreative() || newPlayer.isSpectator()) {
-            BackpackHolder.restorePlayerBackpack(event.getOriginal(), newPlayer);
-        }
-    }
 }
