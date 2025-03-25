@@ -9,10 +9,7 @@ import net.xstopho.resource_backpacks.config.common.BackpackConfig;
 import net.xstopho.resource_backpacks.config.common.ChestLootConfig;
 import net.xstopho.resource_backpacks.config.common.EntityConfig;
 import net.xstopho.resource_backpacks.modifier.ChestLootModifier;
-import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
-import net.xstopho.resource_backpacks.registries.BlockRegistry;
-import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
-import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
+import net.xstopho.resource_backpacks.registries.*;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import net.xstopho.resourcelibrary.modifier.LootTableModifier;
 import org.slf4j.Logger;
@@ -33,6 +30,8 @@ public class BackpackConstants {
         ConfigRegistry.register(EntityConfig.class, MOD_ID);
 
         ChestLootModifier.initLootModifier(modifier);
+
+        DataComponentRegistry.init();
 
         BlockRegistry.init();
         BlockEntityRegistry.init();

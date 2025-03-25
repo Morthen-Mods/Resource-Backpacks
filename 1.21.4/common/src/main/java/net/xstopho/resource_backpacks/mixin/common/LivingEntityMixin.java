@@ -1,7 +1,6 @@
 package net.xstopho.resource_backpacks.mixin.common;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.util.datafix.fixes.OptionsAccessibilityOnboardFix;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
