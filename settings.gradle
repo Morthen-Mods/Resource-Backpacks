@@ -17,6 +17,7 @@ rootProject.name = 'Resource-Backpacks'
 include('1.21.1')
 include('1.21.3')
 include('1.21.4')
+include('1.21.5')
 
 rootProject.children.each { subproject ->
     def subprojectDir = file(subproject.projectDir)
