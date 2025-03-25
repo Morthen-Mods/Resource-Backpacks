@@ -28,7 +28,6 @@ public final class BackpackContainerComponent implements TooltipProvider {
     public static final Codec<BackpackContainerComponent> CODEC = BackpackSlot.CODEC.sizeLimitedListOf(256)
             .xmap(BackpackContainerComponent::fromSlots, BackpackContainerComponent::asSlots);
 
-
     public static final StreamCodec<RegistryFriendlyByteBuf, BackpackContainerComponent> STREAM_CODEC =
             ItemStack.OPTIONAL_STREAM_CODEC.apply(ByteBufCodecs.list(256)).map(BackpackContainerComponent::new, container -> container.items);
 
