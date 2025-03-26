@@ -23,6 +23,7 @@ public class BackpackSlot extends Slot {
         this.player = player;
     }
 
+    //TODO: rework this method
     @Override
     public void setChanged() {
         super.setChanged();

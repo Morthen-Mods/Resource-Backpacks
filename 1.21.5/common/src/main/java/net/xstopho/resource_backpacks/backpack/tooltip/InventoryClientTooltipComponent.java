@@ -5,21 +5,21 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.backpack.component.BackpackContainerComponent;
+import net.xstopho.resource_backpacks.backpack.component.BackpackContainerContents;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 
 import java.util.List;
 
 public class InventoryClientTooltipComponent extends BaseClientTooltipComponent {
-    public record InventoryTooltipComponent(BackpackContainerComponent content, BackpackLevel level) implements TooltipComponent {}
+    public record InventoryTooltipComponent(BackpackContainerContents content, BackpackLevel level) implements TooltipComponent {}
 
     private final BackpackLevel level;
     private List<ItemStack> items;
 
     public InventoryClientTooltipComponent(InventoryTooltipComponent component) {
         this.level = component.level();
-        this.items = component.content().stream().toList();
+        this.items = component.content().toList();
         if (level.equals(BackpackLevel.END)) {
             Player player = BackpackClientUtils.getPlayer();
             this.items = getEnderChestItems(player);

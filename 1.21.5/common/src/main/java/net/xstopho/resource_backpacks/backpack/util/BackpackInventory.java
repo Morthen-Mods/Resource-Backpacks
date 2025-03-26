@@ -5,7 +5,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.xstopho.resource_backpacks.backpack.api.ImplementedInventory;
-import net.xstopho.resource_backpacks.backpack.component.BackpackContainerComponent;
+import net.xstopho.resource_backpacks.backpack.component.BackpackContainerContents;
 import net.xstopho.resource_backpacks.registries.DataComponentRegistry;
 
 public class BackpackInventory implements ImplementedInventory {
@@ -21,11 +21,11 @@ public class BackpackInventory implements ImplementedInventory {
         //TODO: remove in a later update
         ItemContainerContents oldContainer = stack.get(DataComponents.CONTAINER);
         if (oldContainer != null) {
-            stack.set(DataComponentRegistry.BACKPACK_CONTAINER.get(), new BackpackContainerComponent(oldContainer));
+            stack.set(DataComponentRegistry.BACKPACK_CONTAINER.get(), new BackpackContainerContents(oldContainer));
             stack.remove(DataComponents.CONTAINER);
         }
 
-        BackpackContainerComponent container = stack.get(DataComponentRegistry.BACKPACK_CONTAINER.get());
+        BackpackContainerContents container = stack.get(DataComponentRegistry.BACKPACK_CONTAINER.get());
         if (container != null) {
             container.copyInto(items);
         }
@@ -43,7 +43,7 @@ public class BackpackInventory implements ImplementedInventory {
 
     @Override
     public void setChanged() {
-        this.stack.set(DataComponentRegistry.BACKPACK_CONTAINER.get(), BackpackContainerComponent.fromItems(items));
+        this.stack.set(DataComponentRegistry.BACKPACK_CONTAINER.get(), new BackpackContainerContents(items));
     }
 
 }

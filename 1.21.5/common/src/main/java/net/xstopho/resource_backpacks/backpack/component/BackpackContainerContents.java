@@ -21,54 +21,39 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
 
-//TODO: rework this to make it more simple
-public final class BackpackContainerComponent implements TooltipProvider {
-    public static final Codec<BackpackContainerComponent> CODEC = BackpackSlot.CODEC.sizeLimitedListOf(256)
-            .xmap(BackpackContainerComponent::fromSlots, BackpackContainerComponent::asSlots);
+//TODO: make it more readable and eventually shrink the code a bit
+public final class BackpackContainerContents implements TooltipProvider {
+    public static final Codec<BackpackContainerContents> CODEC = BackpackSlot.CODEC.sizeLimitedListOf(256)
+            .xmap(BackpackContainerContents::fromSlots, BackpackContainerContents::asSlots);
 
-    public static final StreamCodec<RegistryFriendlyByteBuf, BackpackContainerComponent> STREAM_CODEC =
-            ItemStack.OPTIONAL_STREAM_CODEC.apply(ByteBufCodecs.list(256)).map(BackpackContainerComponent::new, container -> container.items);
+    public static final StreamCodec<RegistryFriendlyByteBuf, BackpackContainerContents> STREAM_CODEC =
+            ItemStack.OPTIONAL_STREAM_CODEC.apply(ByteBufCodecs.list(256)).map(BackpackContainerContents::new, BackpackContainerContents::toList);
 
-    public static final BackpackContainerComponent EMPTY = new BackpackContainerComponent(NonNullList.create());
 
+    public static final BackpackContainerContents EMPTY = new BackpackContainerContents(NonNullList.create());
     private final NonNullList<ItemStack> items;
 
-    public BackpackContainerComponent(ItemContainerContents container) {
+    //TODO: remove with later update
+    public BackpackContainerContents(ItemContainerContents container) {
         this(container.stream().toList());
     }
 
-    private BackpackContainerComponent(NonNullList<ItemStack> items) {
+    public BackpackContainerContents(List<ItemStack> items) {
         if (items.size() > 256) throw new IllegalArgumentException("Too many items");
 
-        this.items = items;
-    }
-
-    private BackpackContainerComponent(int size) {
-        this(NonNullList.withSize(size, ItemStack.EMPTY));
-    }
-
-    private BackpackContainerComponent(List<ItemStack> items) {
-        this(items.size());
+        this.items = NonNullList.withSize(items.size(), ItemStack.EMPTY);
 
         for (int index = 0; index < items.size(); index++) {
             this.items.set(index, items.get(index));
         }
     }
 
-    public static BackpackContainerComponent fromItems(List<ItemStack> items) {
-        if (items.isEmpty()) return EMPTY;
-        else {
-            return new BackpackContainerComponent(items);
-        }
-    }
-
-    private static BackpackContainerComponent fromSlots(List<BackpackSlot> slots) {
+    private static BackpackContainerContents fromSlots(List<BackpackSlot> slots) {
         OptionalInt optional = slots.stream().mapToInt(BackpackSlot::index).max();
-        BackpackContainerComponent component = EMPTY;
+        BackpackContainerContents component = EMPTY;
         if (optional.isPresent()) {
-            component = new BackpackContainerComponent(NonNullList.withSize(optional.getAsInt() + 1, ItemStack.EMPTY));
+            component = new BackpackContainerContents(NonNullList.withSize(optional.getAsInt() + 1, ItemStack.EMPTY));
             for (BackpackSlot slot : slots) {
                 component.items.set(slot.index(), slot.stack());
             }
@@ -89,14 +74,17 @@ public final class BackpackContainerComponent implements TooltipProvider {
         return slots;
     }
 
-    public Stream<ItemStack> stream() {
-        return this.items.stream().map(ItemStack::copy);
+    public List<ItemStack> toList() {
+        return this.items.stream().map(ItemStack::copy).toList();
     }
 
     public void copyInto(NonNullList<ItemStack> list) {
         for(int i = 0; i < list.size(); ++i) {
-            ItemStack itemstack = i < this.items.size() ? this.items.get(i) : ItemStack.EMPTY;
-            list.set(i, itemstack.copy());
+            ItemStack stack = ItemStack.EMPTY;
+            if (i < this.items.size()) {
+                stack = this.items.get(i);
+            }
+            list.set(i, stack.copy());
         }
     }
 

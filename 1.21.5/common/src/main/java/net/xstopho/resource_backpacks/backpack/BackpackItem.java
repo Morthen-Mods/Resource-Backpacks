@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.xstopho.resource_backpacks.backpack.component.BackpackContainerComponent;
+import net.xstopho.resource_backpacks.backpack.component.BackpackContainerContents;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.util.BackpackInventory;
@@ -28,7 +28,7 @@ public class BackpackItem extends BlockItem {
     private final BackpackLevel backpackLevel;
 
     public BackpackItem(Block block, BackpackLevel backpackLevel, Properties properties) {
-        super(block, properties.component(DataComponentRegistry.BACKPACK_CONTAINER.get(), BackpackContainerComponent.EMPTY));
+        super(block, properties.component(DataComponentRegistry.BACKPACK_CONTAINER.get(), BackpackContainerContents.EMPTY));
         this.backpackLevel = backpackLevel;
     }
 
@@ -80,7 +80,7 @@ public class BackpackItem extends BlockItem {
 
     @Override
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
-        BackpackContainerComponent content = stack.get(DataComponentRegistry.BACKPACK_CONTAINER.get());
+        BackpackContainerContents content = stack.get(DataComponentRegistry.BACKPACK_CONTAINER.get());
         Optional<TooltipComponent> tooltipComponent = Optional.empty();
 
         if (BackpackClientUtils.enableCompactPreview()) {

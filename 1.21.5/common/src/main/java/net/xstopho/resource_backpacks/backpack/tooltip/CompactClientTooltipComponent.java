@@ -5,7 +5,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.backpack.component.BackpackContainerComponent;
+import net.xstopho.resource_backpacks.backpack.component.BackpackContainerContents;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 
@@ -14,12 +14,12 @@ import java.util.Comparator;
 import java.util.List;
 
 public class CompactClientTooltipComponent extends BaseClientTooltipComponent {
-    public record CompactTooltipComponent(BackpackContainerComponent content, BackpackLevel level) implements TooltipComponent {}
+    public record CompactTooltipComponent(BackpackContainerContents content, BackpackLevel level) implements TooltipComponent {}
 
     private final List<StackHolder> items;
 
     public CompactClientTooltipComponent(CompactTooltipComponent component) {
-        List<ItemStack> itemList = component.content().stream().toList();
+        List<ItemStack> itemList = component.content().toList();
         if (component.level.equals(BackpackLevel.END)) {
             Player player = BackpackClientUtils.getPlayer();
             itemList = this.getEnderChestItems(player);
