@@ -35,6 +35,7 @@ public final class BackpackContainerContents implements TooltipProvider {
     private final NonNullList<ItemStack> items;
 
     //TODO: remove with later update
+    @Deprecated(forRemoval = true)
     public BackpackContainerContents(ItemContainerContents container) {
         this(container.stream().toList());
     }

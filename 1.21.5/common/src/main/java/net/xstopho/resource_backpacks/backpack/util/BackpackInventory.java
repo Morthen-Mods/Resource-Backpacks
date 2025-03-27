@@ -14,6 +14,7 @@ public class BackpackInventory implements ImplementedInventory {
     private final BackpackLevel backpackLevel;
     private final ItemStack stack;
 
+    @SuppressWarnings("removal")
     public BackpackInventory(ItemStack stack, BackpackLevel backpackLevel) {
         this.items = NonNullList.withSize(backpackLevel.getSize(), ItemStack.EMPTY);
         this.backpackLevel = backpackLevel;
