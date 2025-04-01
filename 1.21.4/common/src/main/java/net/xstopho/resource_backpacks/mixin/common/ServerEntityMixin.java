@@ -4,6 +4,7 @@ import net.minecraft.server.level.ServerEntity;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.network.BackpackNetwork;
 import net.xstopho.resource_backpacks.network.payloads.SyncEntityBackpackPayload;
@@ -24,9 +25,8 @@ public abstract class ServerEntityMixin {
     @Inject(method = "addPairing", at = @At("RETURN"))
     private void resource_backpacks$addPairing(ServerPlayer player, CallbackInfo info) {
         if (entity instanceof LivingEntity livingEntity) {
-            ((BackpackHolder) livingEntity).getBackpack().ifPresent(itemStack -> {
-                BackpackNetwork.INSTANCE.sendToClient(player, new SyncEntityBackpackPayload(livingEntity.getId(), itemStack));
-            });
+            ItemStack itemStack = ((BackpackHolder) livingEntity).getBackpack();
+            BackpackNetwork.INSTANCE.sendToClient(player, new SyncEntityBackpackPayload(livingEntity.getId(), itemStack));
         }
     }
 }

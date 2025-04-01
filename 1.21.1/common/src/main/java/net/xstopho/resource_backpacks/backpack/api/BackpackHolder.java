@@ -18,27 +18,25 @@ import java.util.Optional;
 public interface BackpackHolder {
     String tagId = "resource_backpacks$backpack";
 
-    Optional<ItemStack> getBackpack();
+    ItemStack getBackpack();
     void setBackpack(ItemStack backpack);
 
     static void restorePlayerBackpack(Player oldPlayer, Player newPlayer) {
-        ((BackpackHolder) oldPlayer).getBackpack().ifPresent(itemStack -> {
-            for (Slot slot : newPlayer.inventoryMenu.slots) {
-                if (slot instanceof BackpackSlot) {
-                    slot.set(itemStack);
-                }
+        ItemStack itemStack = ((BackpackHolder) oldPlayer).getBackpack();
+        for (Slot slot : newPlayer.inventoryMenu.slots) {
+            if (slot instanceof BackpackSlot) {
+                slot.set(itemStack);
             }
-        });
+        }
     }
 
     default void dropBackpack(Level level, BlockPos pos) {
-        this.getBackpack().ifPresent(itemStack -> {
-            if (!itemStack.isEmpty() && !level.isClientSide()) {
-                ItemEntity entity = new ItemEntity(level, pos.getX(), pos.getY() + 1, pos.getZ(), itemStack);
-                entity.setDefaultPickUpDelay();
-                level.addFreshEntity(entity);
-            }
-        });
+        ItemStack itemStack = this.getBackpack();
+        if (!itemStack.isEmpty() && !level.isClientSide()) {
+            ItemEntity entity = new ItemEntity(level, pos.getX(), pos.getY() + 1, pos.getZ(), itemStack);
+            entity.setDefaultPickUpDelay();
+            level.addFreshEntity(entity);
+        }
 
     }
 
@@ -50,10 +48,10 @@ public interface BackpackHolder {
     }
 
     default void saveBackpackOnCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
-        this.getBackpack().ifPresent(itemStack -> {
-            if (itemStack.isEmpty()) return;
+        ItemStack itemStack = this.getBackpack();
+        if (!itemStack.isEmpty()) {
             Tag backpack = itemStack.save(registryAccess);
             tag.put(tagId, backpack);
-        });
+        }
     }
 }

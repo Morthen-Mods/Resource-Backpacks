@@ -4,6 +4,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
@@ -14,11 +15,10 @@ public record OpenBackpackPayload() implements CustomPacketPayload {
 
     public static void handle(OpenBackpackPayload payload, ServerPlayer player) {
         player.getServer().execute(() -> {
-            ((BackpackHolder) player).getBackpack().ifPresent(itemStack -> {
-                if (itemStack.getItem() instanceof BackpackItem backpackItem) {
-                    player.openMenu(backpackItem.getMenuProvider(itemStack));
-                }
-            });
+            ItemStack itemStack = ((BackpackHolder) player).getBackpack();
+            if (itemStack.getItem() instanceof BackpackItem backpackItem) {
+                player.openMenu(backpackItem.getMenuProvider(itemStack));
+            }
         });
     }
 

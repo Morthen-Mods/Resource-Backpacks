@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.client.BackpackRenderLayer;
 import net.xstopho.resource_backpacks.client.util.BackpackRenderState;
@@ -28,10 +29,9 @@ public abstract class LivingEntityRendererMixin {
 
     @Inject(method = "extractRenderState", at = @At("TAIL"))
     public void resource_backpacks$extractRenderState(LivingEntity livingEntity, LivingEntityRenderState renderState, float partialTicks, CallbackInfo info) {
-        ((BackpackHolder) livingEntity).getBackpack().ifPresent(itemStack -> {
-            if (renderState instanceof BackpackRenderState backpackRenderState) {
-                backpackRenderState.setBackpack(itemStack);
-            }
-        });
+        ItemStack itemStack = ((BackpackRenderState) renderState).getBackpack();
+        if (renderState instanceof BackpackRenderState backpackRenderState) {
+            backpackRenderState.setBackpack(itemStack);
+        }
     }
 }

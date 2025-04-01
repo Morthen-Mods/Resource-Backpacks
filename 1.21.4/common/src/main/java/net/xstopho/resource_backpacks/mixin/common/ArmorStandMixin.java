@@ -47,16 +47,15 @@ public abstract class ArmorStandMixin extends LivingEntity implements BackpackHo
 
         } else if (handStack.isEmpty()) {
             if (getClickedSlot(vec) == EquipmentSlot.MAINHAND) {
-                this.getBackpack().ifPresent(itemStack -> {
-                    if (!itemStack.isEmpty()) {
-                        player.setItemInHand(hand, itemStack);
+                ItemStack itemStack = this.getBackpack();
+                if (!itemStack.isEmpty()) {
+                    player.setItemInHand(hand, itemStack);
 
-                        this.setBackpack(ItemStack.EMPTY);
-                        if (!this.level().isClientSide()) {
-                            BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(this, new SyncEntityBackpackPayload(this.getId(), ItemStack.EMPTY));
-                        }
+                    this.setBackpack(ItemStack.EMPTY);
+                    if (!this.level().isClientSide()) {
+                        BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(this, new SyncEntityBackpackPayload(this.getId(), ItemStack.EMPTY));
                     }
-                });
+                }
             }
         }
     }
@@ -64,17 +63,16 @@ public abstract class ArmorStandMixin extends LivingEntity implements BackpackHo
     @Unique
     private InteractionResult setOrSwapBackpack(Player player, InteractionHand hand, ItemStack handStack) {
         if (handStack.getItem() instanceof BackpackItem) {
-            this.getBackpack().ifPresent(itemStack -> {
-                if (itemStack.isEmpty()) {
-                    this.setBackpack(handStack);
-                    player.getItemInHand(hand).shrink(1);
-                } else {
-                    ItemStack backpackCopy = itemStack.copy();
-                    this.setBackpack(handStack);
+            ItemStack itemStack = this.getBackpack();
+            if (itemStack.isEmpty()) {
+                this.setBackpack(handStack);
+                player.getItemInHand(hand).shrink(1);
+            } else {
+                ItemStack backpackCopy = itemStack.copy();
+                this.setBackpack(handStack);
 
-                    player.setItemInHand(hand, backpackCopy);
-                }
-            });
+                player.setItemInHand(hand, backpackCopy);
+            }
         }
 
         if (!this.level().isClientSide()) {

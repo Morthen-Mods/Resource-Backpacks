@@ -15,26 +15,24 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Optional;
-
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements BackpackHolder {
 
     @Unique
-    private Optional<ItemStack> backpack = Optional.empty();
+    private ItemStack backpack = ItemStack.EMPTY;
 
     public LivingEntityMixin(EntityType<?> entityType, Level level) {
         super(entityType, level);
     }
 
     @Override
-    public Optional<ItemStack> getBackpack() {
+    public ItemStack getBackpack() {
         return backpack;
     }
 
     @Override
     public void setBackpack(ItemStack backpack) {
-        this.backpack = Optional.of(backpack);
+        this.backpack = backpack;
     }
 
     @Inject(method = "die", at = @At("TAIL"))

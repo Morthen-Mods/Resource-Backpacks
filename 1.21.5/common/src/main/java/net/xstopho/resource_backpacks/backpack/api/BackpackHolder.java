@@ -50,8 +50,9 @@ public interface BackpackHolder {
 
     default void saveBackpackOnCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
         ItemStack itemStack = this.getBackpack();
-        if (itemStack.isEmpty()) return;
-        Tag backpack = itemStack.save(registryAccess);
-        tag.put(tagId, backpack);
+        if (!itemStack.isEmpty()) {
+            Tag backpack = itemStack.save(registryAccess);
+            tag.put(tagId, backpack);
+        }
     }
 }
