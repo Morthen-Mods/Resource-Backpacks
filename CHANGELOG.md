@@ -5,3 +5,4 @@
   - fixing render issue when Fresh Moves is installed
   - adding new DataComponent to fit the new TooltipProvider System
     - Compatible with older versions, so no Items get lost
+  - fix render issues
