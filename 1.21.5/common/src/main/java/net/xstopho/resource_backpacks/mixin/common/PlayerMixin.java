@@ -6,6 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.client.slot.BackpackSlot;
@@ -28,12 +29,12 @@ public abstract class PlayerMixin extends LivingEntity implements BackpackHolder
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
     public void resource_backpacks$readData(CompoundTag tag, CallbackInfo info) {
-        this.getBackpack().ifPresent(itemStack -> {
-            for (Slot slot : this.inventoryMenu.slots) {
-                if (slot instanceof BackpackSlot) {
-                    slot.set(itemStack);
-                }
+        ItemStack itemStack = this.getBackpack();
+
+        for (Slot slot : this.inventoryMenu.slots) {
+            if (slot instanceof BackpackSlot) {
+                slot.set(itemStack);
             }
-        });
+        }
     }
 }

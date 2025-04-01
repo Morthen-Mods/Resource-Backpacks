@@ -33,6 +33,7 @@ public final class BackpackContainerContents implements TooltipProvider {
 
     public static final BackpackContainerContents EMPTY = new BackpackContainerContents(NonNullList.create());
     private final NonNullList<ItemStack> items;
+    private final int hashCode;
 
     //TODO: remove with later update
     @Deprecated(forRemoval = true)
@@ -44,6 +45,7 @@ public final class BackpackContainerContents implements TooltipProvider {
         if (items.size() > 256) throw new IllegalArgumentException("Too many items");
 
         this.items = NonNullList.withSize(items.size(), ItemStack.EMPTY);
+        this.hashCode = ItemStack.hashStackList(items);
 
         for (int index = 0; index < items.size(); index++) {
             this.items.set(index, items.get(index));
@@ -87,6 +89,20 @@ public final class BackpackContainerContents implements TooltipProvider {
             }
             list.set(i, stack.copy());
         }
+    }
+
+    public boolean equals(Object other) {
+        if (this == other) return true;
+
+        if (other instanceof BackpackContainerContents container) {
+            return ItemStack.listMatches(this.items, container.items);
+        }
+
+        return false;
+    }
+
+    public int hashCode() {
+        return this.hashCode;
     }
 
     @Override
