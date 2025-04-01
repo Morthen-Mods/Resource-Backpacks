@@ -13,7 +13,7 @@ glintSpeed:0.5
 glintStrength:0.75
 prioritizeChunkUpdates:0
 fullscreen:false
-gamma:0.5
+gamma:1.0
 graphicsMode:1
 guiScale:0
 maxFps:120

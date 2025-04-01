@@ -10,11 +10,13 @@ import net.xstopho.resource_backapcks.provider.BackpackRecipesProvider;
 import net.xstopho.resource_backapcks.provider.BackpackTagsProvider;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
+import net.xstopho.resource_backpacks.registries.DataComponentRegistry;
 
 @Mod(BackpackConstants.MOD_ID)
 public class ResourceBackpacks {
 
     public ResourceBackpacks(IEventBus eventBus) {
+        DataComponentRegistry.init();
         BlockRegistry.init();
     }
 
