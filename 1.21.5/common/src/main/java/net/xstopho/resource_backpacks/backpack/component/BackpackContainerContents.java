@@ -23,6 +23,7 @@ import java.util.OptionalInt;
 import java.util.function.Consumer;
 
 //TODO: make it more readable and eventually shrink the code a bit
+//TODO: Fix a Bug where Items get lost when the Backpack is placed on the ground
 public final class BackpackContainerContents implements TooltipProvider {
     public static final Codec<BackpackContainerContents> CODEC = BackpackSlot.CODEC.sizeLimitedListOf(256)
             .xmap(BackpackContainerContents::fromSlots, BackpackContainerContents::asSlots);
@@ -42,7 +43,7 @@ public final class BackpackContainerContents implements TooltipProvider {
     }
 
     public BackpackContainerContents(List<ItemStack> items) {
-        if (items.size() > 256) throw new IllegalArgumentException("Too many items");
+        if (items.size() > 256) throw new IllegalArgumentException("Too many items, max is 256");
 
         this.items = NonNullList.withSize(items.size(), ItemStack.EMPTY);
         this.hashCode = ItemStack.hashStackList(items);

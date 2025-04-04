@@ -3,6 +3,8 @@ package net.xstopho.resource_backpacks.backpack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponentGetter;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
@@ -12,9 +14,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.xstopho.resource_backpacks.backpack.api.ImplementedInventory;
+import net.xstopho.resource_backpacks.backpack.component.BackpackContainerContents;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
 import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
+import net.xstopho.resource_backpacks.registries.DataComponentRegistry;
 import org.jetbrains.annotations.NotNull;
 
 public class BackpackBlockEntity extends BaseContainerBlockEntity implements ImplementedInventory {
@@ -66,6 +70,18 @@ public class BackpackBlockEntity extends BaseContainerBlockEntity implements Imp
     @Override
     public int getContainerSize() {
         return this.items.size();
+    }
+
+    @Override
+    protected void applyImplicitComponents(DataComponentGetter getter) {
+        super.applyImplicitComponents(getter);
+        getter.getOrDefault(DataComponentRegistry.BACKPACK_CONTAINER.get(), BackpackContainerContents.EMPTY).copyInto(this.items);
+    }
+
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.Builder builder) {
+        super.collectImplicitComponents(builder);
+        builder.set(DataComponentRegistry.BACKPACK_CONTAINER.get(), new BackpackContainerContents(this.items));
     }
 
     @Override
