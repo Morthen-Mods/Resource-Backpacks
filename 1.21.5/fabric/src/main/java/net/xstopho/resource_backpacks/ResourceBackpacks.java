@@ -3,7 +3,10 @@ package net.xstopho.resource_backpacks;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerLoginConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.server.network.ServerPlayerConnection;
 import net.xstopho.resource_backpacks.modifier.EntityModifier;
 import net.xstopho.resource_backpacks.network.payloads.*;
 
@@ -14,6 +17,10 @@ public class ResourceBackpacks implements ModInitializer {
         registerServerPayloads();
 
         ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> EntityModifier.modifyEntities(entity));
+
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+            BackpackConstants.showMessage(handler.getPlayer());
+        });
     }
 
     private void registerServerPayloads() {

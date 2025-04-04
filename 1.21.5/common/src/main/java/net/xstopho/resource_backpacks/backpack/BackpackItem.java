@@ -47,9 +47,9 @@ public class BackpackItem extends BlockItem {
     public InteractionResult useOn(UseOnContext context) {
         Player player = context.getPlayer();
 
-        if (player != null && (player.isCrouching() || !BackpackConfig.openFromInventory)) {
-            super.useOn(context);
-        }
+//        if (player != null && (player.isCrouching() || !BackpackConfig.openFromInventory)) {
+//            super.useOn(context);
+//        }
 
         return InteractionResult.PASS;
     }
