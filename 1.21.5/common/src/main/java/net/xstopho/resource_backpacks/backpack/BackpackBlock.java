@@ -48,11 +48,10 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-
-        if (level instanceof ServerLevel) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof BackpackBlockEntity backpackBlockEntity) {
-                player.openMenu(backpackBlockEntity);
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (!level.isClientSide()) {
+            if (blockEntity instanceof BackpackBlockEntity entity) {
+                player.openMenu(entity);
             }
         }
 
@@ -62,7 +61,6 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Override
     public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
-
         if (blockEntity instanceof BackpackBlockEntity entity) {
             entity.spawnFreshItemEntity(level, pos, this.asItem());
         }
