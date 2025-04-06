@@ -1,5 +1,6 @@
 package net.xstopho.resource_backpacks.backpack.util;
 
+import net.minecraft.network.chat.Component;
 import net.xstopho.resource_backpacks.config.common.BackpackConfig;
 
 import java.util.function.Supplier;
@@ -14,12 +15,15 @@ public enum BackpackLevel {
     END(() -> 3, () -> 9, 27);
 
     final Supplier<Integer> rows, columns;
+    final Component defaultName;
     final int maxSize;
 
     BackpackLevel(Supplier<Integer> rows, Supplier<Integer> columns, int maxSize) {
         this.rows = rows;
         this.columns = columns;
         this.maxSize = maxSize;
+
+        this.defaultName = Component.translatable("block.resource_backpacks.backpack_" + this);
     }
 
     public int getRows() {
@@ -35,6 +39,11 @@ public enum BackpackLevel {
     public int getSize() {
 
         return this.getRows() * this.getColumns();
+    }
+
+    public Component getDefaultName() {
+
+        return defaultName;
     }
 
     @Override

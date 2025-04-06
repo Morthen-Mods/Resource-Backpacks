@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.minecraft.client.KeyMapping;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.CreeperRenderer;
 import net.minecraft.client.renderer.entity.ZombieRenderer;

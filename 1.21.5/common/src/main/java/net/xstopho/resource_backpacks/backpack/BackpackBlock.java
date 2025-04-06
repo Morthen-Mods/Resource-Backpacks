@@ -60,20 +60,14 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
     }
 
     @Override
-    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
-        if (level instanceof ServerLevel) {
-            if (blockEntity instanceof BackpackBlockEntity backpackBlockEntity) {
-                ItemStack backpack = new ItemStack(this.asItem());
-                backpack.applyComponents(backpackBlockEntity.collectComponents());
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        BlockEntity blockEntity = level.getBlockEntity(pos);
 
-                ItemEntity entity = new ItemEntity(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, backpack);
-                entity.setDefaultPickUpDelay();
-
-                level.addFreshEntity(entity);
-            }
+        if (blockEntity instanceof BackpackBlockEntity entity) {
+            entity.spawnFreshItemEntity(level, pos, this.asItem());
         }
 
-        super.playerDestroy(level, player, pos, state, blockEntity, tool);
+        return super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override
@@ -143,7 +137,7 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new BackpackBlockEntity(blockPos, blockState, this.backpackLevel);
+        return new BackpackBlockEntity(blockPos, blockState);
     }
 
     public BackpackLevel getBackpackLevel() {
