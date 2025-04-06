@@ -1,3 +1,12 @@
+### v1.1.2
+- fixing Bug where Backpacks drop there Contents
+  when the Player destroy the Backpack Block
+- fixing issue where the Backpack gets wrongly
+  restored after the player respawns
+
+### v1.1.1
+- disable Backpack placement for 1.21.5 due to a Bug that causes Item Loss
+
 ### v1.1.0
 - update to 1.21.5
 - fixing issue where Backpacks disappear when
