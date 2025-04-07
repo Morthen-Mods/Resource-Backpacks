@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.client.BackpackRenderLayer;
 import net.xstopho.resource_backpacks.client.util.BackpackRenderState;
 import org.spongepowered.asm.mixin.Mixin;

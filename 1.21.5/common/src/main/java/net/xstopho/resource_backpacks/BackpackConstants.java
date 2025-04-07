@@ -1,10 +1,8 @@
 package net.xstopho.resource_backpacks;
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenuScreen;
 import net.xstopho.resource_backpacks.config.client.ClientConfig;
 import net.xstopho.resource_backpacks.config.common.BackpackConfig;

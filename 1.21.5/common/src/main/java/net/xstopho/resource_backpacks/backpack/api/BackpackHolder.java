@@ -12,8 +12,6 @@ import net.minecraft.world.level.Level;
 import net.xstopho.resource_backpacks.client.slot.BackpackSlot;
 import org.jetbrains.annotations.ApiStatus;
 
-import java.util.Optional;
-
 @ApiStatus.Internal
 public interface BackpackHolder {
     String tagId = "resource_backpacks$backpack";
