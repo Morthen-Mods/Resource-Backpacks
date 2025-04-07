@@ -14,9 +14,4 @@ public class NeoforgeHandler {
     public static void registerEntityLoad(EntityJoinLevelEvent event) {
         EntityModifier.modifyEntities(event.getEntity());
     }
-
-    @SubscribeEvent
-    public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
-        BackpackConstants.showMessage(event.getEntity());
-    }
 }

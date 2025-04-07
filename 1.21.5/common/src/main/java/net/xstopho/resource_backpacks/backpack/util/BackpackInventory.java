@@ -27,9 +27,7 @@ public class BackpackInventory implements ImplementedInventory {
         }
 
         BackpackContainerContents container = stack.get(DataComponentRegistry.BACKPACK_CONTAINER.get());
-        if (container != null) {
-            container.copyInto(items);
-        }
+        if (container != null) container.copyInto(items);
     }
 
     @Override

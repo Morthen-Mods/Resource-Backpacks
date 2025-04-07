@@ -61,8 +61,4 @@ public class BackpackConstants {
     public static <T extends CustomPacketPayload> CustomPacketPayload.Type<T> type(String id) {
         return new CustomPacketPayload.Type<>(of(id));
     }
-
-    public static void showMessage(Player player) {
-        player.displayClientMessage(Component.literal("The placement of Backpacks is currently disabled due to an Bug that causes Item loss. Activate the 'Open on Interact' Setting in the Common > Backpacks tab."), false);
-    }
 }

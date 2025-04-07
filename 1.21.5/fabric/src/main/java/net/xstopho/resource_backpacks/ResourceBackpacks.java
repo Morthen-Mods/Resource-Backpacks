@@ -17,10 +17,6 @@ public class ResourceBackpacks implements ModInitializer {
         registerServerPayloads();
 
         ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> EntityModifier.modifyEntities(entity));
-
-        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
-            BackpackConstants.showMessage(handler.getPlayer());
-        });
     }
 
     private void registerServerPayloads() {
