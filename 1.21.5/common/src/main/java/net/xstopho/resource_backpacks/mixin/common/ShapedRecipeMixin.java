@@ -8,8 +8,10 @@ import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
+import net.xstopho.resource_backpacks.backpack.component.BackpackContainerContents;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.mixin.accessor.ShapedRecipeAccessor;
+import net.xstopho.resource_backpacks.registries.DataComponentRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,13 +29,13 @@ public abstract class ShapedRecipeMixin {
             ItemStack backpack = input.getItem(4);
 
             if (backpack.getItem() instanceof BackpackItem) {
-                ItemContainerContents container = backpack.get(DataComponents.CONTAINER);
+                BackpackContainerContents container = backpack.get(DataComponentRegistry.BACKPACK_CONTAINER.get());
 
                 if (container != null) {
                     if (backpackItem.getBackpackLevel().equals(BackpackLevel.END) && !emptyContainer(container)) {
                         cir.setReturnValue(new ItemStack(Items.AIR));
                     } else {
-                        result.set(DataComponents.CONTAINER, container);
+                        result.set(DataComponentRegistry.BACKPACK_CONTAINER.get(), container);
                         cir.setReturnValue(result);
                     }
                 }
@@ -42,8 +44,8 @@ public abstract class ShapedRecipeMixin {
     }
 
     @Unique
-    private boolean emptyContainer(ItemContainerContents container) {
-        for (ItemStack stack : container.stream().toList()) {
+    private boolean emptyContainer(BackpackContainerContents container) {
+        for (ItemStack stack : container.toList()) {
             if (stack.getItem() != Items.AIR) {
                 return false;
             }

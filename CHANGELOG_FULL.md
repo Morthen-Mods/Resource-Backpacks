@@ -1,3 +1,9 @@
+### v1.1.4
+- fix issue where items get lost when upgrading backpack
+
+### v1.1.3
+- remove message when joining world/server
+
 ### v1.1.2
 - fixing Bug where Backpacks drop there Contents
   when the Player destroy the Backpack Block
