@@ -46,9 +46,7 @@ public abstract class ShapedRecipeMixin {
     @Unique
     private boolean emptyContainer(BackpackContainerContents container) {
         for (ItemStack stack : container.toList()) {
-            if (stack.getItem() != Items.AIR) {
-                return false;
-            }
+            if (!stack.isEmpty()) return false;
         }
         return true;
     }

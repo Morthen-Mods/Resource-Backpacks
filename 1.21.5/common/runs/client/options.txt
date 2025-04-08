@@ -51,7 +51,7 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:[]
+resourcePacks:["fabric"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us
@@ -127,6 +127,7 @@ key_key.hotbar.9:key.keyboard.9
 key_key.resource_backpacks.open_backpack:key.keyboard.b
 key_key.resource_backpacks.show_compact_preview:key.keyboard.left.shift
 key_key.resource_backpacks.show_inventory_preview:key.keyboard.left.alt
+key_key.modmenu.open_menu:key.keyboard.unknown
 soundCategory_master:0.25496688741721857
 soundCategory_music:0.20422535211267606
 soundCategory_record:1.0
