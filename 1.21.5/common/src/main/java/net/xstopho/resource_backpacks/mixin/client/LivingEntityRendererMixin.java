@@ -16,10 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LivingEntityRenderer.class)
 public abstract class LivingEntityRendererMixin {
 
-    @Invoker("addLayer")
-    public abstract boolean invokeAddLayer(RenderLayer<?, ?> feature);
-
-
     @Inject(method = "extractRenderState", at = @At("TAIL"))
     public void resource_backpacks$extractRenderState(LivingEntity livingEntity, LivingEntityRenderState renderState, float partialTicks, CallbackInfo info) {
         ItemStack itemStack = ((BackpackHolder) livingEntity).getBackpack();
