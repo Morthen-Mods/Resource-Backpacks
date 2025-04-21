@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.client;
+package net.xstopho.resource_backpacks.client.model;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HumanoidModel;
