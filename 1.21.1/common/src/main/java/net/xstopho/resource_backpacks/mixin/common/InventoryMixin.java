@@ -23,8 +23,8 @@ public class InventoryMixin {
     @Shadow NonNullList<ItemStack> items;
     @Shadow Player player;
 
-    //TODO: - needs to be more robust
-    //      - rework code
+    //TODO: - rework code to make it more robust
+    //      - add translation
     @Inject(method = "tick", at = @At("TAIL"))
     public void resource_backpacks$tick(CallbackInfo ci) {
 //        if (BackpackConfig.slownessPenalty) {
