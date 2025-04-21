@@ -21,8 +21,7 @@
         "client.SlotMixin",
         "client.SlotWrapperMixin",
 
-        "client.CreativeModeInventoryScreenMixin",
-        "client.LivingEntityRendererMixin"
+        "client.CreativeModeInventoryScreenMixin"
     ],
     "server": [],
     "injectors": {

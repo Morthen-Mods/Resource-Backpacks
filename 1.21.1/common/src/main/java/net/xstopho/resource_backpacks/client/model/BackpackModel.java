@@ -1,4 +1,4 @@
-package net.xstopho.resource_backpacks.client;
+package net.xstopho.resource_backpacks.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
