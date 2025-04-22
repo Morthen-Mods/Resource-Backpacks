@@ -1,24 +1,25 @@
 package net.xstopho.resource_backpacks.handler;
 
-import net.minecraft.client.renderer.entity.ArmorStandRenderer;
-import net.minecraft.client.renderer.entity.CreeperRenderer;
-import net.minecraft.client.renderer.entity.ZombieRenderer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.client.resources.PlayerSkin;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
+import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.client.model.BackpackModel;
-import net.xstopho.resource_backpacks.client.renderer.ArmorStandBackpackLayer;
-import net.xstopho.resource_backpacks.client.renderer.CreeperBackpackLayer;
-import net.xstopho.resource_backpacks.client.renderer.PlayerBackpackLayer;
-import net.xstopho.resource_backpacks.client.renderer.ZombieBackpackLayer;
+import net.xstopho.resource_backpacks.client.renderer.*;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
+
+import java.util.Map;
 
 @EventBusSubscriber(modid = BackpackConstants.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class ModClientHandler {
@@ -42,19 +43,16 @@ public class ModClientHandler {
 
     @SubscribeEvent
     public static void addRenderLayer(EntityRenderersEvent.AddLayers event) {
-        PlayerRenderer slimPlayer = event.getSkin(PlayerSkin.Model.SLIM);
-        if (slimPlayer != null) slimPlayer.addLayer(new PlayerBackpackLayer(slimPlayer, event.getContext().getModelSet()));
+        event.getSkins().forEach(model -> {
+            PlayerRenderer renderer = event.getSkin(model);
+            if (renderer != null) renderer.addLayer(new PlayerBackpackLayer(renderer, event.getContext().getModelSet()));
+        });
 
-        PlayerRenderer widePlayer = event.getSkin(PlayerSkin.Model.WIDE);
-        if (widePlayer != null) widePlayer.addLayer(new PlayerBackpackLayer(widePlayer, event.getContext().getModelSet()));
-
-        ZombieRenderer zombie = event.getRenderer(EntityType.ZOMBIE);
-        if (zombie != null) zombie.addLayer(new ZombieBackpackLayer(zombie, event.getContext().getModelSet()));
-
-        CreeperRenderer creeper = event.getRenderer(EntityType.CREEPER);
-        if (creeper != null) creeper.addLayer(new CreeperBackpackLayer(creeper, event.getContext().getModelSet()));
-
-        ArmorStandRenderer armorStand = event.getRenderer(EntityType.ARMOR_STAND);
-        if (armorStand != null) armorStand.addLayer(new ArmorStandBackpackLayer(armorStand, event.getContext().getModelSet()));
+        event.getEntityTypes().forEach(entityType -> {
+            EntityRenderer<?> entityRenderer = event.getRenderer(entityType);
+            if (entityRenderer instanceof CreeperRenderer creeper) creeper.addLayer(new CreeperBackpackLayer(creeper, event.getContext().getModelSet()));
+            if (entityRenderer instanceof ZombieRenderer zombie) zombie.addLayer(new ZombieBackpackLayer(zombie, event.getContext().getModelSet()));
+            if (entityRenderer instanceof ArmorStandRenderer armorStand) armorStand.addLayer(new ArmorStandBackpackLayer(armorStand, event.getContext().getModelSet()));
+        });
     }
 }
