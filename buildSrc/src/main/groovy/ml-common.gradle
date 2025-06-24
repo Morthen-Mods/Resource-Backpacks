@@ -53,17 +53,6 @@ processResources {
             "mod_description": mod_description,
             "minecraft_version_range": minecraft_version_range,
 
-            // Fabric Keys
-            "fabric_loader_version": fabric_loader_version,
-            "fabric_api_version": fabric_api_version,
-
-            // NeoForge Keys
-            "neoforge_version": neoforge_version,
-
-            // Forge Keys
-            "forge_version": forge_version,
-            "forge_version_range": forge_version_range,
-
             // Dependencies
             "resource_config_api": resource_config_api,
             "resource_library": resource_library

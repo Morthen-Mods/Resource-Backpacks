@@ -5,11 +5,11 @@ plugins {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_21_1}"
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
-    implementation("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${resource_config_api}")
-    implementation("net.xstopho.resourcelibrary:resourcelibrary-forge:${resource_library}")
+    implementation("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${minecraft_version}-${resource_config_api}")
+    implementation("net.xstopho.resourcelibrary:resourcelibrary-forge:${minecraft_version}-${resource_library}")
 }
 
 mixin {
@@ -26,7 +26,7 @@ minecraft {
     def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) accessTransformers = [at]
 
-    runs {
+/*    runs {
         client {
             workingDirectory file("../common/runs/client")
             ideaModule "${rootProject.name}.${directory}.${project.name}.main"
@@ -48,7 +48,7 @@ minecraft {
                 }
             }
         }
-    }
+    }*/
 }
 
 jar {

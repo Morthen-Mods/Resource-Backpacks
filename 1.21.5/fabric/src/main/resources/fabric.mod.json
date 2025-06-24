@@ -24,8 +24,8 @@
         "minecraft": "${minecraft_version}",
         "java": ">=${java_version}",
 
-        "resourceconfigapi": ">=${resource_config_api}",
-        "resourcelibrary": ">=${resource_library}"
+        "resourceconfigapi": ">=${minecraft_version}-${resource_config_api}",
+        "resourcelibrary": ">=${minecraft_version}-${resource_library}"
     },
     "custom": {
         "modmenu": {

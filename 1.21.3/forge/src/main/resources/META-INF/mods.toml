@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "${forge_version_range}"
+loaderVersion = "[53, 54)"
 license = "${mod_license}"
 
 [[mods]]
@@ -13,7 +13,7 @@ license = "${mod_license}"
 [[dependencies.${mod_id}]]
     modId = "forge"
     mandatory = true
-    versionRange = "${forge_version_range}"
+    versionRange = "[53, 54)"
     ordering = "NONE"
     side = "BOTH"
 
@@ -27,13 +27,13 @@ license = "${mod_license}"
 [[dependencies.${mod_id}]]
     modId = "resourceconfigapi"
     mandatory = true
-    versionRange = "[${resource_config_api}, )"
+    versionRange = "[${minecraft_version}-${resource_config_api}, )"
     ordering = "AFTER"
     side = "BOTH"
 
 [[dependencies.${mod_id}]]
     modId = "resourcelibrary"
     mandatory = true
-    versionRange = "[${resource_library}, )"
+    versionRange = "[${minecraft_version}-${resource_library}, )"
     ordering = "AFTER"
     side = "BOTH"

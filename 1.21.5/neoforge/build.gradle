@@ -4,22 +4,22 @@ plugins {
 }
 
 dependencies {
-    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
-    implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
+    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${minecraft_version}-${resource_config_api}"
+    implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${minecraft_version}-${resource_library}"
 }
 
 neoForge {
-    version = neoforge_version
+    version = neoforge_21_5
 
     def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) accessTransformers = [at]
 
     parchment {
-        minecraftVersion = "1.21.4"
-        mappingsVersion = parchment_version
+        minecraftVersion = minecraft_version
+        mappingsVersion = parchment_21_5
     }
 
-    runs {
+/*    runs {
         configureEach {
             systemProperty('neoforge.enableGameTestNamespaces', mod_id)
             ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
@@ -35,7 +35,7 @@ neoForge {
     }
     mods {
         "${mod_id}" { sourceSet sourceSets.main }
-    }
+    }*/
 }
 publishMods {
     file = jar.archiveFile

@@ -4,14 +4,14 @@ plugins {
 }
 
 neoForge {
-    neoFormVersion = neoform_version
+    neoFormVersion = neoform_21_3
 
     def at = file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) accessTransformers = [at.absolutePath]
 
     parchment {
         minecraftVersion = minecraft_version
-        mappingsVersion = parchment_version
+        mappingsVersion = parchment_21_3
     }
 }
 
@@ -20,6 +20,6 @@ dependencies {
     compileOnly group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
     annotationProcessor group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
 
-    compileOnly "net.xstopho.resourceconfigapi:resourceconfigapi-common:${resource_config_api}"
-    compileOnly "net.xstopho.resourcelibrary:resourcelibrary-common:${resource_library}"
+    compileOnly "net.xstopho.resourceconfigapi:resourceconfigapi-common:${minecraft_version}-${resource_config_api}"
+    compileOnly "net.xstopho.resourcelibrary:resourcelibrary-common:${minecraft_version}-${resource_library}"
 }

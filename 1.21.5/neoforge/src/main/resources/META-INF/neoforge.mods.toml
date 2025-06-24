@@ -19,7 +19,7 @@ license = "${mod_license}"
 [[dependencies.${mod_id}]]
     modId = "neoforge"
     required = true
-    versionRange = "[${neoforge_version},)"
+    versionRange = "[21.5, 21.6)"
     ordering = "NONE"
     side = "BOTH"
 
@@ -33,13 +33,13 @@ license = "${mod_license}"
 [[dependencies.${mod_id}]]
     modId = "resourceconfigapi"
     type = "required"
-    versionRange = "[${resource_config_api},)"
+    versionRange = "[${minecraft_version}-${resource_config_api},)"
     ordering = "AFTER"
     side = "BOTH"
 
 [[dependencies.${mod_id}]]
     modId = "resourcelibrary"
     type = "required"
-    versionRange = "[${resource_library},)"
+    versionRange = "[${minecraft_version}-${resource_library},)"
     ordering = "AFTER"
     side = "BOTH"

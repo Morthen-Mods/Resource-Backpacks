@@ -4,21 +4,21 @@ plugins {
 }
 
 dependencies {
-    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${resource_config_api}"
-    implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${resource_library}"
+    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${minecraft_version}-${resource_config_api}"
+    implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${minecraft_version}-${resource_library}"
 
     implementation project(":1.21.3:common")
 }
 
 neoForge {
-    version = neoforge_version
+    version = neoforge_21_3
 
     def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) accessTransformers = [at]
 
     parchment {
         minecraftVersion = minecraft_version
-        mappingsVersion = parchment_version
+        mappingsVersion = parchment_21_3
     }
 
     runs {
