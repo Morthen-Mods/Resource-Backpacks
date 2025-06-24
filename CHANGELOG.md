@@ -1,3 +1,3 @@
-### v1.1.6
-  - fixing crash with Creeper overhaul
-  - changing the RenderLayer registration again to make it more robust
+### v1.2.0
+  - apply Resource Library changes on all versions
+  - update to 1.21.6
