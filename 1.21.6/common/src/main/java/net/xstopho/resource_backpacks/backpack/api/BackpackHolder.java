@@ -9,6 +9,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.xstopho.resource_backpacks.client.slot.BackpackSlot;
 import org.jetbrains.annotations.ApiStatus;
 
@@ -37,20 +39,12 @@ public interface BackpackHolder {
         }
     }
 
-    default void readBackpackFromCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
-        if (tag.contains(tagId)) {
-            tag.getCompound(tagId).ifPresent(compoundTag -> {
-                ItemStack backpack = ItemStack.parse(registryAccess, compoundTag).orElse(ItemStack.EMPTY);
-                this.setBackpack(backpack);
-            });
-        }
+    default void readBackpackFromValueInput(ValueInput valueInput) {
+        ItemStack backpack = valueInput.read(tagId, ItemStack.CODEC).orElse(ItemStack.EMPTY);
+        this.setBackpack(backpack);
     }
 
-    default void saveBackpackOnCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
-        ItemStack itemStack = this.getBackpack();
-        if (!itemStack.isEmpty()) {
-            Tag backpack = itemStack.save(registryAccess);
-            tag.put(tagId, backpack);
-        }
+    default void saveBackpackToValueOutput(ValueOutput valueOutput) {
+        valueOutput.store(tagId, ItemStack.CODEC, this.getBackpack());
     }
 }

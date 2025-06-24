@@ -48,18 +48,16 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
         if (stack.isBarVisible()) {
             int xPos = x + 2;
             int yPos = y + 13;
-            guiGraphics.fill(RenderPipelines.GUI_TEXTURED, xPos, yPos, xPos + 13, yPos + 2, 200, -16777216);
-            guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, 200, stack.getBarColor());
+            guiGraphics.fill(RenderPipelines.GUI_TEXTURED, xPos, yPos, xPos + 13, yPos + 2, -16777216);
+            guiGraphics.fill(RenderPipelines.GUI_TEXTURED, xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, stack.getBarColor());
         }
     }
 
     private void renderItemCount(Font font, int count, int x, int y, GuiGraphics guiGraphics) {
         if (count != 1) {
             Component component = getReadableNumber(count);
-            guiGraphics.pose().pushPose();
-            guiGraphics.pose().translate(0f, 0f, 200f);
+            guiGraphics.pose().translate(0f, 0f);
             guiGraphics.drawString(font, component, x + 17 - font.width(component), y + 9, -1, true);
-            guiGraphics.pose().popPose();
         }
     }
 

@@ -20,6 +20,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.xstopho.resource_backpacks.backpack.api.ImplementedInventory;
 import net.xstopho.resource_backpacks.backpack.component.BackpackContainerContents;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
@@ -55,16 +57,16 @@ public class BackpackBlockEntity extends BlockEntity implements Nameable, Implem
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        ContainerHelper.saveAllItems(tag, this.items, true, registries);
+    protected void saveAdditional(ValueOutput valueOutput) {
+        super.saveAdditional(valueOutput);
+        ContainerHelper.saveAllItems(valueOutput, this.items, true);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
+    protected void loadAdditional(ValueInput valueInput) {
+        super.loadAdditional(valueInput);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        ContainerHelper.loadAllItems(tag, this.items, registries);
+        ContainerHelper.loadAllItems(valueInput, this.items);
     }
 
     @Override

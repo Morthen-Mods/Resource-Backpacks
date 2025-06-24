@@ -8,6 +8,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -35,7 +37,7 @@ public abstract class LivingEntityMixin extends Entity implements BackpackHolder
         this.backpack = backpack;
     }
 
-    @Inject(method = "die", at = @At("TAIL"))
+    @Inject(method = "die(Lnet/minecraft/world/damagesource/DamageSource;)V", at = @At("TAIL"))
     public void resource_backpacks$die(DamageSource source, CallbackInfo info) {
         if (source.getEntity() instanceof Player) {
             this.dropBackpack(this.level(), this.getOnPos());
@@ -43,12 +45,12 @@ public abstract class LivingEntityMixin extends Entity implements BackpackHolder
     }
 
     @Inject(method = "addAdditionalSaveData(Lnet/minecraft/world/level/storage/ValueOutput;)V", at = @At("TAIL"))
-    public void resource_backpacks$saveData(CompoundTag tag, CallbackInfo info) {
-        this.saveBackpackOnCompound(tag, this.registryAccess());
+    public void resource_backpacks$saveData(ValueOutput valueOutput, CallbackInfo ci) {
+        this.saveBackpackToValueOutput(valueOutput);
     }
 
     @Inject(method = "readAdditionalSaveData(Lnet/minecraft/world/level/storage/ValueInput;)V", at = @At("TAIL"))
-    public void resource_backpacks$readData(CompoundTag tag, CallbackInfo info) {
-        this.readBackpackFromCompound(tag, this.registryAccess());
+    public void resource_backpacks$readData(ValueInput valueInput, CallbackInfo ci) {
+        this.readBackpackFromValueInput(valueInput);
     }
 }

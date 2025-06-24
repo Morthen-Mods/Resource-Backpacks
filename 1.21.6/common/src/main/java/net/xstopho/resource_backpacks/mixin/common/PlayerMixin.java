@@ -8,6 +8,7 @@ import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
 import net.xstopho.resource_backpacks.backpack.api.BackpackHolder;
 import net.xstopho.resource_backpacks.client.slot.BackpackSlot;
 import org.spongepowered.asm.mixin.Final;
@@ -28,7 +29,7 @@ public abstract class PlayerMixin extends LivingEntity implements BackpackHolder
     }
 
     @Inject(method = "readAdditionalSaveData(Lnet/minecraft/world/level/storage/ValueInput;)V", at = @At("TAIL"))
-    public void resource_backpacks$readData(CompoundTag tag, CallbackInfo info) {
+    public void resource_backpacks$readData(ValueInput valueInput, CallbackInfo ci) {
         ItemStack itemStack = this.getBackpack();
 
         for (Slot slot : this.inventoryMenu.slots) {
