@@ -1,9 +1,6 @@
 package net.xstopho.resource_backpacks.backpack.api;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
@@ -45,6 +42,8 @@ public interface BackpackHolder {
     }
 
     default void saveBackpackToValueOutput(ValueOutput valueOutput) {
-        valueOutput.store(tagId, ItemStack.CODEC, this.getBackpack());
+        if (this.getBackpack() != ItemStack.EMPTY) {
+            valueOutput.store(tagId, ItemStack.CODEC, this.getBackpack());
+        }
     }
 }
