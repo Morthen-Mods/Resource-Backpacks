@@ -39,6 +39,7 @@
   "config.resource_backpacks.appearance": "Aparência",
   "config.resource_backpacks.appearance.style.label": "Textura da GUI",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Aparência da Mochila",
+  "config.resource_backpacks.appearance.position.label": "Espaço da Mochila",
 
   "config.resource_backpacks.backpacks.general.label": "Configurações Gerais",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Abrir ao Interagir",

@@ -41,9 +41,9 @@ public abstract class CreativeModeInventoryScreenMixin extends EffectRenderingIn
         }
     }
 
-    @Inject(method = "renderBg", at = @At("TAIL"))
+    @Inject(method = "renderBg(Lnet/minecraft/client/gui/GuiGraphics;FII)V", at = @At("TAIL"))
     private void resource_backpacks$renderSlot(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY, CallbackInfo info) {
-        if (this.selectedTab.getType() == CreativeModeTab.Type.INVENTORY) {
+        if (selectedTab.getType() == CreativeModeTab.Type.INVENTORY) {
             guiGraphics.blit(SLOT, this.leftPos + 126, this.topPos + 19, 0, 0, 18, 18, 18, 18);
         }
     }

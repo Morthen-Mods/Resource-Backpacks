@@ -1,3 +1,2 @@
-### v1.2.0
-  - apply Resource Library changes on all versions
-  - update to 1.21.6
+### v1.2.1
+  - adding an option to change the Backpack Slot position

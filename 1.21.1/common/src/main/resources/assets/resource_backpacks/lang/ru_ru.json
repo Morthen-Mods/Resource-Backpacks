@@ -39,6 +39,7 @@
   "config.resource_backpacks.appearance": "Внешний вид",
   "config.resource_backpacks.appearance.style.label": "Текстура интерфейса",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Внешний вид рюкзака",
+  "config.resource_backpacks.appearance.position.label": "Ячейка рюкзака",
 
   "config.resource_backpacks.backpacks.general.label": "Общие настройки",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Открыть при взаимодействии",
