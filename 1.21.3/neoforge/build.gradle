@@ -19,23 +19,23 @@ neoForge {
         mappingsVersion = parchment_21_3
     }
 
-/*    runs {
+    runs {
         configureEach {
             systemProperty('neoforge.enableGameTestNamespaces', mod_id)
             ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
             gameDirectory = file("../common/runs/${it.name.toLowerCase()}")
         }
-        client {
+/*        client {
             client()
         }
         server {
             server()
             programArguments.add('nogui')
-        }
+        }*/
     }
     mods {
         "${mod_id}" { sourceSet sourceSets.main }
-    }*/
+    }
 }
 
 publishMods {

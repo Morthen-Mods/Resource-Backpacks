@@ -39,6 +39,7 @@
   "config.resource_backpacks.appearance": "Görünüm",
   "config.resource_backpacks.appearance.style.label": "Gui Dokusu",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Sırt Çantası Görünümü",
+  "config.resource_backpacks.appearance.position.label": "Sırt Çantası Yuvası",
 
   "config.resource_backpacks.backpacks.general.label": "Genel Ayarlar",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Etkileşimde Aç",

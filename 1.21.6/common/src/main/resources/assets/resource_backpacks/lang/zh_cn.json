@@ -39,6 +39,7 @@
   "config.resource_backpacks.appearance": "外观",
   "config.resource_backpacks.appearance.style.label": "Gui 纹理",
   "config.resource_backpacks.appearance.backpack_appearance.label": "背包外观",
+  "config.resource_backpacks.appearance.position.label": "背包格子",
 
   "config.resource_backpacks.backpacks": "背包",
 

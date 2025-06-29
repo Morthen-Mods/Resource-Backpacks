@@ -38,6 +38,7 @@
   "config.resource_backpacks.appearance": "Appearance",
   "config.resource_backpacks.appearance.style.label": "Gui Texture",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Backpack Appearance",
+  "config.resource_backpacks.appearance.position.label": "Backpack Slot Position",
 
   "config.resource_backpacks.backpacks": "Backpacks",
 
@@ -60,7 +61,7 @@
   "config.resource_backpacks.chest_loot.leather_backpack.label": "Leather Backpack - Chances",
   "config.resource_backpacks.chest_loot.leatherbackpackspawnchest.label": "Spawn Bonus Chest",
   "config.resource_backpacks.chest_loot.leatherbackpackvillage.label": "Village Chests",
-  "config.resource_backpacks.chest_loot.leatherbackpackvillage.tooltip": "Icludes the following Chests:\n- Mason\n- Temple\n- Fisher\n- Shepard\n- Tannery\n- Armorer\n- Butcher\n- Fletcher\n- Toolsmith\n- Weaponsmith\n- Snowy House\n- Taiga House\n- Cartographer\n- Desert House\n- Plains House\n- Savanna House",
+  "config.resource_backpacks.chest_loot.leatherbackpackvillage.tooltip": "Includes the following Chests:\n- Mason\n- Temple\n- Fisher\n- Shepard\n- Tannery\n- Armorer\n- Butcher\n- Fletcher\n- Toolsmith\n- Weaponsmith\n- Snowy House\n- Taiga House\n- Cartographer\n- Desert House\n- Plains House\n- Savanna House",
   "config.resource_backpacks.chest_loot.leatherbackpackstronghold.label": "Stronghold Chests",
   "config.resource_backpacks.chest_loot.leatherbackpackstronghold.tooltip": "Includes the following Chests:\n- Corridor\n- Crossing",
   "config.resource_backpacks.chest_loot.leatherbackpacktreasure.label": "Treasure Chests",
@@ -74,7 +75,7 @@
 
   "config.resource_backpacks.chest_loot.copper_backpack.label": "Copper Backpack - Chances",
   "config.resource_backpacks.chest_loot.copperbackpackvillage.label": "Village Chests",
-  "config.resource_backpacks.chest_loot.copperbackpackvillage.tooltip": "Icludes the following Chests:\n- Mason\n- Temple\n- Armorer\n- Toolsmith\n- Weaponsmith",
+  "config.resource_backpacks.chest_loot.copperbackpackvillage.tooltip": "Includes the following Chests:\n- Mason\n- Temple\n- Armorer\n- Toolsmith\n- Weaponsmith",
   "config.resource_backpacks.chest_loot.copperbackpackstronghold.label": "Stronghold Chests",
   "config.resource_backpacks.chest_loot.copperbackpackstronghold.tooltip": "Includes the following Chests:\n- Corridor\n- Crossing",
   "config.resource_backpacks.chest_loot.copperbackpacktreasure.label": "Treasure Chests",

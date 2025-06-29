@@ -19,7 +19,7 @@ neoForge {
         mappingsVersion = parchment_21_1
     }
 
-    runs {
+/*    runs {
         configureEach {
             systemProperty('neoforge.enableGameTestNamespaces', mod_id)
             ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
@@ -35,7 +35,7 @@ neoForge {
     }
     mods {
         "${mod_id}" { sourceSet sourceSets.main }
-    }
+    }*/
 }
 
 publishMods {

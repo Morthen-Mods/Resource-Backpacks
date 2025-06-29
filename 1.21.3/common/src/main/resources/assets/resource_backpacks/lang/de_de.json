@@ -39,6 +39,7 @@
   "config.resource_backpacks.appearance": "Aussehen",
   "config.resource_backpacks.appearance.style.label": "Gui-Textur",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Rucksack Aussehen",
+  "config.resource_backpacks.appearance.position.label": "Backpack Slot Position",
 
   "config.resource_backpacks.backpacks.general.label": "Allgemeine Einstellungen",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Öffnen beim Interagieren",
