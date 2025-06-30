@@ -5,6 +5,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.Item;
@@ -50,7 +51,7 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
             int xPos = x + 2;
             int yPos = y + 13;
             guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + 13, yPos + 2, 200, -16777216);
-            guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, 200, stack.getBarColor());
+            guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, 200, ARGB.opaque(stack.getBarColor()));
         }
     }
 

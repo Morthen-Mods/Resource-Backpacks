@@ -6,6 +6,7 @@ import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.Item;
@@ -38,25 +39,26 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
 
     public void renderDecoratedItem(Font font, ItemStack stack, int count, int x, int y, GuiGraphics guiGraphics) {
         if (!stack.isEmpty()) {
+            guiGraphics.pose().pushMatrix();
             guiGraphics.renderItem(stack, x, y);
             renderItemBar(stack, x, y, guiGraphics);
             renderItemCount(font, count, x, y, guiGraphics);
+            guiGraphics.pose().popMatrix();
         }
     }
 
     private void renderItemBar(ItemStack stack, int x, int y, GuiGraphics guiGraphics) {
         if (stack.isBarVisible()) {
-            int xPos = x + 2;
-            int yPos = y + 13;
-            guiGraphics.fill(RenderPipelines.GUI_TEXTURED, xPos, yPos, xPos + 13, yPos + 2, -16777216);
-            guiGraphics.fill(RenderPipelines.GUI_TEXTURED, xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, stack.getBarColor());
+            int i = x + 2;
+            int j = y + 13;
+            guiGraphics.fill(RenderPipelines.GUI, i, j, i + 13, j + 2, -16777216);
+            guiGraphics.fill(RenderPipelines.GUI, i, j, i + stack.getBarWidth(), j + 1, ARGB.opaque(stack.getBarColor()));
         }
     }
 
     private void renderItemCount(Font font, int count, int x, int y, GuiGraphics guiGraphics) {
         if (count != 1) {
             Component component = getReadableNumber(count);
-            guiGraphics.pose().translate(0f, 0f);
             guiGraphics.drawString(font, component, x + 17 - font.width(component), y + 9, -1, true);
         }
     }

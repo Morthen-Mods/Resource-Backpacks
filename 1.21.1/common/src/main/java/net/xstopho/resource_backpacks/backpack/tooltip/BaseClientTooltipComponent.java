@@ -50,7 +50,7 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
             int xPos = x + 2;
             int yPos = y + 13;
             guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + 13, yPos + 2, 200, -16777216);
-            guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, 200, stack.getBarColor());
+            guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, 200, stack.getBarColor() | -16777216);
         }
     }
 
