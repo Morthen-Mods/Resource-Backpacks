@@ -7,8 +7,8 @@ dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.officialMojangMappings()
 
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_21_6}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_21_6}+${minecraft_version}"
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_21_7}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_21_7}+${minecraft_version}"
 
     modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${minecraft_version}-${resource_config_api}"
     modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${minecraft_version}-${resource_library}"
@@ -45,10 +45,10 @@ publishMods {
 
     modrinth {
         requires('fabric-api')
-        minecraftVersions.addAll("1.21.6")
+        minecraftVersions.addAll("1.21.6", "1.21.7")
     }
     curseforge {
         requires('fabric-api')
-        minecraftVersions.addAll("1.21.6")
+        minecraftVersions.addAll("1.21.6", "1.21.7")
     }
 }

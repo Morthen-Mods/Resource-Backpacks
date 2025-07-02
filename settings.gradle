@@ -18,7 +18,7 @@ include('1.21.1')
 include('1.21.3')
 include('1.21.4')
 include('1.21.5')
-include('1.21.6')
+include('1.21.7')
 
 rootProject.children.each { subproject ->
     def subprojectDir = file(subproject.projectDir)

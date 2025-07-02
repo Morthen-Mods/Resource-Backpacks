@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_21_6}"
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_21_7}"
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
     implementation("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${minecraft_version}-${resource_config_api}")
@@ -71,9 +71,9 @@ publishMods {
     modLoaders.addAll("forge")
 
     modrinth {
-        minecraftVersions.addAll("1.21.6")
+        minecraftVersions.addAll("1.21.6", "1.21.7")
     }
     curseforge {
-        minecraftVersions.addAll("1.21.6")
+        minecraftVersions.addAll("1.21.6", "1.21.7")
     }
 }

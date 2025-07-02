@@ -7,24 +7,24 @@ dependencies {
     implementation "net.xstopho.resourceconfigapi:resourceconfigapi-neoforge:${minecraft_version}-${resource_config_api}"
     implementation "net.xstopho.resourcelibrary:resourcelibrary-neoforge:${minecraft_version}-${resource_library}"
 
-    implementation project(":1.21.5:common")
+    implementation project(":1.21.7:common")
 }
 
 neoForge {
-    version = neoforge_21_6
+    version = neoforge_21_7
 
     def at = file('../common/src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) accessTransformers = [at]
 
     parchment {
         minecraftVersion = "1.21.5"
-        mappingsVersion = parchment_21_6
+        mappingsVersion = parchment_21_7
     }
 
     runs {
         data {
             clientData()
-            ideName = "Common Datagen (1.21.6)"
+            ideName = "Common Datagen (1.21.7)"
             gameDirectory = file('../common/runs/data')
             programArguments = ['--mod', project.mod_id, '--all', '--output', file('../common/src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()]
         }
@@ -35,9 +35,9 @@ neoForge {
 }
 
 compileJava {
-    source(project(':1.21.6:common').sourceSets.main.allSource)
+    source(project(':1.21.7:common').sourceSets.main.allSource)
 }
 
 processResources {
-    from project(":1.21.6:common").sourceSets.main.resources
+    from project(":1.21.7:common").sourceSets.main.resources
 }
