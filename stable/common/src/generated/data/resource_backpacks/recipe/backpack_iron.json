@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "resource_backpacks:backpack_gold"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    }
+  },
+  "pattern": [
+    "III",
+    "IBI",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_backpacks:backpack_iron"
+  }
+}

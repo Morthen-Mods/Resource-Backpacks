@@ -1,9 +1,0 @@
-modLoader = "javafml"
-loaderVersion = "[1,)"
-license = "MIT"
-
-[[mods]]
-modId = "resource_backpacks"
-version = "1.0.0"
-displayName = "Resource Backpacks"
-authors = "xStopho"

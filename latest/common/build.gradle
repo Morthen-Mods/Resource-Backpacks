@@ -1,0 +1,18 @@
+plugins {
+    id 'common'
+    id 'net.neoforged.moddev'
+}
+
+neoForge {
+    neoFormVersion = neoform
+
+    def at = file('src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) accessTransformers = [at.absolutePath]
+}
+
+dependencies {
+    compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
+
+    compileOnly "net.xstopho.resourceconfigapi:resourceconfigapi-common:${minecraft_version}-${resource_config_api}"
+    compileOnly "net.xstopho.resourcelibrary:resourcelibrary-common:${minecraft_version}-${resource_library}"
+}

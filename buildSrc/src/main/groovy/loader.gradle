@@ -1,0 +1,24 @@
+plugins {
+    id 'common'
+    id 'publish-mods'
+    id 'java-library'
+}
+
+def directory = project.projectDir.parent.split("\\\\").last()
+
+dependencies {
+    compileOnly(project(":${directory}:common"))
+}
+
+tasks.named('compileJava', JavaCompile) {
+    source(project(":${directory}:common").sourceSets.main.allSource)
+}
+
+tasks.named('javadoc', Javadoc) {
+    source(project(":${directory}:common").sourceSets.main.allJava)
+}
+
+processResources {
+    from project(":${directory}:common").sourceSets.main.resources
+    from file('../common/src/generated')
+}

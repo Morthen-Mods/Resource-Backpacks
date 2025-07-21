@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_backpack_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_backpacks:backpack_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "resource_backpacks:backpack_end"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_backpack_iron"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "resource_backpacks:backpack_end"
+    ]
+  }
+}

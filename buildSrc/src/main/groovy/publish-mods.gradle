@@ -1,0 +1,42 @@
+plugins {
+    id 'me.modmuss50.mod-publish-plugin'
+}
+
+def modrinthApi = System.getenv("ModrinthApi") ?: null
+def curseforgeApi = System.getenv("CurseforgeApi") ?: null
+
+publishMods {
+    displayName = file.map { it.asFile.name }
+    type = STABLE
+
+    var changelogFile = rootProject.file('CHANGELOG.md')
+    if (changelogFile.exists()) changelog = changelogFile.text
+    else changelog = 'NO VALID CHANGELOG FILE FOUND!'
+
+    if (modrinthApi != null) {
+        modrinth {
+            accessToken = modrinthApi
+            projectId = modrinth_id
+
+            minecraftVersions.add(minecraft_version)
+        }
+    } else {
+        println("ModrinthApi Token isn't set")
+    }
+
+    if (curseforgeApi != null) {
+        curseforge {
+            accessToken = curseforgeApi
+            projectId = curseforge_id
+
+            clientRequired = true
+            serverRequired = true
+
+            javaVersions.add(JavaVersion.VERSION_21)
+
+            minecraftVersions.add(minecraft_version)
+        }
+    } else {
+        println("CurseforgeApi Token isn't set")
+    }
+}

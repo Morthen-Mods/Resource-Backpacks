@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "c:chests/wooden"
+    },
+    "L": {
+      "tag": "c:leathers"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "LCL",
+    "LLL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_backpacks:backpack_leather"
+  }
+}

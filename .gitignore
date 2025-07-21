@@ -1,29 +1,48 @@
-# eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-# idea
-out
-*.ipr
+### IntelliJ IDEA ###
+.idea
 *.iws
 *.iml
-.idea/*
-!.idea/scopes
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-# gradle
-build
-.gradle
 
-# other
-eclipse
-*/common/runs/client/*
-!*/common/runs/client/options.txt
-*/common/runs/data/*
-*/common/runs/server/*
-!*/common/runs/server/eula.txt
-!*/common/runs/server/server.properties
-*/common/src/generated/
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Game Options ###
+*/fabric/runs/client/*
+!*/fabric/runs/client/options.txt
+*/fabric/runs/server/*
+!*/fabric/runs/server/eula.txt
+!*/fabric/runs/server/server.properties
+*/fabric/runs/data

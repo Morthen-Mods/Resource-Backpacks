@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "resource_backpacks:backpack_leather"
+    },
+    "C": {
+      "tag": "c:ingots/copper"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "CBC",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_backpacks:backpack_copper"
+  }
+}

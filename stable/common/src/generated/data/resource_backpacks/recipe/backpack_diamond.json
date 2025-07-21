@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "resource_backpacks:backpack_iron"
+    },
+    "D": {
+      "tag": "c:gems/diamond"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "DBD",
+    "DDD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "resource_backpacks:backpack_diamond"
+  }
+}

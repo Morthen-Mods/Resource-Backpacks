@@ -1,0 +1,47 @@
+plugins {
+    id 'loader'
+    id 'fabric-loom'
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.officialMojangMappings()
+
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api}+${minecraft_version}"
+
+    modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${minecraft_version}-${resource_config_api}"
+    modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${minecraft_version}-${resource_library}"
+
+    modImplementation "com.terraformersmc:modmenu:${mod_menu}"
+}
+
+loom {
+    mixin {
+        defaultRefmapName.set("${mod_id}.refmap.json")
+    }
+
+    def aw = file("src/main/resources/${mod_id}.accesswidener")
+    if (aw.exists()) accessWidenerPath.set(aw)
+
+    runs {
+        client {
+            client()
+            setConfigName("Fabric Client")
+            ideConfigGenerated(true)
+            programArgs('--username', 'Dev')
+            runDir("runs/client")
+        }
+        server {
+            server()
+            setConfigName("Fabric Server")
+            ideConfigGenerated(true)
+            runDir("runs/server")
+        }
+    }
+}
+
+publishMods {
+    file = remapJar.archiveFile
+    modLoaders.addAll("fabric", "quilt")
+}
