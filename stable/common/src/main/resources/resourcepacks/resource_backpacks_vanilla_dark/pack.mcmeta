@@ -2,5 +2,8 @@
   "pack": {
     "pack_format": 34,
     "description": "Vanilla Dark Textures for Resource Backpacks"
+  },
+  "resource_backpacks": {
+    "color": 16777215
   }
 }

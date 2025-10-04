@@ -7,7 +7,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.xstopho.resource_backpacks.BackpackConstants;
+import net.xstopho.resource_backpacks.client.metadata.BackpackColorMetadata;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
+import net.xstopho.resourcelibrary.util.ResourcePackUtils;
 
 
 public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
@@ -51,9 +53,8 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
     @Override
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-        int color = -1;
-
-        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, color, false);
+        BackpackColorMetadata data = ResourcePackUtils.readAllMetaData(BackpackColorMetadata.TYPE).getLast();
+        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, data.color(), false);
     }
 
     private void renderBackpackMenu(GuiGraphics guiGraphics, int xPos, int yPos) {
