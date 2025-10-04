@@ -41,6 +41,11 @@ public class BackpackConstants {
         MenuTypeRegistry.init();
 
         CreativeTabRegistry.init();
+
+        ResourcePackRegistry packRegistry = ResourcePackRegistry.getInstance(MOD_ID);
+        packRegistry.register("resource_backpacks_ore_ui", "Ore UI");
+        packRegistry.register("resource_backpacks_ore_ui_dark", "Ore UI Dark");
+        packRegistry.register("resource_backpacks_vanilla_dark", "Vanilla Dark");
     }
 
     public static void clientInit() {
@@ -51,11 +56,6 @@ public class BackpackConstants {
         MenuScreens.register(MenuTypeRegistry.DIAMOND_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.NETHERITE_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.END_MENU.get(), BackpackMenuScreen::new);
-
-        ResourcePackRegistry packRegistry = ResourcePackRegistry.getInstance(MOD_ID);
-        packRegistry.register("resource_backpacks_ore_ui", "Ore UI");
-        packRegistry.register("resource_backpacks_ore_ui_dark", "Ore UI Dark");
-        packRegistry.register("resource_backpacks_vanilla_dark", "Vanilla Dark");
     }
 
     public static ResourceLocation of(String id) {

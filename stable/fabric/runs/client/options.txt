@@ -48,8 +48,8 @@ mouseSensitivity:0.3028169014084507
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["vanilla","fabric","resource_backpacks:resource_backpacks_vanilla_dark"]
-incompatibleResourcePacks:["resource_backpacks","resourceconfigapi","resourcelibrary"]
+resourcePacks:["mod_resources","vanilla","mod/resource_backpacks:resourcepacks/resource_backpacks_ore_ui_dark"]
+incompatibleResourcePacks:[]
 lastServer:
 lang:en_us
 chatVisibility:0
@@ -121,7 +121,6 @@ key_key.hotbar.6:key.keyboard.6
 key_key.hotbar.7:key.keyboard.7
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
-key_key.modmenu.open_menu:key.keyboard.unknown
 key_key.resource_backpacks.open_backpack:key.keyboard.b
 key_key.resource_backpacks.show_compact_preview:key.keyboard.left.shift
 key_key.resource_backpacks.show_inventory_preview:key.keyboard.left.alt
