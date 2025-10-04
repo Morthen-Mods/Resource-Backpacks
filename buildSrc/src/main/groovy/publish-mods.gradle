@@ -19,6 +19,9 @@ publishMods {
             projectId = modrinth_id
 
             minecraftVersions.add(minecraft_version)
+
+            requires("resource-library")
+            requires("resource-config-api")
         }
     } else {
         println("ModrinthApi Token isn't set")
@@ -35,6 +38,9 @@ publishMods {
             javaVersions.add(JavaVersion.VERSION_21)
 
             minecraftVersions.add(minecraft_version)
+
+            requires("resource-library")
+            requires("resource-config-api")
         }
     } else {
         println("CurseforgeApi Token isn't set")
