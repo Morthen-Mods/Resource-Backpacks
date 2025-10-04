@@ -30,7 +30,6 @@ public class ClientEventHandler {
     @SubscribeEvent
     public static void setupClient(FMLClientSetupEvent event) {
         BackpackConstants.clientInit();
-        BackpackConstants.packInit();
     }
 
     @SubscribeEvent

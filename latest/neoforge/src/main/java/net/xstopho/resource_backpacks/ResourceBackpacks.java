@@ -12,6 +12,7 @@ public class ResourceBackpacks {
     public ResourceBackpacks(IEventBus eventBus) {
         eventBus.addListener(this::registerTooltip);
         BackpackConstants.commonInit();
+        BackpackConstants.packInit();
     }
 
     private void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event) {
