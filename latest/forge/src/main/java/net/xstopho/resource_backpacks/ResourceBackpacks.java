@@ -8,6 +8,7 @@ import net.minecraftforge.network.SimpleChannel;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
 import net.xstopho.resource_backpacks.network.BackpackNetworkRegistry;
+import net.xstopho.resourcelibrary.util.ResourcePackUtils;
 
 @Mod(BackpackConstants.MOD_ID)
 public class ResourceBackpacks {
@@ -20,6 +21,7 @@ public class ResourceBackpacks {
         RegisterClientTooltipComponentFactoriesEvent.getBus(modBus).addListener(this::registerTooltip);
 
         BackpackConstants.commonInit();
+        BackpackConstants.packInit();
     }
 
     private void initCommon(FMLCommonSetupEvent event) {

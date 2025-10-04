@@ -32,6 +32,7 @@ public class ResourceBackpacksClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BackpackConstants.clientInit();
+        BackpackConstants.packInit();
         registerTooltipComponents();
         registerClientPayloads();
         registerKeyMapping();

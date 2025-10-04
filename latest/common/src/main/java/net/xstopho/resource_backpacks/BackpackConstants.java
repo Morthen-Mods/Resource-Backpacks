@@ -50,7 +50,9 @@ public class BackpackConstants {
         MenuScreens.register(MenuTypeRegistry.DIAMOND_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.NETHERITE_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.END_MENU.get(), BackpackMenuScreen::new);
+    }
 
+    public static void packInit() {
         ResourcePackRegistry packRegistry = ResourcePackRegistry.getInstance(MOD_ID);
         packRegistry.register("resource_backpacks_ore_ui", "Ore UI");
         packRegistry.register("resource_backpacks_ore_ui_dark", "Ore UI Dark");

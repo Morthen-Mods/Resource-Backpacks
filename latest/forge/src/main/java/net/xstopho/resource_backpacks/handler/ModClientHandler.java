@@ -4,10 +4,11 @@ import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.CreeperRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.ZombieRenderer;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
@@ -44,8 +45,8 @@ public class ModClientHandler {
 
     @SubscribeEvent
     public static void addRenderLayer(EntityRenderersEvent.AddLayers event) {
-        event.getSkins().forEach(model -> {
-            PlayerRenderer renderer = event.getPlayerSkin(model);
+        event.getModelTypes().forEach(model -> {
+            AvatarRenderer<? extends Player> renderer = event.getPlayerRenderer(model);
             if (renderer != null) renderer.addLayer(new PlayerBackpackLayer(renderer, event.getContext().getModelSet()));
         });
 

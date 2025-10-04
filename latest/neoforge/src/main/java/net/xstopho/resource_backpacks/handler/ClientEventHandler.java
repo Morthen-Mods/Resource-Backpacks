@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.CreeperRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.ZombieRenderer;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -30,6 +30,7 @@ public class ClientEventHandler {
     @SubscribeEvent
     public static void setupClient(FMLClientSetupEvent event) {
         BackpackConstants.clientInit();
+        BackpackConstants.packInit();
     }
 
     @SubscribeEvent
@@ -47,7 +48,7 @@ public class ClientEventHandler {
     @SubscribeEvent
     public static void addRenderLayer(EntityRenderersEvent.AddLayers event) {
         event.getSkins().forEach(model -> {
-            PlayerRenderer renderer = event.getSkin(model);
+            AvatarRenderer<? extends Player> renderer = event.getPlayerRenderer(model);
             if (renderer != null) renderer.addLayer(new PlayerBackpackLayer(renderer, event.getContext().getModelSet()));
         });
 
