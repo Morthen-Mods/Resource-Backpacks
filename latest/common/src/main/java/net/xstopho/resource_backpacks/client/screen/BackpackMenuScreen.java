@@ -12,6 +12,8 @@ import net.xstopho.resource_backpacks.client.metadata.BackpackColorMetadata;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 import net.xstopho.resourcelibrary.util.ResourcePackUtils;
 
+import java.util.LinkedList;
+
 
 public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
@@ -51,8 +53,9 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
     @Override
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-        BackpackColorMetadata data = ResourcePackUtils.readAllMetaData(BackpackColorMetadata.TYPE).getLast();
-        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, data.getColor(), false);
+        LinkedList<BackpackColorMetadata> data = ResourcePackUtils.readAllMetaData(BackpackColorMetadata.TYPE);
+        int titleColor = data.isEmpty() ? 0xff404040 : data.getLast().getColor();
+        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, titleColor, false);
     }
 
     private void renderBackpackMenu(GuiGraphics guiGraphics, int xPos, int yPos) {
