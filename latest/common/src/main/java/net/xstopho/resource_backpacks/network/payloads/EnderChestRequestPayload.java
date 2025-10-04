@@ -12,7 +12,7 @@ public record EnderChestRequestPayload() implements CustomPacketPayload {
     public static final StreamCodec<RegistryFriendlyByteBuf, EnderChestRequestPayload> CODEC = StreamCodec.unit(new EnderChestRequestPayload());
 
     public static void handle(EnderChestRequestPayload payload, ServerPlayer player) {
-        player.getServer().execute(() -> {
+        player.level().getServer().execute(() -> {
             BackpackNetwork.INSTANCE.sendToClient(player, EnderChestResponsePayload.create(player.getEnderChestInventory(), player.registryAccess()));
         });
     }

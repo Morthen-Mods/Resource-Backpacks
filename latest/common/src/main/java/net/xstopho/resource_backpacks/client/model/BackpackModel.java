@@ -52,8 +52,4 @@ public class BackpackModel<T extends LivingEntityRenderState> extends EntityMode
 
         return BackpackConstants.of("textures/entity/backpack_" + type + ".png");
     }
-
-    public void setupAngles(HumanoidModel<?> model) {
-        this.backpack.copyFrom(model.body);
-    }
 }

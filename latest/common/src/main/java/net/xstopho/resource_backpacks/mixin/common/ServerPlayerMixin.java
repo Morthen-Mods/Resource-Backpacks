@@ -21,7 +21,7 @@ public abstract class ServerPlayerMixin extends Player implements BackpackHolder
 
     @Inject(method = "die(Lnet/minecraft/world/damagesource/DamageSource;)V", at = @At("TAIL"))
     public void resource_backpacks$die(DamageSource source, CallbackInfo info) {
-        boolean keepInventory = this.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY);
+        boolean keepInventory = this.level().getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY);
         if (!keepInventory && !this.isCreative() && !this.isSpectator()) {
             this.dropBackpack(this.level(), this.getOnPos());
         }
@@ -30,7 +30,7 @@ public abstract class ServerPlayerMixin extends Player implements BackpackHolder
     @Inject(method = "restoreFrom(Lnet/minecraft/server/level/ServerPlayer;Z)V", at = @At("TAIL"))
     public void resource_backpacks$restoreFrom(ServerPlayer oldPlayer, boolean keepEverything, CallbackInfo info) {
         ServerPlayer newPlayer = (ServerPlayer) (Object) this;
-        boolean keepInventory = this.getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY);
+        boolean keepInventory = this.level().getServer().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY);
         if (keepInventory || this.isCreative() || this.isSpectator() || keepEverything) {
             BackpackHolder.restorePlayerBackpack(oldPlayer, newPlayer);
         }

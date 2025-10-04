@@ -2,6 +2,7 @@ package net.xstopho.resource_backpacks.client.screen;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
@@ -9,8 +10,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.util.BackpackStyle;
+import net.xstopho.resource_backpacks.client.metadata.BackpackColorMetadata;
 import net.xstopho.resource_backpacks.config.client.ClientConfig;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
+import net.xstopho.resourcelibrary.util.ResourcePackUtils;
 
 
 public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
@@ -51,12 +54,8 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
     @Override
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-        int color = -1;
-        switch (ClientConfig.style) {
-            case VANILLA, ORE_UI -> color = 4210752;
-        }
-
-        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, color, false);
+        BackpackColorMetadata data = ResourcePackUtils.readAllMetaData(BackpackColorMetadata.TYPE).getLast();
+        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, data.getColor(), false);
     }
 
     private void renderBackpackMenu(GuiGraphics guiGraphics, int xPos, int yPos) {
@@ -109,17 +108,15 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
     }
 
     @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (KeyMappingRegistry.OPEN_BACKPACK.matches(keyCode, scanCode)) {
+    public boolean keyPressed(KeyEvent keyEvent) {
+        if (KeyMappingRegistry.OPEN_BACKPACK.matches(keyEvent)) {
             this.onClose();
             return true;
         }
-
-        return super.keyPressed(keyCode, scanCode, modifiers);
+        return super.keyPressed(keyEvent);
     }
 
     private ResourceLocation texture(String texture) {
-        BackpackStyle style = ClientConfig.style;
-        return BackpackConstants.of(String.format("textures/gui/container/%s/%s.png", style.name().toLowerCase(), texture));
+        return BackpackConstants.of(String.format("textures/gui/container/backpack/%s.png", texture));
     }
 }

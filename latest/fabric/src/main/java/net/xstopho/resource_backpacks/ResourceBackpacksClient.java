@@ -11,7 +11,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.CreeperRenderer;
 import net.minecraft.client.renderer.entity.ZombieRenderer;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
 import net.xstopho.resource_backpacks.client.model.BackpackModel;
@@ -47,7 +47,7 @@ public class ResourceBackpacksClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(BackpackModel.BACKPACK_LAYER, BackpackModel::createLayer);
 
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, renderer, helper, context) -> {
-            if (renderer instanceof PlayerRenderer player) helper.register(new PlayerBackpackLayer(player, context.getModelSet()));
+            if (renderer instanceof AvatarRenderer<?> player) helper.register(new PlayerBackpackLayer(player, context.getModelSet()));
             if (renderer instanceof ArmorStandRenderer armorStand) helper.register(new ArmorStandBackpackLayer(armorStand, context.getModelSet()));
             if (renderer instanceof ZombieRenderer zombie) helper.register(new ZombieBackpackLayer(zombie, context.getModelSet()));
             if (renderer instanceof CreeperRenderer creeper) helper.register(new CreeperBackpackLayer(creeper, context.getModelSet()));

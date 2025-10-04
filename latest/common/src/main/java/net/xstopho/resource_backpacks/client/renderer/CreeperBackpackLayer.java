@@ -6,6 +6,7 @@ import net.minecraft.client.model.CreeperModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.CreeperRenderState;
@@ -24,7 +25,7 @@ public class CreeperBackpackLayer extends RenderLayer<CreeperRenderState, Creepe
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource buffer, int light, CreeperRenderState state, float v, float v1) {
+    public void submit(PoseStack poseStack, SubmitNodeCollector node, int light, CreeperRenderState state, float v, float v1) {
         ItemStack backpack = ((BackpackRenderState) state).getBackpack();
 
         if (!backpack.isEmpty()) {
@@ -33,8 +34,9 @@ public class CreeperBackpackLayer extends RenderLayer<CreeperRenderState, Creepe
             poseStack.scale(0.75f, 0.75f, 0.75f);
             poseStack.translate(0f, 0.5f, 0f);
 
-            VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(BackpackModel.getTexture(backpack)));
-            backpackModel.renderToBuffer(poseStack, consumer, light, OverlayTexture.NO_OVERLAY);
+            node.submitModel(this.backpackModel, state, poseStack,
+                    RenderType.entityCutoutNoCull(BackpackModel.getTexture(backpack)),
+                    light, OverlayTexture.NO_OVERLAY, state.outlineColor, null);
 
             poseStack.popPose();
         }

@@ -12,6 +12,7 @@ import net.xstopho.resource_backpacks.modifier.ChestLootModifier;
 import net.xstopho.resource_backpacks.registries.*;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import net.xstopho.resourcelibrary.modifier.LootTableModifier;
+import net.xstopho.resourcelibrary.registration.ResourcePackRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,6 +50,11 @@ public class BackpackConstants {
         MenuScreens.register(MenuTypeRegistry.DIAMOND_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.NETHERITE_MENU.get(), BackpackMenuScreen::new);
         MenuScreens.register(MenuTypeRegistry.END_MENU.get(), BackpackMenuScreen::new);
+
+        ResourcePackRegistry packRegistry = ResourcePackRegistry.getInstance(MOD_ID);
+        packRegistry.register("resource_backpacks_ore_ui", "Ore UI");
+        packRegistry.register("resource_backpacks_ore_ui_dark", "Ore UI Dark");
+        packRegistry.register("resource_backpacks_vanilla_dark", "Vanilla Dark");
     }
 
     public static ResourceLocation of(String id) {

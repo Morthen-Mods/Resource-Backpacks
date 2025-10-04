@@ -36,7 +36,7 @@ public class BackpackItem extends BlockItem {
     public InteractionResult use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
 
-        if (!level.isClientSide && BackpackConfig.openFromInventory) {
+        if (!level.isClientSide() && BackpackConfig.openFromInventory) {
             player.openMenu(getMenuProvider(stack));
         }
 

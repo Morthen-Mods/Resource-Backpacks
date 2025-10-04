@@ -1,11 +1,10 @@
 package net.xstopho.resource_backpacks.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.ZombieModel;
 import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.ZombieRenderState;
@@ -24,19 +23,13 @@ public class ZombieBackpackLayer extends RenderLayer<ZombieRenderState, ZombieMo
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource buffer, int light, ZombieRenderState state, float v, float v1) {
+    public void submit(PoseStack poseStack, SubmitNodeCollector node, int light, ZombieRenderState state, float v, float v1) {
         ItemStack backpack = ((BackpackRenderState) state).getBackpack();
 
         if (!backpack.isEmpty()) {
-            backpackModel.setupAngles(this.getParentModel());
-
-            poseStack.pushPose();
-            poseStack.translate(-0.25,0,0.125);
-
-            VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(BackpackModel.getTexture(backpack)));
-            backpackModel.renderToBuffer(poseStack, consumer, light, OverlayTexture.NO_OVERLAY);
-
-            poseStack.popPose();
+            node.submitModel(this.backpackModel, state, poseStack,
+                    RenderType.entityCutoutNoCull(BackpackModel.getTexture(backpack)),
+                    light, OverlayTexture.NO_OVERLAY, state.outlineColor, null);
         }
     }
 }

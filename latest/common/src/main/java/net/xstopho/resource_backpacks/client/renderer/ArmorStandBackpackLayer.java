@@ -7,6 +7,7 @@ import net.minecraft.client.model.ArmorStandArmorModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.ArmorStandRenderState;
@@ -25,7 +26,7 @@ public class ArmorStandBackpackLayer extends RenderLayer<ArmorStandRenderState, 
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource buffer, int light, ArmorStandRenderState state, float v, float v1) {
+    public void submit(PoseStack poseStack, SubmitNodeCollector node, int light, ArmorStandRenderState state, float v, float v1) {
         ItemStack backpack = ((BackpackRenderState) state).getBackpack();
 
         if (!backpack.isEmpty()) {
@@ -35,8 +36,11 @@ public class ArmorStandBackpackLayer extends RenderLayer<ArmorStandRenderState, 
             poseStack.mulPose(Axis.YP.rotationDegrees(180));
             poseStack.translate(0f, 1.225f, 0.14f);
 
-            VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(BackpackModel.getTexture(backpack)));
-            backpackModel.renderToBuffer(poseStack, consumer, light, OverlayTexture.NO_OVERLAY);
+
+            node.submitModel(this.backpackModel, state, poseStack,
+                    RenderType.entityCutoutNoCull(BackpackModel.getTexture(backpack)),
+                    light, OverlayTexture.NO_OVERLAY, state.outlineColor, null);
+
             poseStack.popPose();
         }
     }

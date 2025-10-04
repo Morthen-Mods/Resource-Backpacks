@@ -31,7 +31,7 @@ public class BackpackClientUtils {
 
         if (keyMapping instanceof KeyMappingAccessor accessor) {
             int keyCode = accessor.getKey().getValue();
-            return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), keyCode);
+            return InputConstants.isKeyDown(Minecraft.getInstance().getWindow(), keyCode);
         }
 
         return false;

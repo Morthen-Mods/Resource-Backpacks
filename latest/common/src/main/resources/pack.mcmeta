@@ -1,6 +1,9 @@
 {
-    "pack": {
-        "description": "${mod_name}",
-        "pack_format": 8
-    }
+  "pack": {
+    "description": "${mod_name}",
+    "pack_format": 8
+  },
+  "resource_backpacks": {
+    "color": "0xff404040"
+  }
 }
