@@ -4,6 +4,6 @@
     "description": "Ore UI Dark Textures for Resource Backpacks"
   },
   "resource_backpacks": {
-    "color": 16777215
+    "color": "0xFFFFFF"
   }
 }

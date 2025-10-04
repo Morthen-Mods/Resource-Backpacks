@@ -4,6 +4,6 @@
     "description": "Ore UI Textures for Resource Backpacks"
   },
   "resource_backpacks": {
-    "color": 5592405
+    "color": "0x404040"
   }
 }

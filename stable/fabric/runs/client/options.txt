@@ -48,7 +48,7 @@ mouseSensitivity:0.3028169014084507
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["vanilla","fabric","resource_backpacks:resource_backpacks_ore_ui"]
+resourcePacks:["vanilla","fabric","resource_backpacks:resource_backpacks_vanilla_dark"]
 incompatibleResourcePacks:["resource_backpacks","resourceconfigapi","resourcelibrary"]
 lastServer:
 lang:en_us

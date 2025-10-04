@@ -54,7 +54,7 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
     @Override
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
         BackpackColorMetadata data = ResourcePackUtils.readAllMetaData(BackpackColorMetadata.TYPE).getLast();
-        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, data.color(), false);
+        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, data.getColor(), false);
     }
 
     private void renderBackpackMenu(GuiGraphics guiGraphics, int xPos, int yPos) {
