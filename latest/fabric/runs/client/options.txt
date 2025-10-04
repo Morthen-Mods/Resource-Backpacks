@@ -56,7 +56,7 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["mod_resources","vanilla"]
+resourcePacks:["vanilla","mod_resources","mod/resource_backpacks:resourcepacks/resource_backpacks_ore_ui"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us

@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.AvatarRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemStack;
-import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.client.model.BackpackModel;
 import net.xstopho.resource_backpacks.client.util.BackpackRenderState;
 
@@ -29,17 +28,11 @@ public class PlayerBackpackLayer extends RenderLayer<AvatarRenderState, PlayerMo
         if (!backpack.isEmpty()) {
 
             poseStack.pushPose();
-
-            if (state.isCrouching) {
-                BackpackConstants.LOG.warn("Crouching");
-                poseStack.translate(0, -0.0625, -0.015);
-            }
-
-            poseStack.popPose();
-
+            this.getParentModel().body.translateAndRotate(poseStack);
             node.submitModel(this.backpackModel, state, poseStack,
                     RenderType.entityCutoutNoCull(BackpackModel.getTexture(backpack)),
                     light, OverlayTexture.NO_OVERLAY, state.outlineColor, null);
+            poseStack.popPose();
         }
     }
 }
