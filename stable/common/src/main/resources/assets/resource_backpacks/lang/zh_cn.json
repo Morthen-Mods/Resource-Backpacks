@@ -37,7 +37,6 @@
   "block.resource_backpacks.backpack_end": "末地背包",
 
   "config.resource_backpacks.appearance": "外观",
-  "config.resource_backpacks.appearance.style.label": "Gui 纹理",
   "config.resource_backpacks.appearance.backpack_appearance.label": "背包外观",
   "config.resource_backpacks.appearance.position.label": "背包格子",
 
@@ -130,5 +129,4 @@
   "config.resource_backpacks.entity_config.zombiespawnwithcopperbackpack.label": "携带铜背包的僵尸",
   "config.resource_backpacks.entity_config.creeperspawnwithleatherbackpack.label": "携带皮革背包的苦力怕",
   "config.resource_backpacks.entity_config.creeperspawnwithcopperbackpack.label": "携带铜背包的苦力怕"
-
 }

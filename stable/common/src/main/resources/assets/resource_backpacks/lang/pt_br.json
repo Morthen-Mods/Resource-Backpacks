@@ -37,7 +37,6 @@
   "block.resource_backpacks.backpack_end": "Mochila do Fim",
 
   "config.resource_backpacks.appearance": "Aparência",
-  "config.resource_backpacks.appearance.style.label": "Textura da GUI",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Aparência da Mochila",
   "config.resource_backpacks.appearance.position.label": "Espaço da Mochila",
 

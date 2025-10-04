@@ -37,7 +37,6 @@
   "block.resource_backpacks.backpack_end": "Son Sırt Çantası",
 
   "config.resource_backpacks.appearance": "Görünüm",
-  "config.resource_backpacks.appearance.style.label": "Gui Dokusu",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Sırt Çantası Görünümü",
   "config.resource_backpacks.appearance.position.label": "Sırt Çantası Yuvası",
 

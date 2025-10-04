@@ -37,7 +37,6 @@
   "block.resource_backpacks.backpack_end": "Эндер рюкзак",
 
   "config.resource_backpacks.appearance": "Внешний вид",
-  "config.resource_backpacks.appearance.style.label": "Текстура интерфейса",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Внешний вид рюкзака",
   "config.resource_backpacks.appearance.position.label": "Ячейка рюкзака",
 
@@ -128,5 +127,4 @@
   "config.resource_backpacks.entity_config.zombiespawnwithcopperbackpack.label": "Зомби с медным рюкзаком",
   "config.resource_backpacks.entity_config.creeperspawnwithleatherbackpack.label": "Крипер с кожаным рюкзаком",
   "config.resource_backpacks.entity_config.creeperspawnwithcopperbackpack.label": "Крипер с медным рюкзаком"
-
 }

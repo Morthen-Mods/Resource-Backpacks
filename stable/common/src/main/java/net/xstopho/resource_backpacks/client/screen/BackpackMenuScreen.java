@@ -7,8 +7,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.xstopho.resource_backpacks.BackpackConstants;
-import net.xstopho.resource_backpacks.backpack.util.BackpackStyle;
-import net.xstopho.resource_backpacks.config.client.ClientConfig;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 
@@ -54,9 +52,6 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
     @Override
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
         int color = -1;
-        switch (ClientConfig.style) {
-            case VANILLA, ORE_UI -> color = 4210752;
-        }
 
         guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, color, false);
     }
@@ -70,7 +65,6 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
         renderHorizontalSide(guiGraphics, xPos + 11, yPos, 4f, 0f, this.getWidth() - 22, 18); // Top
         renderHorizontalSide(guiGraphics, xPos + 11, yPos + getHeight() - 7, 4f, 4f, this.getWidth() - 22, 18); // Bottom
-
 
         renderVerticalSide(guiGraphics, xPos, yPos + 11, 0f, 4f, 18, this.getHeight() - 11); // Left
         renderVerticalSide(guiGraphics, xPos + getWidth() - 18, yPos + 11 , 4f, 4f, 18, this.getHeight() - 11); // Right
@@ -121,7 +115,6 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
     }
 
     private ResourceLocation texture(String texture) {
-        BackpackStyle style = ClientConfig.style;
-        return BackpackConstants.of(String.format("textures/gui/container/%s/%s.png", style.name().toLowerCase(), texture));
+        return BackpackConstants.of(String.format("textures/gui/container/backpack/%s.png", texture));
     }
 }
