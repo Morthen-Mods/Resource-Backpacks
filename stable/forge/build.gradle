@@ -28,8 +28,8 @@ jar {
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
-    reobf = false
     copyIdeResources = true //Calls processResources when in dev
+    reobf = false
 
     def directory = project.projectDir.parent.split("\\\\").last()
 

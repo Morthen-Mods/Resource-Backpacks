@@ -1,4 +1,4 @@
-version:4554
+version:4556
 ao:true
 biomeBlendRadius:2
 enableVsync:true
@@ -56,7 +56,7 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["vanilla","mod_resources","mod/resource_backpacks:resourcepacks/resource_backpacks_ore_ui"]
+resourcePacks:["mod_resources","vanilla"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us
