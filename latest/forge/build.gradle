@@ -6,7 +6,6 @@ plugins {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge}"
-    implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
     implementation("net.xstopho.resourceconfigapi:resourceconfigapi-forge:${minecraft_version}-${resource_config_api}")
     implementation("net.xstopho.resourcelibrary:resourcelibrary-forge:${minecraft_version}-${resource_library}")
