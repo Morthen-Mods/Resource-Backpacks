@@ -1,6 +1,6 @@
 package net.xstopho.resource_backpacks.client.slot;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class BackpackSlot extends Slot {
 
-    private static final ResourceLocation BACKPACK_SPRITE = BackpackConstants.of("container/slot/empty_slot_backpack");
+    private static final Identifier BACKPACK_SPRITE = BackpackConstants.of("container/slot/empty_slot_backpack");
     private final Player player;
 
     public BackpackSlot(Container container, Player player) {
@@ -42,7 +42,7 @@ public class BackpackSlot extends Slot {
     }
 
     @Override
-    public @Nullable ResourceLocation getNoItemIcon() {
+    public @Nullable Identifier getNoItemIcon() {
         return BACKPACK_SPRITE;
     }
 }

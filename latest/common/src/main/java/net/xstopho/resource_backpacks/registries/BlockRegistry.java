@@ -3,7 +3,7 @@ package net.xstopho.resource_backpacks.registries;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -59,11 +59,11 @@ public class BlockRegistry {
     }
 
     private static ResourceKey<Block> createBlockId(String id) {
-        return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, id));
+        return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(BackpackConstants.MOD_ID, id));
     }
 
     private static ResourceKey<Item> createItemId(String id) {
-        return ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BackpackConstants.MOD_ID, id));
+        return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BackpackConstants.MOD_ID, id));
     }
 
     public static void init() {}

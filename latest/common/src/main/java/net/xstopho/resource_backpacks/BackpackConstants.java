@@ -2,7 +2,7 @@ package net.xstopho.resource_backpacks;
 
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenuScreen;
 import net.xstopho.resource_backpacks.config.client.ClientConfig;
 import net.xstopho.resource_backpacks.config.common.BackpackConfig;
@@ -59,9 +59,9 @@ public class BackpackConstants {
         packRegistry.register("resource_backpacks_vanilla_dark", "Vanilla Dark");
     }
 
-    public static ResourceLocation of(String id) {
+    public static Identifier of(String id) {
 
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
+        return Identifier.fromNamespaceAndPath(MOD_ID, id);
     }
 
     public static <T extends CustomPacketPayload> CustomPacketPayload.Type<T> type(String id) {

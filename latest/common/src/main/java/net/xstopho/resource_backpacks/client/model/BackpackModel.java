@@ -10,14 +10,14 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
 
 public class BackpackModel<T extends LivingEntityRenderState> extends EntityModel<T> {
 
-    public static final ModelLayerLocation BACKPACK_LAYER = new ModelLayerLocation(ResourceLocation.withDefaultNamespace("player"), "backpack");
+    public static final ModelLayerLocation BACKPACK_LAYER = new ModelLayerLocation(Identifier.withDefaultNamespace("player"), "backpack");
 
     private final ModelPart backpack;
 
@@ -44,7 +44,7 @@ public class BackpackModel<T extends LivingEntityRenderState> extends EntityMode
         return LayerDefinition.create(meshdefinition, 39, 19);
     }
 
-    public static ResourceLocation getTexture(ItemStack stack) {
+    public static Identifier getTexture(ItemStack stack) {
         String type = "default";
         if (stack.getItem() instanceof BackpackItem backpackItem) {
             type = backpackItem.getBackpackLevel().name().toLowerCase();

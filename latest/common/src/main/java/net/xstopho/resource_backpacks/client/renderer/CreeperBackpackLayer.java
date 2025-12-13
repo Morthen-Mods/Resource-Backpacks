@@ -1,15 +1,13 @@
 package net.xstopho.resource_backpacks.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.CreeperModel;
 import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.model.monster.creeper.CreeperModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.CreeperRenderState;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.client.model.BackpackModel;
@@ -35,7 +33,7 @@ public class CreeperBackpackLayer extends RenderLayer<CreeperRenderState, Creepe
             poseStack.translate(0f, 0.5f, 0f);
 
             node.submitModel(this.backpackModel, state, poseStack,
-                    RenderType.entityCutoutNoCull(BackpackModel.getTexture(backpack)),
+                    RenderTypes.entityCutoutNoCull(BackpackModel.getTexture(backpack)),
                     light, OverlayTexture.NO_OVERLAY, state.outlineColor, null);
 
             poseStack.popPose();

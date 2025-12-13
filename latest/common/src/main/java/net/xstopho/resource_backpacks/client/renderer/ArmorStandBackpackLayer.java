@@ -1,16 +1,14 @@
 package net.xstopho.resource_backpacks.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.minecraft.client.model.ArmorStandArmorModel;
 import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.model.object.armorstand.ArmorStandArmorModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.ArmorStandRenderState;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.client.model.BackpackModel;
@@ -38,7 +36,7 @@ public class ArmorStandBackpackLayer extends RenderLayer<ArmorStandRenderState, 
 
 
             node.submitModel(this.backpackModel, state, poseStack,
-                    RenderType.entityCutoutNoCull(BackpackModel.getTexture(backpack)),
+                    RenderTypes.entityCutoutNoCull(BackpackModel.getTexture(backpack)),
                     light, OverlayTexture.NO_OVERLAY, state.outlineColor, null);
 
             poseStack.popPose();

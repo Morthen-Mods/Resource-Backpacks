@@ -5,7 +5,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.client.metadata.BackpackColorMetadata;
@@ -17,12 +17,12 @@ import java.util.LinkedList;
 
 public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
 
-    private final ResourceLocation SLOT = texture("slot");
-    private final ResourceLocation CORNER = texture("corner");
-    private final ResourceLocation SIDE_VERTICAL = texture("side_vertical");
-    private final ResourceLocation SIDE_HORIZONTAL = texture("side_horizontal");
-    private final ResourceLocation INVENTORY_NORMAL = texture("inventory_normal");
-    private final ResourceLocation INVENTORY_EXTENDED = texture("inventory_extended");
+    private final Identifier SLOT = texture("slot");
+    private final Identifier CORNER = texture("corner");
+    private final Identifier SIDE_VERTICAL = texture("side_vertical");
+    private final Identifier SIDE_HORIZONTAL = texture("side_horizontal");
+    private final Identifier INVENTORY_NORMAL = texture("inventory_normal");
+    private final Identifier INVENTORY_EXTENDED = texture("inventory_extended");
 
     private final int rows, columns;
 
@@ -94,7 +94,7 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
     }
 
     private void renderPlayerInventory(GuiGraphics guiGraphics, int xPos, int yPos) {
-        ResourceLocation inventory = this.columns < 10 ? INVENTORY_NORMAL : INVENTORY_EXTENDED;
+        Identifier inventory = this.columns < 10 ? INVENTORY_NORMAL : INVENTORY_EXTENDED;
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED, inventory, xPos + ((getWidth() - 175) / 2), yPos + getHeight() + 7,
                 0f, 0f, 176, 87, 176, 87);
     }
@@ -116,7 +116,7 @@ public class BackpackMenuScreen extends AbstractContainerScreen<BackpackMenu> {
         return super.keyPressed(keyEvent);
     }
 
-    private ResourceLocation texture(String texture) {
+    private Identifier texture(String texture) {
         return BackpackConstants.of(String.format("textures/gui/container/backpack/%s.png", texture));
     }
 }
