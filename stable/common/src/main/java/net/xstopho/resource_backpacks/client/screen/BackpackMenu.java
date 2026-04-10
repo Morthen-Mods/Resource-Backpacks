@@ -8,6 +8,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.config.common.BackpackConfig;
@@ -188,6 +189,8 @@ public class BackpackMenu extends AbstractContainerMenu {
 
         public boolean canMoveStack(ItemStack stack) {
             if (this.container instanceof Inventory) return true;
+
+            if (stack.getItem() == Items.SHULKER_BOX) return true;
 
             return stack.getItem().canFitInsideContainerItems();
         }
