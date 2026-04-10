@@ -50,10 +50,6 @@ public class ChestLootModifier {
                         ChestLootTables.WOODLAND_MANSION));
 
         modifier.addBlocks(BlockRegistry.BACKPACK_LEATHER, 1f,
-                () -> ChestLootConfig.leatherBackpackTrialChamber,
-                List.of(TrialChamberLootTables.REWARD_COMMON));
-
-        modifier.addBlocks(BlockRegistry.BACKPACK_LEATHER, 1f,
                 () -> ChestLootConfig.leatherBackpackShipwreck,
                 List.of(ChestLootTables.SHIPWRECK_SUPPLY,
                         ChestLootTables.SHIPWRECK_TREASURE));
@@ -87,10 +83,6 @@ public class ChestLootModifier {
                         ChestLootTables.WOODLAND_MANSION));
 
         modifier.addBlocks(BlockRegistry.BACKPACK_COPPER, 1f,
-                () -> ChestLootConfig.copperBackpackTrialChamber,
-                List.of(TrialChamberLootTables.REWARD_RARE));
-
-        modifier.addBlocks(BlockRegistry.BACKPACK_COPPER, 1f,
                 () -> ChestLootConfig.copperBackpackOther,
                 List.of(ChestLootTables.PILLAGER_OUTPOST,
                         ChestLootTables.ABANDONED_MINESHAFT));
@@ -115,10 +107,6 @@ public class ChestLootModifier {
                         ChestLootTables.SHIPWRECK_TREASURE));
 
         modifier.addBlocks(BlockRegistry.BACKPACK_IRON,1f,
-                () -> ChestLootConfig.ironBackpackTrialChamber,
-                List.of(TrialChamberLootTables.REWARD_UNIQUE));
-
-        modifier.addBlocks(BlockRegistry.BACKPACK_IRON,1f,
                 () -> ChestLootConfig.ironBackpackOther,
                 List.of(ChestLootTables.ABANDONED_MINESHAFT));
 
@@ -135,10 +123,6 @@ public class ChestLootModifier {
                 List.of(ChestLootTables.RUINED_PORTAL,
                         ChestLootTables.WOODLAND_MANSION,
                         ChestLootTables.SHIPWRECK_TREASURE));
-
-        modifier.addBlocks(BlockRegistry.BACKPACK_GOLD, 1f,
-                () -> ChestLootConfig.goldBackpackTrialChamber,
-                List.of(TrialChamberLootTables.OMINOUS_REWARD_OMINOUS_RARE));
 
         modifier.addBlocks(BlockRegistry.BACKPACK_GOLD, 1f,
                 () -> ChestLootConfig.goldBackpackOther,

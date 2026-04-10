@@ -29,10 +29,6 @@ public class ChestLootConfig {
 
     @ConfigEntry(category = "Leather Backpack", needsWorldRestart = true)
     @RangedEntry(minValue = 0, maxValue = 1)
-    public static float leatherBackpackTrialChamber = 0.05f;
-
-    @ConfigEntry(category = "Leather Backpack", needsWorldRestart = true)
-    @RangedEntry(minValue = 0, maxValue = 1)
     public static float leatherBackpackShipwreck = 0.05f;
 
     @ConfigEntry(category = "Leather Backpack", needsWorldRestart = true)
@@ -57,10 +53,6 @@ public class ChestLootConfig {
 
     @ConfigEntry(category = "Copper Backpack", needsWorldRestart = true)
     @RangedEntry(minValue = 0, maxValue = 1)
-    public static float copperBackpackTrialChamber = 0.05f;
-
-    @ConfigEntry(category = "Copper Backpack", needsWorldRestart = true)
-    @RangedEntry(minValue = 0, maxValue = 1)
     public static float copperBackpackOther = 0.05f;
 
 
@@ -81,10 +73,6 @@ public class ChestLootConfig {
 
     @ConfigEntry(category = "Iron Backpack", needsWorldRestart = true)
     @RangedEntry(minValue = 0, maxValue = 1)
-    public static float ironBackpackTrialChamber = 0.05f;
-
-    @ConfigEntry(category = "Iron Backpack", needsWorldRestart = true)
-    @RangedEntry(minValue = 0, maxValue = 1)
     public static float ironBackpackOther = 0.05f;
 
 
@@ -98,10 +86,6 @@ public class ChestLootConfig {
     @ConfigEntry(category = "Gold Backpack", needsWorldRestart = true)
     @RangedEntry(minValue = 0, maxValue = 1)
     public static float goldBackpackTreasure = 0.02f;
-
-    @ConfigEntry(category = "Gold Backpack", needsWorldRestart = true)
-    @RangedEntry(minValue = 0, maxValue = 1)
-    public static float goldBackpackTrialChamber = 0.02f;
 
     @ConfigEntry(category = "Gold Backpack", needsWorldRestart = true)
     @RangedEntry(minValue = 0, maxValue = 1)
