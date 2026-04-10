@@ -3,12 +3,13 @@
   "category": "misc",
   "key": {
     "B": "resource_backpacks:backpack_iron",
-    "G": "#c:ingots/gold"
+    "G": "#c:ingots/gold",
+    "S": "minecraft:shulker_shell"
   },
   "pattern": [
-    "GGG",
+    "GSG",
     "GBG",
-    "GGG"
+    "GSG"
   ],
   "result": {
     "id": "resource_backpacks:backpack_gold"

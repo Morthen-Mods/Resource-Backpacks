@@ -7,6 +7,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
@@ -45,24 +46,27 @@ public class BackpackRecipesProvider extends RecipeProvider {
                 .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_IRON.get()));
 
         this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_GOLD.get())
-                .pattern("GGG").pattern("GBG").pattern("GGG")
+                .pattern("GSG").pattern("GBG").pattern("GSG")
                 .define('G', BackpackTagsProvider.ItemTags.GOLD_INGOTS)
                 .define('B', BlockRegistry.BACKPACK_IRON.get())
+                .define('S', Items.SHULKER_SHELL)
                 .unlockedBy(getHasName(BlockRegistry.BACKPACK_IRON.get()), has(BlockRegistry.BACKPACK_IRON.get()))
                 .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_GOLD.get()));
 
         this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_DIAMOND.get())
-                .pattern("DDD").pattern("DBD").pattern("DDD")
+                .pattern("DSD").pattern("SBS").pattern("DSD")
                 .define('D', BackpackTagsProvider.ItemTags.DIAMONDS)
                 .define('B', BlockRegistry.BACKPACK_GOLD.get())
+                .define('S', Items.SHULKER_SHELL)
                 .unlockedBy(getHasName(BlockRegistry.BACKPACK_GOLD.get()), has(BlockRegistry.BACKPACK_GOLD.get()))
                 .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_DIAMOND.get()));
 
         this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_NETHERITE.get())
-                .pattern("NDN").pattern("DBD").pattern("NDN")
+                .pattern("NDN").pattern("SBS").pattern("NDN")
                 .define('N', BackpackTagsProvider.ItemTags.NETHERITE_INGOTS)
                 .define('D', BackpackTagsProvider.ItemTags.DIAMONDS)
                 .define('B', BlockRegistry.BACKPACK_DIAMOND.get())
+                .define('S', ItemTags.SHULKER_BOXES)
                 .unlockedBy(getHasName(BlockRegistry.BACKPACK_DIAMOND.get()), has(BlockRegistry.BACKPACK_DIAMOND.get()))
                 .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_NETHERITE.get()));
 

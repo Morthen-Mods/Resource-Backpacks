@@ -3,12 +3,13 @@
   "category": "misc",
   "key": {
     "B": "resource_backpacks:backpack_gold",
-    "D": "#c:gems/diamond"
+    "D": "#c:gems/diamond",
+    "S": "minecraft:shulker_shell"
   },
   "pattern": [
-    "DDD",
-    "DBD",
-    "DDD"
+    "DSD",
+    "SBS",
+    "DSD"
   ],
   "result": {
     "id": "resource_backpacks:backpack_diamond"
