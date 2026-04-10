@@ -1,5 +1,9 @@
 package net.xstopho.resource_backpacks.backpack;
 
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -66,6 +70,17 @@ public class BackpackItem extends BlockItem {
             case NETHERITE -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.netheriteMenu(i, inventory, backpackInventory, false), this.getName(stack));
             case END -> new SimpleMenuProvider((i, inventory, player) -> BackpackMenu.endMenu(i, inventory, player.getEnderChestInventory(), false), this.getName(stack));
         };
+    }
+
+    @Override
+    public Component getName(ItemStack itemStack) {
+        DataComponentMap components = itemStack.getComponents();
+
+        if (components.has(DataComponents.CUSTOM_NAME)) {
+            return components.getOrDefault(DataComponents.CUSTOM_NAME, CommonComponents.EMPTY);
+        }
+
+        return components.getOrDefault(DataComponents.ITEM_NAME, CommonComponents.EMPTY);
     }
 
     public BackpackLevel getBackpackLevel() {
