@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": "resource_backpacks:backpack_copper",
+    "B": "resource_backpacks:backpack_iron",
     "G": "#c:ingots/gold"
   },
   "pattern": [

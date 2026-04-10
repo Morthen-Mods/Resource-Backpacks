@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": "resource_backpacks:backpack_iron",
+    "B": "resource_backpacks:backpack_gold",
     "D": "#c:gems/diamond"
   },
   "pattern": [

@@ -30,21 +30,21 @@ public class BackpackConfig {
     @RangedEntry(minValue = 9, maxValue = 14)
     public static int copperColumns = 9;
 
-    @ConfigEntry(category = "Gold Backpack", translation = "row")
-    @RangedEntry(minValue = 1, maxValue = 4)
-    public static int goldRows = 3;
-
-    @ConfigEntry(category = "Gold Backpack", translation = "column")
-    @RangedEntry(minValue = 9, maxValue = 16)
-    public static int goldColumns = 11;
-
     @ConfigEntry(category = "Iron Backpack", translation = "row")
-    @RangedEntry(minValue = 1, maxValue = 6)
-    public static int ironRows = 4;
+    @RangedEntry(minValue = 1, maxValue = 4)
+    public static int ironRows = 3;
 
     @ConfigEntry(category = "Iron Backpack", translation = "column")
+    @RangedEntry(minValue = 9, maxValue = 16)
+    public static int ironColumns = 11;
+
+    @ConfigEntry(category = "Gold Backpack", translation = "row")
+    @RangedEntry(minValue = 1, maxValue = 6)
+    public static int goldRows = 4;
+
+    @ConfigEntry(category = "Gold Backpack", translation = "column")
     @RangedEntry(minValue = 9, maxValue = 18)
-    public static int ironColumns = 12;
+    public static int goldColumns = 12;
 
     @ConfigEntry(category = "Diamond Backpack", translation = "row")
     @RangedEntry(minValue = 1, maxValue = 8)

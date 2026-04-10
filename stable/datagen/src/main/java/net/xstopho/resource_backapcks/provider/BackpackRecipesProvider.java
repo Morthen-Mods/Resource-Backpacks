@@ -37,25 +37,25 @@ public class BackpackRecipesProvider extends RecipeProvider {
                 .unlockedBy(getHasName(BlockRegistry.BACKPACK_LEATHER.get()), has(BlockRegistry.BACKPACK_LEATHER.get()))
                 .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_COPPER.get()));
 
-        this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_GOLD.get())
-                .pattern("GGG").pattern("GBG").pattern("GGG")
-                .define('G', BackpackTagsProvider.ItemTags.GOLD_INGOTS)
-                .define('B', BlockRegistry.BACKPACK_COPPER.get())
-                .unlockedBy(getHasName(BlockRegistry.BACKPACK_COPPER.get()), has(BlockRegistry.BACKPACK_COPPER.get()))
-                .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_GOLD.get()));
-
         this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_IRON.get())
                 .pattern("III").pattern("IBI").pattern("III")
                 .define('I', BackpackTagsProvider.ItemTags.IRON_INGOTS)
-                .define('B', BlockRegistry.BACKPACK_GOLD.get())
-                .unlockedBy(getHasName(BlockRegistry.BACKPACK_GOLD.get()), has(BlockRegistry.BACKPACK_GOLD.get()))
+                .define('B', BlockRegistry.BACKPACK_COPPER.get())
+                .unlockedBy(getHasName(BlockRegistry.BACKPACK_COPPER.get()), has(BlockRegistry.BACKPACK_COPPER.get()))
                 .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_IRON.get()));
+
+        this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_GOLD.get())
+                .pattern("GGG").pattern("GBG").pattern("GGG")
+                .define('G', BackpackTagsProvider.ItemTags.GOLD_INGOTS)
+                .define('B', BlockRegistry.BACKPACK_IRON.get())
+                .unlockedBy(getHasName(BlockRegistry.BACKPACK_IRON.get()), has(BlockRegistry.BACKPACK_IRON.get()))
+                .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_GOLD.get()));
 
         this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_DIAMOND.get())
                 .pattern("DDD").pattern("DBD").pattern("DDD")
                 .define('D', BackpackTagsProvider.ItemTags.DIAMONDS)
-                .define('B', BlockRegistry.BACKPACK_IRON.get())
-                .unlockedBy(getHasName(BlockRegistry.BACKPACK_IRON.get()), has(BlockRegistry.BACKPACK_IRON.get()))
+                .define('B', BlockRegistry.BACKPACK_GOLD.get())
+                .unlockedBy(getHasName(BlockRegistry.BACKPACK_GOLD.get()), has(BlockRegistry.BACKPACK_GOLD.get()))
                 .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_DIAMOND.get()));
 
         this.shaped(RecipeCategory.MISC, BlockRegistry.BACKPACK_NETHERITE.get())
