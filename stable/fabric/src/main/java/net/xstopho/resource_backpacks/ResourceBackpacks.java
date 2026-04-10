@@ -17,16 +17,16 @@ public class ResourceBackpacks implements ModInitializer {
     }
 
     private void registerServerPayloads() {
-        PayloadTypeRegistry.playC2S().register(OpenBackpackPayload.TYPE, OpenBackpackPayload.CODEC);
+        PayloadTypeRegistry.serverboundPlay().register(OpenBackpackPayload.TYPE, OpenBackpackPayload.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(OpenBackpackPayload.TYPE, (payload, context) -> OpenBackpackPayload.handle(payload, context.player()));
 
-        PayloadTypeRegistry.playC2S().register(EnderChestRequestPayload.TYPE, EnderChestRequestPayload.CODEC);
+        PayloadTypeRegistry.serverboundPlay().register(EnderChestRequestPayload.TYPE, EnderChestRequestPayload.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(EnderChestRequestPayload.TYPE, (payload, context) -> EnderChestRequestPayload.handle(payload, context.player()));
 
-        PayloadTypeRegistry.playC2S().register(SyncCreativeSlotPayload.TYPE, SyncCreativeSlotPayload.CODEC);
+        PayloadTypeRegistry.serverboundPlay().register(SyncCreativeSlotPayload.TYPE, SyncCreativeSlotPayload.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(SyncCreativeSlotPayload.TYPE, (payload, context) -> SyncCreativeSlotPayload.handle(payload, context.player()));
 
-        PayloadTypeRegistry.playS2C().register(EnderChestResponsePayload.TYPE, EnderChestResponsePayload.CODEC);
-        PayloadTypeRegistry.playS2C().register(SyncEntityBackpackPayload.TYPE, SyncEntityBackpackPayload.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(EnderChestResponsePayload.TYPE, EnderChestResponsePayload.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(SyncEntityBackpackPayload.TYPE, SyncEntityBackpackPayload.CODEC);
     }
 }

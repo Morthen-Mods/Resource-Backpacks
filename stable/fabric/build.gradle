@@ -1,19 +1,18 @@
 plugins {
     id 'loader'
-    id 'fabric-loom'
+    id 'net.fabricmc.fabric-loom'
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
 
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api}+${minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${fabric_loader}"
+    api "net.fabricmc.fabric-api:fabric-api:${fabric_api}+${minecraft_version}"
 
-    modImplementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${minecraft_version}-${resource_config_api}"
-    modImplementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${minecraft_version}-${resource_library}"
+    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${minecraft_version}-${resource_config_api}"
+    implementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${minecraft_version}-${resource_library}"
 
-    modImplementation "com.terraformersmc:modmenu:${mod_menu}"
+    implementation "com.terraformersmc:modmenu:${mod_menu}"
 }
 
 loom {
@@ -42,7 +41,7 @@ loom {
 }
 
 publishMods {
-    file = remapJar.archiveFile
+    file = jar.archiveFile
     modLoaders.addAll("fabric", "quilt")
 
     modrinth { requires("fabric-api") }

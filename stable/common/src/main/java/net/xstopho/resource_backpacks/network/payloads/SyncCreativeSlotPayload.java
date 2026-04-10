@@ -16,7 +16,7 @@ public record SyncCreativeSlotPayload(int index, ItemStack itemStack) implements
                     SyncCreativeSlotPayload::new);
 
     public static void handle(SyncCreativeSlotPayload payload, ServerPlayer player) {
-        player.getServer().execute(() -> {
+        player.level().getServer().execute(() -> {
             player.inventoryMenu.getSlot(payload.index()).set(payload.itemStack());
         });
     }

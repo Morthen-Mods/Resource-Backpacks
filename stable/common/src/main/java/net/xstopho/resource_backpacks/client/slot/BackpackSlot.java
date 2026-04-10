@@ -1,10 +1,8 @@
 package net.xstopho.resource_backpacks.client.slot;
 
-import com.mojang.datafixers.util.Pair;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
@@ -17,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class BackpackSlot extends Slot {
 
-    private static final ResourceLocation BACKPACK_SPRITE = BackpackConstants.of("item/empty_slot_backpack");
+    private static final Identifier BACKPACK_SPRITE = BackpackConstants.of("container/slot/empty_slot_backpack");
     private final Player player;
 
     public BackpackSlot(Container container, Player player) {
@@ -25,14 +23,16 @@ public class BackpackSlot extends Slot {
         this.player = player;
     }
 
+    //TODO: rework this method
     @Override
     public void setChanged() {
+        super.setChanged();
         ((BackpackHolder) player).setBackpack(getItem());
         if (!player.level().isClientSide()) {
             BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(player, new SyncEntityBackpackPayload(player.getId(), getItem()));
 
         } else if (player.isCreative()) {
-            BackpackNetwork.INSTANCE.sendToServer(new SyncCreativeSlotPayload(this.index, getItem()));
+            BackpackNetwork.INSTANCE.sendToServer(new SyncCreativeSlotPayload(index, getItem()));
         }
     }
 
@@ -42,7 +42,7 @@ public class BackpackSlot extends Slot {
     }
 
     @Override
-    public @Nullable Pair<ResourceLocation, ResourceLocation> getNoItemIcon() {
-        return Pair.of(InventoryMenu.BLOCK_ATLAS, BACKPACK_SPRITE);
+    public @Nullable Identifier getNoItemIcon() {
+        return BACKPACK_SPRITE;
     }
 }

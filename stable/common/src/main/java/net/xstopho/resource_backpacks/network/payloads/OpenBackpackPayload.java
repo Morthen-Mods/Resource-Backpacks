@@ -14,8 +14,9 @@ public record OpenBackpackPayload() implements CustomPacketPayload {
     public static final StreamCodec<RegistryFriendlyByteBuf, OpenBackpackPayload> CODEC = StreamCodec.unit(new OpenBackpackPayload());
 
     public static void handle(OpenBackpackPayload payload, ServerPlayer player) {
-        player.getServer().execute(() -> {
+        player.level().getServer().execute(() -> {
             ItemStack itemStack = ((BackpackHolder) player).getBackpack();
+
             if (itemStack.getItem() instanceof BackpackItem backpackItem) {
                 player.openMenu(backpackItem.getMenuProvider(itemStack));
             }

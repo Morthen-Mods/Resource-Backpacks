@@ -37,6 +37,7 @@
   "block.resource_backpacks.backpack_end": "Endrucksack",
 
   "config.resource_backpacks.appearance": "Aussehen",
+  "config.resource_backpacks.appearance.style.label": "Gui-Textur",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Rucksack Aussehen",
   "config.resource_backpacks.appearance.position.label": "Backpack Slot Position",
 

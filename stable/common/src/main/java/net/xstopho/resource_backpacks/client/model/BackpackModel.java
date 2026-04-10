@@ -1,7 +1,5 @@
 package net.xstopho.resource_backpacks.client.model;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -11,21 +9,20 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
 
-public class BackpackModel<T extends Entity> extends EntityModel<T> {
+public class BackpackModel<T extends LivingEntityRenderState> extends EntityModel<T> {
 
-    public static final ModelLayerLocation BACKPACK_LAYER = new ModelLayerLocation(ResourceLocation.withDefaultNamespace("player"), "backpack");
+    public static final ModelLayerLocation BACKPACK_LAYER = new ModelLayerLocation(Identifier.withDefaultNamespace("player"), "backpack");
 
     private final ModelPart backpack;
 
     public BackpackModel(ModelPart root) {
-        super(RenderType::entityCutoutNoCull);
+        super(root);
 
         this.backpack = root.getChild("backpack");
     }
@@ -47,24 +44,12 @@ public class BackpackModel<T extends Entity> extends EntityModel<T> {
         return LayerDefinition.create(meshdefinition, 39, 19);
     }
 
-    public static ResourceLocation getTexture(ItemStack stack) {
+    public static Identifier getTexture(ItemStack stack) {
         String type = "default";
         if (stack.getItem() instanceof BackpackItem backpackItem) {
             type = backpackItem.getBackpackLevel().name().toLowerCase();
         }
 
         return BackpackConstants.of("textures/entity/backpack_" + type + ".png");
-    }
-
-    @Override
-    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {}
-
-    @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
-        this.backpack.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-    }
-
-    public void setupAngles(HumanoidModel<?> model) {
-        this.backpack.copyFrom(model.body);
     }
 }

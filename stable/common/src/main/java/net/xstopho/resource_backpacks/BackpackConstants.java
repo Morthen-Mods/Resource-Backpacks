@@ -2,17 +2,14 @@ package net.xstopho.resource_backpacks;
 
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenuScreen;
 import net.xstopho.resource_backpacks.config.client.ClientConfig;
 import net.xstopho.resource_backpacks.config.common.BackpackConfig;
 import net.xstopho.resource_backpacks.config.common.ChestLootConfig;
 import net.xstopho.resource_backpacks.config.common.EntityConfig;
 import net.xstopho.resource_backpacks.modifier.ChestLootModifier;
-import net.xstopho.resource_backpacks.registries.BlockEntityRegistry;
-import net.xstopho.resource_backpacks.registries.BlockRegistry;
-import net.xstopho.resource_backpacks.registries.CreativeTabRegistry;
-import net.xstopho.resource_backpacks.registries.MenuTypeRegistry;
+import net.xstopho.resource_backpacks.registries.*;
 import net.xstopho.resourceconfigapi.api.ConfigRegistry;
 import net.xstopho.resourcelibrary.modifier.LootTableModifier;
 import net.xstopho.resourcelibrary.registration.ResourcePackRegistry;
@@ -24,7 +21,7 @@ public class BackpackConstants {
     public static final String MOD_NAME = "Resource Backpacks";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
-    private static final LootTableModifier MODIFIER = LootTableModifier.getInstance();
+    private static final LootTableModifier modifier = LootTableModifier.getInstance();
 
     public static void commonInit() {
         ConfigRegistry.register(ClientConfig.class, MOD_ID);
@@ -33,7 +30,9 @@ public class BackpackConstants {
         ConfigRegistry.register(ChestLootConfig.class, MOD_ID);
         ConfigRegistry.register(EntityConfig.class, MOD_ID);
 
-        ChestLootModifier.initLootModifier(MODIFIER);
+        ChestLootModifier.initLootModifier(modifier);
+
+        DataComponentRegistry.init();
 
         BlockRegistry.init();
         BlockEntityRegistry.init();
@@ -41,11 +40,6 @@ public class BackpackConstants {
         MenuTypeRegistry.init();
 
         CreativeTabRegistry.init();
-
-        ResourcePackRegistry packRegistry = ResourcePackRegistry.getInstance(MOD_ID);
-        packRegistry.register("resource_backpacks_ore_ui", "Ore UI");
-        packRegistry.register("resource_backpacks_ore_ui_dark", "Ore UI Dark");
-        packRegistry.register("resource_backpacks_vanilla_dark", "Vanilla Dark");
     }
 
     public static void clientInit() {
@@ -58,9 +52,16 @@ public class BackpackConstants {
         MenuScreens.register(MenuTypeRegistry.END_MENU.get(), BackpackMenuScreen::new);
     }
 
-    public static ResourceLocation of(String id) {
+    public static void packInit() {
+        ResourcePackRegistry packRegistry = ResourcePackRegistry.getInstance(MOD_ID);
+        packRegistry.register("resource_backpacks_ore_ui", "Ore UI");
+        packRegistry.register("resource_backpacks_ore_ui_dark", "Ore UI Dark");
+        packRegistry.register("resource_backpacks_vanilla_dark", "Vanilla Dark");
+    }
 
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
+    public static Identifier of(String id) {
+
+        return Identifier.fromNamespaceAndPath(MOD_ID, id);
     }
 
     public static <T extends CustomPacketPayload> CustomPacketPayload.Type<T> type(String id) {

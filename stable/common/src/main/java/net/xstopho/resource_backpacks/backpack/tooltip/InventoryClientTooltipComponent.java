@@ -1,25 +1,25 @@
 package net.xstopho.resource_backpacks.backpack.tooltip;
 
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.ItemContainerContents;
+import net.xstopho.resource_backpacks.backpack.component.BackpackContainerContents;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
 import net.xstopho.resource_backpacks.client.util.BackpackClientUtils;
 
 import java.util.List;
 
 public class InventoryClientTooltipComponent extends BaseClientTooltipComponent {
-    public record InventoryTooltipComponent(ItemContainerContents content, BackpackLevel level) implements TooltipComponent {}
+    public record InventoryTooltipComponent(BackpackContainerContents content, BackpackLevel level) implements TooltipComponent {}
 
     private final BackpackLevel level;
     private List<ItemStack> items;
 
     public InventoryClientTooltipComponent(InventoryTooltipComponent component) {
         this.level = component.level();
-        this.items = component.content().stream().toList();
+        this.items = component.content().toList();
         if (level.equals(BackpackLevel.END)) {
             Player player = BackpackClientUtils.getPlayer();
             this.items = getEnderChestItems(player);
@@ -27,7 +27,7 @@ public class InventoryClientTooltipComponent extends BaseClientTooltipComponent 
     }
 
     @Override
-    public void renderPreview(Font font, int x, int y, GuiGraphics guiGraphics) {
+    public void renderPreview(Font font, int x, int y, GuiGraphicsExtractor guiGraphics) {
         int xOffset = 0;
         int yOffset = 0;
 
@@ -42,7 +42,7 @@ public class InventoryClientTooltipComponent extends BaseClientTooltipComponent 
     }
 
     @Override
-    public int getHeight() {
+    public int getHeight(Font font) {
         return this.level.getRows() * 18;
     }
 

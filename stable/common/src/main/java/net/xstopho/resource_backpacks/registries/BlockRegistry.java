@@ -1,6 +1,9 @@
 package net.xstopho.resource_backpacks.registries;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -17,8 +20,8 @@ import java.util.function.Function;
 
 public class BlockRegistry {
 
-    private static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(Registries.BLOCK, BackpackConstants.MOD_ID);
-    private static final RegistryProvider<Item> ITEMS = RegistryProvider.get(Registries.ITEM, BackpackConstants.MOD_ID);
+    private static final RegistryProvider<Block> BLOCKS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.BLOCK);
+    private static final RegistryProvider<Item> ITEMS = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.ITEM);
 
     public static final RegistryObject<Block> BACKPACK_LEATHER = registerBlock("backpack_leather", BackpackLevel.LEATHER);
     public static final RegistryObject<Block> BACKPACK_COPPER = registerBlock("backpack_copper", BackpackLevel.COPPER);
@@ -40,16 +43,27 @@ public class BlockRegistry {
 
 
     private static RegistryObject<Block> registerBlock(String id, Function<BlockBehaviour.Properties, Block> function, BackpackLevel level, BlockBehaviour.Properties blockBehavior) {
-        RegistryObject<Block> block = BLOCKS.register(id, () -> function.apply(blockBehavior));
+        ResourceKey<Block> blockId = createBlockId(id);
+
+        RegistryObject<Block> block = BLOCKS.register(id, () -> function.apply(blockBehavior.setId(blockId)));
 
         Item.Properties itemProperties = level == BackpackLevel.NETHERITE ? new Item.Properties().fireResistant() : new Item.Properties();
-        registerItem(id, properties -> new BackpackItem(block.get(), level, properties), itemProperties);
+        registerItem(id, properties -> new BackpackItem(block.get(), level, properties), itemProperties.useBlockDescriptionPrefix());
 
         return block;
     }
 
     private static void registerItem(String id, Function<Item.Properties, Item> function, Item.Properties properties) {
-        ITEMS.register(id, () -> function.apply(properties.stacksTo(1)));
+        ResourceKey<Item> itemId = createItemId(id);
+        ITEMS.register(id, () -> function.apply(properties.setId(itemId).stacksTo(1)));
+    }
+
+    private static ResourceKey<Block> createBlockId(String id) {
+        return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(BackpackConstants.MOD_ID, id));
+    }
+
+    private static ResourceKey<Item> createItemId(String id) {
+        return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BackpackConstants.MOD_ID, id));
     }
 
     public static void init() {}

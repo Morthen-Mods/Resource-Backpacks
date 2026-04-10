@@ -1,9 +1,11 @@
 {
   "pack": {
-    "pack_format": 34,
-    "description": "Vanilla Dark Textures for Resource Backpacks"
+    "pack_format": 69,
+    "description": "Vanilla Dark Textures for Resource Backpacks",
+    "min_format": [ 65, 0 ],
+    "max_format": 69
   },
   "resource_backpacks": {
-    "color": "0xFFFFFF"
+    "color": "0xffffffff"
   }
 }

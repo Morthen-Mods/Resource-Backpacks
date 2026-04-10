@@ -2,16 +2,16 @@ package net.xstopho.resource_backpacks;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
-import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.ClientTooltipComponentCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityRenderLayerRegistrationCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.CreeperRenderer;
 import net.minecraft.client.renderer.entity.ZombieRenderer;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import net.xstopho.resource_backpacks.backpack.tooltip.CompactClientTooltipComponent;
 import net.xstopho.resource_backpacks.backpack.tooltip.InventoryClientTooltipComponent;
 import net.xstopho.resource_backpacks.client.model.BackpackModel;
@@ -27,11 +27,12 @@ import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
 
 public class ResourceBackpacksClient implements ClientModInitializer {
 
-    private final KeyMapping openBackpack = KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.OPEN_BACKPACK);
+    private final KeyMapping openBackpack = KeyMappingHelper.registerKeyMapping(KeyMappingRegistry.OPEN_BACKPACK);
 
     @Override
     public void onInitializeClient() {
         BackpackConstants.clientInit();
+        BackpackConstants.packInit();
         registerTooltipComponents();
         registerClientPayloads();
         registerKeyMapping();
@@ -44,10 +45,10 @@ public class ResourceBackpacksClient implements ClientModInitializer {
     }
 
     private void registerRendering() {
-        EntityModelLayerRegistry.registerModelLayer(BackpackModel.BACKPACK_LAYER, BackpackModel::createLayer);
+        ModelLayerRegistry.registerModelLayer(BackpackModel.BACKPACK_LAYER, BackpackModel::createLayer);
 
-        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, renderer, helper, context) -> {
-            if (renderer instanceof PlayerRenderer player) helper.register(new PlayerBackpackLayer(player, context.getModelSet()));
+        LivingEntityRenderLayerRegistrationCallback.EVENT.register((stack, renderer, helper, context) -> {
+            if (renderer instanceof AvatarRenderer<?> player) helper.register(new PlayerBackpackLayer(player, context.getModelSet()));
             if (renderer instanceof ArmorStandRenderer armorStand) helper.register(new ArmorStandBackpackLayer(armorStand, context.getModelSet()));
             if (renderer instanceof ZombieRenderer zombie) helper.register(new ZombieBackpackLayer(zombie, context.getModelSet()));
             if (renderer instanceof CreeperRenderer creeper) helper.register(new CreeperBackpackLayer(creeper, context.getModelSet()));
@@ -55,7 +56,7 @@ public class ResourceBackpacksClient implements ClientModInitializer {
     }
 
     private void registerTooltipComponents() {
-        TooltipComponentCallback.EVENT.register(component -> {
+        ClientTooltipComponentCallback.EVENT.register(component -> {
             if (component instanceof CompactClientTooltipComponent.CompactTooltipComponent data) {
                 return new CompactClientTooltipComponent(data);
             }
@@ -68,8 +69,8 @@ public class ResourceBackpacksClient implements ClientModInitializer {
     }
 
     private void registerKeyMapping() {
-        KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
-        KeyBindingHelper.registerKeyBinding(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
+        KeyMappingHelper.registerKeyMapping(KeyMappingRegistry.SHOW_COMPACT_PREVIEW);
+        KeyMappingHelper.registerKeyMapping(KeyMappingRegistry.SHOW_INVENTORY_PREVIEW);
 
         ClientTickEvents.END_CLIENT_TICK.register(minecraft -> {
             if (openBackpack.consumeClick()) {

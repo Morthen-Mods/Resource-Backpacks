@@ -10,7 +10,6 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Show full Inventory",
 
   "tag.item.c.backpacks": "Backpacks",
-  "tag.item.c.backpacks.leather_ingredient": "Leather Replacements",
   "tag.item.c.backpacks.leather": "Leather Backpack",
   "tag.item.c.backpacks.copper": "Copper Backpack",
   "tag.item.c.backpacks.gold": "Gold Backpack",
@@ -37,6 +36,7 @@
   "block.resource_backpacks.backpack_end": "End Backpack",
 
   "config.resource_backpacks.appearance": "Appearance",
+  "config.resource_backpacks.appearance.style.label": "Gui Texture",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Backpack Appearance",
   "config.resource_backpacks.appearance.position.label": "Backpack Slot Position",
 

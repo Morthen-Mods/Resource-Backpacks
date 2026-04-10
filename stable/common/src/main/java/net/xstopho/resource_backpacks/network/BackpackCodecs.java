@@ -14,11 +14,11 @@ public class BackpackCodecs {
         public ListTag decode(RegistryFriendlyByteBuf byteBuf) {
             CompoundTag tag = byteBuf.readNbt();
 
-            if (tag == null || !tag.contains("ender_chest", ListTag.TAG_LIST)) {
+            if (tag == null || !tag.contains("ender_chest")) {
                 return null;
             }
 
-            return tag.getList("ender_chest", ListTag.TAG_COMPOUND);
+            return tag.getList("ender_chest").orElse(null);
         }
 
         @Override

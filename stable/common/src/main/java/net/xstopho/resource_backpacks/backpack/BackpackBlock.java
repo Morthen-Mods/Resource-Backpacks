@@ -3,15 +3,14 @@ package net.xstopho.resource_backpacks.backpack;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -46,11 +45,10 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-
-        if (level instanceof ServerLevel) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof BackpackBlockEntity backpackBlockEntity) {
-                player.openMenu(backpackBlockEntity);
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (!level.isClientSide()) {
+            if (blockEntity instanceof BackpackBlockEntity entity) {
+                player.openMenu(entity);
             }
         }
 
@@ -58,29 +56,22 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
     }
 
     @Override
-    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
-        if (level instanceof ServerLevel) {
-            if (blockEntity instanceof BackpackBlockEntity backpackBlockEntity) {
-                ItemStack backpack = new ItemStack(this.asItem());
-                backpack.applyComponents(backpackBlockEntity.collectComponents());
-
-                ItemEntity entity = new ItemEntity(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, backpack);
-                entity.setDefaultPickUpDelay();
-
-                level.addFreshEntity(entity);
-            }
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (blockEntity instanceof BackpackBlockEntity entity) {
+            entity.spawnFreshItemEntity(level, pos, this.asItem());
         }
 
-        super.playerDestroy(level, player, pos, state, blockEntity, tool);
+        return super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
         if (state.getValue(BlockStateProperties.WATERLOGGED)) {
-            level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            scheduledTickAccess.createTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
 
-        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+        return super.updateShape(state, level, scheduledTickAccess, pos, direction, neighborPos, neighborState, random);
     }
 
     @Override
@@ -141,7 +132,7 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new BackpackBlockEntity(blockPos, blockState, this.backpackLevel);
+        return new BackpackBlockEntity(blockPos, blockState);
     }
 
     public BackpackLevel getBackpackLevel() {

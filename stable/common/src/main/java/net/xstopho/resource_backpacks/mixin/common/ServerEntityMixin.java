@@ -22,7 +22,7 @@ public abstract class ServerEntityMixin {
     private Entity entity;
 
     // Syncs the Entity Data every 2-3 seconds
-    @Inject(method = "addPairing", at = @At("RETURN"))
+    @Inject(method = "addPairing(Lnet/minecraft/server/level/ServerPlayer;)V", at = @At("RETURN"))
     private void resource_backpacks$addPairing(ServerPlayer player, CallbackInfo info) {
         if (entity instanceof LivingEntity livingEntity) {
             ItemStack itemStack = ((BackpackHolder) livingEntity).getBackpack();

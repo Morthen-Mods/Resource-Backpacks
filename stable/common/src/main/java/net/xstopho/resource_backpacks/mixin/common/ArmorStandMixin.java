@@ -28,25 +28,27 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class ArmorStandMixin extends LivingEntity implements BackpackHolder {
 
     @Shadow
-    public abstract EquipmentSlot getClickedSlot(Vec3 vector);
+    protected abstract EquipmentSlot getClickedSlot(Vec3 vector);
 
     protected ArmorStandMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
     }
 
-    @Inject(method = "brokenByAnything", at = @At("TAIL"))
+    @Inject(method = "brokenByAnything(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/damagesource/DamageSource;)V",
+            at = @At("TAIL"))
     public void resource_backpacks$brokenByAnything(ServerLevel level, DamageSource source, CallbackInfo info) {
         this.dropBackpack(level, this.getOnPos());
     }
 
-    @Inject(method = "interactAt", at = @At("HEAD"), cancellable = true)
-    public void resource_backpacks$interactAt(Player player, Vec3 vec, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
+    @Inject(method = "interact(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/InteractionResult;",
+            at = @At("HEAD"), cancellable = true)
+    public void resource_backpacks$interactAt(Player player, InteractionHand hand, Vec3 location, CallbackInfoReturnable<InteractionResult> cir) {
         ItemStack handStack = player.getItemInHand(hand).copy();
         if (handStack.getItem() instanceof BackpackItem) {
             cir.setReturnValue(setOrSwapBackpack(player, hand, handStack));
 
         } else if (handStack.isEmpty()) {
-            if (getClickedSlot(vec) == EquipmentSlot.MAINHAND) {
+            if (getClickedSlot(location) == EquipmentSlot.MAINHAND) {
                 ItemStack itemStack = this.getBackpack();
                 if (!itemStack.isEmpty()) {
                     player.setItemInHand(hand, itemStack);
@@ -64,6 +66,7 @@ public abstract class ArmorStandMixin extends LivingEntity implements BackpackHo
     private InteractionResult setOrSwapBackpack(Player player, InteractionHand hand, ItemStack handStack) {
         if (handStack.getItem() instanceof BackpackItem) {
             ItemStack itemStack = this.getBackpack();
+
             if (itemStack.isEmpty()) {
                 this.setBackpack(handStack);
                 player.getItemInHand(hand).shrink(1);

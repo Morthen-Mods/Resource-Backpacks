@@ -10,7 +10,7 @@
         "issues": "https://github.com/Stein-N/Resource-Backpacks/issues"
     },
     "license": "${mod_license}",
-    "icon": "logo.png",
+    "icon": "icon.png",
     "environment": "*",
     "accessWidener" : "${mod_id}.accesswidener",
     "entrypoints": {
@@ -21,7 +21,7 @@
     "depends": {
         "fabric-api": ">=${fabric_api}",
         "fabricloader": ">=${fabric_loader}",
-        "minecraft": "${minecraft_version}",
+        "minecraft": ">=26.1 <=${minecraft_version}",
         "java": ">=${java_version}",
 
         "resourceconfigapi": ">=${minecraft_version}-${resource_config_api}",

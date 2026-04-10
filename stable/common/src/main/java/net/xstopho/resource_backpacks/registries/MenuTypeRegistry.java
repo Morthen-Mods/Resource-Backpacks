@@ -1,6 +1,6 @@
 package net.xstopho.resource_backpacks.registries;
 
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.MenuType;
 import net.xstopho.resource_backpacks.BackpackConstants;
@@ -10,7 +10,7 @@ import net.xstopho.resourcelibrary.registration.RegistryProvider;
 
 public class MenuTypeRegistry {
 
-    private static final RegistryProvider<MenuType<?>> MENU_TYPES = RegistryProvider.get(Registries.MENU, BackpackConstants.MOD_ID);
+    private static final RegistryProvider<MenuType<?>> MENU_TYPES = RegistryProvider.get(BackpackConstants.MOD_ID, BuiltInRegistries.MENU);
 
     public static final RegistryObject<MenuType<BackpackMenu>> LEATHER_MENU = MENU_TYPES.register("leather_menu", () -> new MenuType<>(BackpackMenu::leatherMenu, FeatureFlags.DEFAULT_FLAGS));
     public static final RegistryObject<MenuType<BackpackMenu>> COPPER_MENU = MENU_TYPES.register("copper_menu", () -> new MenuType<>(BackpackMenu::copperMenu, FeatureFlags.DEFAULT_FLAGS));

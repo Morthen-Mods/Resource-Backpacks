@@ -18,8 +18,8 @@ neoForge {
 
     runs {
         data {
-            data()
-            ideName = "Common Datagen (stable)"
+            clientData()
+            ideName = "Common Datagen (latest)"
             gameDirectory = file('../fabric/runs/data')
             programArguments = ['--mod', project.mod_id, '--all', '--output', file('../common/src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()]
         }

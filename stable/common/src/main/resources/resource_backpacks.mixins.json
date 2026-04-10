@@ -5,8 +5,10 @@
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "accessor.ShapedRecipeAccessor",
     "common.ArmorStandMixin",
     "common.InventoryMenuMixin",
+    "common.ItemStackMixin",
     "common.LivingEntityMixin",
     "common.PlayerMixin",
     "common.ServerEntityMixin",
@@ -17,6 +19,8 @@
     "accessor.KeyMappingAccessor",
     "client.CreativeModeInventoryScreenMixin",
     "client.InventoryScreenMixin",
+    "client.LivingEntityRendererMixin",
+    "client.LivingEntityRenderStateMixin",
     "client.SlotMixin",
     "client.SlotWrapperMixin"
   ],

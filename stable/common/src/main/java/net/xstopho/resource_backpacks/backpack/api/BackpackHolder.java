@@ -1,14 +1,13 @@
 package net.xstopho.resource_backpacks.backpack.api;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.xstopho.resource_backpacks.client.slot.BackpackSlot;
 import org.jetbrains.annotations.ApiStatus;
 
@@ -35,21 +34,16 @@ public interface BackpackHolder {
             entity.setDefaultPickUpDelay();
             level.addFreshEntity(entity);
         }
-
     }
 
-    default void readBackpackFromCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
-        if (tag.contains(tagId)) {
-            ItemStack backpack = ItemStack.parse(registryAccess, tag.getCompound(tagId)).orElse(ItemStack.EMPTY);
-            this.setBackpack(backpack);
-        }
+    default void readBackpackFromValueInput(ValueInput valueInput) {
+        ItemStack backpack = valueInput.read(tagId, ItemStack.CODEC).orElse(ItemStack.EMPTY);
+        this.setBackpack(backpack);
     }
 
-    default void saveBackpackOnCompound(CompoundTag tag, HolderLookup.Provider registryAccess) {
-        ItemStack itemStack = this.getBackpack();
-        if (!itemStack.isEmpty()) {
-            Tag backpack = itemStack.save(registryAccess);
-            tag.put(tagId, backpack);
+    default void saveBackpackToValueOutput(ValueOutput valueOutput) {
+        if (this.getBackpack() != ItemStack.EMPTY) {
+            valueOutput.store(tagId, ItemStack.CODEC, this.getBackpack());
         }
     }
 }

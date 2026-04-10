@@ -1,20 +1,18 @@
 package net.xstopho.resource_backapcks.provider;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.data.tags.TagAppender;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
 import net.xstopho.resourcelibrary.registration.RegistryObject;
-import net.xstopho.resourcelibrary.util.TagHelper;
+import net.xstopho.resourcelibrary.util.TagUtil;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -23,29 +21,31 @@ public final class BackpackTagsProvider {
     /**
      * Item Tags
      */
-    public static final class ItemTags extends TagsProvider<Item> {
+    public static final class ItemTags extends ItemTagsProvider {
 
-        public static final TagKey<Item> BACKPACKS = TagHelper.createItemTag("backpacks");
+        public static final TagKey<Item> BACKPACKS = TagUtil.createItemTag("backpacks");
 
-        public static final TagKey<Item> LEATHER = TagHelper.createItemTag("leathers");
-        public static final TagKey<Item> ENDER_CHESTS = TagHelper.createItemTag("chests/ender");
-        public static final TagKey<Item> DIAMONDS = TagHelper.createItemTag("gems/diamond");
-        public static final TagKey<Item> COPPER_INGOTS = TagHelper.createItemTag("ingots/copper");
-        public static final TagKey<Item> GOLD_INGOTS = TagHelper.createItemTag("ingots/gold");
-        public static final TagKey<Item> IRON_INGOTS = TagHelper.createItemTag("ingots/iron");
-        public static final TagKey<Item> NETHERITE_INGOTS = TagHelper.createItemTag("ingots/netherite");
+        public static final TagKey<Item> LEATHER = TagUtil.createItemTag("leathers");
+        public static final TagKey<Item> ENDER_CHESTS = TagUtil.createItemTag("chests/ender");
+        public static final TagKey<Item> DIAMONDS = TagUtil.createItemTag("gems/diamond");
+        public static final TagKey<Item> COPPER_INGOTS = TagUtil.createItemTag("ingots/copper");
+        public static final TagKey<Item> GOLD_INGOTS = TagUtil.createItemTag("ingots/gold");
+        public static final TagKey<Item> IRON_INGOTS = TagUtil.createItemTag("ingots/iron");
+        public static final TagKey<Item> NETHERITE_INGOTS = TagUtil.createItemTag("ingots/netherite");
 
-        public static final TagKey<Item> BACKPACK_LEATHER = TagHelper.createItemTag("backpacks/leather");
-        public static final TagKey<Item> BACKPACK_COPPER = TagHelper.createItemTag("backpacks/copper");
-        public static final TagKey<Item> BACKPACK_GOLD = TagHelper.createItemTag("backpacks/gold");
-        public static final TagKey<Item> BACKPACK_IRON = TagHelper.createItemTag("backpacks/iron");
-        public static final TagKey<Item> BACKPACK_DIAMOND = TagHelper.createItemTag("backpacks/diamond");
-        public static final TagKey<Item> BACKPACK_NETHERITE = TagHelper.createItemTag("backpacks/netherite");
-        public static final TagKey<Item> BACKPACK_END = TagHelper.createItemTag("backpacks/end");
+        public static final TagKey<Item> BACKPACK_LEATHER = TagUtil.createItemTag("backpacks/leather");
+        public static final TagKey<Item> BACKPACK_COPPER = TagUtil.createItemTag("backpacks/copper");
+        public static final TagKey<Item> BACKPACK_GOLD = TagUtil.createItemTag("backpacks/gold");
+        public static final TagKey<Item> BACKPACK_IRON = TagUtil.createItemTag("backpacks/iron");
+        public static final TagKey<Item> BACKPACK_DIAMOND = TagUtil.createItemTag("backpacks/diamond");
+        public static final TagKey<Item> BACKPACK_NETHERITE = TagUtil.createItemTag("backpacks/netherite");
+        public static final TagKey<Item> BACKPACK_END = TagUtil.createItemTag("backpacks/end");
 
-        public ItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
-            super(output, Registries.ITEM, lookupProvider, BackpackConstants.MOD_ID, existingFileHelper);
+
+        public ItemTags(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> unused) {
+            super(packOutput, lookupProvider, BackpackConstants.MOD_ID);
         }
+
 
         @Override
         protected void addTags(HolderLookup.Provider provider) {
@@ -78,45 +78,40 @@ public final class BackpackTagsProvider {
 
         @SafeVarargs
         private void tagBuilder(TagKey<Item> outputTag, RegistryObject<Block>... blocks) {
-            TagAppender<Item> appender = this.tag(outputTag);
+            TagAppender<Item, Item> appender = this.tag(outputTag);
 
             for (RegistryObject<Block> block : blocks) {
-                appender.add(convert(block));
+                appender.add(block.get().asItem());
             }
         }
 
         private void tagBuilder(TagKey<Item> outputTag, Item... items) {
-            TagAppender<Item> appender = this.tag(outputTag);
+            TagAppender<Item, Item> appender = this.tag(outputTag);
 
             for (Item item : items) {
-                appender.add(BuiltInRegistries.ITEM.getResourceKey(item).get());
+                appender.add(item);
             }
         }
 
         @SafeVarargs
         private void tagBuilder(TagKey<Item> outputTag, TagKey<Item>... tagKeys) {
-            TagAppender<Item> appender = this.tag(outputTag);
+            TagAppender<Item, Item> appender = this.tag(outputTag);
 
             for (TagKey<Item> tag : tagKeys) {
                 appender.addTag(tag);
             }
-        }
-
-        private ResourceKey<Item> convert(RegistryObject<Block> block) {
-            ResourceKey<Block> blockKey = block.getResourceKey();
-            return ResourceKey.create(Registries.ITEM, blockKey.location());
         }
     }
 
     /**
      * Block Tags
      */
-    public static final class BlockTags extends TagsProvider<Block> {
+    public static final class BlockTags extends BlockTagsProvider {
 
-        public static final TagKey<Block> BACKPACKS = TagHelper.createBlockTag("backpacks");
+        public static final TagKey<Block> BACKPACKS = TagUtil.createBlockTag("backpacks");
 
-        public BlockTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
-            super(output, Registries.BLOCK, lookupProvider, BackpackConstants.MOD_ID, existingFileHelper);
+        public BlockTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+            super(output, lookupProvider, BackpackConstants.MOD_ID);
         }
 
         @Override
@@ -132,10 +127,10 @@ public final class BackpackTagsProvider {
 
         @SafeVarargs
         private void tagBuilder(TagKey<Block> tag, RegistryObject<Block>... blocks) {
-            TagAppender<Block> appender = this.tag(tag);
+            TagAppender<Block, Block> appender = this.tag(tag);
 
             for (RegistryObject<Block> block : blocks) {
-                appender.add(block.getResourceKey());
+                appender.add(block.get());
             }
         }
     }

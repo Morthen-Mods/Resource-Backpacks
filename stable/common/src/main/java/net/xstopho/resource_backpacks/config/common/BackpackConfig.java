@@ -14,21 +14,6 @@ public class BackpackConfig {
     @ConfigEntry(category = "General")
     public static boolean allowBackpacksInsideBackpacks = false;
 
-//    @ConfigEntry(category = "General")
-//    public static boolean slownessPenalty = false;
-//
-//    @ConfigEntry(category = "Slowness Penalty")
-//    @RangedEntry(minValue = 3, maxValue = 36)
-//    public static int slownessOne = 5;
-//
-//    @ConfigEntry(category = "Slowness Penalty")
-//    @RangedEntry(minValue = 3, maxValue = 36)
-//    public static int slownessTwo = 8;
-//
-//    @ConfigEntry(category = "Slowness Penalty")
-//    @RangedEntry(minValue = 3, maxValue = 36)
-//    public static int slownessThree = 10;
-
     @ConfigEntry(category = "Leather Backpack", translation = "row")
     @RangedEntry(minValue = 1, maxValue = 2)
     public static int leatherRows = 1;

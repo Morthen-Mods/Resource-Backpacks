@@ -1,10 +1,11 @@
 package net.xstopho.resource_backpacks.backpack.tooltip;
 
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.Item;
@@ -16,11 +17,11 @@ import java.util.List;
 
 public abstract class BaseClientTooltipComponent implements ClientTooltipComponent {
 
-    public abstract void renderPreview(Font font, int x, int y, GuiGraphics guiGraphics);
+    public abstract void renderPreview(Font font, int x, int y, GuiGraphicsExtractor guiGraphics);
 
     @Override
-    public void renderImage(Font font, int x, int y, GuiGraphics guiGraphics) {
-        renderPreview(font, x, y, guiGraphics);
+    public void extractImage(Font font, int x, int y, int w, int h, GuiGraphicsExtractor graphics) {
+        renderPreview(font, x, y, graphics);
     }
 
     protected List<ItemStack> getEnderChestItems(Player player) {
@@ -35,32 +36,29 @@ public abstract class BaseClientTooltipComponent implements ClientTooltipCompone
         return List.of();
     }
 
-    public void renderDecoratedItem(Font font, ItemStack stack, int count, int x, int y, GuiGraphics guiGraphics) {
+    public void renderDecoratedItem(Font font, ItemStack stack, int count, int x, int y, GuiGraphicsExtractor guiGraphics) {
         if (!stack.isEmpty()) {
-            guiGraphics.pose().pushPose();
-            guiGraphics.renderItem(stack, x, y);
+            guiGraphics.pose().pushMatrix();
+            guiGraphics.item(stack, x, y);
             renderItemBar(stack, x, y, guiGraphics);
             renderItemCount(font, count, x, y, guiGraphics);
-            guiGraphics.pose().popPose();
+            guiGraphics.pose().popMatrix();
         }
     }
 
-    private void renderItemBar(ItemStack stack, int x, int y, GuiGraphics guiGraphics) {
+    private void renderItemBar(ItemStack stack, int x, int y, GuiGraphicsExtractor guiGraphics) {
         if (stack.isBarVisible()) {
-            int xPos = x + 2;
-            int yPos = y + 13;
-            guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + 13, yPos + 2, 200, -16777216);
-            guiGraphics.fill(RenderType.gui(), xPos, yPos, xPos + stack.getBarWidth(), yPos + 1, 200, stack.getBarColor() | -16777216);
+            int i = x + 2;
+            int j = y + 13;
+            guiGraphics.fill(RenderPipelines.GUI, i, j, i + 13, j + 2, -16777216);
+            guiGraphics.fill(RenderPipelines.GUI, i, j, i + stack.getBarWidth(), j + 1, ARGB.opaque(stack.getBarColor()));
         }
     }
 
-    private void renderItemCount(Font font, int count, int x, int y, GuiGraphics guiGraphics) {
+    private void renderItemCount(Font font, int count, int x, int y, GuiGraphicsExtractor guiGraphics) {
         if (count != 1) {
             Component component = getReadableNumber(count);
-            guiGraphics.pose().pushPose();
-            guiGraphics.pose().translate(0f, 0f, 200f);
-            guiGraphics.drawString(font, component, x + 17 - font.width(component), y + 9, -1, true);
-            guiGraphics.pose().popPose();
+            guiGraphics.text(font, component, x + 17 - font.width(component), y + 9, -1, true);
         }
     }
 

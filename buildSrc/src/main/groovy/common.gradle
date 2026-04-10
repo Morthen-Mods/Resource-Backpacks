@@ -64,7 +64,6 @@ processResources {
             // Loader Keys
             "fabric_api": fabric_api,
             "fabric_loader": fabric_loader,
-            "forge": forge,
             "neoforge": neoforge,
 
             // Dependencies
