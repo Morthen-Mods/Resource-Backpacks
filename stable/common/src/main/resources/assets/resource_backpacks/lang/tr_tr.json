@@ -10,7 +10,6 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Tam Envanteri Göster",
 
   "tag.item.c.backpacks": "Sırt Çantaları",
-  "tag.item.c.backpacks.leather_ingredient": "Deri Malzemeleri",
   "tag.item.c.backpacks.leather": "Deri Sırt Çantası",
   "tag.item.c.backpacks.copper": "Bakır Sırt Çantası",
   "tag.item.c.backpacks.gold": "Altın Sırt Çantası",
@@ -44,8 +43,6 @@
   "config.resource_backpacks.backpacks.general.label": "Genel Ayarlar",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Etkileşimde Aç",
   "config.resource_backpacks.backpacks.openfrominventory.tooltip": "Bu seçenek, Kullanıcının Sırt Çantasını Sağ Tıklama ile açmasına izin verir.",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Sırt Çantalarının İçinde Sırt Çantalarına İzin Ver",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Kullanıcının başka bir Sırt Çantasının içinde Sırt Çantalarını saklamasına izin verin, bu da sonsuz bir Envanter sağlar.",
 
   "config.resource_backpacks.backpacks.leather_backpack.label": "Deri Sırt Çantası",
   "config.resource_backpacks.backpacks.copper_backpack.label": "Bakır Sırt Çantası",

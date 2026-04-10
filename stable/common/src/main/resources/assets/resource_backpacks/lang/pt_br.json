@@ -10,7 +10,6 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Mostrar Inventário Completo",
 
   "tag.item.c.backpacks": "Mochilas",
-  "tag.item.c.backpacks.leather_ingredient": "Ingredientes de Couro",
   "tag.item.c.backpacks.leather": "Mochila de Couro",
   "tag.item.c.backpacks.copper": "Mochila de Cobre",
   "tag.item.c.backpacks.gold": "Mochila de Ouro",
@@ -44,8 +43,6 @@
   "config.resource_backpacks.backpacks.general.label": "Configurações Gerais",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Abrir ao Interagir",
   "config.resource_backpacks.backpacks.openfrominventory.tooltip": "Esta opção permite ao usuário abrir a mochila com o botão direito do mouse.",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Permitir Mochilas dentro de Mochilas",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Permite ao usuário armazenar mochilas dentro de outra mochila, permitindo um inventário infinito.",
 
   "config.resource_backpacks.backpacks.leather_backpack.label": "Mochila de Couro",
   "config.resource_backpacks.backpacks.copper_backpack.label": "Mochila de Cobre",

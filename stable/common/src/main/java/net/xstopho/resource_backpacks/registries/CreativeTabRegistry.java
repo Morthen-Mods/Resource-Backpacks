@@ -19,8 +19,8 @@ public class CreativeTabRegistry {
 
                         output.accept(BlockRegistry.BACKPACK_LEATHER.get());
                         output.accept(BlockRegistry.BACKPACK_COPPER.get());
-                        output.accept(BlockRegistry.BACKPACK_GOLD.get());
                         output.accept(BlockRegistry.BACKPACK_IRON.get());
+                        output.accept(BlockRegistry.BACKPACK_GOLD.get());
                         output.accept(BlockRegistry.BACKPACK_DIAMOND.get());
                         output.accept(BlockRegistry.BACKPACK_NETHERITE.get());
                         output.accept(BlockRegistry.BACKPACK_END.get());

@@ -45,8 +45,6 @@
   "config.resource_backpacks.backpacks.general.label": "General Settings",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Open on Interact",
   "config.resource_backpacks.backpacks.openfrominventory.tooltip": "This option allows the User to open the Backpack by Right-Click.",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Allow Backpacks inside Backpacks",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Allow the User to store Backpacks inside another Backpack, which will allow an infinite Inventory.",
 
   "config.resource_backpacks.backpacks.leather_backpack.label": "Leather Backpack",
   "config.resource_backpacks.backpacks.copper_backpack.label": "Copper Backpack",

@@ -10,7 +10,6 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Inventar anzeigen",
 
   "tag.item.c.backpacks": "Rucksäcke",
-  "tag.item.c.backpacks.leather_ingredient": "Leder Alternativen",
   "tag.item.c.backpacks.leather": "Leder Rucksack",
   "tag.item.c.backpacks.copper": "Kupfer Rucksack",
   "tag.item.c.backpacks.gold": "Gold Rucksack",
@@ -44,8 +43,6 @@
   "config.resource_backpacks.backpacks.general.label": "Allgemeine Einstellungen",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Öffnen beim Interagieren",
   "config.resource_backpacks.backpacks.openfrominventory.tooltip": "Erlaubt es dem Spieler den Rucksack mittels der rechten Maustaste zu öffnen.",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Rucksäcke in Rucksäcken",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Erlaubt es dem Spieler Rucksäcke in Rücksäcke zu packen. Viel Spaß mit dem unendlichen Inventar.",
 
   "config.resource_backpacks.backpacks.leather_backpack.label": "Lederrucksack",
   "config.resource_backpacks.backpacks.copper_backpack.label": "Kupferrucksack",

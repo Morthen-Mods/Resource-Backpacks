@@ -10,7 +10,6 @@
   "tooltip.resource_backpacks.info.inventory_preview": "显示完整库存",
 
   "tag.item.c.backpacks": "背包",
-  "tag.item.c.backpacks.leather_ingredient": "皮革成分",
   "tag.item.c.backpacks.leather": "皮革背包",
   "tag.item.c.backpacks.copper": "铜背包",
   "tag.item.c.backpacks.gold": "金背包",
@@ -46,8 +45,6 @@
   "config.resource_backpacks.backpacks.general.label": "常规设置",
   "config.resource_backpacks.backpacks.openfrominventory.label": "交互时打开",
   "config.resource_backpacks.backpacks.openfrominventory.tooltip": "此选项允许用户通过右键单击打开背包。",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "允许背包内放置背包",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "允许用户在另一个背包内存放背包，从而实现无限库存。",
 
   "config.resource_backpacks.backpacks.leather_backpack.label": "皮革背包",
   "config.resource_backpacks.backpacks.copper_backpack.label": "铜背包",

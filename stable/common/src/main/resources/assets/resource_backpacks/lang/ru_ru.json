@@ -10,7 +10,6 @@
   "tooltip.resource_backpacks.info.inventory_preview": "Показать полный инвентарь",
 
   "tag.item.c.backpacks": "Рюкзаки",
-  "tag.item.c.backpacks.leather_ingredient": "Кожаные ингредиенты",
   "tag.item.c.backpacks.leather": "Кожаный рюкзак",
   "tag.item.c.backpacks.copper": "Медный рюкзак",
   "tag.item.c.backpacks.gold": "Золотой рюкзак",
@@ -44,8 +43,6 @@
   "config.resource_backpacks.backpacks.general.label": "Общие настройки",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Открыть при взаимодействии",
   "config.resource_backpacks.backpacks.openfrominventory.tooltip": "Эта опция позволяет пользователю открыть рюкзак правым кликом.",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.label": "Разрешить рюкзаки внутри рюкзаков",
-  "config.resource_backpacks.backpacks.allowbackpacksinsidebackpacks.tooltip": "Позволяет пользователю хранить рюкзаки внутри другого рюкзака, что позволит бесконечный инвентарь.",
 
   "config.resource_backpacks.backpacks.leather_backpack.label": "Кожаный рюкзак",
   "config.resource_backpacks.backpacks.copper_backpack.label": "Медный рюкзак",
