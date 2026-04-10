@@ -7,4 +7,4 @@
     - gold needs 2 shulker shells
     - diamond needs 4 shulker shells
     - netherite need 2 shuhlker boxes
-  - 
+  - Backpacks now save custom names properly and show that name when opened from inventory and when placed
