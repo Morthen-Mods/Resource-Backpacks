@@ -183,7 +183,7 @@ public class BackpackMenu extends AbstractContainerMenu {
 
         @Override
         public boolean mayPlace(@NotNull ItemStack stack) {
-            return BackpackConfig.allowBackpacksInsideBackpacks || this.canMoveStack(stack);
+            return this.canMoveStack(stack);
         }
 
         public boolean canMoveStack(ItemStack stack) {

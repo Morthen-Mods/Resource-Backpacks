@@ -11,9 +11,6 @@ public class BackpackConfig {
     @ConfigEntry(category = "General")
     public static boolean openFromInventory = false;
 
-    @ConfigEntry(category = "General")
-    public static boolean allowBackpacksInsideBackpacks = false;
-
     @ConfigEntry(category = "Leather Backpack", translation = "row")
     @RangedEntry(minValue = 1, maxValue = 2)
     public static int leatherRows = 1;
