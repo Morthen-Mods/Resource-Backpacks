@@ -8,6 +8,8 @@ import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.ComponentSerialization;
+import net.minecraft.util.datafix.fixes.BlockEntityCustomNameToComponentFix;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.Nameable;
@@ -59,12 +61,14 @@ public class BackpackBlockEntity extends BlockEntity implements Nameable, Implem
     @Override
     protected void saveAdditional(ValueOutput valueOutput) {
         super.saveAdditional(valueOutput);
+        valueOutput.storeNullable("CustomName", ComponentSerialization.CODEC, this.displayName);
         ContainerHelper.saveAllItems(valueOutput, this.items, true);
     }
 
     @Override
     protected void loadAdditional(ValueInput valueInput) {
         super.loadAdditional(valueInput);
+        this.displayName = parseCustomNameSafe(valueInput, "CustomName");
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(valueInput, this.items);
     }
@@ -84,16 +88,16 @@ public class BackpackBlockEntity extends BlockEntity implements Nameable, Implem
 
     @Override
     protected void applyImplicitComponents(DataComponentGetter getter) {
-        super.applyImplicitComponents(getter);
         this.displayName = getter.get(DataComponents.CUSTOM_NAME);
         getter.getOrDefault(DataComponentRegistry.BACKPACK_CONTAINER.get(), BackpackContainerContents.EMPTY).copyInto(this.getItems());
+        super.applyImplicitComponents(getter);
     }
 
     @Override
     protected void collectImplicitComponents(DataComponentMap.Builder builder) {
-        super.collectImplicitComponents(builder);
         builder.set(DataComponents.CUSTOM_NAME, this.displayName);
         builder.set(DataComponentRegistry.BACKPACK_CONTAINER.get(), new BackpackContainerContents(this.getItems()));
+        super.collectImplicitComponents(builder);
     }
 
     public void spawnFreshItemEntity(Level level, BlockPos pos, Item item) {
