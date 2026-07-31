@@ -1,9 +1,9 @@
 package net.xstopho.resource_backpacks.config.client;
 
 import net.xstopho.resource_backpacks.backpack.util.BackpackPosition;
-import net.xstopho.resourceconfigapi.annotations.Config;
-import net.xstopho.resourceconfigapi.annotations.ConfigEntry;
-import net.xstopho.resourceconfigapi.api.ConfigType;
+import net.morthen.resourceconfigapi.annotations.Config;
+import net.morthen.resourceconfigapi.annotations.ConfigEntry;
+import net.morthen.resourceconfigapi.api.ConfigType;
 
 @Config(fileName = "appearance", type = ConfigType.CLIENT)
 public class ClientConfig {

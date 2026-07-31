@@ -13,8 +13,8 @@ import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackBlock;
 import net.xstopho.resource_backpacks.backpack.BackpackItem;
 import net.xstopho.resource_backpacks.backpack.util.BackpackLevel;
-import net.xstopho.resourcelibrary.registration.RegistryObject;
-import net.xstopho.resourcelibrary.registration.RegistryProvider;
+import net.morthen.resourcelibrary.registration.RegistryObject;
+import net.morthen.resourcelibrary.registration.RegistryProvider;
 
 import java.util.function.Function;
 

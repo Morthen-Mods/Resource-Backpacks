@@ -10,9 +10,9 @@ import net.xstopho.resource_backpacks.config.common.ChestLootConfig;
 import net.xstopho.resource_backpacks.config.common.EntityConfig;
 import net.xstopho.resource_backpacks.modifier.ChestLootModifier;
 import net.xstopho.resource_backpacks.registries.*;
-import net.xstopho.resourceconfigapi.api.ConfigRegistry;
-import net.xstopho.resourcelibrary.modifier.LootTableModifier;
-import net.xstopho.resourcelibrary.registration.ResourcePackRegistry;
+import net.morthen.resourceconfigapi.api.ConfigRegistry;
+import net.morthen.resourcelibrary.modifier.LootTableModifier;
+import net.morthen.resourcelibrary.registration.ResourcePackRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

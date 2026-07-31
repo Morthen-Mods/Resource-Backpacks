@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.client.metadata.BackpackColorMetadata;
 import net.xstopho.resource_backpacks.registries.KeyMappingRegistry;
-import net.xstopho.resourcelibrary.util.ResourcePackUtils;
+import net.morthen.resourcelibrary.util.ResourcePackUtils;
 
 import java.util.LinkedList;
 

@@ -1,3 +1,6 @@
+### v2.0.1
+  - port to 26.2
+
 ### v2.0.0
   - port to 26.1
   - remove ability to place backpacks inside backpacks, destroyed the whole balancing

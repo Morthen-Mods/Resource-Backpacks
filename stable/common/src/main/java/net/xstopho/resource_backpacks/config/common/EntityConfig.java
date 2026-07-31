@@ -1,9 +1,9 @@
 package net.xstopho.resource_backpacks.config.common;
 
-import net.xstopho.resourceconfigapi.annotations.Config;
-import net.xstopho.resourceconfigapi.annotations.ConfigEntry;
-import net.xstopho.resourceconfigapi.annotations.RangedEntry;
-import net.xstopho.resourceconfigapi.api.ConfigType;
+import net.morthen.resourceconfigapi.annotations.Config;
+import net.morthen.resourceconfigapi.annotations.ConfigEntry;
+import net.morthen.resourceconfigapi.annotations.RangedEntry;
+import net.morthen.resourceconfigapi.api.ConfigType;
 
 @Config(fileName = "entity_config", type = ConfigType.COMMON)
 public class EntityConfig {

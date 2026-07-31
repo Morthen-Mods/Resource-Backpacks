@@ -13,6 +13,6 @@ neoForge {
 dependencies {
     compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
 
-    compileOnly "net.xstopho.resourceconfigapi:resourceconfigapi-common:${minecraft_version}-${resource_config_api}"
-    compileOnly "net.xstopho.resourcelibrary:resourcelibrary-common:${minecraft_version}-${resource_library}"
+    compileOnly "net.morthen.resourceconfigapi:resourceconfigapi-common:${minecraft_version}-${resource_config_api}"
+    compileOnly "net.morthen.resourcelibrary:resourcelibrary-common:${minecraft_version}-${resource_library}"
 }

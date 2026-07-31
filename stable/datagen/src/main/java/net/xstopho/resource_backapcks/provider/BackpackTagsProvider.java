@@ -11,8 +11,8 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
-import net.xstopho.resourcelibrary.registration.RegistryObject;
-import net.xstopho.resourcelibrary.util.TagUtil;
+import net.morthen.resourcelibrary.registration.RegistryObject;
+import net.morthen.resourcelibrary.util.TagUtil;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -78,24 +78,24 @@ public final class BackpackTagsProvider {
 
         @SafeVarargs
         private void tagBuilder(TagKey<Item> outputTag, RegistryObject<Block>... blocks) {
-            TagAppender<Item, Item> appender = this.tag(outputTag);
+            TagAppender<Item> appender = this.tag(outputTag);
 
             for (RegistryObject<Block> block : blocks) {
-                appender.add(block.get().asItem());
+                appender.add(block.get().asItem().builtInRegistryHolder().key());
             }
         }
 
         private void tagBuilder(TagKey<Item> outputTag, Item... items) {
-            TagAppender<Item, Item> appender = this.tag(outputTag);
+            TagAppender<Item> appender = this.tag(outputTag);
 
             for (Item item : items) {
-                appender.add(item);
+                appender.add(item.builtInRegistryHolder().key());
             }
         }
 
         @SafeVarargs
         private void tagBuilder(TagKey<Item> outputTag, TagKey<Item>... tagKeys) {
-            TagAppender<Item, Item> appender = this.tag(outputTag);
+            TagAppender<Item> appender = this.tag(outputTag);
 
             for (TagKey<Item> tag : tagKeys) {
                 appender.addTag(tag);
@@ -127,10 +127,10 @@ public final class BackpackTagsProvider {
 
         @SafeVarargs
         private void tagBuilder(TagKey<Block> tag, RegistryObject<Block>... blocks) {
-            TagAppender<Block, Block> appender = this.tag(tag);
+            TagAppender<Block> appender = this.tag(tag);
 
             for (RegistryObject<Block> block : blocks) {
-                appender.add(block.get());
+                appender.add(block.get().builtInRegistryHolder().key());
             }
         }
     }

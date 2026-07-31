@@ -4,7 +4,7 @@ plugins {
     id 'java-library'
 }
 
-def directory = project.projectDir.parent.split("\\\\").last()
+def directory = new File(project.projectDir.parent).name
 
 dependencies {
     compileOnly(project(":${directory}:common"))

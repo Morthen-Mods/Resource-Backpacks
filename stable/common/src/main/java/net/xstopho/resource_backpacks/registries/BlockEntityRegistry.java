@@ -4,8 +4,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.backpack.BackpackBlockEntity;
-import net.xstopho.resourcelibrary.registration.RegistryObject;
-import net.xstopho.resourcelibrary.registration.RegistryProvider;
+import net.morthen.resourcelibrary.registration.RegistryObject;
+import net.morthen.resourcelibrary.registration.RegistryProvider;
 
 import java.util.Set;
 

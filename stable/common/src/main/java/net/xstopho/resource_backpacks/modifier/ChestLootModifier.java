@@ -2,9 +2,9 @@ package net.xstopho.resource_backpacks.modifier;
 
 import net.xstopho.resource_backpacks.config.common.ChestLootConfig;
 import net.xstopho.resource_backpacks.registries.BlockRegistry;
-import net.xstopho.resourcelibrary.modifier.LootTableModifier;
-import net.xstopho.resourcelibrary.modifier.loot_tables.ChestLootTables;
-import net.xstopho.resourcelibrary.modifier.loot_tables.TrialChamberLootTables;
+import net.morthen.resourcelibrary.modifier.LootTableModifier;
+import net.morthen.resourcelibrary.modifier.loot_tables.ChestLootTables;
+import net.morthen.resourcelibrary.modifier.loot_tables.TrialChamberLootTables;
 
 import java.util.List;
 

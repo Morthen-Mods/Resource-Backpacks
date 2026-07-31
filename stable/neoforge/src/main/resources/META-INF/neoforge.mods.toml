@@ -19,14 +19,14 @@ license = "${mod_license}"
 [[dependencies.${mod_id}]]
     modId = "neoforge"
     required = true
-    versionRange = "[26.1, ${neoforge}]"
+    versionRange = "[26.2, ${neoforge}]"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.${mod_id}]]
     modId = "minecraft"
     required = true
-    versionRange = "[26.1, ${minecraft_version}]"
+    versionRange = "[26.2, ${minecraft_version}]"
     ordering = "NONE"
     side = "BOTH"
 

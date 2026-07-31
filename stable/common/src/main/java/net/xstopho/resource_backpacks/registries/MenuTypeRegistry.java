@@ -5,8 +5,8 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.MenuType;
 import net.xstopho.resource_backpacks.BackpackConstants;
 import net.xstopho.resource_backpacks.client.screen.BackpackMenu;
-import net.xstopho.resourcelibrary.registration.RegistryObject;
-import net.xstopho.resourcelibrary.registration.RegistryProvider;
+import net.morthen.resourcelibrary.registration.RegistryObject;
+import net.morthen.resourcelibrary.registration.RegistryProvider;
 
 public class MenuTypeRegistry {
 

@@ -15,6 +15,8 @@ java {
 
 repositories {
     mavenCentral()
+    mavenLocal()
+    maven { url 'https://raw.githubusercontent.com/Morthen-Mods/resources/main/maven' }
     maven { url 'https://raw.githubusercontent.com/Stein-N/resources/main/maven' }
     maven {url "https://maven.terraformersmc.com/" }
     maven { url "https://api.modrinth.com/maven" }

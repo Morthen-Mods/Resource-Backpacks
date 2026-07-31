@@ -9,8 +9,8 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:${fabric_loader}"
     api "net.fabricmc.fabric-api:fabric-api:${fabric_api}+${minecraft_version}"
 
-    implementation "net.xstopho.resourceconfigapi:resourceconfigapi-fabric:${minecraft_version}-${resource_config_api}"
-    implementation "net.xstopho.resourcelibrary:resourcelibrary-fabric:${minecraft_version}-${resource_library}"
+    implementation "net.morthen.resourceconfigapi:resourceconfigapi-fabric:${minecraft_version}-${resource_config_api}"
+    implementation "net.morthen.resourcelibrary:resourcelibrary-fabric:${minecraft_version}-${resource_library}"
 
     implementation "com.terraformersmc:modmenu:${mod_menu}"
 }
