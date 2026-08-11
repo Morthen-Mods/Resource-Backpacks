@@ -1,0 +1,34 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.morthen.resource_backpacks.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "accessor.ShapedRecipeAccessor",
+    "common.ArmorStandMixin",
+    "common.InventoryMenuMixin",
+    "common.ItemStackMixin",
+    "common.LivingEntityMixin",
+    "common.PlayerMixin",
+    "common.ServerEntityMixin",
+    "common.ServerPlayerMixin",
+    "common.ShapedRecipeMixin"
+  ],
+  "client": [
+    "accessor.KeyMappingAccessor",
+    "client.CreativeModeInventoryScreenMixin",
+    "client.InventoryScreenMixin",
+    "client.LivingEntityRendererMixin",
+    "client.LivingEntityRenderStateMixin",
+    "client.SlotMixin",
+    "client.SlotWrapperMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
+

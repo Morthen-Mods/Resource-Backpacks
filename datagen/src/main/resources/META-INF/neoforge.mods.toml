@@ -1,0 +1,9 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "MIT"
+
+[[mods]]
+    modId = "${mod_id}"
+    version = "0.1-DATAGEN"
+    displayName = "${mod_name}"
+    authors = "${mod_author}"

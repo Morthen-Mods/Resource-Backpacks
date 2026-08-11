@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [ "${mod_author}" ],
+  "contact": {
+    "homepage": "${sources_url}",
+    "sources": "${sources_url}",
+    "issues": "${issues_url}"
+  },
+  "license": "${mod_license}",
+  "icon": "${mod_id}.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [ "net.morthen.resource_backpacks.ResourceBackpacks" ],
+    "client": [ "net.morthen.resource_backpacks.ResourceBackpacksClient" ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader}",
+    "fabric-api": ">=${fabric_api}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}"
+  }
+}

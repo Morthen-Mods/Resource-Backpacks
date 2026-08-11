@@ -1,5 +1,0 @@
-plugins {
-    id 'maven-publish'
-    id 'groovy-gradle-plugin'
-    id 'me.modmuss50.mod-publish-plugin' version "0.8.4"
-}
