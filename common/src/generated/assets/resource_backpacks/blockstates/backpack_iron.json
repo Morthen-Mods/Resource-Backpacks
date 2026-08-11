@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,placed_on_wall=false": {
+      "model": "resource_backpacks:block/backpack_iron",
+      "y": 90
+    },
+    "facing=east,placed_on_wall=true": {
+      "model": "resource_backpacks:block/backpack_iron_on_wall",
+      "y": 90
+    },
+    "facing=north,placed_on_wall=false": {
+      "model": "resource_backpacks:block/backpack_iron"
+    },
+    "facing=north,placed_on_wall=true": {
+      "model": "resource_backpacks:block/backpack_iron_on_wall"
+    },
+    "facing=south,placed_on_wall=false": {
+      "model": "resource_backpacks:block/backpack_iron",
+      "y": 180
+    },
+    "facing=south,placed_on_wall=true": {
+      "model": "resource_backpacks:block/backpack_iron_on_wall",
+      "y": 180
+    },
+    "facing=west,placed_on_wall=false": {
+      "model": "resource_backpacks:block/backpack_iron",
+      "y": 270
+    },
+    "facing=west,placed_on_wall=true": {
+      "model": "resource_backpacks:block/backpack_iron_on_wall",
+      "y": 270
+    }
+  }
+}

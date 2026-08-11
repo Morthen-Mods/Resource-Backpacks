@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": "resource_backpacks:backpack_iron",
+    "D": "#c:gems/diamond"
+  },
+  "pattern": [
+    "DDD",
+    "DBD",
+    "DDD"
+  ],
+  "result": {
+    "id": "resource_backpacks:backpack_diamond"
+  }
+}

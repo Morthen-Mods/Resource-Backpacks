@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": "resource_backpacks:backpack_diamond",
+    "D": "#c:gems/diamond",
+    "N": "#c:ingots/netherite"
+  },
+  "pattern": [
+    "NDN",
+    "DBD",
+    "NDN"
+  ],
+  "result": {
+    "id": "resource_backpacks:backpack_netherite"
+  }
+}

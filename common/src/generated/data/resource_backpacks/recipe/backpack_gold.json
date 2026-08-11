@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": "resource_backpacks:backpack_copper",
+    "G": "#c:ingots/gold"
+  },
+  "pattern": [
+    "GGG",
+    "GBG",
+    "GGG"
+  ],
+  "result": {
+    "id": "resource_backpacks:backpack_gold"
+  }
+}
