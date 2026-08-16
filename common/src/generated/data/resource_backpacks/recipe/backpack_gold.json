@@ -1,13 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "B": "resource_backpacks:backpack_copper",
-    "G": "#c:ingots/gold"
+    "B": "resource_backpacks:backpack_iron",
+    "G": "#c:ingots/gold",
+    "S": "minecraft:shulker_shell"
   },
   "pattern": [
-    "GGG",
+    "GSG",
     "GBG",
-    "GGG"
+    "GSG"
   ],
   "result": {
     "id": "resource_backpacks:backpack_gold"

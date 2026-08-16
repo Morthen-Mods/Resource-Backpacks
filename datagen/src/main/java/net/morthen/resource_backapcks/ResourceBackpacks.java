@@ -25,7 +25,6 @@ public class ResourceBackpacks {
         @SubscribeEvent
         public static void generateData(GatherDataEvent.Client event) {
             event.createProvider(BackpackRecipesProvider.Runner::new);
-//            event.createBlockAndItemTags(BackpackTagsProvider.BlockTags::new, BackpackTagsProvider.ItemTags::new);
             event.createProvider(BackpackModelProvider::new);
         }
     }

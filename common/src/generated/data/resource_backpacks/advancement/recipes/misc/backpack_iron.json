@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_backpack_gold": {
+    "has_backpack_copper": {
       "conditions": {
         "items": [
           {
-            "items": "resource_backpacks:backpack_gold"
+            "items": "resource_backpacks:backpack_copper"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_backpack_gold"
+      "has_backpack_copper"
     ]
   ],
   "rewards": {

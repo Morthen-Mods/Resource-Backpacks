@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_backpack_iron": {
+    "has_backpack_gold": {
       "conditions": {
         "items": [
           {
-            "items": "resource_backpacks:backpack_iron"
+            "items": "resource_backpacks:backpack_gold"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_backpack_iron"
+      "has_backpack_gold"
     ]
   ],
   "rewards": {

@@ -3,11 +3,12 @@
   "key": {
     "B": "resource_backpacks:backpack_diamond",
     "D": "#c:gems/diamond",
-    "N": "#c:ingots/netherite"
+    "N": "#c:ingots/netherite",
+    "S": "#c:shulker_boxes"
   },
   "pattern": [
     "NDN",
-    "DBD",
+    "SBS",
     "NDN"
   ],
   "result": {
