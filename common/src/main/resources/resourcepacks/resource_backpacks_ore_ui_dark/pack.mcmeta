@@ -1,9 +1,12 @@
 {
   "pack": {
-    "pack_format": 69,
-    "description": "Ore UI Dark Textures for Resource Backpacks",
-    "min_format": [ 65, 0 ],
-    "max_format": 69
+    "min_format": [ 88, 0 ],
+    "max_format": [ 88, 0 ],
+    "description": [
+      {
+        "text": "Ore UI Dark Textures for Resource Backpacks"
+      }
+    ]
   },
   "resource_backpacks": {
     "color": "0xffffffff"
