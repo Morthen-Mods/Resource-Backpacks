@@ -1,0 +1,33 @@
+{
+  "parent": "resource_backpacks:stage_1",
+  "criteria": {
+    "craft_iron_backpack": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_backpacks:backpack_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.resource_backpacks.stage_2.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "resource_backpacks:backpack_iron"
+    },
+    "title": {
+      "translate": "advancements.resource_backpacks.stage_2.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_iron_backpack"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

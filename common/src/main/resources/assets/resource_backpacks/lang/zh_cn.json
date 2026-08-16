@@ -9,22 +9,26 @@
   "tooltip.resource_backpacks.info.compact_preview": "显示物品",
   "tooltip.resource_backpacks.info.inventory_preview": "显示完整库存",
 
-  "tag.item.c.backpacks": "背包",
-  "tag.item.c.backpacks.leather_ingredient": "皮革成分",
-  "tag.item.c.backpacks.leather": "皮革背包",
-  "tag.item.c.backpacks.copper": "铜背包",
-  "tag.item.c.backpacks.gold": "金背包",
-  "tag.item.c.backpacks.iron": "铁背包",
-  "tag.item.c.backpacks.diamond": "钻石背包",
-  "tag.item.c.backpacks.netherite": "下界合金背包",
-  "tag.item.c.backpacks.end": "末地背包",
-  "tag.item.c.chests.ender": "末影箱",
-  "tag.item.c.gems.diamond": "钻石",
-  "tag.item.c.ingots.copper": "铜锭",
-  "tag.item.c.ingots.gold": "金锭",
-  "tag.item.c.ingots.iron": "铁锭",
-  "tag.item.c.ingots.netherite": "下界合金锭",
-  "tag.item.c.leathers": "皮革",
+  "advancements.resource_backpacks.root.title": "背包",
+  "advancements.resource_backpacks.root.description": "通过制作皮革背包来增加你的物品栏空间。",
+
+  "advancements.resource_backpacks.stage_1.title": "铜升级",
+  "advancements.resource_backpacks.stage_1.description": "使用8个铜锭升级你的背包。",
+
+  "advancements.resource_backpacks.stage_2.title": "铁升级",
+  "advancements.resource_backpacks.stage_2.description": "使用8个铁锭升级你的背包。",
+
+  "advancements.resource_backpacks.stage_3.title": "金升级",
+  "advancements.resource_backpacks.stage_3.description": "使用6个金锭和2个潜影壳升级你的背包。",
+
+  "advancements.resource_backpacks.stage_4.title": "末地升级",
+  "advancements.resource_backpacks.stage_4.description": "升级你的金背包，使其始终可以访问你的末影箱。",
+
+  "advancements.resource_backpacks.stage_5.title": "钻石升级",
+  "advancements.resource_backpacks.stage_5.description": "使用4个潜影壳和4个钻石升级你的背包。",
+
+  "advancements.resource_backpacks.stage_6.title": "下界合金升级",
+  "advancements.resource_backpacks.stage_6.description": "使用4个下界合金锭、2个钻石和2个潜影盒升级你的背包，达到最大容量。",
 
   "component.resource_backpacks.screen.fallback": "背包",
 

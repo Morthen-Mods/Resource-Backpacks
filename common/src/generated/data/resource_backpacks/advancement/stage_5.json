@@ -1,0 +1,32 @@
+{
+  "parent": "resource_backpacks:stage_3",
+  "criteria": {
+    "craft_diamond_backpack": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_backpacks:backpack_diamond"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.resource_backpacks.stage_5.description"
+    },
+    "icon": {
+      "id": "resource_backpacks:backpack_diamond"
+    },
+    "title": {
+      "translate": "advancements.resource_backpacks.stage_5.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_diamond_backpack"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

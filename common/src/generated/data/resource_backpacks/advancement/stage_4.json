@@ -1,0 +1,33 @@
+{
+  "parent": "resource_backpacks:stage_3",
+  "criteria": {
+    "craft_end_backpack": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_backpacks:backpack_end"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.resource_backpacks.stage_4.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "resource_backpacks:backpack_end"
+    },
+    "title": {
+      "translate": "advancements.resource_backpacks.stage_4.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_end_backpack"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

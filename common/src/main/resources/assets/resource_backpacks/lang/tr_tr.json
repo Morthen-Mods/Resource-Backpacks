@@ -9,22 +9,26 @@
   "tooltip.resource_backpacks.info.compact_preview": "Öğeleri Göster",
   "tooltip.resource_backpacks.info.inventory_preview": "Tam Envanteri Göster",
 
-  "tag.item.c.backpacks": "Sırt Çantaları",
-  "tag.item.c.backpacks.leather_ingredient": "Deri Malzemeleri",
-  "tag.item.c.backpacks.leather": "Deri Sırt Çantası",
-  "tag.item.c.backpacks.copper": "Bakır Sırt Çantası",
-  "tag.item.c.backpacks.gold": "Altın Sırt Çantası",
-  "tag.item.c.backpacks.iron": "Demir Sırt Çantası",
-  "tag.item.c.backpacks.diamond": "Elmas Sırt Çantası",
-  "tag.item.c.backpacks.netherite": "Netherit Sırt Çantası",
-  "tag.item.c.backpacks.end": "Son Sırt Çantası",
-  "tag.item.c.chests.ender": "Ender Sandıkları",
-  "tag.item.c.gems.diamond": "Elmaslar",
-  "tag.item.c.ingots.copper": "Bakır Külçeleri",
-  "tag.item.c.ingots.gold": "Altın Külçeleri",
-  "tag.item.c.ingots.iron": "Demir Külçeleri",
-  "tag.item.c.ingots.netherite": "Netherite Külçeleri",
-  "tag.item.c.leathers": "Deri",
+  "advancements.resource_backpacks.root.title": "Sırt Çantaları",
+  "advancements.resource_backpacks.root.description": "Bir deri sırt çantası yaparak envanter alanınızı artırın.",
+
+  "advancements.resource_backpacks.stage_1.title": "Bakır Yükseltmesi",
+  "advancements.resource_backpacks.stage_1.description": "Sırt Çantanızı 8 Bakır Külçesi ile yükseltin.",
+
+  "advancements.resource_backpacks.stage_2.title": "Demir Yükseltmesi",
+  "advancements.resource_backpacks.stage_2.description": "Sırt Çantanızı 8 Demir Külçesi ile yükseltin.",
+
+  "advancements.resource_backpacks.stage_3.title": "Altın Yükseltmesi",
+  "advancements.resource_backpacks.stage_3.description": "Sırt Çantanızı 6 Altın Külçesi ve 2 Shulker Kabuğu ile yükseltin.",
+
+  "advancements.resource_backpacks.stage_4.title": "Son Yükseltme",
+  "advancements.resource_backpacks.stage_4.description": "Ender Sandığınıza her zaman erişebilmek için Altın Sırt Çantanızı yükseltin.",
+
+  "advancements.resource_backpacks.stage_5.title": "Elmas Yükseltmesi",
+  "advancements.resource_backpacks.stage_5.description": "Sırt Çantanızı 4 Shulker Kabuğu ve 4 Elmas ile yükseltin.",
+
+  "advancements.resource_backpacks.stage_6.title": "Netherit Yükseltmesi",
+  "advancements.resource_backpacks.stage_6.description": "Sırt Çantanızı 4 Netherit Külçesi, 2 Elmas ve 2 Shulker Kutusu ile yükselterek maksimum kapasiteye ulaşın.",
 
   "component.resource_backpacks.screen.fallback": "Sırt Çantaları",
 
@@ -40,6 +44,8 @@
   "config.resource_backpacks.appearance.style.label": "Gui Dokusu",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Sırt Çantası Görünümü",
   "config.resource_backpacks.appearance.position.label": "Sırt Çantası Yuvası",
+
+  "config.resource_backpacks.backpacks": "Sırt Çantaları",
 
   "config.resource_backpacks.backpacks.general.label": "Genel Ayarlar",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Etkileşimde Aç",

@@ -1,0 +1,32 @@
+{
+  "criteria": {
+    "craft_leather_backpack": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_backpacks:backpack_leather"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:gui/advancements/backgrounds/adventure",
+    "description": {
+      "translate": "advancements.resource_backpacks.root.description"
+    },
+    "icon": {
+      "id": "resource_backpacks:backpack_leather"
+    },
+    "title": {
+      "translate": "advancements.resource_backpacks.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_leather_backpack"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -9,21 +9,26 @@
   "tooltip.resource_backpacks.info.compact_preview": "Show Items",
   "tooltip.resource_backpacks.info.inventory_preview": "Show full Inventory",
 
-  "tag.item.c.backpacks": "Backpacks",
-  "tag.item.c.backpacks.leather": "Leather Backpack",
-  "tag.item.c.backpacks.copper": "Copper Backpack",
-  "tag.item.c.backpacks.gold": "Gold Backpack",
-  "tag.item.c.backpacks.iron": "Iron Backpack",
-  "tag.item.c.backpacks.diamond": "Diamond Backpack",
-  "tag.item.c.backpacks.netherite": "Netherite Backpack",
-  "tag.item.c.backpacks.end": "End Backpack",
-  "tag.item.c.chests.ender": "Ender Chests",
-  "tag.item.c.gems.diamond": "Diamonds",
-  "tag.item.c.ingots.copper": "Copper Ingots",
-  "tag.item.c.ingots.gold": "Gold Ingots",
-  "tag.item.c.ingots.iron": "Iron Ingots",
-  "tag.item.c.ingots.netherite": "Netherite Ingots",
-  "tag.item.c.leathers": "Leathers",
+  "advancements.resource_backpacks.root.title": "Backpacks",
+  "advancements.resource_backpacks.root.description": "Increase your Inventory space by crafting a leather backpack.",
+
+  "advancements.resource_backpacks.stage_1.title": "Copper Upgrade",
+  "advancements.resource_backpacks.stage_1.description": "Upgrade your Backpack with 8 Copper Ingots.",
+
+  "advancements.resource_backpacks.stage_2.title": "Iron Upgrade",
+  "advancements.resource_backpacks.stage_2.description": "Upgrade your Backpack with 8 Iron Ingots.",
+
+  "advancements.resource_backpacks.stage_3.title": "Gold Upgrade",
+  "advancements.resource_backpacks.stage_3.description": "Upgrade your Backpack with 6 Gold Ingots and 2 Shulker Shells.",
+
+  "advancements.resource_backpacks.stage_4.title": "End Upgrade",
+  "advancements.resource_backpacks.stage_4.description": "Upgrade your Gold Backpack to always have access to your Ender Chest.",
+
+  "advancements.resource_backpacks.stage_5.title": "Diamond Upgrade",
+  "advancements.resource_backpacks.stage_5.description": "Upgrade your Backpack with 4 Shulker Shells and 4 Diamonds.",
+
+  "advancements.resource_backpacks.stage_6.title": "Netherite Upgrade",
+  "advancements.resource_backpacks.stage_6.description": "Reach the maximum capacity by upgrading your Backpack with 4 Netherite Ingots, 2 Diamonds and 2 Shulker Boxes.",
 
   "component.resource_backpacks.screen.fallback": "Backpacks",
 

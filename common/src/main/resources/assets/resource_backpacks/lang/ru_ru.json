@@ -9,22 +9,26 @@
   "tooltip.resource_backpacks.info.compact_preview": "Показать предметы",
   "tooltip.resource_backpacks.info.inventory_preview": "Показать полный инвентарь",
 
-  "tag.item.c.backpacks": "Рюкзаки",
-  "tag.item.c.backpacks.leather_ingredient": "Кожаные ингредиенты",
-  "tag.item.c.backpacks.leather": "Кожаный рюкзак",
-  "tag.item.c.backpacks.copper": "Медный рюкзак",
-  "tag.item.c.backpacks.gold": "Золотой рюкзак",
-  "tag.item.c.backpacks.iron": "Железный рюкзак",
-  "tag.item.c.backpacks.diamond": "Алмазный рюкзак",
-  "tag.item.c.backpacks.netherite": "Незеритовый рюкзак",
-  "tag.item.c.backpacks.end": "Эндер рюкзак",
-  "tag.item.c.chests.ender": "Сундуки Края",
-  "tag.item.c.gems.diamond": "Алмазы",
-  "tag.item.c.ingots.copper": "Медные слитки",
-  "tag.item.c.ingots.gold": "Золотые слитки",
-  "tag.item.c.ingots.iron": "Железные слитки",
-  "tag.item.c.ingots.netherite": "Незеритовые слитки",
-  "tag.item.c.leathers": "Кожа",
+  "advancements.resource_backpacks.root.title": "Рюкзаки",
+  "advancements.resource_backpacks.root.description": "Увеличьте пространство инвентаря, изготовив кожаный рюкзак.",
+
+  "advancements.resource_backpacks.stage_1.title": "Медное улучшение",
+  "advancements.resource_backpacks.stage_1.description": "Улучшите свой рюкзак с помощью 8 медных слитков.",
+
+  "advancements.resource_backpacks.stage_2.title": "Железное улучшение",
+  "advancements.resource_backpacks.stage_2.description": "Улучшите свой рюкзак с помощью 8 железных слитков.",
+
+  "advancements.resource_backpacks.stage_3.title": "Золотое улучшение",
+  "advancements.resource_backpacks.stage_3.description": "Улучшите свой рюкзак с помощью 6 золотых слитков и 2 панцирей шалкера.",
+
+  "advancements.resource_backpacks.stage_4.title": "Улучшение Края",
+  "advancements.resource_backpacks.stage_4.description": "Улучшите свой золотой рюкзак, чтобы всегда иметь доступ к своему сундуку Эндера.",
+
+  "advancements.resource_backpacks.stage_5.title": "Алмазное улучшение",
+  "advancements.resource_backpacks.stage_5.description": "Улучшите свой рюкзак с помощью 4 панцирей шалкера и 4 алмазов.",
+
+  "advancements.resource_backpacks.stage_6.title": "Незеритовое улучшение",
+  "advancements.resource_backpacks.stage_6.description": "Достигните максимальной вместимости, улучшив свой рюкзак с помощью 4 незеритовых слитков, 2 алмазов и 2 коробок шалкера.",
 
   "component.resource_backpacks.screen.fallback": "Рюкзаки",
 
@@ -40,6 +44,8 @@
   "config.resource_backpacks.appearance.style.label": "Текстура интерфейса",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Внешний вид рюкзака",
   "config.resource_backpacks.appearance.position.label": "Ячейка рюкзака",
+
+  "config.resource_backpacks.backpacks": "Рюкзаки",
 
   "config.resource_backpacks.backpacks.general.label": "Общие настройки",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Открыть при взаимодействии",

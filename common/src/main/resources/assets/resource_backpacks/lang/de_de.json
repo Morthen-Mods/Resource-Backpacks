@@ -9,22 +9,26 @@
   "tooltip.resource_backpacks.info.compact_preview": "Items anzeigen",
   "tooltip.resource_backpacks.info.inventory_preview": "Inventar anzeigen",
 
-  "tag.item.c.backpacks": "Rucksäcke",
-  "tag.item.c.backpacks.leather_ingredient": "Leder Alternativen",
-  "tag.item.c.backpacks.leather": "Leder Rucksack",
-  "tag.item.c.backpacks.copper": "Kupfer Rucksack",
-  "tag.item.c.backpacks.gold": "Gold Rucksack",
-  "tag.item.c.backpacks.iron": "Eisen Rucksack",
-  "tag.item.c.backpacks.diamond": "Diamant Rucksack",
-  "tag.item.c.backpacks.netherite": "Netherit Rucksack",
-  "tag.item.c.backpacks.end": "Ender Rucksack",
-  "tag.item.c.chests.ender": "EnderTruhe",
-  "tag.item.c.gems.diamond": "Diamanten",
-  "tag.item.c.ingots.copper": "Kupferbarren",
-  "tag.item.c.ingots.gold": "Goldbarren",
-  "tag.item.c.ingots.iron": "Eisenbarren",
-  "tag.item.c.ingots.netherite": "Netheritbarren",
-  "tag.item.c.leathers": "Leder",
+  "advancements.resource_backpacks.root.title": "Rucksäcke",
+  "advancements.resource_backpacks.root.description": "Erhöhe deinen Inventarplatz, indem du einen Lederrucksack herstellst.",
+
+  "advancements.resource_backpacks.stage_1.title": "Kupfer-Upgrade",
+  "advancements.resource_backpacks.stage_1.description": "Rüste deinen Rucksack mit 8 Kupferbarren auf.",
+
+  "advancements.resource_backpacks.stage_2.title": "Eisen-Upgrade",
+  "advancements.resource_backpacks.stage_2.description": "Rüste deinen Rucksack mit 8 Eisenbarren auf.",
+
+  "advancements.resource_backpacks.stage_3.title": "Gold-Upgrade",
+  "advancements.resource_backpacks.stage_3.description": "Rüste deinen Rucksack mit 6 Goldbarren und 2 Shulker-Schalen auf.",
+
+  "advancements.resource_backpacks.stage_4.title": "Ender-Upgrade",
+  "advancements.resource_backpacks.stage_4.description": "Rüste deinen Goldrucksack auf, um immer Zugriff auf deine Endertruhe zu haben.",
+
+  "advancements.resource_backpacks.stage_5.title": "Diamant-Upgrade",
+  "advancements.resource_backpacks.stage_5.description": "Rüste deinen Rucksack mit 4 Shulker-Schalen und 4 Diamanten auf.",
+
+  "advancements.resource_backpacks.stage_6.title": "Netherit-Upgrade",
+  "advancements.resource_backpacks.stage_6.description": "Erreiche die maximale Kapazität, indem du deinen Rucksack mit 4 Netheritbarren, 2 Diamanten und 2 Shulkerkisten aufrüstest.",
 
   "component.resource_backpacks.screen.fallback": "Rucksack",
 
@@ -40,6 +44,8 @@
   "config.resource_backpacks.appearance.style.label": "Gui-Textur",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Rucksack Aussehen",
   "config.resource_backpacks.appearance.position.label": "Backpack Slot Position",
+
+  "config.resource_backpacks.backpacks": "Rucksäcke",
 
   "config.resource_backpacks.backpacks.general.label": "Allgemeine Einstellungen",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Öffnen beim Interagieren",

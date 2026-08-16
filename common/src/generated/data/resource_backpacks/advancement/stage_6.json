@@ -1,0 +1,33 @@
+{
+  "parent": "resource_backpacks:stage_5",
+  "criteria": {
+    "craft_netherite_backpack": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_backpacks:backpack_netherite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.resource_backpacks.stage_6.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "resource_backpacks:backpack_netherite"
+    },
+    "title": {
+      "translate": "advancements.resource_backpacks.stage_6.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_netherite_backpack"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

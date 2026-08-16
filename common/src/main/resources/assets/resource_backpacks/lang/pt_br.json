@@ -9,22 +9,26 @@
   "tooltip.resource_backpacks.info.compact_preview": "Mostrar Itens",
   "tooltip.resource_backpacks.info.inventory_preview": "Mostrar Inventário Completo",
 
-  "tag.item.c.backpacks": "Mochilas",
-  "tag.item.c.backpacks.leather_ingredient": "Ingredientes de Couro",
-  "tag.item.c.backpacks.leather": "Mochila de Couro",
-  "tag.item.c.backpacks.copper": "Mochila de Cobre",
-  "tag.item.c.backpacks.gold": "Mochila de Ouro",
-  "tag.item.c.backpacks.iron": "Mochila de Ferro",
-  "tag.item.c.backpacks.diamond": "Mochila de Diamante",
-  "tag.item.c.backpacks.netherite": "Mochila de Netherita",
-  "tag.item.c.backpacks.end": "Mochila do Fim",
-  "tag.item.c.chests.ender": "Baus do Ender",
-  "tag.item.c.gems.diamond": "Diamantes",
-  "tag.item.c.ingots.copper": "Lingotes de Cobre",
-  "tag.item.c.ingots.gold": "Lingotes de Ouro",
-  "tag.item.c.ingots.iron": "Lingotes de Ferro",
-  "tag.item.c.ingots.netherite": "Lingotes de Netherite",
-  "tag.item.c.leathers": "Couros",
+  "advancements.resource_backpacks.root.title": "Mochilas",
+  "advancements.resource_backpacks.root.description": "Aumente o espaço do seu inventário criando uma mochila de couro.",
+
+  "advancements.resource_backpacks.stage_1.title": "Melhoria de Cobre",
+  "advancements.resource_backpacks.stage_1.description": "Melhore sua Mochila com 8 Lingotes de Cobre.",
+
+  "advancements.resource_backpacks.stage_2.title": "Melhoria de Ferro",
+  "advancements.resource_backpacks.stage_2.description": "Melhore sua Mochila com 8 Lingotes de Ferro.",
+
+  "advancements.resource_backpacks.stage_3.title": "Melhoria de Ouro",
+  "advancements.resource_backpacks.stage_3.description": "Melhore sua Mochila com 6 Lingotes de Ouro e 2 Carapaças de Shulker.",
+
+  "advancements.resource_backpacks.stage_4.title": "Melhoria do Fim",
+  "advancements.resource_backpacks.stage_4.description": "Melhore sua Mochila de Ouro para sempre ter acesso ao seu Baú do Ender.",
+
+  "advancements.resource_backpacks.stage_5.title": "Melhoria de Diamante",
+  "advancements.resource_backpacks.stage_5.description": "Melhore sua Mochila com 4 Carapaças de Shulker e 4 Diamantes.",
+
+  "advancements.resource_backpacks.stage_6.title": "Melhoria de Netherita",
+  "advancements.resource_backpacks.stage_6.description": "Alcance a capacidade máxima melhorando sua Mochila com 4 Lingotes de Netherita, 2 Diamantes e 2 Caixas de Shulker.",
 
   "component.resource_backpacks.screen.fallback": "Mochilas",
 
@@ -40,6 +44,8 @@
   "config.resource_backpacks.appearance.style.label": "Textura da GUI",
   "config.resource_backpacks.appearance.backpack_appearance.label": "Aparência da Mochila",
   "config.resource_backpacks.appearance.position.label": "Espaço da Mochila",
+
+  "config.resource_backpacks.backpacks": "Mochilas",
 
   "config.resource_backpacks.backpacks.general.label": "Configurações Gerais",
   "config.resource_backpacks.backpacks.openfrominventory.label": "Abrir ao Interagir",

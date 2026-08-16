@@ -1,0 +1,32 @@
+{
+  "parent": "resource_backpacks:root",
+  "criteria": {
+    "craft_copper_backpack": {
+      "conditions": {
+        "items": [
+          {
+            "items": "resource_backpacks:backpack_copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.resource_backpacks.stage_1.description"
+    },
+    "icon": {
+      "id": "resource_backpacks:backpack_copper"
+    },
+    "title": {
+      "translate": "advancements.resource_backpacks.stage_1.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_copper_backpack"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

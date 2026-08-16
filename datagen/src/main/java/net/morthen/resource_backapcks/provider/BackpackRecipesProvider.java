@@ -74,8 +74,8 @@ public class BackpackRecipesProvider extends RecipeProvider {
                 .define('C', Tags.Items.CHESTS_ENDER)
                 .define('E', Items.ENDER_EYE)
                 .define('D', Tags.Items.GEMS_DIAMOND)
-                .define('B', BlockRegistry.BACKPACK_IRON.get())
-                .unlockedBy(getHasName(BlockRegistry.BACKPACK_IRON.get()), has(BlockRegistry.BACKPACK_IRON.get()))
+                .define('B', BlockRegistry.BACKPACK_GOLD.get())
+                .unlockedBy(getHasName(BlockRegistry.BACKPACK_GOLD.get()), has(BlockRegistry.BACKPACK_GOLD.get()))
                 .save(this.output, getRecipeKey(BlockRegistry.BACKPACK_END.get()));
     }
 
