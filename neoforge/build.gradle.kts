@@ -6,7 +6,12 @@ multiloader {
     loader = "neoforge"
     neoForgeVersion = providers.gradleProperty("neoforge")
 
-    withModPublish()
+    withModPublish {
+        required.set(listOf(
+            "resource-library",
+            "resource-config-api"
+        ))
+    }
 
     applyMetadataReplacements(listOf("pack.mcmeta", "META-INF/neoforge.mods.toml"), mapOf(
         "neoforge_version" to neoForgeVersion.get(),

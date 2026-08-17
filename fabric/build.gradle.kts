@@ -10,7 +10,9 @@ multiloader {
 
     withModPublish {
         required.set(listOf(
-            "fabric-api"
+            "fabric-api",
+            "resource-library",
+            "resource-config-api"
         ))
         optional.set(listOf(
             "modmenu"

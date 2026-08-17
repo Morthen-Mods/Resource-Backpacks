@@ -10,7 +10,12 @@ multiloader {
         "${ modId.get() }.mixins.json"
     )
 
-    withModPublish()
+    withModPublish {
+        required.set(listOf(
+            "resource-library",
+            "resource-config-api"
+        ))
+    }
 
     applyMetadataReplacements(listOf("pack.mcmeta", "META-INF/mods.toml"), mapOf(
         "forge_version" to forgeVersion.get(),
