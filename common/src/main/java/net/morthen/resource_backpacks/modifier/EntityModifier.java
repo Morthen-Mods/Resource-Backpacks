@@ -2,7 +2,6 @@ package net.morthen.resource_backpacks.modifier;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -20,12 +19,12 @@ public class EntityModifier {
 
     public static void modifyEntities(Entity entity) {
         if (entity instanceof LivingEntity livingEntity) {
-            if (livingEntity.getType() == EntityTypes.ZOMBIE) {
+            if (livingEntity.getType() == EntityType.ZOMBIE) {
                 modify(livingEntity, () -> EntityConfig.zombieSpawnWithLeatherBackpack, BlockRegistry.BACKPACK_LEATHER);
                 modify(livingEntity, () -> EntityConfig.zombieSpawnWithCopperBackpack, BlockRegistry.BACKPACK_COPPER);
             }
 
-            if (livingEntity.getType() == EntityTypes.CREEPER) {
+            if (livingEntity.getType() == EntityType.CREEPER) {
                 modify(livingEntity, () -> EntityConfig.creeperSpawnWithLeatherBackpack, BlockRegistry.BACKPACK_LEATHER);
                 modify(livingEntity, () -> EntityConfig.creeperSpawnWithCopperBackpack, BlockRegistry.BACKPACK_COPPER);
             }
