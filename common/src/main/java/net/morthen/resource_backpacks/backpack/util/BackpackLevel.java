@@ -3,6 +3,7 @@ package net.morthen.resource_backpacks.backpack.util;
 import net.minecraft.network.chat.Component;
 import net.morthen.resource_backpacks.config.common.BackpackConfig;
 
+import java.util.Locale;
 import java.util.function.Supplier;
 
 public enum BackpackLevel {
@@ -49,6 +50,6 @@ public enum BackpackLevel {
     @Override
     public String toString() {
 
-        return this.name().toLowerCase();
+        return this.name().toLowerCase(Locale.ROOT);
     }
 }

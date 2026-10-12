@@ -15,6 +15,8 @@ import net.minecraft.world.item.ItemStack;
 import net.morthen.resource_backpacks.BackpackConstants;
 import net.morthen.resource_backpacks.backpack.BackpackItem;
 
+import java.util.Locale;
+
 public class BackpackModel<T extends LivingEntityRenderState> extends EntityModel<T> {
 
     public static final ModelLayerLocation BACKPACK_LAYER = new ModelLayerLocation(Identifier.withDefaultNamespace("player"), "backpack");
@@ -47,7 +49,7 @@ public class BackpackModel<T extends LivingEntityRenderState> extends EntityMode
     public static Identifier getTexture(ItemStack stack) {
         String type = "default";
         if (stack.getItem() instanceof BackpackItem backpackItem) {
-            type = backpackItem.getBackpackLevel().name().toLowerCase();
+            type = backpackItem.getBackpackLevel().name().toLowerCase(Locale.ROOT);
         }
 
         return BackpackConstants.of("textures/entity/backpack_" + type + ".png");
