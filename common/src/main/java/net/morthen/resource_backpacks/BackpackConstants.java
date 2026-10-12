@@ -26,7 +26,7 @@ public class BackpackConstants {
         ConfigRegistry.register(ClientConfig.class, MOD_ID);
 
         ConfigRegistry.register(BackpackConfig.class, MOD_ID);
-        ConfigRegistry.register(ChestLootConfig.class, MOD_ID);
+//        ConfigRegistry.register(ChestLootConfig.class, MOD_ID);
         ConfigRegistry.register(EntityConfig.class, MOD_ID);
 
         DataComponentRegistry.init();
