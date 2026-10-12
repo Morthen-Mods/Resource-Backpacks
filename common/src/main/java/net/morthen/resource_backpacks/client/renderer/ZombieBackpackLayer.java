@@ -29,7 +29,7 @@ public class ZombieBackpackLayer extends RenderLayer<ZombieRenderState, ZombieMo
         if (!backpack.isEmpty()) {
             node.submitModel(this.backpackModel, state, poseStack,
                     RenderTypes.entityCutout(BackpackModel.getTexture(backpack)),
-                    light, OverlayTexture.NO_OVERLAY, state.outlineColor, null);
+                    light, OverlayTexture.NO_OVERLAY, state.outlineColor);
         }
     }
 }

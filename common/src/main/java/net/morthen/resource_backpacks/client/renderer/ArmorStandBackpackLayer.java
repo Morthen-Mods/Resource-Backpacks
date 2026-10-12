@@ -2,6 +2,7 @@ package net.morthen.resource_backpacks.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import com.mojang.math.Transformation;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.object.armorstand.ArmorStandArmorModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
@@ -31,13 +32,12 @@ public class ArmorStandBackpackLayer extends RenderLayer<ArmorStandRenderState, 
             poseStack.pushPose();
 
             poseStack.scale(0.75f, 0.75f, 0.75f);
-            poseStack.mulPose(Axis.YP.rotationDegrees(180));
+            poseStack.rotate(Axis.YP.rotationDegrees(180));
             poseStack.translate(0f, 1.225f, 0.14f);
-
 
             node.submitModel(this.backpackModel, state, poseStack,
                     RenderTypes.entityCutout(BackpackModel.getTexture(backpack)),
-                    light, OverlayTexture.NO_OVERLAY, state.outlineColor, null);
+                    light, OverlayTexture.NO_OVERLAY, state.outlineColor);
 
             poseStack.popPose();
         }

@@ -1,6 +1,5 @@
 package net.morthen.resource_backpacks.backpack;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -28,8 +27,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
-
-    public static final MapCodec<BackpackBlock> CODEC = simpleCodec(BackpackBlock::new);
     public static final BooleanProperty PLACED_ON_WALL = BooleanProperty.create("placed_on_wall");
 
     private final BackpackLevel backpackLevel;
@@ -123,11 +120,6 @@ public class BackpackBlock extends BaseEntityBlock implements SimpleWaterloggedB
         builder.add(BlockStateProperties.HORIZONTAL_FACING)
                 .add(BlockStateProperties.WATERLOGGED)
                 .add(PLACED_ON_WALL);
-    }
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
     }
 
     @Override

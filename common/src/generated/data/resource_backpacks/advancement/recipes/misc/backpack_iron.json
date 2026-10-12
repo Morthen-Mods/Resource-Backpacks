@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "resource_backpacks:backpack_iron"
+        "recipes": "resource_backpacks:backpack_iron"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

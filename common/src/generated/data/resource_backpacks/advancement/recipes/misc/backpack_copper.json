@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "resource_backpacks:backpack_copper"
+        "recipes": "resource_backpacks:backpack_copper"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

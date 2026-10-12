@@ -1,5 +1,7 @@
 package net.morthen.resource_backapcks;
 
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.advancements.AdvancementProvider;
 import net.morthen.resource_backapcks.provider.BackpackAdvancementsProvider;
 import net.morthen.resource_backapcks.provider.BackpackModelProvider;
@@ -28,10 +30,10 @@ public class ResourceBackpacks {
     public static class Datagen {
         @SubscribeEvent
         public static void generateData(GatherDataEvent.Client event) {
-            event.createProvider(BackpackRecipesProvider.Runner::new);
             event.createProvider(BackpackModelProvider::new);
-            event.createProvider((output, lookupProvider) -> new AdvancementProvider(
-                    output, lookupProvider, List.of(new BackpackAdvancementsProvider())));
+            event.createReloadableRegistryObjects(new RegistrySetBuilder()
+                    .add(BackpackRecipesProvider.create())
+                    .add(Registries.ADVANCEMENT, new AdvancementProvider(List.of(BackpackAdvancementsProvider::new))));
         }
     }
 }

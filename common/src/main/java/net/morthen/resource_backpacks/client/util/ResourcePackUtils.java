@@ -1,7 +1,7 @@
 package net.morthen.resource_backpacks.client.util;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.server.packs.PackResources;
+import net.minecraft.server.packs.PackMetadataResources;
 import net.minecraft.server.packs.metadata.MetadataSectionType;
 import net.minecraft.server.packs.repository.Pack;
 import net.morthen.resource_backpacks.BackpackConstants;
@@ -16,7 +16,7 @@ public class ResourcePackUtils {
         LinkedList<T> allMetaData = new LinkedList<>();
 
         for (Pack pack : client.getResourcePackRepository().getSelectedPacks()) {
-            try (PackResources resources = pack.open()) {
+            try (PackMetadataResources resources = pack.openMetadata()) {
                 T metadataSection = resources.getMetadataSection(metadataSectionType);
                 if (metadataSection != null) {
                     allMetaData.add(metadataSection);

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "resource_backpacks:backpack_netherite"
+        "recipes": "resource_backpacks:backpack_netherite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

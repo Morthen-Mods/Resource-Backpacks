@@ -34,7 +34,7 @@ public class CreeperBackpackLayer extends RenderLayer<CreeperRenderState, Creepe
 
             node.submitModel(this.backpackModel, state, poseStack,
                     RenderTypes.entityCutout(BackpackModel.getTexture(backpack)),
-                    light, OverlayTexture.NO_OVERLAY, state.outlineColor, null);
+                    light, OverlayTexture.NO_OVERLAY, state.outlineColor);
 
             poseStack.popPose();
         }
