@@ -34,21 +34,19 @@ public class EntityModifier {
     }
 
     private static void modify(LivingEntity livingEntity, Supplier<Float> chance, RegistryObject<Block> registryObject) {
-        ItemStack backpack = registryObject.get().asItem().getDefaultInstance();
-        Random random = new Random();
-        float rndFloat = random.nextFloat();
-        if (chance.get() == 0f || hasBackpack(livingEntity)) return;
+        if (livingEntity instanceof BackpackHolder holder) {
+            if (chance.get() == 0f || !holder.getBackpack().isEmpty()) return;
 
-        if (rndFloat <= chance.get()) {
-            ((BackpackHolder) livingEntity).setBackpack(backpack);
+            ItemStack backpack = registryObject.get().asItem().getDefaultInstance();
+            float rndFloat = livingEntity.getRandom().nextFloat();
 
-            if (!livingEntity.level().isClientSide()) {
-                BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(livingEntity, new SyncEntityBackpackPayload(livingEntity.getId(), backpack));
+            if (rndFloat <= chance.get()) {
+                holder.setBackpack(backpack);
+
+                if (!livingEntity.level().isClientSide()) {
+                    BackpackNetwork.INSTANCE.sendToClientsTrackingEntity(livingEntity, new SyncEntityBackpackPayload(livingEntity.getId(), backpack));
+                }
             }
         }
-    }
-
-    private static boolean hasBackpack(LivingEntity livingEntity) {
-        return !((BackpackHolder) livingEntity).getBackpack().isEmpty();
     }
 }
